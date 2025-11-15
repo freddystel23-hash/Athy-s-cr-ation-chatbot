@@ -3,30 +3,25 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Athy’s Création – IA & Storytelling professionnel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Athy's Création Pro – IA & Création digitale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Athy’s Création accompagne les entrepreneurs avec des GPT personnels privés, des Managers IA et du storytelling professionnel pour une image premium."
+    content="Athy's Création Pro – Création de sites web, images professionnelles, GPT privé, manager IA, storytelling et portfolios."
   />
 
   <style>
     :root {
-      --bg: #030712;
-      --bg-alt: #020617;
-      --card: #020617;
-      --card-alt: #020617;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent-1: #22d3ee;
-      --accent-2: #4ade80;
-      --accent-3: #6366f1;
-      --border: #1f2937;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
-      --shadow-soft: 0 20px 60px rgba(15, 23, 42, 0.8);
-      --transition: 0.25s ease;
-      --nav-height: 70px;
+      --primary: #1f4fd8;
+      --primary-light: #4f7dff;
+      --secondary: #10b981;
+      --dark: #070b1a;
+      --text: #111827;
+      --muted: #6b7280;
+      --bg: #f3f4f6;
+      --card-bg: #ffffff;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 35px rgba(15, 23, 42, 0.18);
     }
 
     * {
@@ -36,12 +31,11 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #0f172a 0, #020617 45%, #000 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #e0ebff, #f9fafb 45%, #eef2ff);
       color: var(--text);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -54,289 +48,210 @@
       display: block;
     }
 
-    main {
+    /* Layout */
+
+    .container {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0 16px 80px;
+      padding: 0 1.5rem;
     }
-
-    /* Header / Navigation */
 
     header {
       position: sticky;
       top: 0;
       z-index: 40;
-      backdrop-filter: blur(18px);
-      background: radial-gradient(circle at top right, rgba(45, 212, 191, 0.15), transparent 55%),
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.92));
-      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.94),
+        rgba(15, 23, 42, 0.86),
+        rgba(15, 23, 42, 0.4)
+      );
+      color: white;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
     }
 
-    .nav-wrapper {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 10px 16px;
+    .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      height: var(--nav-height);
+      padding: 0.9rem 0;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-weight: 600;
+      gap: 0.6rem;
+      font-weight: 700;
       letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-size: 13px;
     }
 
     .logo-mark {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       border-radius: 999px;
-      background: conic-gradient(from 210deg, #22c55e, #22d3ee, #6366f1, #22c55e);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9),
-        0 16px 40px rgba(34, 211, 238, 0.4);
+      background: radial-gradient(circle at 30% 0, #60a5fa, #1d4ed8 60%, #020617);
+      box-shadow: 0 0 0 2px rgba(191, 219, 254, 0.7);
+      font-size: 0.9rem;
     }
 
-    .logo-mark span {
-      font-size: 16px;
-      font-weight: 700;
-      color: #0b1120;
-    }
-
-    .logo-text span {
-      display: block;
-      font-size: 11px;
-      color: var(--muted);
-      text-transform: none;
-      letter-spacing: normal;
-      font-weight: 400;
-    }
-
-    nav {
+    .nav-links {
       display: flex;
-      align-items: center;
-      gap: 22px;
-      font-size: 14px;
+      gap: 1.4rem;
+      font-size: 0.92rem;
     }
 
-    nav a {
+    .nav-links a {
       position: relative;
-      padding-bottom: 2px;
-      color: var(--muted);
-      transition: color var(--transition);
+      padding-bottom: 0.25rem;
     }
 
-    nav a::after {
+    .nav-links a::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -6px;
+      bottom: 0;
       width: 0;
       height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
-      transition: width var(--transition);
+      background: linear-gradient(to right, #3b82f6, #22c55e);
+      transition: width 0.2s ease-out;
     }
 
-    nav a:hover {
-      color: #e5e7eb;
-    }
-
-    nav a:hover::after,
-    nav a.active::after {
+    .nav-links a:hover::after {
       width: 100%;
     }
 
     .nav-cta {
-      display: none;
-    }
-
-    /* Floating CTA button */
-
-    .floating-cta {
-      position: fixed;
-      right: 16px;
-      top: 105px;
-      z-index: 30;
-    }
-
-    .floating-cta-btn {
-      border: none;
-      cursor: pointer;
-      outline: none;
-      padding: 14px 18px;
-      border-radius: 999px;
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 2px;
-      font-size: 14px;
-      font-weight: 600;
-      background: radial-gradient(circle at top left, #22d3ee, transparent 55%),
-        radial-gradient(circle at bottom right, #22c55e, transparent 55%);
-      color: #0b1120;
-      box-shadow: 0 20px 50px rgba(34, 197, 94, 0.65);
-      border: 1px solid rgba(15, 23, 42, 0.8);
-      transition: transform var(--transition), box-shadow var(--transition),
-        filter var(--transition);
-    }
-
-    .floating-cta-btn span {
-      line-height: 1.1;
-    }
-
-    .floating-cta-btn small {
-      font-size: 11px;
-      font-weight: 500;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.86rem;
       opacity: 0.9;
     }
 
-    .floating-cta-btn:hover {
-      transform: translateY(-2px) scale(1.02);
-      filter: brightness(1.05);
-      box-shadow: 0 24px 60px rgba(52, 211, 153, 0.8);
+    .nav-cta span {
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      text-transform: uppercase;
+      font-size: 0.72rem;
     }
 
     /* Hero */
 
     .hero {
-      padding-top: 40px;
-      padding-bottom: 40px;
+      padding: 3.5rem 0 3rem;
+      color: #0b1020;
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.7fr);
-      gap: 40px;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2.5rem;
       align-items: center;
     }
 
-    .badge {
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 4px 10px 4px 4px;
+      gap: 0.4rem;
+      padding: 0.2rem 0.65rem;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 16px;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(129, 140, 248, 0.4);
+      font-size: 0.78rem;
+      color: #1d4ed8;
+      margin-bottom: 0.9rem;
     }
 
-    .badge-pill {
-      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
       border-radius: 999px;
-      padding: 4px 10px;
-      font-weight: 600;
-      text-transform: uppercase;
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      color: #0b1120;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
     }
 
-    .hero-title {
-      font-size: clamp(34px, 5vw, 42px);
-      font-weight: 700;
+    .hero h1 {
+      font-size: clamp(2.1rem, 3.1vw + 1rem, 3.1rem);
+      line-height: 1.1;
       letter-spacing: -0.04em;
-      margin-bottom: 10px;
+      margin-bottom: 1.1rem;
     }
 
-    .hero-title span {
-      display: inline-block;
-      background: linear-gradient(120deg, var(--accent-1), var(--accent-2));
+    .hero h1 span.gradient {
+      background: linear-gradient(120deg, #1d4ed8, #22c55e, #06b6d4);
       -webkit-background-clip: text;
-      background-clip: text;
       color: transparent;
     }
 
-    .hero-subtitle {
-      max-width: 460px;
-      font-size: 15px;
-      color: var(--muted);
-      margin-bottom: 22px;
+    .hero-sub {
+      max-width: 32rem;
+      font-size: 0.98rem;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
     }
 
-    .hero-list {
-      list-style: none;
-      display: grid;
-      gap: 6px;
-      font-size: 13px;
-      color: #cbd5f5;
-      margin-bottom: 24px;
-    }
-
-    .hero-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-
-    .hero-list li span {
-      margin-top: 4px;
-      font-size: 11px;
+    .hero-sub strong {
+      color: #111827;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 1.2rem;
     }
 
     .btn-primary,
-    .btn-ghost {
+    .btn-outline {
       border-radius: 999px;
-      padding: 9px 16px;
-      font-size: 13px;
-      border: 1px solid transparent;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      outline: none;
-      transition: transform var(--transition), box-shadow var(--transition),
-        background var(--transition), border-color var(--transition),
-        color var(--transition), opacity var(--transition);
+      gap: 0.5rem;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out,
+        background 0.12s ease-out, color 0.12s ease-out, border 0.12s ease-out;
     }
 
     .btn-primary {
-      background: linear-gradient(120deg, var(--accent-1), var(--accent-2));
-      color: #020617;
-      font-weight: 600;
-      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.55);
+      background: linear-gradient(135deg, #1d4ed8, #2563eb, #22c55e);
+      color: white;
+      box-shadow: 0 18px 35px rgba(37, 99, 235, 0.4);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 22px 60px rgba(52, 211, 153, 0.75);
+      box-shadow: 0 22px 40px rgba(37, 99, 235, 0.55);
     }
 
-    .btn-ghost {
-      border-color: rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.8);
-      color: #e5e7eb;
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.02);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: #111827;
     }
 
-    .btn-ghost:hover {
-      border-color: var(--accent-1);
-      background: rgba(15, 23, 42, 0.95);
+    .btn-outline:hover {
+      background: white;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.15);
     }
 
-    .hero-meta {
-      margin-top: 18px;
-      font-size: 11px;
-      color: var(--muted);
+    .hero-note {
+      font-size: 0.8rem;
+      color: #6b7280;
     }
 
-    .hero-meta strong {
-      color: #e5e7eb;
+    .hero-note span {
+      color: #16a34a;
+      font-weight: 600;
     }
 
     .hero-right {
@@ -344,1056 +259,1289 @@
     }
 
     .hero-card {
+      background: linear-gradient(
+        145deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.92)
+      );
+      border-radius: 24px;
+      padding: 1.2rem 1.3rem;
+      color: white;
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.45);
       position: relative;
-      border-radius: var(--radius-xl);
-      padding: 22px 20px 18px;
-      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.25), transparent 60%),
-        radial-gradient(circle at bottom, rgba(34, 197, 94, 0.18), transparent 65%),
-        linear-gradient(145deg, #020617, #020617);
-      border: 1px solid rgba(148, 163, 184, 0.36);
-      box-shadow: var(--shadow-soft);
       overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(
+          circle at 10% 0,
+          rgba(59, 130, 246, 0.32),
+          transparent 65%
+        ),
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(45, 212, 191, 0.28),
+          transparent 60%
+        );
+      opacity: 0.9;
+      z-index: -1;
     }
 
     .hero-card-header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+      justify-content: space-between;
+      margin-bottom: 1rem;
     }
 
     .hero-card-title {
-      font-size: 13px;
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--muted);
+      opacity: 0.9;
     }
 
-    .hero-card-chip {
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: #e5e7eb;
-    }
-
-    .hero-metric-row {
+    .hero-status {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 10px;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      color: #a5b4fc;
     }
 
-    .hero-metric-main {
-      font-size: 32px;
-      font-weight: 700;
-      letter-spacing: -0.06em;
-    }
-
-    .hero-metric-main span {
-      font-size: 14px;
-      font-weight: 500;
-      margin-left: 4px;
-      color: var(--muted);
-      letter-spacing: normal;
-    }
-
-    .hero-metric-tag {
-      font-size: 11px;
-      color: var(--muted);
-      text-align: right;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-
-    .pill {
-      font-size: 11px;
-      padding: 4px 9px;
+    .hero-status-dot {
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.4);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .metric {
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: 14px;
+      padding: 0.6rem 0.7rem;
       border: 1px solid rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.9);
-      color: #e5e7eb;
+      font-size: 0.78rem;
+    }
+
+    .metric-label {
+      color: #9ca3af;
+      margin-bottom: 0.15rem;
+    }
+
+    .metric-value {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .metric-value span {
+      font-size: 0.76rem;
+      color: #6ee7b7;
+      margin-left: 0.15rem;
     }
 
     .hero-card-footer {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 12px;
-      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: #e5e7eb;
     }
 
-    .stat-block {
-      padding: 10px;
-      border-radius: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background: rgba(15, 23, 42, 0.96);
+    .hero-tag {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(96, 165, 250, 0.7);
+      background: linear-gradient(
+        135deg,
+        rgba(37, 99, 235, 0.2),
+        rgba(37, 99, 235, 0.06)
+      );
+      font-size: 0.75rem;
     }
 
-    .stat-label {
-      color: var(--muted);
-      margin-bottom: 4px;
-      font-size: 10px;
+    .hero-badge-stack {
+      display: inline-flex;
+      gap: 0.35rem;
     }
 
-    .stat-value {
-      font-weight: 600;
-      font-size: 12px;
+    .hero-badge {
+      padding: 0.12rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      font-size: 0.7rem;
+      color: #cbd5f5;
     }
 
-    .glow-orb {
+    .hero-floating {
       position: absolute;
-      inset: -60%;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent 65%);
-      opacity: 0.6;
-      mix-blend-mode: screen;
-      pointer-events: none;
+      right: 0.5rem;
+      bottom: -1.2rem;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 16px;
+      padding: 0.6rem 0.8rem;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.35);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.8rem;
+      color: #0f172a;
+      max-width: 210px;
+    }
+
+    .hero-floating strong {
+      display: block;
+      margin-bottom: 0.1rem;
     }
 
     /* Sections */
 
     section {
-      padding-top: 40px;
-      scroll-margin-top: 100px;
+      padding: 3rem 0 2.5rem;
     }
 
     .section-header {
-      margin-bottom: 18px;
-    }
-
-    .section-kicker {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
     }
 
     .section-title {
-      font-size: 20px;
-      font-weight: 600;
+      font-size: 1.4rem;
       letter-spacing: -0.03em;
     }
 
     .section-subtitle {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 4px;
-      max-width: 520px;
+      font-size: 0.9rem;
+      color: #6b7280;
+      max-width: 26rem;
     }
 
     /* Services */
 
     .cards-grid {
       display: grid;
+      gap: 1.4rem;
+    }
+
+    .cards-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+    }
+
+    .cards-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .card {
+      background: var(--card-bg);
       border-radius: var(--radius-lg);
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 55%),
-        linear-gradient(to bottom right, #020617, #020617);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 18px 16px;
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.85);
+      padding: 1.1rem 1.1rem 1.25rem;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+      border: 1px solid rgba(209, 213, 219, 0.8);
       position: relative;
       overflow: hidden;
-      transition: transform var(--transition), box-shadow var(--transition),
-        border-color var(--transition), background var(--transition);
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(96, 165, 250, 0.7);
-      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.9);
-    }
-
-    .card-label {
-      font-size: 11px;
+    .card-tag {
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 6px;
+      letter-spacing: 0.1em;
+      color: #6b7280;
+      margin-bottom: 0.5rem;
     }
 
     .card-title {
-      font-size: 18px;
+      font-size: 1rem;
       font-weight: 600;
-      margin-bottom: 6px;
+      margin-bottom: 0.4rem;
     }
 
-    .card-subtitle {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 10px;
+    .card-text {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 0.7rem;
     }
 
     .card-list {
       list-style: none;
-      font-size: 12px;
-      color: #d1d5db;
-      display: grid;
-      gap: 4px;
-      margin-bottom: 12px;
+      margin: 0;
+      padding: 0;
+      font-size: 0.86rem;
+      color: #4b5563;
     }
 
     .card-list li {
       display: flex;
-      gap: 6px;
+      gap: 0.4rem;
       align-items: flex-start;
+      margin-bottom: 0.3rem;
     }
 
-    .card-list span {
-      margin-top: 3px;
-      font-size: 10px;
+    .card-list li::before {
+      content: "•";
+      color: #22c55e;
+      font-weight: 700;
+      margin-top: 0.1rem;
     }
 
     .card-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 11px;
-      margin-top: 4px;
+      margin-top: 0.8rem;
+      font-size: 0.86rem;
     }
 
-    .card-link {
-      font-size: 11px;
-      text-decoration: underline;
-      text-decoration-style: dotted;
-      cursor: pointer;
-      color: var(--accent-1);
+    .price {
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+
+    .price span {
+      font-size: 0.76rem;
+      color: #6b7280;
+      font-weight: 400;
+      margin-left: 0.25rem;
+    }
+
+    .badge {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.06);
+      color: #1d4ed8;
+      font-size: 0.76rem;
+      border: 1px solid rgba(129, 140, 248, 0.35);
+    }
+
+    /* Images dans les offres */
+
+    .offer-image {
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 0.7rem;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      max-height: 170px;
+    }
+
+    .offer-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     /* Tarifs */
 
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .pricing-card {
-      border-radius: var(--radius-lg);
-      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 55%),
-        linear-gradient(to bottom, #020617, #020617);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 18px 16px 16px;
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.85);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .pricing-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      font-size: 10px;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .pricing-title {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .pricing-price {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      margin-bottom: 4px;
-    }
-
-    .pricing-price span {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
-      margin-left: 3px;
-    }
-
     .pricing-note {
-      font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 10px;
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 0.4rem;
     }
 
-    .pricing-list {
-      list-style: none;
-      font-size: 12px;
-      color: #d1d5db;
-      display: grid;
-      gap: 4px;
-      margin-bottom: 12px;
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
     }
 
-    .pricing-list li {
-      display: flex;
-      gap: 6px;
-      align-items: flex-start;
+    .pricing-table th,
+    .pricing-table td {
+      padding: 0.7rem 0.9rem;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
     }
 
-    .pricing-list span {
-      margin-top: 3px;
-      font-size: 10px;
-    }
-
-    /* Portfolio */
-
-    .timeline {
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      background: linear-gradient(135deg, #020617, #030712);
-      padding: 18px 16px;
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.85);
-    }
-
-    .timeline-row {
-      display: grid;
-      grid-template-columns: 120px minmax(0, 1fr);
-      gap: 14px;
-      font-size: 12px;
-      padding: 8px 0;
-      border-bottom: 1px dashed rgba(55, 65, 81, 0.7);
-    }
-
-    .timeline-row:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .timeline-label {
-      color: var(--muted);
+    .pricing-table th {
+      background: #f3f4ff;
+      font-weight: 600;
+      font-size: 0.82rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: #4b5563;
     }
 
-    .timeline-title {
-      font-weight: 500;
-      margin-bottom: 4px;
+    .pricing-table tr:last-child td {
+      border-bottom: none;
     }
 
-    .timeline-text {
-      color: var(--muted);
-      font-size: 12px;
+    .pricing-table td.price-cell {
+      font-weight: 600;
+    }
+
+    .pricing-table td.tag-cell {
+      font-size: 0.8rem;
+      color: #4b5563;
     }
 
     /* Contact */
 
     .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
-      gap: 24px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.6rem;
     }
 
     .contact-card {
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      background: linear-gradient(135deg, #020617, #020617);
-      padding: 18px 16px 16px;
-      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.9);
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: 18px;
+      padding: 1.2rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.4);
     }
 
     .contact-card h3 {
-      font-size: 16px;
-      margin-bottom: 8px;
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
     }
 
     .contact-card p {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 14px;
+      font-size: 0.88rem;
+      color: #cbd5f5;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-info {
+      font-size: 0.88rem;
+    }
+
+    .contact-info div {
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-info span.label {
+      color: #9ca3af;
+      margin-right: 0.4rem;
+    }
+
+    .contact-highlight {
+      margin-top: 0.8rem;
+      font-size: 0.82rem;
+      color: #a5b4fc;
     }
 
     form {
-      display: grid;
-      gap: 10px;
-      font-size: 13px;
+      background: white;
+      border-radius: 18px;
+      padding: 1rem 1.1rem 1.1rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      font-size: 0.9rem;
+    }
+
+    .form-row {
+      margin-bottom: 0.7rem;
     }
 
     label {
-      font-size: 12px;
-      margin-bottom: 3px;
       display: block;
+      margin-bottom: 0.2rem;
+      font-size: 0.8rem;
+      color: #4b5563;
     }
 
     input,
     textarea,
     select {
       width: 100%;
-      border-radius: 12px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.96);
-      color: #e5e7eb;
-      padding: 8px 10px;
+      padding: 0.55rem 0.7rem;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
       font: inherit;
-      outline: none;
-      transition: border-color var(--transition), box-shadow var(--transition),
-        background var(--transition);
-    }
-
-    textarea {
-      min-height: 110px;
       resize: vertical;
     }
 
-    input:focus,
-    textarea:focus,
-    select:focus {
-      border-color: var(--accent-1);
-      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
-      background: #020617;
+    textarea {
+      min-height: 90px;
     }
 
-    .field-group {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+    .form-footnote {
+      font-size: 0.78rem;
+      color: #6b7280;
+      margin-top: 0.4rem;
     }
 
-    .contact-aside {
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      background: radial-gradient(circle at top, rgba(79, 70, 229, 0.24), transparent 60%),
-        linear-gradient(135deg, #020617, #020617);
-      padding: 18px 16px;
-      box-shadow: 0 16px 45px rgba(15, 23, 42, 0.9);
-      font-size: 13px;
-    }
-
-    .contact-aside h3 {
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-
-    .contact-aside p {
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .contact-aside-list {
-      list-style: none;
-      display: grid;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .contact-aside-list li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      color: #d1d5db;
-    }
-
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent-2);
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 6px;
-    }
-
-    .contact-link {
-      font-size: 12px;
-      text-decoration: underline;
-      text-decoration-style: dotted;
-      color: var(--accent-1);
-    }
+    /* Footer */
 
     footer {
-      margin-top: 40px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(30, 64, 175, 0.6);
-      font-size: 11px;
-      color: var(--muted);
+      padding: 1.4rem 0 1.7rem;
+      font-size: 0.78rem;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    footer strong {
+      color: #111827;
+    }
+
+    /* Chatbot flottant */
+
+    .chatbot-toggle {
+      position: fixed;
+      right: 1.2rem;
+      bottom: 1.2rem;
+      z-index: 50;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #1d4ed8, #2563eb, #22c55e);
+      color: white;
+      border: none;
+      box-shadow: 0 16px 35px rgba(37, 99, 235, 0.75);
+      padding: 0.65rem 1rem;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 8px;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-weight: 600;
     }
 
-    footer span strong {
+    .chatbot-toggle span.icon {
+      font-size: 1.1rem;
+    }
+
+    .chatbot-window {
+      position: fixed;
+      right: 1.2rem;
+      bottom: 4.1rem;
+      width: 320px;
+      max-height: 420px;
+      background: #0b1120;
       color: #e5e7eb;
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 50;
     }
 
-    /* Mobile */
+    .chatbot-header {
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid rgba(75, 85, 99, 0.7);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .chatbot-header-title {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chatbot-header-title strong {
+      font-size: 0.86rem;
+    }
+
+    .chatbot-header-title span {
+      font-size: 0.74rem;
+      color: #9ca3af;
+    }
+
+    .chatbot-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.45);
+      margin-right: 0.3rem;
+    }
+
+    .chatbot-close {
+      border: none;
+      background: transparent;
+      color: #9ca3af;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0.25rem;
+    }
+
+    .chatbot-messages {
+      padding: 0.7rem 0.8rem;
+      flex: 1;
+      overflow-y: auto;
+      font-size: 0.84rem;
+      background: radial-gradient(circle at top, #111827, #020617);
+    }
+
+    .chatbot-msg {
+      margin-bottom: 0.55rem;
+      max-width: 88%;
+      padding: 0.45rem 0.6rem;
+      border-radius: 12px;
+      line-height: 1.4;
+    }
+
+    .chatbot-msg.bot {
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      border-bottom-left-radius: 4px;
+    }
+
+    .chatbot-msg.user {
+      background: #22c55e;
+      color: #022c22;
+      margin-left: auto;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chatbot-input {
+      padding: 0.5rem 0.6rem;
+      border-top: 1px solid rgba(55, 65, 81, 0.8);
+      background: #020617;
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .chatbot-input input {
+      flex: 1;
+      border-radius: 999px;
+      padding: 0.45rem 0.7rem;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      font-size: 0.8rem;
+    }
+
+    .chatbot-input input::placeholder {
+      color: #6b7280;
+    }
+
+    .chatbot-input button {
+      border-radius: 999px;
+      border: none;
+      padding: 0.42rem 0.7rem;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #022c22;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Responsive */
 
     @media (max-width: 900px) {
-      .hero {
+      .hero-grid {
         grid-template-columns: minmax(0, 1fr);
-        padding-top: 30px;
       }
-
       .hero-right {
         order: -1;
       }
-
-      .cards-grid,
-      .pricing-grid {
-        grid-template-columns: minmax(0, 1fr);
+      .hero-floating {
+        position: static;
+        margin-top: 0.9rem;
       }
-
+      .cards-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
       .contact-grid {
         grid-template-columns: minmax(0, 1fr);
       }
-
-      .floating-cta {
-        top: auto;
-        bottom: 18px;
-      }
-
-      .floating-cta-btn {
-        padding: 11px 14px;
-      }
     }
 
-    @media (max-width: 640px) {
-      nav {
+    @media (max-width: 700px) {
+      .nav-links {
         display: none;
       }
-
-      .nav-cta {
-        display: inline-flex;
-      }
-
-      .hero-card-footer {
+      .cards-3,
+      .cards-2 {
         grid-template-columns: minmax(0, 1fr);
       }
-
-      .field-group {
-        grid-template-columns: minmax(0, 1fr);
+      .chatbot-window {
+        right: 0.75rem;
+        width: calc(100% - 1.5rem);
+      }
+      .chatbot-toggle {
+        right: 0.75rem;
+        bottom: 0.9rem;
       }
     }
   </style>
 </head>
-
 <body>
+  <!-- HEADER / NAVBAR -->
   <header>
-    <div class="nav-wrapper">
+    <div class="container nav">
       <div class="logo">
-        <div class="logo-mark">
-          <span>A</span>
-        </div>
-        <div class="logo-text">
-          Athy’s Création
-          <span>IA • Storytelling • Image premium</span>
+        <span class="logo-mark">A</span>
+        <div>
+          <div>Athy's Création Pro</div>
+          <div style="font-size: 0.7rem; opacity: 0.8">
+            IA • Sites web • Storytelling
+          </div>
         </div>
       </div>
-
-      <nav>
-        <a href="#accueil" class="active">Accueil</a>
+      <nav class="nav-links">
         <a href="#services">Services</a>
+        <a href="#offres-ia">Offres IA</a>
+        <a href="#storytelling">Storytelling</a>
         <a href="#tarifs">Tarifs</a>
-        <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
       </nav>
-
-      <button class="btn-primary nav-cta" type="button" id="navCta">
-        Parler de mon projet
-      </button>
+      <div class="nav-cta">
+        <span>Nouvelle offre IA</span>
+        <div>Disponible en ligne</div>
+      </div>
     </div>
   </header>
 
-  <!-- Bouton flottant -->
-  <div class="floating-cta">
-    <button class="floating-cta-btn" type="button" id="floatingCta">
-      <span>Parler<br />de mon projet</span>
-      <small>Réponse en 24h ouvrées</small>
-    </button>
-  </div>
-
-  <main>
-    <!-- Hero -->
-    <section id="accueil" class="hero">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
       <div>
-        <div class="badge">
-          <div class="badge-pill">Pour entrepreneurs exigeants</div>
-          Accompagnement IA & image de marque
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Athy’s – Studio créatif & IA
         </div>
-
-        <h1 class="hero-title">
-          Storytelling <span>professionnel</span>
+        <h1>
+          Votre
+          <span class="gradient">assistant IA + studio créatif</span> pour
+          booster votre présence en ligne.
         </h1>
-
-        <p class="hero-subtitle">
-          Athy’s Création t’accompagne pour créer ton GPT personnel,
-          installer ton Manager IA, écrire des textes professionnels
-          et structurer ton image premium.
+        <p class="hero-sub">
+          Création de <strong>sites web professionnels</strong>, d’
+          <strong>images ultra-pro</strong> et de
+          <strong>GPT privés & managers IA</strong> qui travaillent pour vous,
+          24h/24, en toutes les langues.
         </p>
-
-        <ul class="hero-list">
-          <li>
-            <span>•</span>
-            <div>GPT sur-mesure qui parle avec ta personnalité et tes offres.</div>
-          </li>
-          <li>
-            <span>•</span>
-            <div>Un Manager IA qui travaille en coulisse sur ton business.</div>
-          </li>
-          <li>
-            <span>•</span>
-            <div>Storytelling & portfolio pour inspirer confiance à tes clients.</div>
-          </li>
-        </ul>
-
         <div class="hero-actions">
-          <button class="btn-primary" type="button" data-scroll="#contact">
-            Parler de mon projet
+          <button
+            class="btn-primary"
+            onclick="document.getElementById('offres-ia').scrollIntoView({behavior:'smooth'})"
+          >
+            Découvrir les offres IA →
           </button>
-          <button class="btn-ghost" type="button" data-scroll="#services">
-            Voir les services
+          <button
+            class="btn-outline"
+            onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+          >
+            Demander un devis rapide
           </button>
         </div>
-
-        <p class="hero-meta">
-          <strong>1 accompagnement = 1 stratégie unique.</strong>
-          Pas de modèle générique copié-collé.
-        </p>
+        <div class="hero-note">
+          <span>IA + humain</span> : vous gardez le contrôle, l’IA fait le
+          travail répétitif.
+        </div>
       </div>
 
       <div class="hero-right">
-        <div class="glow-orb"></div>
-
         <div class="hero-card">
           <div class="hero-card-header">
-            <div>
-              <div class="hero-card-title">Dashboard Athy’s IA</div>
-            </div>
-            <div class="hero-card-chip">Studio IA Premium</div>
-          </div>
-
-          <div class="hero-metric-row">
-            <div>
-              <div class="hero-metric-main">
-                3<span>piliers</span>
-              </div>
-              <div class="hero-metric-tag">GPT &bull; Manager IA &bull; Storytelling</div>
-            </div>
-            <div class="hero-metric-tag">
-              Pour entrepreneurs, coachs, créateurs & PME.
+            <div class="hero-card-title">Tableau de bord Athy’s</div>
+            <div class="hero-status">
+              <span class="hero-status-dot"></span> Agents IA en ligne
             </div>
           </div>
-
-          <div class="pill-row">
-            <div class="pill">GPT personnel privé</div>
-            <div class="pill">Manager IA discret</div>
-            <div class="pill">Textes & image premium</div>
+          <div class="hero-metrics">
+            <div class="metric">
+              <div class="metric-label">GPT personnels</div>
+              <div class="metric-value">3 <span>prêts à l’emploi</span></div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Manager IA</div>
+              <div class="metric-value">1 <span>multi-tâches</span></div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Visuels livrés</div>
+              <div class="metric-value">150+ <span>/ mois</span></div>
+            </div>
           </div>
-
           <div class="hero-card-footer">
-            <div class="stat-block">
-              <div class="stat-label">Ton GPT personnel</div>
-              <div class="stat-value">Voix & ton sur-mesure</div>
-            </div>
-            <div class="stat-block">
-              <div class="stat-label">Manager IA</div>
-              <div class="stat-value">Travaille 24/7 pour toi</div>
-            </div>
-            <div class="stat-block">
-              <div class="stat-label">Storytelling</div>
-              <div class="stat-value">Offre claire & mémorable</div>
+            <div class="hero-tag">Création de GPT privé & Manager IA</div>
+            <div class="hero-badge-stack">
+              <div class="hero-badge">Emails & clients</div>
+              <div class="hero-badge">Sites & visuels</div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services">
-      <div class="section-header">
-        <p class="section-kicker">Services</p>
-        <h2 class="section-title">Tous les services premium IA & Storytelling</h2>
-        <p class="section-subtitle">
-          Tu choisis le pilier dont tu as besoin maintenant, ou on construit ensemble un écosystème complet.
-        </p>
-      </div>
-
-      <div class="cards-grid">
-        <!-- GPT personnel -->
-        <article class="card">
-          <p class="card-label">IA sur mesure</p>
-          <h3 class="card-title">GPT Personnel Privé</h3>
-          <p class="card-subtitle">
-            Ton assistant IA confidentiel, entraîné sur ta manière de parler, tes offres et ta vision.
-          </p>
-          <ul class="card-list">
-            <li><span>•</span><div>Configuration complète de ton GPT personnel.</div></li>
-            <li><span>•</span><div>Base de connaissances adaptée à ton activité.</div></li>
-            <li><span>•</span><div>Prompts clés prêts à l’emploi (mail, réponses clients, contenu).</div></li>
-            <li><span>•</span><div>Accès privé, sécurisé, uniquement pour toi ou ton équipe.</div></li>
-          </ul>
-          <div class="card-footer">
-            <span>Idéal pour solopreneurs & coachs.</span>
-            <span class="card-link" data-scroll="#tarifs">Voir le tarif</span>
-          </div>
-        </article>
-
-        <!-- Manager IA -->
-        <article class="card">
-          <p class="card-label">Manager IA</p>
-          <h3 class="card-title">Agent IA Professionnel</h3>
-          <p class="card-subtitle">
-            Un Manager IA qui travaille pour toi en arrière-plan et te fait gagner du temps chaque jour.
-          </p>
-          <ul class="card-list">
-            <li><span>•</span><div>Structuration des tâches répétitives (emails, idées, organisation).</div></li>
-            <li><span>•</span><div>Scénarios IA pour t’aider à prendre de meilleures décisions.</div></li>
-            <li><span>•</span><div>Outils IA connectés à ton workflow (selon ton écosystème).</div></li>
-            <li><span>•</span><div>Documentation simple pour utiliser ton Manager IA au quotidien.</div></li>
-          </ul>
-          <div class="card-footer">
-            <span>Pour entrepreneurs débordés.</span>
-            <span class="card-link" data-scroll="#tarifs">Voir le tarif</span>
-          </div>
-        </article>
-
-        <!-- Storytelling -->
-        <article class="card">
-          <p class="card-label">Storytelling & image</p>
-          <h3 class="card-title">Storytelling & Portfolio</h3>
-          <p class="card-subtitle">
-            Des textes professionnels et un storytelling clair pour présenter ton projet comme une marque premium.
-          </p>
-          <ul class="card-list">
-            <li><span>•</span><div>Storytelling complet autour de toi, ta marque et ton offre.</div></li>
-            <li><span>•</span><div>Textes professionnels pour site, page de vente ou profil.</div></li>
-            <li><span>•</span><div>Création d’un mini-portfolio clair, prêt à être envoyé.</div></li>
-            <li><span>•</span><div>Version adaptée pour réseaux sociaux ou présentation PDF.</div></li>
-          </ul>
-          <div class="card-footer">
-            <span>Parfait avant un lancement.</span>
-            <span class="card-link" data-scroll="#tarifs">Voir le tarif</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Tarifs -->
-    <section id="tarifs">
-      <div class="section-header">
-        <p class="section-kicker">Tarifs</p>
-        <h2 class="section-title">Investir dans une image claire & un business assisté par l’IA</h2>
-        <p class="section-subtitle">
-          Tarifs indicatifs basés sur le marché actuel pour un accompagnement sérieux et personnalisé.
-          Le devis final est ajusté selon ton projet.
-        </p>
-      </div>
-
-      <div class="pricing-grid">
-        <!-- Prix GPT -->
-        <article class="pricing-card">
-          <div class="pricing-tag">
-            GPT personnel &bull; 1 à 2 sessions
-          </div>
-          <h3 class="pricing-title">GPT Personnel Privé</h3>
-          <p class="pricing-price">
-            490€<span>HT &mdash; à partir de</span>
-          </p>
-          <p class="pricing-note">
-            Création d’un GPT privé paramétré pour ton activité avec base de connaissances et prompts principaux.
-          </p>
-          <ul class="pricing-list">
-            <li><span>•</span><div>Entretien pour comprendre ton ton, ton offre et ta cible.</div></li>
-            <li><span>•</span><div>Configuration complète de ton GPT personnel.</div></li>
-            <li><span>•</span><div>Jusqu’à 30 documents ou textes intégrés dans la base.</div></li>
-            <li><span>•</span><div>Guide simple pour utiliser ton GPT au quotidien.</div></li>
-          </ul>
-          <button class="btn-ghost" type="button" data-scroll="#contact">
-            Demander un devis GPT
-          </button>
-        </article>
-
-        <!-- Prix Manager IA -->
-        <article class="pricing-card">
-          <div class="pricing-tag">
-            Manager IA &bull; accompagnement premium
-          </div>
-          <h3 class="pricing-title">Agent IA Professionnel</h3>
-          <p class="pricing-price">
-            790€<span>HT &mdash; à partir de</span>
-          </p>
-          <p class="pricing-note">
-            Mise en place d’un Manager IA qui travaille pour toi sur l’organisation, les contenus et les opérations.
-          </p>
-          <ul class="pricing-list">
-            <li><span>•</span><div>Cartographie de tes besoins & tâches répétitives.</div></li>
-            <li><span>•</span><div>Scénarios IA personnalisés pour t’aider au quotidien.</div></li>
-            <li><span>•</span><div>Création d’un espace IA central (Notion / doc / autre).</div></li>
-            <li><span>•</span><div>1 session de prise en main pour toi ou ton équipe.</div></li>
-          </ul>
-          <button class="btn-primary" type="button" data-scroll="#contact">
-            Réserver un Manager IA
-          </button>
-        </article>
-
-        <!-- Prix Storytelling -->
-        <article class="pricing-card">
-          <div class="pricing-tag">
-            Storytelling & portfolio
-          </div>
-          <h3 class="pricing-title">Storytelling & Portfolio Pro</h3>
-          <p class="pricing-price">
-            390€<span>HT &mdash; à partir de</span>
-          </p>
-          <p class="pricing-note">
-            Idéal pour clarifier ton message avant un lancement, une refonte de site ou une nouvelle offre.
-          </p>
-          <ul class="pricing-list">
-            <li><span>•</span><div>Storytelling complet : toi, ta marque, ta promesse.</div></li>
-            <li><span>•</span><div>Textes professionnels pour 1 page principale (site, page de vente, LinkedIn, etc.).</div></li>
-            <li><span>•</span><div>Mini-portfolio structuré (parcours, offres, preuves).</div></li>
-            <li><span>•</span><div>Version courte prête pour réseaux sociaux.</div></li>
-          </ul>
-          <button class="btn-ghost" type="button" data-scroll="#contact">
-            Discuter de mon histoire
-          </button>
-        </article>
-      </div>
-    </section>
-
-    <!-- Portfolio -->
-    <section id="portfolio">
-      <div class="section-header">
-        <p class="section-kicker">Portfolio</p>
-        <h2 class="section-title">Exemples de résultats que l’on construit ensemble</h2>
-        <p class="section-subtitle">
-          Chaque projet est différent, mais l’objectif reste le même&nbsp;:
-          te rendre plus clair, plus crédible et mieux armé avec l’IA.
-        </p>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-row">
-          <div class="timeline-label">Positionnement</div>
-          <div>
-            <p class="timeline-title">Clarifier ton offre & ton message</p>
-            <p class="timeline-text">
-              On reformule ton offre pour qu’elle soit simple à comprendre,
-              mémorable et alignée avec la valeur que tu apportes vraiment.
-            </p>
-          </div>
-        </div>
-        <div class="timeline-row">
-          <div class="timeline-label">IA & Outils</div>
-          <div>
-            <p class="timeline-title">Mettre en place ton GPT & ton Manager IA</p>
-            <p class="timeline-text">
-              On paramètre les bons outils IA pour toi&nbsp;: un GPT personnel pour tes contenus
-              et un Manager IA qui t’aide à gérer ton quotidien d’entrepreneur.
-            </p>
-          </div>
-        </div>
-        <div class="timeline-row">
-          <div class="timeline-label">Storytelling</div>
-          <div>
-            <p class="timeline-title">Écrire une histoire qui donne envie de travailler avec toi</p>
-            <p class="timeline-text">
-              On construit un récit cohérent (site, réseaux, pitch, portfolio)
-              pour que ton audience comprenne directement qui tu es et ce que tu proposes.
-            </p>
+        <div class="hero-floating">
+          <strong>Athy's Manager IA</strong>
+          <div style="font-size: 0.8rem">
+            centralise vos demandes, organise vos tâches et fait collaborer vos
+            agents IA en silence, en arrière-plan.
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contact -->
-    <section id="contact">
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
       <div class="section-header">
-        <p class="section-kicker">Contact</p>
-        <h2 class="section-title">Parlons de ton projet</h2>
-        <p class="section-subtitle">
-          Donne quelques détails sur ton activité, et on verra ensemble
-          si un GPT personnel, un Manager IA ou un travail de storytelling est la priorité.
-        </p>
+        <div>
+          <h2 class="section-title">Services de base Athy’s</h2>
+          <p class="section-subtitle">
+            Les fondations : un site propre, des visuels professionnels et une
+            image cohérente pour vos réseaux et votre business.
+          </p>
+        </div>
+      </div>
+
+      <div class="cards-grid cards-3">
+        <div class="card">
+          <div class="card-tag">Site web</div>
+          <div class="card-title">Création de site vitrine professionnel</div>
+          <p class="card-text">
+            Un site clair, moderne et responsive, prêt à être hébergé sur
+            Vercel, Netlify ou autre solution de votre choix.
+          </p>
+          <ul class="card-list">
+            <li>Jusqu’à 5 pages (Accueil, À propos, Services, Tarifs, Contact)</li>
+            <li>Design adapté à votre identité visuelle</li>
+            <li>Optimisation mobile & SEO de base</li>
+          </ul>
+          <div class="card-footer">
+            <div class="price">
+              450€ HT <span>site vitrine complet</span>
+            </div>
+            <span class="badge">Idéal lancement</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Visuels pro</div>
+          <div class="card-title">Images & contenus pour réseaux</div>
+          <p class="card-text">
+            Pack d’images ultra-professionnelles pour vos posts, bannières et
+            campagnes publicitaires.
+          </p>
+          <ul class="card-list">
+            <li>Jusqu’à 30 visuels optimisés réseaux sociaux</li>
+            <li>Adaptés à votre cible (LinkedIn, Instagram, TikTok…)</li>
+            <li>Version française & internationale possible</li>
+          </ul>
+          <div class="card-footer">
+            <div class="price">
+              250€ HT <span>pack 30 visuels</span>
+            </div>
+            <span class="badge">Image de marque</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-tag">Accompagnement</div>
+          <div class="card-title">Coaching IA & digital</div>
+          <p class="card-text">
+            Accompagnement 1:1 pour apprendre à utiliser l’IA dans vos process
+            sans perdre votre style et votre authenticité.
+          </p>
+          <ul class="card-list">
+            <li>Session de 90 minutes en visioconférence</li>
+            <li>Plan d’action personnalisé</li>
+            <li>Ressources et prompts prêts à l’emploi</li>
+          </ul>
+          <div class="card-footer">
+            <div class="price">
+              120€ HT <span>par session</span>
+            </div>
+            <span class="badge">Sur mesure</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFRES IA : GPT & MANAGER IA -->
+  <section id="offres-ia">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Offres IA : GPT privé & Manager IA</h2>
+          <p class="section-subtitle">
+            Des agents IA discrets, configurés pour votre activité. Ils
+            travaillent en coulisse, mais vos clients ne voient que le
+            résultat.
+          </p>
+        </div>
+        <div class="section-subtitle">
+          <strong>Langues :</strong> français, anglais, et autres langues sur
+          demande.  
+          <br />Connectable à vos outils existants (site, email, réseaux…).
+        </div>
+      </div>
+
+      <div class="cards-grid cards-2">
+        <!-- GPT PERSONNEL PRIVÉ -->
+        <div class="card">
+          <div class="offer-image">
+            <!-- Image pro IA / interface -->
+            <img
+              src="https://picsum.photos/seed/gpt-prive/800/500"
+              alt="Interface de GPT personnel privé Athy’s"
+            />
+          </div>
+          <div class="card-tag">GPT personnel privé</div>
+          <div class="card-title">Création de GPT personnel 100% privé</div>
+          <p class="card-text">
+            Un assistant IA conçu uniquement pour vous, formé sur votre métier,
+            vos offres et votre ton de voix. Accessible via un lien privé ou
+            intégré discrètement à votre site.
+          </p>
+          <ul class="card-list">
+            <li>
+              Paramétrage complet (personnalité, style, limites, confidentialité)
+            </li>
+            <li>Multilingue : il comprend et répond dans plusieurs langues</li>
+            <li>
+              Utilisation : création de contenu, réponses à vos questions,
+              aide quotidienne
+            </li>
+          </ul>
+          <div class="card-footer">
+            <div class="price">
+              390€ HT <span>configuration complète</span>
+            </div>
+            <span class="badge">GPT privé Athy’s</span>
+          </div>
+        </div>
+
+        <!-- MANAGER IA -->
+        <div class="card">
+          <div class="offer-image">
+            <!-- Image pro manager / dashboard -->
+            <img
+              src="https://picsum.photos/seed/manager-ia/800/500"
+              alt="Manager IA Athy’s gérant les tâches et emails"
+            />
+          </div>
+          <div class="card-tag">Manager IA</div>
+          <div class="card-title">Création de Manager IA pour votre business</div>
+          <p class="card-text">
+            Un manager IA qui coordonne plusieurs tâches : mails, suivi
+            clients, organisation du contenu, résumés, idées de posts… Il vous
+            fait gagner des heures chaque semaine.
+          </p>
+          <ul class="card-list">
+            <li>
+              Scénarios personnalisés selon votre activité (coaching, e-commerce,
+              services…)
+            </li>
+            <li>
+              Centralisation des informations : briefs, comptes rendus,
+              rappels…
+            </li>
+            <li>
+              Peut travailler en arrière-plan avec vos autres agents IA Athy’s
+            </li>
+          </ul>
+          <div class="card-footer">
+            <div class="price">
+              590€ HT <span>mise en place manager IA</span>
+            </div>
+            <span class="badge">Gestion avancée</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORYTELLING & PORTFOLIO -->
+  <section id="storytelling">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">
+            Offre Storytelling & Création de portfolio
+          </h2>
+          <p class="section-subtitle">
+            On met vos idées en mots : textes professionnels, pages de vente,
+            présentation LinkedIn et portfolio qui raconte votre histoire avec
+            impact.
+          </p>
+        </div>
+      </div>
+
+      <div class="cards-grid cards-2">
+        <div class="card">
+          <div class="offer-image">
+            <!-- Image pro storytelling -->
+            <img
+              src="https://picsum.photos/seed/storytelling/800/500"
+              alt="Storytelling professionnel Athy’s pour votre marque"
+            />
+          </div>
+          <div class="card-tag">Storytelling</div>
+          <div class="card-title">Textes professionnels avec l’IA + réécriture humaine</div>
+          <p class="card-text">
+            Rédaction ou réécriture de textes impactants pour votre activité :
+            pages “À propos”, présentations, scripts vidéo, posts réseaux
+            sociaux.
+          </p>
+          <ul class="card-list">
+            <li>Analyse de votre ton de voix et de votre cible</li>
+            <li>Propositions de textes + ajustements inclus</li>
+            <li>Possibilité de version courte et longue pour chaque texte</li>
+          </ul>
+          <div class="card-footer">
+            <div class="price">
+              180€ HT <span>pack storytelling de base</span>
+            </div>
+            <span class="badge">Écriture sur mesure</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="offer-image">
+            <!-- Image pro portfolio / laptop -->
+            <img
+              src="https://picsum.photos/seed/portfolio/800/500"
+              alt="Portfolio professionnel Athy’s sur écran d’ordinateur"
+            />
+          </div>
+          <div class="card-tag">Portfolio</div>
+          <div class="card-title">Création de portfolio pro (PDF ou web)</div>
+          <p class="card-text">
+            Un portfolio clair, élégant, prêt à être envoyé à vos prospects ou
+            utilisé comme support lors de vos appels et conférences.
+          </p>
+          <ul class="card-list">
+            <li>Structure complète (intro, sections, offres, preuves sociales)</li>
+            <li>Maquette professionnelle, prête à imprimer ou partager</li>
+            <li>
+              Possibilité d’adapter le portfolio à votre site Athy’s
+            </li>
+          </ul>
+          <div class="card-footer">
+            <div class="price">
+              240€ HT <span>maquette + textes</span>
+            </div>
+            <span class="badge">Portfolio Athy’s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARIFS -->
+  <section id="tarifs">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Vue rapide des tarifs</h2>
+          <p class="section-subtitle">
+            Tarifs indicatifs basés sur le marché actuel pour des prestations
+            sur mesure. Un devis précis est établi selon votre projet.
+          </p>
+        </div>
+      </div>
+
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Offre</th>
+            <th>Description</th>
+            <th>Tarif indicatif HT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Site vitrine pro (5 pages)</td>
+            <td class="tag-cell">
+              Site responsive, base SEO, intégration Vercel / Netlify
+            </td>
+            <td class="price-cell">450€</td>
+          </tr>
+          <tr>
+            <td>Pack 30 visuels pro</td>
+            <td class="tag-cell">
+              Images pour réseaux sociaux + formats adaptés
+            </td>
+            <td class="price-cell">250€</td>
+          </tr>
+          <tr>
+            <td>GPT personnel privé</td>
+            <td class="tag-cell">
+              Assistant IA configuré pour votre métier & vos besoins
+            </td>
+            <td class="price-cell">390€</td>
+          </tr>
+          <tr>
+            <td>Manager IA business</td>
+            <td class="tag-cell">
+              IA gestionnaire de tâches, mails, suivi et organisation
+            </td>
+            <td class="price-cell">590€</td>
+          </tr>
+          <tr>
+            <td>Storytelling (pack de base)</td>
+            <td class="tag-cell">
+              Textes pro pour pages, présentations et posts principaux
+            </td>
+            <td class="price-cell">180€</td>
+          </tr>
+          <tr>
+            <td>Portfolio professionnel complet</td>
+            <td class="tag-cell">
+              Maquette + textes + structure de présentation
+            </td>
+            <td class="price-cell">240€</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="pricing-note">
+        Les tarifs peuvent évoluer selon la complexité du projet, le nombre de
+        langues et les intégrations demandées (emails, CRM, automations…).
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Contact & devis Athy’s</h2>
+          <p class="section-subtitle">
+            Expliquez simplement votre projet. Vous recevrez une proposition
+            claire, avec les solutions IA + créatives les plus adaptées.
+          </p>
+        </div>
       </div>
 
       <div class="contact-grid">
         <div class="contact-card">
-          <h3>Envoyer les infos de ton projet</h3>
+          <h3>Parler avec Athy’s</h3>
           <p>
-            Remplis ce formulaire, tu recevras une réponse personnalisée avec une proposition d’accompagnement.
+            Envoyez un message avec votre besoin (site, visuels, GPT, manager
+            IA, storytelling, portfolio…). Nous revenons vers vous avec un
+            devis personnalisé.
           </p>
-
-          <form id="contactForm">
-            <div class="field-group">
-              <div>
-                <label for="name">Prénom & nom</label>
-                <input id="name" name="name" type="text" placeholder="Ton nom complet" required />
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="ton.email@exemple.com" required />
-              </div>
-            </div>
-
-            <div class="field-group">
-              <div>
-                <label for="activity">Activité</label>
-                <input id="activity" name="activity" type="text" placeholder="Coach, créateur, PME, indépendant..." />
-              </div>
-              <div>
-                <label for="service">Service souhaité</label>
-                <select id="service" name="service">
-                  <option value="">Je ne sais pas encore</option>
-                  <option value="gpt">GPT Personnel Privé</option>
-                  <option value="manager">Agent IA Professionnel</option>
-                  <option value="storytelling">Storytelling & Portfolio</option>
-                  <option value="combo">Combiner plusieurs services</option>
-                </select>
-              </div>
-            </div>
-
+          <div class="contact-info">
             <div>
-              <label for="message">Parle de ton projet</label>
-              <textarea id="message" name="message" placeholder="Explique en quelques lignes où tu en es et ce que tu veux changer."></textarea>
+              <span class="label">Email :</span>
+              <span>contact@athys-creation.com</span>
             </div>
-
             <div>
-              <button class="btn-primary" type="submit">
-                Envoyer mon projet
-              </button>
+              <span class="label">Téléphone :</span>
+              <span>+33 (0)6 00 00 00 00</span>
             </div>
-
-            <small style="display:block;margin-top:6px;color:var(--muted);font-size:11px;">
-              Aucun engagement immédiat. Tu reçois d’abord une réponse détaillée avant de décider.
-            </small>
-          </form>
+            <div>
+              <span class="label">Réseaux :</span>
+              <span>Athy’s TV • Athy’s Création Pro</span>
+            </div>
+          </div>
+          <div class="contact-highlight">
+            Possibilité de rendez-vous en visio pour poser toutes vos questions
+            avant de vous lancer.
+          </div>
         </div>
 
-        <aside class="contact-aside">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-            <div class="badge-dot"></div>
-            <span style="font-size:11px;color:var(--muted);">
-              Studio Athy’s Création &mdash; IA & Storytelling
-            </span>
+        <form>
+          <div class="form-row">
+            <label for="nom">Nom / Prénom</label>
+            <input id="nom" type="text" placeholder="Votre nom" />
           </div>
-
-          <h3>Tu préfères un contact direct&nbsp;?</h3>
-          <p>
-            Tu peux aussi envoyer un message avec ton projet, et nous pourrons ensuite passer en visio si nécessaire.
-          </p>
-
-          <ul class="contact-aside-list">
-            <li>
-              <span>📧</span>
-              <a class="contact-link" href="mailto:freddystel23@gmail.com?subject=Projet Athy’s Création">
-                freddystel23@gmail.com
-              </a>
-            </li>
-            <li>
-              <span>📱</span>
-              <span>WhatsApp (lien à ajouter)</span>
-            </li>
-            <li>
-              <span>🕒</span>
-              <span>Réponse sous 1 jour ouvré selon la demande.</span>
-            </li>
-          </ul>
-
-          <p>
-            Ensemble, on construit un système simple&nbsp;: toi au centre,
-            l’IA en soutien, et un message clair qui donne envie de travailler avec toi.
-          </p>
-
-          <div class="contact-actions">
-            <a class="contact-link" href="#portfolio">Voir les exemples de résultats</a>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="votre.email@exemple.com"
+            />
           </div>
-        </aside>
+          <div class="form-row">
+            <label for="type">Quel est votre besoin principal ?</label>
+            <select id="type">
+              <option>Création de site web</option>
+              <option>Images & visuels pro</option>
+              <option>Création de GPT personnel privé</option>
+              <option>Création de Manager IA</option>
+              <option>Storytelling & textes pro</option>
+              <option>Création de portfolio</option>
+              <option>Autre / projet sur mesure</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              placeholder="Décrivez votre projet en quelques lignes…"
+            ></textarea>
+          </div>
+          <button type="button" class="btn-primary" style="margin-top: 0.3rem">
+            Envoyer ma demande
+          </button>
+          <div class="form-footnote">
+            (Formulaire de démonstration – à connecter ensuite à votre email ou
+            outil préféré.)
+          </div>
+        </form>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      <span>&copy; <strong>Athy’s Création</strong> &mdash; IA, Storytelling & image premium pour entrepreneurs.</span>
-      <span>Site vitrine propulsé par l’IA, déployé sur Vercel.</span>
-    </footer>
-  </main>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      © <strong>Athy's Création Pro</strong> – Studio IA & digital.
+      Tous droits réservés.
+    </div>
+  </footer>
+
+  <!-- CHATBOT FLOTTANT (DEMO FRONT-END) -->
+  <button class="chatbot-toggle" id="chatbotToggle">
+    <span class="icon">💬</span>
+    Athy’s Bot visiteur
+  </button>
+
+  <div class="chatbot-window" id="chatbotWindow" aria-hidden="true">
+    <div class="chatbot-header">
+      <div class="chatbot-header-title">
+        <strong>Agent IA Athy’s</strong>
+        <span>Répond aux visiteurs (démo front-end)</span>
+      </div>
+      <button class="chatbot-close" id="chatbotClose" aria-label="Fermer">
+        ×
+      </button>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages">
+      <div class="chatbot-msg bot">
+        Bonjour 👋, je suis l’agent IA Athy’s.  
+        <br />Je peux vous expliquer les offres (site web, images pro, GPT
+        privé, manager IA, storytelling, portfolio).  
+        <br />Que souhaitez-vous savoir ?
+      </div>
+    </div>
+    <div class="chatbot-input">
+      <input
+        type="text"
+        id="chatbotInput"
+        placeholder="Posez votre question ici…"
+      />
+      <button id="chatbotSend">Envoyer</button>
+    </div>
+  </div>
 
   <script>
-    // Smooth scroll for all links with data-scroll or #hash
-    function smoothScrollTo(targetId) {
-      const target = document.querySelector(targetId);
-      if (!target) return;
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    document.querySelectorAll("[data-scroll]").forEach(function (el) {
-      el.addEventListener("click", function () {
-        const id = this.getAttribute("data-scroll");
-        if (id) smoothScrollTo(id);
-      });
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-      link.addEventListener("click", function (e) {
-        const href = this.getAttribute("href");
-        if (!href || href === "#") return;
-        const target = document.querySelector(href);
+    // Scroll doux pour les liens (si on clique dans nav)
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const targetId = link.getAttribute("href").substring(1);
+        const target = document.getElementById(targetId);
         if (target) {
           e.preventDefault();
-          smoothScrollTo(href);
+          target.scrollIntoView({ behavior: "smooth" });
         }
       });
     });
 
-    // Floating CTA buttons -> contact
-    document.getElementById("floatingCta")?.addEventListener("click", function () {
-      smoothScrollTo("#contact");
-    });
+    // Chatbot simple (front-end uniquement, sans API)
+    const chatbotToggle = document.getElementById("chatbotToggle");
+    const chatbotWindow = document.getElementById("chatbotWindow");
+    const chatbotClose = document.getElementById("chatbotClose");
+    const chatbotMessages = document.getElementById("chatbotMessages");
+    const chatbotInput = document.getElementById("chatbotInput");
+    const chatbotSend = document.getElementById("chatbotSend");
 
-    document.getElementById("navCta")?.addEventListener("click", function () {
-      smoothScrollTo("#contact");
-    });
+    function toggleChatbot(forceOpen) {
+      const isHidden = chatbotWindow.style.display !== "flex";
+      const shouldOpen = forceOpen ?? isHidden;
+      chatbotWindow.style.display = shouldOpen ? "flex" : "none";
+      chatbotWindow.setAttribute("aria-hidden", !shouldOpen);
+      if (shouldOpen) {
+        chatbotInput.focus();
+      }
+    }
 
-    // Simple fake submit (comme le site est statique)
-    document.getElementById("contactForm")?.addEventListener("submit", function (e) {
-      e.preventDefault();
-      alert(
-        "Merci pour ton message ! Les informations de ton projet sont bien enregistrées. Tu peux aussi envoyer un email direct si tu veux joindre un document."
-      );
-      this.reset();
-    });
+    chatbotToggle.addEventListener("click", () => toggleChatbot());
+    chatbotClose.addEventListener("click", () => toggleChatbot(false));
 
-    // Mise en surbrillance du lien de navigation actif avec l'offset
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll("nav a[href^='#']");
+    function addMessage(text, from = "bot") {
+      const div = document.createElement("div");
+      div.className = `chatbot-msg ${from}`;
+      div.innerHTML = text;
+      chatbotMessages.appendChild(div);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
 
-    window.addEventListener("scroll", function () {
-      let currentId = "";
-      const offset = 120;
+    function getBotReply(message) {
+      const msg = message.toLowerCase();
+      if (msg.includes("gpt")) {
+        return `
+          Pour le <strong>GPT personnel privé</strong>, Athy’s configure un assistant IA
+          qui connaît votre métier, vos offres et votre façon de parler.<br/><br/>
+          Il est <strong>privé</strong> et peut écrire des textes, répondre à vos questions
+          et vous aider au quotidien. Tarif indicatif : <strong>390€ HT</strong>.
+        `;
+      }
+      if (msg.includes("manager")) {
+        return `
+          Le <strong>Manager IA</strong> est un agent qui gère plusieurs tâches :
+          mails, suivi clients, idées de contenus, organisation…<br/><br/>
+          Il fonctionne en arrière-plan avec vos autres IA. Tarif indicatif :
+          <strong>590€ HT</strong>.
+        `;
+      }
+      if (msg.includes("story") || msg.includes("texte")) {
+        return `
+          L’offre <strong>Storytelling</strong> vous aide à avoir des textes
+          professionnels : pages de vente, présentations, posts réseaux…<br/><br/>
+          Pack de base à partir de <strong>180€ HT</strong>, avec ajustements inclus.
+        `;
+      }
+      if (msg.includes("portfolio")) {
+        return `
+          Le <strong>portfolio pro</strong> présente vos offres et réalisations
+          dans un document élégant (PDF ou web).<br/><br/>
+          Création complète à partir de <strong>240€ HT</strong>.
+        `;
+      }
+      if (msg.includes("site")) {
+        return `
+          Pour un <strong>site vitrine</strong>, Athy’s crée un site moderne, clair,
+          responsive, avec jusqu’à 5 pages principales.<br/><br/>
+          Tarif indicatif : <strong>450€ HT</strong>.
+        `;
+      }
+      return `
+        Merci pour votre message 🙌<br/>
+        Athy’s propose : sites web, images pro, GPT privé, manager IA,
+        storytelling et portfolio.<br/><br/>
+        Si vous le souhaitez, décrivez votre projet et Athy’s pourra vous préparer
+        un <strong>devis personnalisé</strong>.
+      `;
+    }
 
-      sections.forEach(function (section) {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= offset && rect.bottom > offset) {
-          currentId = "#" + section.id;
-        }
-      });
+    function handleSend() {
+      const text = chatbotInput.value.trim();
+      if (!text) return;
+      addMessage(text, "user");
+      chatbotInput.value = "";
 
-      navLinks.forEach(function (link) {
-        if (link.getAttribute("href") === currentId) {
-          link.classList.add("active");
-        } else {
-          link.classList.remove("active");
-        }
-      });
+      setTimeout(() => {
+        const reply = getBotReply(text);
+        addMessage(reply, "bot");
+      }, 400);
+    }
+
+    chatbotSend.addEventListener("click", handleSend);
+    chatbotInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        handleSend();
+      }
     });
   </script>
 </body>
