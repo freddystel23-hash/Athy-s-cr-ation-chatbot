@@ -6,7 +6,7 @@
   <title>Athy's Création Pro – IA & Création digitale</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-    content="Athy's Création Pro – Création de sites web, visuels pro, assistants IA privés, gestion digitale, storytelling et portfolios premium." />
+    content="Athy's Création Pro – Création sites web, visuels pro, assistants IA, storytelling et portfolios premium." />
 
   <style>
     :root {
@@ -19,10 +19,6 @@
       --muted: #6b7280;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       background: var(--bg);
@@ -33,11 +29,7 @@
 
     a { text-decoration: none; color: inherit; }
 
-    img { width: 100%; border-radius: 14px; display: block; }
-
     .container { max-width: 1120px; margin: auto; padding: 0 1.5rem; }
-
-    /* HEADER */
 
     header {
       background: rgba(15,23,42,0.9);
@@ -49,79 +41,11 @@
       color: white;
     }
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .logo div:nth-child(1){
-      font-weight:700;
-      font-size:1rem;
-    }
-
-    .logo div:nth-child(2){
-      font-size:0.7rem;
-      opacity:0.8;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.3rem;
-      font-size: 0.9rem;
-    }
-
-    .nav-links a {
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.15rem;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg,#2563eb,#22c55e);
-      transition: width 0.15s ease-out;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    /* HERO */
+    .nav { display: flex; justify-content: space-between; align-items: center; }
+    .nav-links { display: flex; gap: 1.3rem; }
 
     .hero { padding: 4rem 0; }
-    .hero-grid {
-      display:grid;
-      grid-template-columns:1.4fr 1fr;
-      gap:2rem;
-      align-items:center;
-    }
-
-    .hero h1 {
-      font-size: 2.6rem;
-      line-height: 1.15;
-      margin-bottom: 1rem;
-    }
-
-    .gradient {
-      background:linear-gradient(120deg,#1d4ed8,#22c55e);
-      -webkit-background-clip:text;
-      color:transparent;
-    }
-
-    .hero-sub {
-      color:var(--muted);
-      max-width:30rem;
-      margin-bottom:1.2rem;
-    }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 
     .btn-primary {
       background: linear-gradient(135deg,#2563eb,#22c55e);
@@ -129,209 +53,32 @@
       color: white;
       padding: 0.75rem 1.4rem;
       border-radius: 999px;
-      font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 12px 24px rgba(37,99,235,0.35);
-    }
-
-    .btn-outline {
-      border-radius: 999px;
-      padding: 0.75rem 1.4rem;
-      background: white;
-      border: 1px solid #d1d5db;
       font-weight: 600;
-      cursor: pointer;
     }
-
-    .hero-actions {
-      display:flex;
-      gap:0.8rem;
-      flex-wrap:wrap;
-      margin-top:0.4rem;
-    }
-
-    /* SECTIONS */
 
     section { padding: 3rem 0; }
 
-    .section-title {
-      font-size: 1.5rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .section-subtitle {
-      color: var(--muted);
-      max-width: 32rem;
-      font-size:0.92rem;
-    }
-
-    /* CARDS */
-
-    .cards-grid {display:grid;gap:1.2rem;}
-    .cards-3 {grid-template-columns:repeat(3,1fr);}
-    .cards-2 {grid-template-columns:repeat(2,1fr);}
+    .cards-grid { display: grid; gap: 1.2rem; }
+    .cards-3 { grid-template-columns: repeat(3,1fr); }
+    .cards-2 { grid-template-columns: repeat(2,1fr); }
 
     .card {
-      background:white;
-      padding:1.2rem;
-      border-radius: var(--radius);
+      background: white;
+      padding: 1.2rem;
+      border-radius: 18px;
       border: 1px solid #e5e7eb;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.06);
-    }
-
-    .card-tag {
-      font-size:0.75rem;
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:0.06em;
-      margin-bottom:0.25rem;
-    }
-
-    .card-title {
-      font-weight:600;
-      margin-bottom:0.4rem;
-      font-size:1rem;
-    }
-
-    .card-text {
-      font-size:0.9rem;
-      color:var(--muted);
-      margin-bottom:0.7rem;
-    }
-
-    .card-list {
-      list-style:none;
-      padding:0;
-      margin:0 0 0.7rem 0;
-      font-size:0.86rem;
-      color:#374151;
-    }
-
-    .card-list li{
-      margin-bottom:0.3rem;
-      display:flex;
-      gap:0.4rem;
-    }
-
-    .card-list li:before{
-      content:"•";
-      color:var(--secondary);
-      font-weight:bold;
-    }
-
-    .card-footer {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-top:0.5rem;
-      font-size:0.85rem;
-    }
-
-    .price {font-weight:700;}
-    .price span {color:var(--muted);font-size:0.76rem;margin-left:0.25rem;}
-
-    .badge {
-      background: rgba(37,99,235,0.1);
-      border-radius:999px;
-      padding:0.25rem 0.55rem;
-      font-size:0.75rem;
-      color:#1d4ed8;
     }
 
     .ia-note {
-      display: inline-block;
-      margin-top: 0.5rem;
       font-size: 0.8rem;
       color: #374151;
+      margin-top: 0.4rem;
+      display: inline-block;
       font-weight: 600;
     }
 
-    /* TABLE TARIFS */
-
-    .pricing-table {
-      width:100%;
-      border-collapse:collapse;
-      margin-top:1.2rem;
-      background:white;
-      border-radius:14px;
-      overflow:hidden;
-      box-shadow:0 10px 20px rgba(15,23,42,0.08);
-      font-size:0.9rem;
-    }
-
-    .pricing-table th,
-    .pricing-table td {
-      padding:0.7rem 0.9rem;
-      border-bottom:1px solid #e5e7eb;
-      text-align:left;
-    }
-
-    .pricing-table th {
-      background:#eff3ff;
-      font-size:0.8rem;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
-      color:#4b5563;
-    }
-
-    .pricing-table tr:last-child td {border-bottom:none;}
-
-    /* CONTACT */
-
-    .contact-grid {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:1.5rem;
-    }
-
-    .contact-card {
-      background:#0f172a;
-      color:white;
-      padding:1.2rem;
-      border-radius:18px;
-    }
-
-    .contact-card p {font-size:0.9rem;color:#e5e7eb;}
-
-    .contact-info div {margin-bottom:0.3rem;font-size:0.88rem;}
-
-    form {
-      background:white;
-      padding:1rem;
-      border-radius:18px;
-      border:1px solid #e5e7eb;
-      box-shadow:0 8px 18px rgba(15,23,42,0.06);
-      font-size:0.9rem;
-    }
-
-    .form-row {margin-bottom:0.7rem;}
-
-    label {
-      display:block;
-      margin-bottom:0.2rem;
-      font-size:0.8rem;
-      color:#4b5563;
-    }
-
-    input, select, textarea {
-      width:100%;
-      border-radius:10px;
-      border:1px solid #d1d5db;
-      padding:0.5rem 0.7rem;
-      font:inherit;
-    }
-
-    textarea {min-height:90px;resize:vertical;}
-
-    footer {
-      text-align:center;
-      padding:1.4rem 0;
-      color:#6b7280;
-      font-size:0.82rem;
-    }
-
     /* CHATBOT */
-
     .chatbot-toggle {
       position: fixed;
       right: 1.2rem;
@@ -340,11 +87,9 @@
       background: linear-gradient(135deg,#2563eb,#22c55e);
       color: white;
       padding: 0.75rem 1.2rem;
-      border: none;
       font-weight: 600;
       cursor: pointer;
-      z-index: 40;
-      box-shadow:0 14px 30px rgba(37,99,235,0.5);
+      z-index: 50;
     }
 
     .chatbot-window {
@@ -356,553 +101,261 @@
       background: #020617;
       color: white;
       border-radius: 18px;
-      border: 1px solid rgba(148,163,184,0.5);
-      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.15);
       display: none;
       flex-direction: column;
-      z-index: 50;
+      overflow: hidden;
+      z-index: 60;
     }
 
-    .chatbot-header {
-      padding: 0.8rem;
-      border-bottom: 1px solid rgba(148,163,184,0.4);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.85rem;
-    }
-
-    .chatbot-messages {
-      padding: 0.8rem;
-      overflow-y: auto;
-      flex: 1;
-      background: radial-gradient(circle at top,#020617,#020617 40%,#020617);
-    }
+    .chatbot-header { padding: 0.7rem; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .chatbot-messages { flex: 1; padding: 0.7rem; overflow-y: auto; background: #020617; }
 
     .chatbot-msg {
       max-width: 85%;
-      padding: 0.55rem 0.7rem;
+      padding: 0.6rem 0.8rem;
       border-radius: 12px;
       margin-bottom: 0.6rem;
-      font-size: 0.82rem;
-      line-height: 1.4;
+      font-size: 0.83rem;
     }
 
-    .chatbot-msg.bot {
-      background:rgba(15,23,42,0.95);
-      border:1px solid rgba(59,130,246,0.6);
-    }
-
-    .chatbot-msg.user {
-      background:#22c55e;
-      color:#022c22;
-      margin-left:auto;
-    }
+    .bot { background: rgba(17,24,39,0.9); border: 1px solid #2563eb; }
+    .user { background: #22c55e; color: #022c22; margin-left: auto; }
 
     .chatbot-input {
-      padding: 0.55rem;
-      background:#020617;
-      border-top:1px solid rgba(148,163,184,0.4);
-      display:flex;
-      gap:0.4rem;
+      padding: 0.6rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      gap: 0.4rem;
     }
 
     .chatbot-input input {
-      flex:1;
-      border-radius:999px;
-      border:1px solid rgba(148,163,184,0.7);
-      background:#020617;
-      padding:0.45rem 0.7rem;
-      color:white;
-      font-size:0.82rem;
-    }
-
-    .chatbot-input input::placeholder {
-      color:#6b7280;
-    }
-
-    .chatbot-input button {
-      border-radius:999px;
-      border:none;
-      background:linear-gradient(135deg,#22c55e,#16a34a);
-      color:#022c22;
-      font-size:0.8rem;
-      font-weight:600;
-      padding:0.5rem 0.8rem;
-      cursor:pointer;
-    }
-
-    @media(max-width:900px){
-      .hero-grid{grid-template-columns:1fr;}
-      .cards-3{grid-template-columns:repeat(2,1fr);}
-      .contact-grid{grid-template-columns:1fr;}
-    }
-
-    @media(max-width:700px){
-      .nav-links{display:none;}
-      .cards-3,.cards-2{grid-template-columns:1fr;}
-      .chatbot-window{right:0.75rem;width:calc(100% - 1.5rem);}
-      .chatbot-toggle{right:0.75rem;}
+      flex: 1;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: #1e293b;
+      color: white;
+      padding: 0.45rem 0.7rem;
     }
   </style>
+
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
-      <div class="logo">
-        <div>Athy's Création Pro</div>
-        <div>Signature IA Athy’s</div>
-      </div>
-
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#offres-ia">Offres IA</a>
-        <a href="#storytelling">Storytelling</a>
-        <a href="#tarifs">Tarifs</a>
-        <a href="#contact">Contact</a>
-      </div>
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <strong>Athy’s Création Pro</strong><br>
+      <small>Signature IA Athy’s</small>
     </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <h1>
-          Votre <span class="gradient">concierge digital IA Athy’s</span>,
-          pensé pour votre image professionnelle.
-        </h1>
-        <p class="hero-sub">
-          Sites web premium, visuels professionnels, assistants IA privés,
-          storytelling élégant et gestion digitale intelligente.
-        </p>
-        <div class="hero-actions">
-          <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
-            Découvrir les services →
-          </button>
-          <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-            Demander un devis
-          </button>
-        </div>
-      </div>
-      <div>
-        <img src="https://picsum.photos/seed/athys/800/600" alt="Athy’s Création Pro" />
-      </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#offres-ia">Offres IA</a>
+      <a href="#storytelling">Storytelling</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#contact">Contact</a>
     </div>
-  </section>
+  </div>
+</header>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">Services principaux</h2>
-      <p class="section-subtitle">
-        Les solutions indispensables pour une image professionnelle solide.
-      </p>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Athy’s Création Pro – L’excellence digitale assistée par IA</h1>
+      <p>Votre concierge digital IA Athy’s : sites web, visuels pro, assistants IA privés, storytelling premium.</p>
+      <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Découvrir les services</button>
+    </div>
+    <div>
+      <img src="https://picsum.photos/seed/athys/800/600" />
+    </div>
+  </div>
+</section>
 
-      <div class="cards-grid cards-3">
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <h2>Services principaux</h2>
+    <div class="cards-grid cards-3">
 
-        <!-- SITE WEB -->
-        <div class="card">
-          <div class="card-tag">Site web</div>
-          <div class="card-title">Site vitrine premium</div>
-          <p class="card-text">
-            Un site moderne et professionnel pour présenter votre activité.
-          </p>
-          <ul class="card-list">
-            <li>Design premium et responsive</li>
-            <li>Jusqu'à 5 pages</li>
-            <li>Optimisation mobile</li>
-          </ul>
-          <div class="card-footer">
-            <div class="price">450€ HT <span>site complet</span></div>
-            <span class="badge">Professionnel</span>
-          </div>
-          <span class="ia-note">IA Athy’s</span>
-        </div>
-
-        <!-- VISUELS PRO -->
-        <div class="card">
-          <div class="card-tag">Visuels</div>
-          <div class="card-title">Pack visuels pro</div>
-          <p class="card-text">
-            Images haut de gamme pour réseaux sociaux et branding.
-          </p>
-          <ul class="card-list">
-            <li>Pack 30 visuels</li>
-            <li>Style personnalisé</li>
-            <li>Format haute qualité</li>
-          </ul>
-          <div class="card-footer">
-            <div class="price">250€ HT <span>pack complet</span></div>
-            <span class="badge">Image de marque</span>
-          </div>
-          <span class="ia-note">IA Athy’s</span>
-        </div>
-
-        <!-- STRATÉGIE DIGITALE -->
-        <div class="card">
-          <div class="card-tag">Stratégie</div>
-          <div class="card-title">Session stratégie digitale</div>
-          <p class="card-text">
-            Accompagnement personnalisé pour clarifier votre identité digitale.
-          </p>
-          <ul class="card-list">
-            <li>Session 90 min</li>
-            <li>Audit express</li>
-            <li>Plan d'action clair</li>
-          </ul>
-          <div class="card-footer">
-            <div class="price">120€ HT <span>par session</span></div>
-            <span class="badge">Conseil</span>
-          </div>
-          <span class="ia-note">IA Athy’s</span>
-        </div>
-
+      <div class="card">
+        <h3>Site vitrine premium</h3>
+        <p>Site moderne et professionnel.</p>
+        <p>450€ HT</p>
+        <span class="ia-note">IA Athy’s</span>
       </div>
-    </div>
-  </section>
 
-  <!-- OFFRES IA -->
-  <section id="offres-ia">
-    <div class="container">
-      <h2 class="section-title">Offres IA Athy’s</h2>
-      <p class="section-subtitle">Solutions IA intelligentes et discrètes.</p>
-
-      <div class="cards-grid cards-2">
-
-        <!-- ASSISTANT IA PRIVÉ -->
-        <div class="card">
-          <img src="https://picsum.photos/seed/assistant/800/500" alt="Assistant IA privé Athy’s" />
-          <div class="card-tag">Assistant IA</div>
-          <div class="card-title">Assistant IA privé Athy’s</div>
-          <p class="card-text">
-            Assistant personnalisé formé sur votre métier et votre vocabulaire.
-          </p>
-          <ul class="card-list">
-            <li>Ton & personnalité personnalisés</li>
-            <li>Multilingue</li>
-            <li>Création de textes & idées</li>
-          </ul>
-          <div class="card-footer">
-            <div class="price">390€ HT <span>configuration complète</span></div>
-            <span class="badge">Assistant IA</span>
-          </div>
-          <span class="ia-note">IA Athy’s</span>
-        </div>
-
-        <!-- GESTIONNAIRE DIGITAL -->
-        <div class="card">
-          <img src="https://picsum.photos/seed/digital/800/500" alt="Gestionnaire digital Athy’s" />
-          <div class="card-tag">Gestion digitale</div>
-          <div class="card-title">Gestionnaire digital intelligent</div>
-          <p class="card-text">
-            Organisation, préparation de contenus et structuration simple.
-          </p>
-          <ul class="card-list">
-            <li>Gestion tâches & contenus</li>
-            <li>Notes & briefs centralisés</li>
-            <li>Adapté coachs & créateurs</li>
-          </ul>
-          <div class="card-footer">
-            <div class="price">590€ HT <span>mise en place</span></div>
-            <span class="badge">Organisation</span>
-          </div>
-          <span class="ia-note">IA Athy’s</span>
-        </div>
-
+      <div class="card">
+        <h3>Pack visuels pro</h3>
+        <p>30 visuels haute qualité.</p>
+        <p>250€ HT</p>
+        <span class="ia-note">IA Athy’s</span>
       </div>
-    </div>
-  </section>
 
-  <!-- STORYTELLING -->
-  <section id="storytelling">
-    <div class="container">
-      <h2 class="section-title">Storytelling & textes professionnels</h2>
-      <p class="section-subtitle">
-        Des textes structurés, élégants et cohérents pour présenter votre activité.
-      </p>
-
-      <div class="cards-grid cards-2">
-
-        <!-- STORYTELLING -->
-        <div class="card">
-          <img src="https://picsum.photos/seed/story/800/500" alt="Storytelling Athy’s" />
-          <div class="card-tag">Storytelling</div>
-          <div class="card-title">Textes pro & storytelling premium</div>
-          <p class="card-text">
-            Présentez votre histoire, votre activité et vos offres avec élégance.
-          </p>
-          <ul class="card-list">
-            <li>Page À propos, pitch, présentation</li>
-            <li>Ton aligné à votre identité</li>
-            <li>Retours & corrections inclus</li>
-          </ul>
-          <div class="card-footer">
-            <div class="price">180€ HT <span>pack complet</span></div>
-            <span class="badge">Écriture Pro</span>
-          </div>
-          <span class="ia-note">IA Athy’s</span>
-        </div>
-
-        <!-- PORTFOLIO -->
-        <div class="card">
-          <img src="https://picsum.photos/seed/portfolio/800/500" alt="Portfolio Athy’s" />
-          <div class="card-tag">Portfolio</div>
-          <div class="card-title">Portfolio professionnel Athy’s</div>
-          <p class="card-text">
-            Un document premium pour présenter votre travail et vos offres.
-          </p>
-          <ul class="card-list">
-            <li>Structure professionnelle</li>
-            <li>PDF + version web possible</li>
-            <li>Personnalisation totale</li>
-          </ul>
-          <div class="card-footer">
-            <div class="price">240€ HT <span>maquette + textes</span></div>
-            <span class="badge">Signature Athy’s</span>
-          </div>
-          <span class="ia-note">IA Athy’s</span>
-        </div>
-
+      <div class="card">
+        <h3>Stratégie digitale</h3>
+        <p>Audit + plan d’action.</p>
+        <p>120€ HT</p>
+        <span class="ia-note">IA Athy’s</span>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- TARIFS -->
-  <section id="tarifs">
-    <div class="container">
-      <h2 class="section-title">Tarifs rapides</h2>
-      <p class="section-subtitle">Aperçu clair des tarifs Athy’s.</p>
+<!-- OFFRES IA -->
+<section id="offres-ia">
+  <div class="container">
+    <h2>Offres IA Athy’s</h2>
+    <div class="cards-grid cards-2">
 
-      <table class="pricing-table">
-        <thead>
-          <tr>
-            <th>Offre</th>
-            <th>Description</th>
-            <th>Tarif</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Site vitrine premium</td>
-            <td>Site moderne jusqu’à 5 pages</td>
-            <td>450€</td>
-          </tr>
-          <tr>
-            <td>Pack visuels pro</td>
-            <td>30 visuels haute qualité</td>
-            <td>250€</td>
-          </tr>
-          <tr>
-            <td>Session stratégie digitale</td>
-            <td>Audit + plan d’action</td>
-            <td>120€</td>
-          </tr>
-          <tr>
-            <td>Assistant IA privé Athy’s</td>
-            <td>Assistant IA configuré sur mesure</td>
-            <td>390€</td>
-          </tr>
-          <tr>
-            <td>Gestionnaire digital intelligent</td>
-            <td>Système IA d’organisation</td>
-            <td>590€</td>
-          </tr>
-          <tr>
-            <td>Storytelling professionnel</td>
-            <td>Textes pour votre activité</td>
-            <td>180€</td>
-          </tr>
-          <tr>
-            <td>Portfolio professionnel</td>
-            <td>Portfolio premium</td>
-            <td>240€</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact & devis</h2>
-      <p class="section-subtitle">Décrivez votre besoin en quelques lignes.</p>
-
-      <div class="contact-grid">
-
-        <!-- INFOS -->
-        <div class="contact-card">
-          <h3>Parler avec Athy’s</h3>
-          <p>Pour toute demande, vous pouvez passer par ce formulaire ou nous contacter directement.</p>
-          <div class="contact-info">
-            <div><strong>Email :</strong> contact@athys-creation.com</div>
-            <div><strong>Téléphone :</strong> 0659279712</div>
-            <div><strong>Réseaux :</strong> Athy’s TV • Athy’s Création Pro</div>
-          </div>
-        </div>
-
-        <!-- FORMULAIRE (démo) -->
-        <form>
-          <div class="form-row">
-            <label>Nom</label>
-            <input type="text" placeholder="Votre nom" />
-          </div>
-          <div class="form-row">
-            <label>Email</label>
-            <input type="email" placeholder="votre@email.com" />
-          </div>
-          <div class="form-row">
-            <label>Type de projet</label>
-            <select>
-              <option>Site web</option>
-              <option>Visuels pro</option>
-              <option>Assistant IA privé</option>
-              <option>Gestionnaire digital</option>
-              <option>Storytelling</option>
-              <option>Portfolio</option>
-              <option>Autre projet</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label>Message</label>
-            <textarea placeholder="Décrivez votre besoin…"></textarea>
-          </div>
-          <button type="button" class="btn-primary">Envoyer</button>
-        </form>
-
+      <div class="card">
+        <h3>Assistant IA privé Athy’s</h3>
+        <p>Assistant IA configuré sur mesure.</p>
+        <p>390€ HT</p>
+        <span class="ia-note">IA Athy’s</span>
       </div>
-    </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    © Athy’s Création Pro — IA & Création digitale. Tous droits réservés.
-  </footer>
-
-  <!-- CHATBOT -->
-  <button class="chatbot-toggle" id="chatbotToggle">💬 Agent IA Athy’s</button>
-
-  <div class="chatbot-window" id="chatbotWindow">
-    <div class="chatbot-header">
-      <div>
-        <strong>Agent IA Athy’s</strong><br />
-        <span style="font-size:0.75rem;opacity:0.8;">Concierge digital premium</span>
+      <div class="card">
+        <h3>Gestionnaire digital intelligent</h3>
+        <p>Organisation & contenus automatisés.</p>
+        <p>590€ HT</p>
+        <span class="ia-note">IA Athy’s</span>
       </div>
-      <button id="chatbotClose" style="background:none;border:none;color:white;font-size:1.2rem;cursor:pointer;">×</button>
-    </div>
 
-    <div class="chatbot-messages" id="chatbotMessages">
-      <div class="chatbot-msg bot">
-        Bonjour et bienvenue chez <strong>Athy’s Création Pro</strong> ✨<br/>
-        Je suis votre <strong>Agent IA Athy’s</strong>.  
-        Je vous accompagne avec élégance sur vos questions concernant nos services, nos offres et nos tarifs.  
-        Quelle est la première chose que vous aimeriez clarifier ?
+    </div>
+  </div>
+</section>
+
+<!-- STORYTELLING -->
+<section id="storytelling">
+  <div class="container">
+    <h2>Storytelling & textes pro</h2>
+    <div class="cards-grid cards-2">
+
+      <div class="card">
+        <h3>Storytelling premium</h3>
+        <p>Textes élégants et structurés.</p>
+        <p>180€ HT</p>
+        <span class="ia-note">IA Athy’s</span>
       </div>
-    </div>
 
-    <div class="chatbot-input">
-      <input id="chatbotInput" placeholder="Écrivez votre question ici…" />
-      <button id="chatbotSend">Envoyer</button>
+      <div class="card">
+        <h3>Portfolio professionnel</h3>
+        <p>Maquette + textes premium.</p>
+        <p>240€ HT</p>
+        <span class="ia-note">IA Athy’s</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TARIFS -->
+<section id="tarifs">
+  <div class="container">
+    <h2>Tarifs rapides</h2>
+    <p>Site : 450€ • Visuels : 250€ • Storytelling : 180€ • Portfolio : 240€ • Assistant IA : 390€ • Gestionnaire digital : 590€</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <p>Email : contact@athys-creation.com</p>
+    <p>Téléphone : <strong>0659279712</strong></p>
+  </div>
+</section>
+
+<footer>
+  <p>© Athy’s Création Pro – IA Athy’s</p>
+</footer>
+
+<!-- CHATBOT BUTTON -->
+<button class="chatbot-toggle" id="chatbotToggle">💬 Agent IA Athy’s</button>
+
+<!-- CHATBOT WINDOW -->
+<div class="chatbot-window" id="chatbotWindow">
+  <div class="chatbot-header">
+    <strong>Agent IA Athy’s</strong>
+    <button id="chatbotClose" style="background:none;border:none;color:white;font-size:1.2rem;">×</button>
+  </div>
+
+  <div class="chatbot-messages" id="chatbotMessages">
+    <div class="chatbot-msg bot">
+      Bonjour ✨ Je suis l’Agent IA Athy’s.  
+      Comment puis-je vous accompagner aujourd’hui ?
     </div>
   </div>
 
-  <!-- SCRIPT CHATBOT -->
-  <script>
-    const toggle = document.getElementById("chatbotToggle");
-    const box = document.getElementById("chatbotWindow");
-    const closeBtn = document.getElementById("chatbotClose");
-    const messages = document.getElementById("chatbotMessages");
-    const input = document.getElementById("chatbotInput");
-    const send = document.getElementById("chatbotSend");
+  <div class="chatbot-input">
+    <input id="chatbotInput" placeholder="Écrivez ici…" />
+    <button id="chatbotSend">Envoyer</button>
+  </div>
+</div>
 
-    toggle.onclick = () => { box.style.display = "flex"; };
-    closeBtn.onclick = () => { box.style.display = "none"; };
+<!-- CHATBOT SCRIPT -->
+<script>
+  const toggle = document.getElementById("chatbotToggle");
+  const box = document.getElementById("chatbotWindow");
+  const closeBtn = document.getElementById("chatbotClose");
+  const messages = document.getElementById("chatbotMessages");
+  const input = document.getElementById("chatbotInput");
+  const send = document.getElementById("chatbotSend");
 
-    function addMsg(txt, from = "bot") {
-      const d = document.createElement("div");
-      d.className = "chatbot-msg " + from;
-      d.innerHTML = txt;
-      messages.appendChild(d);
-      messages.scrollTop = messages.scrollHeight;
-    }
+  toggle.onclick = () => box.style.display = "flex";
+  closeBtn.onclick = () => box.style.display = "none";
 
-    function reply(msg) {
-      const m = msg.toLowerCase();
+  function addMsg(txt, from="bot") {
+    const d = document.createElement("div");
+    d.className = "chatbot-msg " + from;
+    d.innerHTML = txt;
+    messages.appendChild(d);
+    messages.scrollTop = messages.scrollHeight;
+  }
 
-      // Offres et tarifs
-      if (m.includes("site")) {
-        return "Un site vitrine premium Athy’s est proposé à 450€ HT, avec jusqu’à 5 pages et un design moderne adapté à votre image.";
-      }
-      if (m.includes("visuel") || m.includes("image") || m.includes("photo")) {
-        return "Le pack 30 visuels professionnels Athy’s est à 250€ HT, avec un style visuel aligné à votre identité.";
-      }
-      if (m.includes("assistant")) {
-        return "L’assistant IA privé Athy’s est configuré sur mesure pour votre activité, à 390€ HT.";
-      }
-      if (m.includes("gestionnaire")) {
-        return "Le gestionnaire digital intelligent Athy’s est proposé à 590€ HT, idéal pour organiser tâches, idées et contenus.";
-      }
-      if (m.includes("story") || m.includes("texte") || m.includes("rédaction")) {
-        return "Le storytelling professionnel Athy’s débute à 180€ HT pour des textes élégants et structurés.";
-      }
-      if (m.includes("portfolio")) {
-        return "Le portfolio professionnel Athy’s est à 240€ HT, conçu comme un document premium prêt à être envoyé.";
-      }
+  /* 🔊 VOIX DU CHATBOT */
+  function speak(text) {
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "fr-FR";
+    speech.rate = 1;
+    speech.pitch = 1;
+    speech.volume = 1;
+    speechSynthesis.speak(speech);
+  }
 
-      // Salutations & questions générales
-      if (m.includes("bonjour") || m.includes("bonsoir") || m.includes("salut")) {
-        return "Bonjour ✨ Je suis l’Agent IA Athy’s. Dites-moi simplement ce que vous souhaitez clarifier : site, visuels, IA, storytelling, portfolio…";
-      }
+  /* 🔥 RÉPONSES INTELLIGENTES */
+  function reply(msg) {
+    const m = msg.toLowerCase();
 
-      if (m.includes("comment ça va")) {
-        return "Je fonctionne parfaitement bien, prêt à vous accompagner avec précision. Que puis-je faire pour vous aujourd’hui ?";
-      }
+    if (m.includes("site")) return "Un site vitrine premium Athy’s est à 450 euros HT, avec design moderne et optimisation mobile.";
+    if (m.includes("visuel")) return "Le pack 30 visuels professionnels Athy’s est proposé à 250 euros HT.";
+    if (m.includes("assistant")) return "L’assistant IA privé Athy’s est à 390 euros HT.";
+    if (m.includes("gestionnaire")) return "Le gestionnaire digital intelligent Athy’s est à 590 euros HT.";
+    if (m.includes("story")) return "Le storytelling professionnel Athy’s débute à 180 euros HT.";
+    if (m.includes("portfolio")) return "Le portfolio professionnel Athy’s est à 240 euros HT.";
+    if (m.includes("contact") || m.includes("téléphone")) return "Vous pouvez contacter Athy’s au 0659279712 ou par email à contact@athys-creation.com.";
 
-      // Contact
-      if (m.includes("contact") || m.includes("joindre") || m.includes("appeler")) {
-        return "Vous pouvez contacter Athy’s directement au 0659279712 ou par email à l’adresse : contact@athys-creation.com.";
-      }
+    return "Je suis votre Agent IA Athy’s ✨ Posez-moi vos questions sur les services, tarifs, portfolios, storytelling ou créations digitales.";
+  }
 
-      if (m.includes("numéro") || m.includes("telephone") || m.includes("téléphone")) {
-        return "Le numéro de contact Athy’s est : 0659279712.";
-      }
+  function sendMsg() {
+    const text = input.value.trim();
+    if (!text) return;
 
-      if (m.includes("email") || m.includes("mail")) {
-        return "L’adresse email officielle Athy’s est : contact@athys-creation.com.";
-      }
+    addMsg(text, "user");
+    input.value = "";
 
-      // Protection : ne jamais dévoiler le fonctionnement interne
-      if (m.includes("ia") || m.includes("fonctionne") || m.includes("système") || m.includes("derrière") || m.includes("gpt") || m.includes("openai")) {
-        return "Je suis programmé pour vous accompagner sur les services, les offres et les tarifs Athy’s de manière claire et élégante. Certains détails internes et techniques restent volontairement confidentiels, afin que vous puissiez rester concentré sur l’essentiel : votre projet.";
-      }
+    setTimeout(() => {
+      const rep = reply(text);
+      addMsg(rep, "bot");
+      speak(rep);  // 🔊 le bot parle ici
+    }, 300);
+  }
 
-      // Réponse par défaut premium
-      return "Merci pour votre question ✨ Je suis là pour vous aider à y voir plus clair. Pouvez-vous me préciser s’il s’agit d’un besoin de site web, de visuels, d’IA privée, de gestion digitale, de storytelling ou de portfolio ?";
-    }
+  send.onclick = sendMsg;
+  input.onkeydown = (e) => { if (e.key === "Enter") sendMsg(); };
+</script>
 
-    function sendMsg() {
-      const text = input.value.trim();
-      if (!text) return;
-      addMsg(text, "user");
-      input.value = "";
-
-      setTimeout(() => {
-        const rep = reply(text);
-        addMsg(rep, "bot");
-      }, 350);
-    }
-
-    send.onclick = sendMsg;
-    input.onkeydown = (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        sendMsg();
-      }
-    };
-  </script>
 </body>
 </html>
-
