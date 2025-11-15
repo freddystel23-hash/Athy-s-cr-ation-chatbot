@@ -1,120 +1,894 @@
- html>
+
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Athy's Création</title>
+  <title>Athy's Création – IA, Sites web & Image pro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #050816;
-      color: #f5f5f5;
+    :root {
+      --bg-main: #050816;
+      --bg-card: #0f172a;
+      --bg-soft: #020617;
+      --primary: #2563eb;
+      --accent: #22c55e;
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --border-soft: rgba(148, 163, 184, 0.5);
+      --radius-xl: 1.5rem;
+      --shadow-strong: 0 24px 80px rgba(0, 0, 0, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 40%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.7), transparent);
+      border-bottom: 1px solid rgba(31, 41, 55, 0.8);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      justify-content: space-between;
+      gap: 1.5rem;
     }
 
-    .container {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      max-width: 600px;
-      border-radius: 16px;
-      background: rgba(15, 23, 42, 0.95);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      color: #e5e7eb;
-    }
-
-    p {
-      line-height: 1.6;
-      font-size: 0.98rem;
-      margin-bottom: 1rem;
-      color: #d1d5db;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      border: 1px solid rgba(96, 165, 250, 0.8);
-      margin-bottom: 1rem;
-      color: #bfdbfe;
-    }
-
-    .cta {
-      margin-top: 1.5rem;
+    .nav-left {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       gap: 0.75rem;
     }
 
-    .btn-main {
-      display: inline-block;
+    .logo-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(59, 130, 246, 0.7);
+      background: radial-gradient(circle at 30% 0%, #38bdf8, #2563eb 45%, #22c55e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.8);
+    }
+
+    .brand-title {
+      font-weight: 650;
+      letter-spacing: 0.06em;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .brand-sub {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.86rem;
+    }
+
+    .nav-links a {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      color: #cbd5f5;
+      opacity: 0.85;
+    }
+
+    .nav-links a:hover {
+      background: rgba(37, 99, 235, 0.14);
+      opacity: 1;
+    }
+
+    .nav-cta {
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.83rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #f9fafb;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 32px rgba(37, 99, 235, 0.6);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* LAYOUT GÉNÉRAL */
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    section {
+      margin-top: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      max-width: 600px;
+    }
+
+    /* HERO / ACCUEIL */
+    .hero {
+      margin-top: 1.75rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(96, 165, 250, 0.85);
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.35), transparent 55%);
+      font-size: 0.75rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #bfdbfe;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4vw, 2.7rem);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(120deg, #ffffff, #bfdbfe, #6ee7b7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      max-width: 520px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-list {
+      margin-bottom: 1.4rem;
+      font-size: 0.9rem;
+      color: #cbd5f5;
+    }
+
+    .hero-list li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-list span {
+      font-size: 0.7rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(52, 211, 153, 0.7);
+      color: #bbf7d0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn-primary {
       padding: 0.8rem 1.4rem;
       border-radius: 999px;
       border: none;
-      font-weight: 600;
       font-size: 0.95rem;
+      font-weight: 600;
       cursor: pointer;
-      text-decoration: none;
-      background: linear-gradient(135deg, #2563eb, #22c55e);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       color: #f9fafb;
-      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+      box-shadow: 0 14px 40px rgba(37, 99, 235, 0.7);
     }
 
-    .btn-main:active {
-      transform: translateY(1px);
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+    .btn-ghost {
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      font-size: 0.9rem;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-soft);
+      cursor: pointer;
     }
 
-    .note {
+    .hero-right {
+      position: relative;
+      padding: 1.5rem;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 10% 0, rgba(56, 189, 248, 0.14), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.16), transparent 55%),
+                  var(--bg-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-strong);
+      overflow: hidden;
+    }
+
+    .hero-right h3 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-right p {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      font-size: 0.72rem;
+    }
+
+    .hero-tag-grid span {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* SERVICES */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+
+    .card {
+      background: radial-gradient(circle at 0 0, rgba(37, 99, 235, 0.18), transparent 50%),
+                  var(--bg-card);
+      border-radius: 1.2rem;
+      padding: 1.4rem 1.2rem;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 0.82rem;
+      color: #cbd5f5;
+      margin-bottom: 0.75rem;
+    }
+
+    .card ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      color: #a5b4fc;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+    }
+
+    /* TARIFS */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+
+    .price-card {
+      background: var(--bg-card);
+      border-radius: 1.3rem;
+      padding: 1.5rem 1.25rem;
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
+    }
+
+    .price-card.highlight {
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.22), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(52, 211, 153, 0.24), transparent 55%),
+                  #020617;
+      border: 1px solid rgba(96, 165, 250, 0.9);
+      transform: translateY(-4px);
+    }
+
+    .price-title {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .price-sub {
       font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: 650;
+      margin-bottom: 0.4rem;
+    }
+
+    .price span {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--text-soft);
+    }
+
+    .price-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: #cbd5f5;
+      margin: 0.75rem 0 1rem;
+    }
+
+    .price-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    .price-btn {
+      width: 100%;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.95);
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+    }
+
+    .price-card.highlight .price-btn {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border: none;
+      box-shadow: 0 12px 36px rgba(37, 99, 235, 0.8);
+    }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .portfolio-item {
+      border-radius: 1rem;
+      padding: 1rem;
+      background: radial-gradient(circle at 0 0, rgba(30, 64, 175, 0.3), transparent 55%),
+                  #020617;
+      border: 1px solid rgba(30, 64, 175, 0.9);
+      min-height: 130px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .portfolio-item h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .portfolio-item p {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .portfolio-tag {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.8);
+      align-self: flex-start;
+      margin-top: 0.5rem;
+      color: #e0f2fe;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.75rem;
+      margin-top: 1.75rem;
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border-radius: 1.3rem;
+      padding: 1.5rem 1.3rem;
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .contact-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-card p {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin-bottom: 0.9rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-actions a {
+      font-size: 0.85rem;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      color: #e5e7eb;
+    }
+
+    .contact-actions a.primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border: none;
+      box-shadow: 0 12px 36px rgba(37, 99, 235, 0.85);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      font-size: 0.82rem;
+    }
+
+    .contact-form label {
+      font-size: 0.78rem;
       color: #9ca3af;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border-radius: 0.7rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 0.82rem;
+    }
+
+    .contact-form textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      margin-top: 0.5rem;
+      padding: 0.7rem 1.1rem;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #f9fafb;
+      box-shadow: 0 12px 34px rgba(37, 99, 235, 0.85);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.95);
+      background: #020617;
+      margin-top: 2.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.2rem 1.25rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-top span {
+      opacity: 0.9;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      .cards-grid,
+      .pricing-grid,
+      .portfolio-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 1.75rem 1rem 3rem;
+      }
+      .hero {
+        margin-top: 1.3rem;
+      }
+      section {
+        margin-top: 2.4rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="badge">Athy's Création • IA & Web</div>
-    <h1>Bienvenue chez Athy’s Création</h1>
-    <h2>Votre partenaire IA pour sites web, contenus & image professionnelle</h2>
-
-    <p>
-      Le site est en cours d’optimisation pour vous offrir une expérience encore plus fluide,
-      élégante et 100% adaptée aux entrepreneurs modernes.
-    </p>
-
-    <p>
-      Très bientôt, vous y retrouverez : création de sites web, contenus visuels et vidéo,
-      accompagnement IA, offres pour les entreprises et bien plus encore.
-    </p>
-
-    <div class="cta">
-      <a class="btn-main" href="mailto:contact@athys-creation.com">
-        Me contacter dès maintenant
-      </a>
-      <p class="note">
-        Pour toute demande urgente, écrivez-moi par mail en précisant votre projet.
-      </p>
+  <!-- NAVBAR -->
+  <header>
+    <div class="nav">
+      <div class="nav-left">
+        <div class="logo-badge">A</div>
+        <div>
+          <div class="brand-title">Athy's Création</div>
+          <div class="brand-sub">IA • Web • Image professionnelle</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#accueil">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="nav-cta">Parler de mon projet</a>
     </div>
-  </div>
+  </header>
+
+  <main>
+    <!-- ACCUEIL / HERO -->
+    <section id="accueil" class="hero">
+      <div>
+        <div class="badge-top">
+          <span class="badge-dot"></span>
+          Athy's Création • IA & Web
+        </div>
+        <h1>
+          Bienvenue chez
+          <span class="hero-highlight">Athy’s Création</span>
+        </h1>
+        <p>
+          Je t’aide à créer un site web élégant, une image professionnelle cohérente
+          et des contenus boostés à l’IA pour attirer les bons clients – sans
+          te perdre dans la technique.
+        </p>
+
+        <ul class="hero-list">
+          <li><span>IA</span> Conseils et automatisations pour ton activité</li>
+          <li><span>Sites web</span> Pages modernes, claires et efficaces</li>
+          <li><span>Visuels & vidéo</span> Présence pro pour réseaux & web</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="btn-primary" href="#contact">Discuter de mon projet</a>
+          <a class="btn-ghost" href="#tarifs">Voir les offres</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <h3>Une vision claire pour ton business</h3>
+        <p>
+          Athy’s Création accompagne les entrepreneurs, coachs, indépendants et
+          petites entreprises qui veulent une présence en ligne professionnelle,
+          sans perdre du temps dans la technique.
+        </p>
+        <div class="hero-tag-grid">
+          <span>Stratégie IA & contenus</span>
+          <span>Sites web modernes</span>
+          <span>Accompagnement personnalisé</span>
+          <span>Visuels & identité de marque</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h2 class="section-title">Services</h2>
+      <p class="section-sub">
+        Des prestations pensées pour t’aider à clarifier ton message, professionnaliser ton image
+        et utiliser l’IA comme un véritable levier, pas un gadget.
+      </p>
+
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-tag">Sites web</span>
+          <h3>Création & refonte de site</h3>
+          <p>
+            Une page d’accueil claire, des sections structurées et un design premium
+            adapté à ton activité et à ton audience.
+          </p>
+          <ul>
+            <li>• Structure stratégique des pages</li>
+            <li>• Design moderne et responsive</li>
+            <li>• Textes de base optimisés</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="card-tag">IA & automatisation</span>
+          <h3>Accompagnement IA Athy’s</h3>
+          <p>
+            Mise en place d’agents IA, prompts sur mesure et idées d’automatisation
+            pour gagner du temps au quotidien.
+          </p>
+          <ul>
+            <li>• Clarification de tes besoins</li>
+            <li>• Propositions d’IA adaptées</li>
+            <li>• Démonstrations et exemples concrets</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="card-tag">Image & contenus</span>
+          <h3>Visuels & image professionnelle</h3>
+          <p>
+            Aide à la création de visuels, vidéos et éléments graphiques cohérents
+            avec ton univers et ton message.
+          </p>
+          <ul>
+            <li>• Idées de visuels pour réseaux</li>
+            <li>• Axes pour ton identité visuelle</li>
+            <li>• Suggestions pour ton portfolio</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARIFS -->
+    <section id="tarifs">
+      <h2 class="section-title">Tarifs</h2>
+      <p class="section-sub">
+        Des offres claires pour avancer étape par étape, selon ton niveau et tes besoins.
+        Les tarifs définitifs peuvent être ajustés en fonction de ton projet réel.
+      </p>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-title">Pack Découverte</div>
+          <div class="price-sub">Pour clarifier ton projet et poser les bases.</div>
+          <div class="price">À partir de 149 € <span>/ séance</span></div>
+          <ul class="price-list">
+            <li>• 1 session d’échange (en ligne)</li>
+            <li>• Analyse de ta présence actuelle</li>
+            <li>• Conseils IA & contenu de départ</li>
+          </ul>
+          <button class="price-btn" onclick="location.href='#contact'">
+            Je veux en savoir plus
+          </button>
+        </div>
+
+        <div class="price-card highlight">
+          <div class="price-title">Pack Site & Image</div>
+          <div class="price-sub">Pour un site simple, clair et professionnel.</div>
+          <div class="price">À partir de 599 € <span>/ projet</span></div>
+          <ul class="price-list">
+            <li>• Page d’accueil structurée</li>
+            <li>• Sections services, tarifs, contact</li>
+            <li>• Design premium Athy’s Création</li>
+            <li>• Conseils IA intégrés au projet</li>
+          </ul>
+          <button class="price-btn" onclick="location.href='#contact'">
+            Parler de ce pack
+          </button>
+        </div>
+
+        <div class="price-card">
+          <div class="price-title">Pack Signature</div>
+          <div class="price-sub">Pour une expérience sur mesure et complète.</div>
+          <div class="price">Sur devis <span>/ accompagnement</span></div>
+          <ul class="price-list">
+            <li>• Site personnalisé</li>
+            <li>• Accompagnement IA plus poussé</li>
+            <li>• Idées de contenus & visuels</li>
+            <li>• Suivi sur une période définie</li>
+          </ul>
+          <button class="price-btn" onclick="location.href='#contact'">
+            Demander un devis
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <h2 class="section-title">Portfolio & exemples</h2>
+      <p class="section-sub">
+        Quelques idées de ce que nous pouvons créer ensemble. Les visuels concrets
+        pourront être ajoutés au fur et à mesure des projets réalisés.
+      </p>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <h3>Page d’accueil Athy’s – IA & Web</h3>
+          <p>Une page claire, premium, pensée pour rassurer et donner envie de te contacter.</p>
+          <span class="portfolio-tag">Site vitrine</span>
+        </div>
+        <div class="portfolio-item">
+          <h3>Visuels réseaux sociaux</h3>
+          <p>Idées de carrousels, posts et visuels adaptés à ton identité et ton message.</p>
+          <span class="portfolio-tag">Image pro</span>
+        </div>
+        <div class="portfolio-item">
+          <h3>Expérience IA Athy’s</h3>
+          <p>Accompagnement pour intégrer l’IA dans ton quotidien d’entrepreneur.</p>
+          <span class="portfolio-tag">IA & conseil</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact & prise de rendez-vous</h2>
+      <p class="section-sub">
+        Tu as un projet, une idée ou simplement des questions ? Dis-m’en plus et nous
+        verrons ensemble comment Athy’s Création peut t’accompagner.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Parler directement avec Athy’s Création</h3>
+          <p>
+            Explique ton activité, ton objectif principal (site, image, IA…) et ton niveau actuel.
+            Je reviens vers toi avec une proposition adaptée.
+          </p>
+          <div class="contact-actions">
+            <a
+              class="primary"
+              href="mailto:contact@athys-creation.com?subject=Projet%20Athy%27s%20Cr%C3%A9ation&body=Bonjour%2C%20je%20souhaite%20vous%20parler%20de%20mon%20projet%20%3A"
+            >
+              Écrire un e-mail
+            </a>
+            <a href="https://wa.me/000000000000" target="_blank" rel="noopener">
+              Échanger par WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>Formulaire express</h3>
+          <p>Formulaire indicatif (non connecté) pour t’aider à structurer ton message.</p>
+          <form class="contact-form">
+            <div>
+              <label>Nom / Prénom</label>
+              <input type="text" placeholder="Ex : Marie, coach en développement personnel" />
+            </div>
+            <div>
+              <label>Type de projet</label>
+              <input type="text" placeholder="Site web, IA, visuels, autre…" />
+            </div>
+            <div>
+              <label>Message</label>
+              <textarea placeholder="Décris ton besoin en quelques phrases."></textarea>
+            </div>
+            <button type="button" onclick="window.location.href='mailto:contact@athys-creation.com'">
+              Envoyer mon projet par e-mail
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <span>© <span id="year"></span> Athy’s Création – IA, Web & Image professionnelle.</span>
+        <div class="footer-links">
+          <a href="#accueil">Accueil</a>
+          <a href="#services">Services</a>
+          <a href="#tarifs">Tarifs</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <span>Site en évolution – certaines fonctionnalités seront ajoutées progressivement (chatbot, espace client, etc.).</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mettre automatiquement l'année dans le footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
