@@ -1,661 +1,129 @@
-!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Athy's Création – Agent IA</title>
+  <title>Athy's Création</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <style>
-    /* --- RESET SIMPLE --- */
-    * {
-      box-sizing: border-box;
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050816;
+      color: #f5f5f5;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    body {
-      background: #f4f6fb;
-      min-height: 100vh;
-    }
-
-    /* --- BOUTON FLOTTANT DU CHATBOT --- */
-    .chat-toggle {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: none;
-      cursor: pointer;
-      background: linear-gradient(135deg, #1b84ff, #0046a8);
-      color: #ffffff;
-      font-size: 26px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 9999;
+      min-height: 100vh;
     }
 
-    .chat-toggle:active {
-      transform: scale(0.97);
+    .container {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      max-width: 600px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.4);
     }
 
-    /* --- FENÊTRE DU CHATBOT --- */
-    .chat-window {
-      position: fixed;
-      right: 20px;
-      bottom: 95px;
-      width: 360px;
-      max-width: calc(100% - 40px);
-      background: #ffffff;
-      border-radius: 18px;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      z-index: 9999;
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
 
-    .chat-window.open {
-      display: flex;
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: #e5e7eb;
     }
 
-    /* --- EN-TÊTE --- */
-    .chat-header {
-      background: linear-gradient(135deg, #1b84ff, #0046a8);
-      color: #ffffff;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
+    p {
+      line-height: 1.6;
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
+      color: #d1d5db;
     }
 
-    .chat-header-left {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .chat-header-title {
-      font-weight: 600;
-      font-size: 15px;
-    }
-
-    .chat-header-sub {
-      font-size: 11px;
-      opacity: 0.9;
-    }
-
-    .chat-header-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-    }
-
-    .chat-time {
-      font-size: 11px;
-      opacity: 0.9;
-    }
-
-    /* --- CONTENU --- */
-    .chat-body {
-      padding: 14px;
-      max-height: 360px;
-      overflow-y: auto;
-      background: #f8fafc;
-    }
-
-    .message {
-      margin-bottom: 10px;
-      font-size: 13px;
-      line-height: 1.4;
-      max-width: 90%;
-      word-wrap: break-word;
-    }
-
-    .message.bot {
-      background: #e5efff;
-      border-radius: 14px 14px 14px 4px;
-      padding: 10px 12px;
-      color: #0f172a;
-    }
-
-    .message.user {
-      background: #1b84ff;
-      border-radius: 14px 14px 4px 14px;
-      padding: 10px 12px;
-      color: #ffffff;
-      margin-left: auto;
-    }
-
-    /* --- ZONE DE SAISIE --- */
-    .chat-footer {
-      border-top: 1px solid #e2e8f0;
-      padding: 8px;
-      background: #ffffff;
-      display: flex;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .chat-input {
-      flex: 1;
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       border-radius: 999px;
-      border: 1px solid #cbd5e1;
-      padding: 8px 12px;
-      font-size: 13px;
-      outline: none;
+      border: 1px solid rgba(96, 165, 250, 0.8);
+      margin-bottom: 1rem;
+      color: #bfdbfe;
     }
 
-    .chat-input:focus {
-      border-color: #1b84ff;
+    .cta {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
     }
 
-    .chat-mic {
-      border-radius: 999px;
-      border: 1px solid #cbd5e1;
-      background: #f8fafc;
-      padding: 8px 10px;
-      font-size: 16px;
-      cursor: pointer;
-      min-width: 38px;
-    }
-
-    .chat-mic.listening {
-      border-color: #ef4444;
-      background: #fee2e2;
-    }
-
-    .chat-send {
+    .btn-main {
+      display: inline-block;
+      padding: 0.8rem 1.4rem;
       border-radius: 999px;
       border: none;
-      padding: 8px 14px;
-      font-size: 13px;
+      font-weight: 600;
+      font-size: 0.95rem;
       cursor: pointer;
-      background: #1b84ff;
-      color: #ffffff;
-      font-weight: 500;
+      text-decoration: none;
+      background: linear-gradient(135deg, #2563eb, #22c55e);
+      color: #f9fafb;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
     }
 
-    .chat-send:active {
-      transform: scale(0.97);
+    .btn-main:active {
+      transform: translateY(1px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: #9ca3af;
     }
   </style>
 </head>
-
 <body>
-  <!-- BOUTON FLOTTANT -->
-  <button class="chat-toggle" id="chatToggle" aria-label="Ouvrir le chatbot">
-    💬
-  </button>
+  <div class="container">
+    <div class="badge">Athy's Création • IA & Web</div>
+    <h1>Bienvenue chez Athy’s Création</h1>
+    <h2>Votre partenaire IA pour sites web, contenus & image professionnelle</h2>
 
-  <!-- FENÊTRE DU CHATBOT -->
-  <div class="chat-window" id="chatWindow">
-    <div class="chat-header">
-      <div class="chat-header-left">
-        <div class="chat-header-title" id="chatHeaderTitle">Agent IA Athy’s Création</div>
-        <div class="chat-header-sub" id="chatHeaderSub">Assistant digital à votre service</div>
-      </div>
-      <div class="chat-header-right">
-        <div class="chat-time" id="chatTime">--:--</div>
-      </div>
-    </div>
+    <p>
+      Le site est en cours d’optimisation pour vous offrir une expérience encore plus fluide,
+      élégante et 100% adaptée aux entrepreneurs modernes.
+    </p>
 
-    <div class="chat-body" id="chatBody">
-      <div class="message bot" id="welcomeMessage"></div>
-    </div>
+    <p>
+      Très bientôt, vous y retrouverez : création de sites web, contenus visuels et vidéo,
+      accompagnement IA, offres pour les entreprises et bien plus encore.
+    </p>
 
-    <div class="chat-footer">
-      <input
-        type="text"
-        id="chatInput"
-        class="chat-input"
-        placeholder=""
-      />
-      <button id="chatMic" class="chat-mic" type="button" title="Parler avec l’agent">🎙️</button>
-      <button id="chatSend" class="chat-send" type="button">Envoyer</button>
+    <div class="cta">
+      <a class="btn-main" href="mailto:contact@athys-creation.com">
+        Me contacter dès maintenant
+      </a>
+      <p class="note">
+        Pour toute demande urgente, écrivez-moi par mail en précisant votre projet.
+      </p>
     </div>
   </div>
-
-  <script>
-    // 🌍 TRADUCTIONS MULTILINGUES (FR / EN / ES – extensible)
-    const translations = {
-      fr: {
-        headerTitle: "Agent IA Athy’s Création",
-        headerSub: "Assistant digital à votre service",
-        inputPlaceholder: "Écrivez ou dictez votre question ici...",
-        welcome:
-          "Bonjour et bienvenue sur Athy’s Création 👋\n\n" +
-          "Je suis l’agent IA Athy’s, votre assistant digital.\n" +
-          "Je suis là pour vous renseigner, vous guider dans vos choix " +
-          "et vous aider à trouver les services ou offres les plus adaptés à vos besoins.\n\n" +
-          "N’hésitez pas à me poser vos questions, je suis à votre disposition.",
-        inactivityHelp:
-          "Je suis toujours là si vous avez besoin d’aide 😊\n" +
-          "Souhaitez-vous que je vous oriente vers une offre, les tarifs, la boutique ou la page de contact ?",
-        knowledge: {
-          general:
-            "Je représente Athy’s Création. Je peux vous présenter nos services, nos offres, notre boutique et la façon de nous contacter. " +
-            "Précisez-moi si vous cherchez plutôt des informations sur nos services, les tarifs, la boutique ou la prise de contact.",
-          offres:
-            "Athy’s Création accompagne les particuliers et les entreprises dans la création de contenus, la mise en place d’outils digitaux " +
-            "et l’intégration de l’intelligence artificielle dans leurs projets. Nous proposons des offres d’accompagnement, de création et de conseil.",
-          tarifs:
-            "Vous trouverez le détail de nos tarifs dans la section Tarifs du site. Les offres sont pensées pour s’adapter à différents besoins et budgets. " +
-            "Si vous me précisez le type de service qui vous intéresse, je peux vous orienter vers la formule la plus adaptée.",
-          contact:
-            "Pour contacter Athy’s Création, vous pouvez utiliser le formulaire de contact du site ou les coordonnées indiquées dans la page Contact. " +
-            "Indiquez votre projet et nous reviendrons vers vous avec une réponse personnalisée.",
-          boutique:
-            "La boutique Athy’s vous permet d’accéder à nos créations, produits et services en ligne. Vous pouvez parcourir les catégories, ajouter des articles au panier " +
-            "et finaliser votre commande directement depuis le site."
-        }
-      },
-      en: {
-        headerTitle: "Athy’s Création – AI Assistant",
-        headerSub: "Digital assistant at your service",
-        inputPlaceholder: "Type or speak your question here...",
-        welcome:
-          "Hello and welcome to Athy’s Création 👋\n\n" +
-          "I am Athy’s AI agent, your digital assistant.\n" +
-          "I’m here to inform you, guide your choices, and help you find the services or offers that best match your needs.\n\n" +
-          "Feel free to ask your questions, I’m here for you.",
-        inactivityHelp:
-          "I’m still here if you need help 😊\n" +
-          "Would you like me to guide you to an offer, pricing, the shop, or the contact page?",
-        knowledge: {
-          general:
-            "I represent Athy’s Création. I can present our services, offers, online shop and how to contact us. " +
-            "Please tell me if you are looking for information about services, pricing, the shop, or contacting us.",
-          offres:
-            "Athy’s Création supports individuals and businesses in content creation, digital tools, " +
-            "and integrating artificial intelligence into their projects. We provide coaching, creation and consulting offers.",
-          tarifs:
-            "You can find detailed pricing in the Pricing section of the site. Our offers are designed to fit different needs and budgets. " +
-            "If you tell me which type of service you’re interested in, I can suggest the most suitable offer.",
-          contact:
-            "To contact Athy’s Création, you can use the contact form on the site or the details shown on the Contact page. " +
-            "Describe your project and we will get back to you with a tailored answer.",
-          boutique:
-            "The Athy’s online shop gives you access to our creations, products and services. You can browse categories, add items to your cart " +
-            "and complete your order directly on the site."
-        }
-      },
-      es: {
-        headerTitle: "Athy’s Création – Agente IA",
-        headerSub: "Asistente digital a su servicio",
-        inputPlaceholder: "Escriba o dicte su pregunta aquí...",
-        welcome:
-          "Hola y bienvenido a Athy’s Création 👋\n\n" +
-          "Soy el agente IA de Athy’s, su asistente digital.\n" +
-          "Estoy aquí para informarle, guiarle en sus elecciones " +
-          "y ayudarle a encontrar los servicios u ofertas más adecuados a sus necesidades.\n\n" +
-          "No dude en hacerme sus preguntas, estoy a su disposición.",
-        inactivityHelp:
-          "Sigo aquí si necesita ayuda 😊\n" +
-          "¿Quiere que le oriente hacia una oferta, los precios, la tienda o la página de contacto?",
-        knowledge: {
-          general:
-            "Represento a Athy’s Création. Puedo presentarle nuestros servicios, nuestras ofertas, la tienda en línea y cómo contactarnos. " +
-            "Indíqueme si busca información sobre servicios, precios, la tienda o el contacto.",
-          offres:
-            "Athy’s Création acompaña a particulares y empresas en la creación de contenidos, en la puesta en marcha de herramientas digitales " +
-            "y en la integración de la inteligencia artificial en sus proyectos.",
-          tarifs:
-            "Encontrará los detalles de nuestros precios en la sección de Tarifas del sitio. " +
-            "Si me indica el tipo de servicio que le interesa, podré orientarle hacia la oferta más adecuada.",
-          contact:
-            "Para contactar con Athy’s Création, puede utilizar el formulario de contacto del sitio o los datos que aparecen en la página de Contacto.",
-          boutique:
-            "La tienda Athy’s le permite acceder a nuestras creaciones, productos y servicios en línea. " +
-            "Puede explorar las categorías y finalizar su pedido directamente desde el sitio."
-        }
-      }
-    };
-
-    // Langue par défaut déterminée par le navigateur
-    function getBrowserLang() {
-      const nav = (navigator.language || navigator.userLanguage || "fr").slice(0, 2).toLowerCase();
-      if (translations[nav]) return nav;
-      return "fr";
-    }
-
-    let currentLang = getBrowserLang();
-
-    function detectLangFromText(text) {
-      const lower = text.toLowerCase();
-
-      // Quelques indices simples
-      if (/[àâçéèêëîïôùûü]/.test(lower) || lower.includes("bonjour") || lower.includes("merci")) return "fr";
-      if (lower.includes("hello") || lower.includes("hi ") || lower.includes("thanks")) return "en";
-      if (lower.includes("hola") || lower.includes("gracias")) return "es";
-
-      // Sinon : garder la langue actuelle
-      return currentLang;
-    }
-
-    function langToVoiceCode(lang) {
-      switch (lang) {
-        case "fr": return "fr-FR";
-        case "en": return "en-US";
-        case "es": return "es-ES";
-        default: return "en-US";
-      }
-    }
-
-    function applyLangTexts() {
-      const t = translations[currentLang] || translations["fr"];
-
-      const headerTitle = document.getElementById("chatHeaderTitle");
-      const headerSub = document.getElementById("chatHeaderSub");
-      const input = document.getElementById("chatInput");
-      const welcomeMessage = document.getElementById("welcomeMessage");
-
-      if (headerTitle) headerTitle.textContent = t.headerTitle;
-      if (headerSub) headerSub.textContent = t.headerSub;
-      if (input) input.placeholder = t.inputPlaceholder;
-      if (welcomeMessage) {
-        welcomeMessage.innerHTML = t.welcome.replace(/\n/g, "<br />");
-      }
-    }
-
-    function generateBotReply(question) {
-      const t = translations[currentLang] || translations["fr"];
-      const k = t.knowledge;
-      const q = question.toLowerCase();
-
-      if (q.includes("contact") || q.includes("joindre") || q.includes("email") || q.includes("téléphone") ||
-          q.includes("contact us") || q.includes("email") || q.includes("phone") ||
-          q.includes("contacto") || q.includes("teléfono")) {
-        return k.contact || k.general;
-      }
-
-      if (q.includes("tarif") || q.includes("prix") || q.includes("coût") || q.includes("combien") ||
-          q.includes("pricing") || q.includes("price") || q.includes("cost") ||
-          q.includes("tarifa") || q.includes("precio")) {
-        return k.tarifs || k.general;
-      }
-
-      if (q.includes("offre") || q.includes("service") || q.includes("accompagnement") ||
-          q.includes("offer") || q.includes("services") ||
-          q.includes("oferta") || q.includes("servicio")) {
-        return k.offres || k.general;
-      }
-
-      if (q.includes("boutique") || q.includes("shop") || q.includes("produit") ||
-          q.includes("tienda") || q.includes("producto")) {
-        return k.boutique || k.general;
-      }
-
-      return k.general;
-    }
-
-    // 🔐 COLLABORATION SILENCIEUSE AVEC LE MANAGER (invisible pour le visiteur)
-    function sendToManager(payload) {
-      console.log("📡 Envoi silencieux au manager :", payload);
-      /*
-      fetch("https://TON-ENDPOINT-MANAGER.com/api/visiteur", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      }).catch((err) => {
-        console.error("Erreur d’envoi au manager :", err);
-      });
-      */
-    }
-
-    const chatToggle = document.getElementById("chatToggle");
-    const chatWindow = document.getElementById("chatWindow");
-    const chatTime = document.getElementById("chatTime");
-    const chatBody = document.getElementById("chatBody");
-    const chatInput = document.getElementById("chatInput");
-    const chatSend = document.getElementById("chatSend");
-    const chatMic = document.getElementById("chatMic");
-    const welcomeMessage = document.getElementById("welcomeMessage");
-
-    let recognition = null;
-    let isListening = false;
-    let hasSpokenWelcome = false;
-    let lastInteractionMode = "text"; // "text" ou "voice"
-    let inactivityTimer = null;
-    let hasOfferedHelp = false;
-    const INACTIVITY_DELAY = 3 * 60 * 1000; // 3 minutes
-
-    // Appliquer la langue à l’interface et au message de bienvenue
-    applyLangTexts();
-
-    // --- HEURE EN TEMPS RÉEL ---
-    function updateChatTime() {
-      const now = new Date();
-      const hours = String(now.getHours()).padStart(2, "0");
-      const minutes = String(now.getMinutes()).padStart(2, "0");
-      chatTime.textContent = `${hours} : ${minutes}`;
-    }
-    setInterval(updateChatTime, 1000);
-    updateChatTime();
-
-    // --- OUTILS TEXTE / VOIX ---
-    function stripHtml(html) {
-      const temp = document.createElement("div");
-      temp.innerHTML = html;
-      return temp.textContent || temp.innerText || "";
-    }
-
-    function speakText(text) {
-      if (!("speechSynthesis" in window)) {
-        console.warn("Synthèse vocale non supportée par ce navigateur.");
-        return;
-      }
-      if (!text) return;
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = langToVoiceCode(currentLang);
-      utterance.rate = 1;
-      utterance.pitch = 1;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
-
-    // --- GESTION INACTIVITÉ ---
-    function resetInactivityTimer() {
-      if (inactivityTimer) clearTimeout(inactivityTimer);
-      if (!chatWindow.classList.contains("open")) return;
-
-      inactivityTimer = setTimeout(() => {
-        if (chatWindow.classList.contains("open") && !hasOfferedHelp) {
-          const t = translations[currentLang] || translations["fr"];
-          const helpMsg = document.createElement("div");
-          helpMsg.className = "message bot";
-          helpMsg.innerHTML = t.inactivityHelp.replace(/\n/g, "<br />");
-          chatBody.appendChild(helpMsg);
-          chatBody.scrollTop = chatBody.scrollHeight;
-          hasOfferedHelp = true;
-
-          const managerPayload = {
-            type: "relance_inactivite",
-            date: new Date().toISOString(),
-            page: window.location.href,
-            message: "Relance automatique après 3 minutes sans interaction."
-          };
-          sendToManager(managerPayload);
-        }
-      }, INACTIVITY_DELAY);
-    }
-
-    // --- OUVRIR / FERMER LA FENÊTRE ---
-    chatToggle.addEventListener("click", () => {
-      const isOpening = !chatWindow.classList.contains("open");
-      chatWindow.classList.toggle("open");
-
-      if (isOpening) {
-        hasOfferedHelp = false;
-        resetInactivityTimer();
-      } else {
-        if (inactivityTimer) clearTimeout(inactivityTimer);
-      }
-
-      // Message de bienvenue vocal UNE SEULE FOIS
-      if (isOpening && !hasSpokenWelcome) {
-        const t = translations[currentLang] || translations["fr"];
-        const welcomeText = t.welcome;
-        speakText(welcomeText);
-        hasSpokenWelcome = true;
-      }
-    });
-
-    // --- RECONNAISSANCE VOCALE (ÉCOUTE DU VISITEUR) ---
-    function setupSpeechRecognition() {
-      const SpeechRecognition =
-        window.SpeechRecognition || window.webkitSpeechRecognition;
-
-      if (!SpeechRecognition) {
-        console.warn("Reconnaissance vocale non supportée par ce navigateur.");
-        return null;
-      }
-
-      const rec = new SpeechRecognition();
-      rec.lang = langToVoiceCode(currentLang);
-      rec.interimResults = false;
-      rec.maxAlternatives = 1;
-
-      rec.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        chatInput.value = transcript;
-        // Interaction VOCALE → réponse en texte + voix
-        sendMessage("voice");
-      };
-
-      rec.onerror = (event) => {
-        console.warn("Erreur reconnaissance vocale :", event.error);
-        isListening = false;
-        updateMicUI();
-      };
-
-      rec.onend = () => {
-        isListening = false;
-        updateMicUI();
-      };
-
-      return rec;
-    }
-
-    recognition = setupSpeechRecognition();
-
-    function updateMicUI() {
-      if (!chatMic) return;
-      if (!recognition) {
-        chatMic.textContent = "🎙️";
-        chatMic.classList.remove("listening");
-        return;
-      }
-      if (isListening) {
-        chatMic.textContent = "🔴";
-        chatMic.classList.add("listening");
-      } else {
-        chatMic.textContent = "🎙️";
-        chatMic.classList.remove("listening");
-      }
-    }
-
-    function toggleMic() {
-      if (!recognition) {
-        alert("La fonction vocale n’est pas disponible sur ce navigateur.");
-        return;
-      }
-      if (!isListening) {
-        try {
-          recognition.lang = langToVoiceCode(currentLang);
-          recognition.start();
-          isListening = true;
-          updateMicUI();
-        } catch (e) {
-          console.error(e);
-        }
-      } else {
-        recognition.stop();
-        isListening = false;
-        updateMicUI();
-      }
-    }
-
-    chatMic.addEventListener("click", toggleMic);
-
-    // --- ENVOI DE MESSAGE ---
-    // source = "text" (clavier) ou "voice" (micro)
-    function sendMessage(source = "text") {
-      const text = chatInput.value.trim();
-      if (!text) return;
-
-      // Détecter la langue depuis le message et adapter tout
-      currentLang = detectLangFromText(text);
-      applyLangTexts();
-
-      lastInteractionMode = source;
-
-      // Message de l'utilisateur
-      const userMsg = document.createElement("div");
-      userMsg.className = "message user";
-      userMsg.textContent = text;
-      chatBody.appendChild(userMsg);
-      chatBody.scrollTop = chatBody.scrollHeight;
-
-      // Nettoyer le champ et relancer le timer d’inactivité
-      chatInput.value = "";
-      resetInactivityTimer();
-
-      // Envoi silencieux au manager
-      const managerPayload = {
-        type: "question_visiteur",
-        message: text,
-        date: new Date().toISOString(),
-        page: window.location.href,
-        statut: "reçu_par_chatbot",
-        langue: currentLang
-      };
-      sendToManager(managerPayload);
-
-      // Réponse du bot basée sur les infos du site
-      setTimeout(() => {
-        const replyText = generateBotReply(text);
-        const botMsg = document.createElement("div");
-        botMsg.className = "message bot";
-        botMsg.innerHTML = replyText.replace(/\n/g, "<br />");
-        chatBody.appendChild(botMsg);
-        chatBody.scrollTop = chatBody.scrollHeight;
-
-        const botPlainText = stripHtml(botMsg.innerHTML);
-
-        // 💡 LOGIQUE :
-        // - Si le visiteur a ÉCRIT → réponse écrite uniquement (pas de voix)
-        // - Si le visiteur a PARLÉ → réponse écrite + réponse à haute voix
-        if (lastInteractionMode === "voice") {
-          speakText(botPlainText);
-        }
-
-        const managerUpdate = {
-          type: "statut_traitement",
-          message_origine: text,
-          date: new Date().toISOString(),
-          page: window.location.href,
-          statut: "réponse_envoyée_au_visiteur",
-          langue: currentLang
-        };
-        sendToManager(managerUpdate);
-      }, 800);
-    }
-
-    chatSend.addEventListener("click", () => sendMessage("text"));
-
-    chatInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        sendMessage("text");
-      }
-    });
-  </script>
 </body>
 </html>
+
+6. Descends en bas de la page :
+
+Dans Commit changes, laisse le texte proposé ou écris par exemple :
+Restore index.html
+
+Valide / clique sur Commit changes.
+
