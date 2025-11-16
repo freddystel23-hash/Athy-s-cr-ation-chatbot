@@ -56,9 +56,15 @@
       width: 100%;
       border-radius: var(--radius);
     }
+    h1, h2 {
+      color: var(--primary);
+    }
     h1 {
       font-size: 2.5rem;
-      color: var(--primary);
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
     .btn {
       background: var(--secondary);
@@ -98,6 +104,12 @@
       padding: 1.2rem;
       margin-top: 2rem;
     }
+
+    .site-samples img {
+      width: 100%;
+      border-radius: var(--radius);
+    }
+
     /* Chatbot */
     .chatbot-btn {
       position: fixed;
@@ -184,6 +196,8 @@
     <nav>
       <a href="#services">Services</a>
       <a href="#offres">Offres IA</a>
+      <a href="#samples">Exemples</a>
+      <a href="#avantages">Avantages IA</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -238,6 +252,36 @@
       <span class="ia-note">IA Athy’s</span>
     </div>
   </div>
+</section>
+
+<section id="samples" class="container">
+  <h2>Exemples de réalisations</h2>
+  <p>Voici quelques exemples fictifs de sites que nous pouvons créer :</p>
+  <div class="cards site-samples">
+    <div class="card">
+      <h3>Site Business Pro</h3>
+      <img src="https://picsum.photos/id/1011/600/400" alt="Site entreprise pro" />
+    </div>
+    <div class="card">
+      <h3>Site e-commerce</h3>
+      <img src="https://picsum.photos/id/1059/600/400" alt="Site e-commerce" />
+    </div>
+    <div class="card">
+      <h3>Portfolio créatif</h3>
+      <img src="https://picsum.photos/id/1012/600/400" alt="Portfolio Athy's" />
+    </div>
+  </div>
+</section>
+
+<section id="avantages" class="container">
+  <h2>Pourquoi travailler avec une IA ?</h2>
+  <ul class="advantage-list">
+    <li>Gain de temps et réduction des coûts opérationnels</li>
+    <li>Création de contenus à haute valeur ajoutée en un temps record</li>
+    <li>Automatisation des processus et tâches marketing</li>
+    <li>Disponibilité 24/7 pour répondre aux demandes clients</li>
+    <li>Stratégie basée sur les données et optimisation continue</li>
+  </ul>
 </section>
 
 <section id="contact" class="container">
@@ -306,12 +350,15 @@
     if (msg.includes("visuel")) return "Le pack de 30 visuels pro est à 250€. Quel style souhaitez-vous ?";
     if (msg.includes("assistant")) return "L’assistant IA privé est à 390€. Il est configuré sur mesure.";
     if (msg.includes("gestionnaire")) return "Le gestionnaire digital est à 590€. Il s'occupe de vos tâches avec discrétion.";
+    if (msg.includes("story") || msg.includes("portfolio") || msg.includes("devis")) return "Athy’s Création prendra rapidement en charge votre demande et vous apportera une réponse sous 24 heures.";
     if (msg.includes("contact")) return "Vous pouvez contacter Athy’s Création au 0659279712.";
-    if (msg.includes("story") || msg.includes("portfolio")) return "Athy’s Création s’en occupera.";
+    if (msg.includes("exemple") || msg.includes("réalisations")) return "Visitez les exemples fictifs dans la section 'Exemples de réalisations'.";
+    if (msg.includes("avantage") || msg.includes("ia")) return "L’IA Athy’s accélère votre production, optimise vos coûts et augmente votre visibilité.";
 
-    return "Athy’s Création est là pour sublimer vos projets. Comment puis-je vous aider ?";
+    return "Athy’s Création est à votre disposition pour sublimer vos projets. Comment puis-je vous aider ?";
   }
 </script>
 
 </body>
 </html>
+
