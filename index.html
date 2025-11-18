@@ -1,526 +1,134 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Athy's Création Pro – IA & Création Digitale</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Athy's Création Pro – Création de sites web, visuels, storytelling, assistants IA privés et gestion digitale premium." />
+  <title>Athy’s Création – IA & Storytelling</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Athy’s Création – GPT personnels, agent IA et storytelling premium pour entrepreneurs."
+  />
   <style>
-    :root {
-      --primary: #0f172a;
-      --secondary: #1d4ed8;
-      --accent: #22c55e;
-      --light: #f8fafc;
-      --muted: #64748b;
-      --radius: 14px;
-    }
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: var(--light);
-      color: var(--primary);
-    }
-    header {
-      background: var(--primary);
-      padding: 1rem 0;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-    .container {
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1rem;
-    }
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-      padding: 4rem 0;
-    }
-    .hero img {
-      width: 100%;
-      border-radius: var(--radius);
-    }
-    h1, h2 {
-      color: var(--primary);
-    }
-    h1 {
-      font-size: 2.5rem;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .btn {
-      background: var(--secondary);
-      color: white;
-      padding: 0.75rem 1.4rem;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    section {
-      padding: 3rem 0;
-    }
-    .card {
-      background: white;
-      padding: 1.4rem;
-      border-radius: var(--radius);
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
-    }
-    .cards {
-      display: grid;
-      gap: 1.2rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    .ia-note {
-      display: inline-block;
-      margin-top: 0.6rem;
-      font-size: 0.8rem;
-      font-weight: bold;
-      color: var(--accent);
-    }
-    footer {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 1.2rem;
-      margin-top: 2rem;
-    }
-    .site-samples img {
-      width: 100%;
-      border-radius: var(--radius);
-    }
-    .advantage-list {
-      list-style: none;
-      padding: 0;
-    }
-    .advantage-list li {
-      margin-bottom: 0.9rem;
-      padding-left: 1.2rem;
-      position: relative;
-    }
-    .advantage-list li::before {
-      content: "✔";
-      color: var(--accent);
-      position: absolute;
-      left: -0.2rem;
-      top: 0;
-    }
-    /* Chatbot */
-    .chatbot-btn {
-      position: fixed;
-      bottom: 1.2rem;
-      right: 1.2rem;
-      background: var(--secondary);
-      color: white;
-      padding: 0.8rem 1.2rem;
-      border-radius: 20px;
-      cursor: pointer;
-      z-index: 100;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    .chatbot {
-      position: fixed;
-      bottom: 4.2rem;
-      right: 1.2rem;
-      width: 340px;
-      border-radius: var(--radius);
-      background: white;
-      border: 1px solid #e2e8f0;
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
-      z-index: 100;
-    }
-    .chat-header {
-      background: var(--primary);
-      color: white;
-      padding: 0.75rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.95rem;
-    }
-    .chat-body {
-      flex: 1;
-      padding: 1rem;
-      overflow-y: auto;
-      max-height: 320px;
-      background: #f9fafb;
-    }
-    .chat-msg {
-      padding: 0.5rem 0.8rem;
-      margin-bottom: 0.6rem;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      max-width: 85%;
-      line-height: 1.4;
-    }
-    .msg-bot {
-      background: var(--light);
-      border: 1px solid var(--accent);
-    }
-    .msg-user {
-      background: var(--accent);
-      margin-left: auto;
-      color: white;
-    }
-    .chat-input {
-      display: flex;
-      padding: 0.6rem;
-      border-top: 1px solid #e2e8f0;
-      background: white;
-      gap: 0.4rem;
-      align-items: center;
-    }
-    .chat-input input {
-      flex: 1;
-      padding: 0.5rem;
-      border-radius: 10px;
-      border: 1px solid #cbd5e1;
-      font-size: 0.9rem;
-    }
-    .chat-input button {
-      background: var(--secondary);
-      color: white;
-      border-radius: 10px;
-      padding: 0.5rem 0.9rem;
-      cursor: pointer;
-      border: none;
-      font-size: 0.85rem;
-    }
-    .mic-btn {
-      background: #0f766e;
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: none;
-      cursor: pointer;
-      color: white;
-      font-size: 1rem;
-    }
-    .mic-btn.active {
-      background: #b91c1c;
-    }
+    /* Styles simplifiés - uniquement pour le bot */
+    body { background: #020617; font-family: Arial, sans-serif; color: #e5e7eb; margin: 0; }
+    .chatbot { position: fixed; bottom: 20px; right: 20px; z-index: 999; }
+    .chat-button { padding: 10px 15px; background: #1e40af; color: white; border: none; border-radius: 25px; cursor: pointer; }
+    .chat-window { width: 300px; max-height: 400px; background: #0f172a; border-radius: 15px; display: none; flex-direction: column; }
+    .chat-header { padding: 10px; background: #1e3a8a; color: white; border-top-left-radius: 15px; border-top-right-radius: 15px; }
+    .chat-body { padding: 10px; overflow-y: auto; flex: 1; }
+    .chat-message { margin: 5px 0; display: flex; }
+    .chat-message.bot { justify-content: flex-start; }
+    .chat-message.user { justify-content: flex-end; }
+    .chat-bubble { padding: 8px 10px; border-radius: 10px; max-width: 80%; }
+    .chat-bubble.bot { background: #1e3a8a; color: white; }
+    .chat-bubble.user { background: #22d3ee; color: #020617; }
+    .chat-footer { padding: 10px; display: flex; gap: 5px; }
+    .chat-footer input { flex: 1; padding: 5px; border-radius: 10px; border: none; }
+    .chat-footer button { padding: 6px 10px; border-radius: 8px; border: none; background: #22d3ee; cursor: pointer; }
   </style>
 </head>
 
 <body>
+  <!-- Contenu du site ici (si tu veux garder tes sections) -->
 
-<header>
-  <div class="container nav">
-    <strong>Athy’s Création Pro</strong>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#offres">Offres IA</a>
-      <a href="#samples">Exemples</a>
-      <a href="#avantages">Avantages IA</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero container">
-  <div>
-    <h1>L’excellence créative avec l’intelligence artificielle</h1>
-    <p>Sites web, visuels pro, assistants IA privés, storytelling premium.</p>
-    <button class="btn" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
-      Voir les services
-    </button>
-  </div>
-  <img src="https://picsum.photos/seed/athys/800/600" alt="Visuel Athy's Création Pro" />
-</section>
-
-<section id="services" class="container">
-  <h2>Nos services</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Site vitrine premium</h3>
-      <p>Site moderne, optimisé, design sur mesure.</p>
-      <p><strong>450€</strong></p>
-      <span class="ia-note">IA Athy’s</span>
-    </div>
-    <div class="card">
-      <h3>Pack visuels pro</h3>
-      <p>30 visuels haute qualité pour les réseaux sociaux.</p>
-      <p><strong>250€</strong></p>
-      <span class="ia-note">IA Athy’s</span>
-    </div>
-    <div class="card">
-      <h3>Stratégie digitale</h3>
-      <p>Audit + plan d’action stratégique personnalisé.</p>
-      <p><strong>120€</strong></p>
-      <span class="ia-note">IA Athy’s</span>
+  <!-- Chatbot Athy's -->
+  <div class="chatbot">
+    <button class="chat-button" id="chatToggle">💬 Chaton Athy’s</button>
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">
+        Chaton Athy’s 👋
+      </div>
+      <div class="chat-body" id="chatBody">
+        <div class="chat-message bot">
+          <div class="chat-bubble bot">
+            Bonjour ! Je suis Chaton Athy’s 🤖. Je peux t’aider à comprendre les offres comme : GPT personnel, agent IA, et storytelling. Écris-moi ou parle 🎤 !
+          </div>
+        </div>
+      </div>
+      <div class="chat-footer">
+        <button id="chatMic">🎤</button>
+        <input type="text" id="chatInput" placeholder="Écris ton message..." />
+        <button id="chatSend">Envoyer</button>
+      </div>
     </div>
   </div>
-</section>
 
-<section id="offres" class="container">
-  <h2>Offres IA Athy’s</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Assistant IA privé</h3>
-      <p>Un agent IA personnalisé pour vos besoins.</p>
-      <p><strong>390€</strong></p>
-      <span class="ia-note">IA Athy’s</span>
-    </div>
-    <div class="card">
-      <h3>Gestionnaire digital intelligent</h3>
-      <p>Organisation & contenus automatisés.</p>
-      <p><strong>590€</strong></p>
-      <span class="ia-note">IA Athy’s</span>
-    </div>
-  </div>
-</section>
+  <script>
+    const chatToggle = document.getElementById("chatToggle");
+    const chatWindow = document.getElementById("chatWindow");
+    const chatInput = document.getElementById("chatInput");
+    const chatSend = document.getElementById("chatSend");
+    const chatBody = document.getElementById("chatBody");
+    const chatMic = document.getElementById("chatMic");
+    let chatHistory = [];
 
-<section id="samples" class="container">
-  <h2>Exemples de réalisations</h2>
-  <p>Voici quelques exemples de sites et visuels que nous créons :</p>
-  <div class="cards site-samples">
-    <div class="card">
-      <h3>Site Business Pro</h3>
-      <img src="https://picsum.photos/id/1011/600/400" alt="Site entreprise pro" />
-    </div>
-    <div class="card">
-      <h3>Site e-commerce</h3>
-      <img src="https://picsum.photos/id/1059/600/400" alt="Site e-commerce" />
-    </div>
-    <div class="card">
-      <h3>Portfolio créatif</h3>
-      <img src="https://picsum.photos/id/1012/600/400" alt="Portfolio Athy's" />
-    </div>
-  </div>
-</section>
+    chatToggle.addEventListener("click", () => {
+      chatWindow.style.display = chatWindow.style.display === "none" || !chatWindow.style.display ? "flex" : "none";
+    });
 
-<section id="avantages" class="container">
-  <h2>Pourquoi travailler avec une IA ?</h2>
-  <ul class="advantage-list">
-    <li>Gain de temps et réduction des coûts opérationnels.</li>
-    <li>Création de contenus à haute valeur ajoutée en un temps record.</li>
-    <li>Automatisation des processus et tâches marketing.</li>
-    <li>Disponibilité 24/7 pour répondre aux demandes clients.</li>
-    <li>Stratégie basée sur les données et optimisation continue.</li>
-  </ul>
-</section>
-
-<section id="contact" class="container">
-  <h2>Contact</h2>
-  <p>Email : contact@athys-creation.com</p>
-  <p>Téléphone : <strong>0659279712</strong></p>
-</section>
-
-<footer>
-  <p>© Athy’s Création Pro – IA Athy’s</p>
-</footer>
-
-<!-- Chatbot Button -->
-<button class="chatbot-btn" onclick="toggleChat()">💬 Agent IA Athy’s</button>
-
-<!-- Chatbot Window -->
-<div class="chatbot" id="chatbot">
-  <div class="chat-header">
-    <span>Agent IA Athy’s – Multi-langues & IA</span>
-    <button onclick="toggleChat()">×</button>
-  </div>
-  <div class="chat-body" id="chatBody">
-    <div class="chat-msg msg-bot">
-      Bonjour, Hello, Hola 👋<br/>
-      Je suis l’Agent IA Athy’s. Posez votre question sur nos services, devis, exemples ou contact.
-    </div>
-  </div>
-  <div class="chat-input">
-    <button class="mic-btn" id="micBtn" title="Parler au chatbot" onclick="toggleMic()">🎤</button>
-    <input id="chatInput" placeholder="Écrivez ou parlez ici..." />
-    <button onclick="sendMessage()">Envoyer</button>
-  </div>
-</div>
-
-<script>
-  const chatbox = document.getElementById("chatbot");
-  const chatBody = document.getElementById("chatBody");
-  const chatInput = document.getElementById("chatInput");
-  const micBtn = document.getElementById("micBtn");
-
-  let currentLang = "fr"; // langue dominante détectée
-  let recognition = null;
-
-  // --- VOIX : reconnaissance vocale (si dispo) ---
-  if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
-    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    recognition = new SR();
-    recognition.continuous = false;
-    recognition.interimResults = false;
-    recognition.lang = "fr-FR";
-
-    recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
-      chatInput.value = transcript;
-      micBtn.classList.remove("active");
-      sendMessage();
-    };
-
-    recognition.onerror = () => {
-      micBtn.classList.remove("active");
-    };
-
-    recognition.onend = () => {
-      micBtn.classList.remove("active");
-    };
-  }
-
-  function toggleChat() {
-    chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
-  }
-
-  function toggleMic() {
-    if (!recognition) {
-      alert("La reconnaissance vocale n'est pas disponible sur ce navigateur.");
-      return;
+    function addMessage(role, content) {
+      const wrapper = document.createElement("div");
+      wrapper.className = `chat-message ${role}`;
+      const bubble = document.createElement("div");
+      bubble.className = `chat-bubble ${role}`;
+      bubble.textContent = content;
+      wrapper.appendChild(bubble);
+      chatBody.appendChild(wrapper);
+      chatBody.scrollTop = chatBody.scrollHeight;
+      chatHistory.push({ role, content });
     }
-    if (micBtn.classList.contains("active")) {
-      recognition.stop();
-      micBtn.classList.remove("active");
-    } else {
-      micBtn.classList.add("active");
+
+    async function sendMessage() {
+      const text = chatInput.value.trim();
+      if (!text) return;
+      addMessage("user", text);
+      chatInput.value = "";
+      try {
+        const reply = await sendToManager(chatHistory);
+        addMessage("bot", reply);
+      } catch (error) {
+        addMessage("bot", "Oups, il y a eu un problème. Merci de réessayer !");
+      }
+    }
+
+    async function sendToManager(messages) {
+      const apiKey = "{{OPENAI_API_KEY}}"; // sera remplacé par Vercel
+      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: "gpt-4.1-mini",
+          messages: [
+            { role: "system", content: "Tu es Chaton Athy’s, assistant amical et professionnel. Réponds sans jamais dire que tu utilises un manager." },
+            ...messages,
+          ],
+        }),
+      });
+      const data = await response.json();
+      return data.choices?.[0]?.message?.content || "Merci pour ton message !";
+    }
+
+    chatSend.addEventListener("click", sendMessage);
+    chatInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+
+    chatMic.addEventListener("click", () => {
+      if (!("webkitSpeechRecognition" in window)) {
+        alert("La reconnaissance vocale n’est pas disponible.");
+        return;
+      }
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = "fr-FR";
+      recognition.onresult = (event) => {
+        chatInput.value = event.results[0][0].transcript;
+        sendMessage();
+      };
       recognition.start();
-    }
-  }
-
-  function sendMessage() {
-    const msg = chatInput.value.trim();
-    if (!msg) return;
-
-    addMessage(msg, "msg-user");
-    chatInput.value = "";
-
-    // détecter la langue du message
-    currentLang = detectLang(msg) || currentLang;
-
-    setTimeout(() => {
-      const response = getResponse(msg);
-      addMessage(response, "msg-bot");
-      speak(response, currentLang);
-    }, 300);
-  }
-
-  function addMessage(text, className) {
-    const div = document.createElement("div");
-    div.className = `chat-msg ${className}`;
-    div.innerText = text;
-    chatBody.appendChild(div);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-
-  // --- VOIX : synthèse vocale ---
-  function speak(text, lang) {
-    if (!("speechSynthesis" in window)) return;
-    const utterance = new SpeechSynthesisUtterance(text);
-    if (lang === "en") utterance.lang = "en-US";
-    else if (lang === "es") utterance.lang = "es-ES";
-    else utterance.lang = "fr-FR";
-    window.speechSynthesis.speak(utterance);
-  }
-
-  // --- Détection simple de langue ---
-  function detectLang(msg) {
-    const m = msg.toLowerCase();
-    if (m.match(/\b(hello|hi|thanks|please|website)\b/)) return "en";
-    if (m.match(/\b(hola|gracias|sitio web|por favor)\b/)) return "es";
-    if (m.match(/\b(bonjour|merci|site|s'il te plaît|s'il vous plaît)\b/)) return "fr";
-    return "fr";
-  }
-
-  // --- Surveillance silencieuse pour manager IA (interne seulement) ---
-  function envoyerAuManagerSilencieusement(messageUtilisateur) {
-    // Ici, plus tard, tu pourras connecter ton Manager IA ou un webhook.
-    // Exemple : envoyer le message vers ton système interne.
-    // Pour l’instant, c’est invisible pour le client.
-    console.log("[MANAGER IA] Nouvelle demande importante :", messageUtilisateur);
-  }
-
-  // --- Logique de réponses du bot ---
-  function getResponse(rawMsg) {
-    let msg = rawMsg.toLowerCase().trim();
-
-    // Questions d'orientation pour devis (où/comment)
-    if ((msg.includes("où") || msg.includes("ou") || msg.includes("comment")) && msg.includes("devis")) {
-      return "Pour demander un devis, vous pouvez passer par la section Contact en bas de la page, ou me préciser pour quel service vous souhaitez un devis (site, visuels, assistant IA…).";
-    }
-
-    // Demande de devis claire / commande précise => transmission au manager
-    const motsDevis = ["je veux un devis", "faire un devis", "devis pour", "devis site", "devis visuel", "devis assistant", "commande", "projet"];
-    const demandeDevisClaire = motsDevis.some(mot => msg.includes(mot));
-    if (demandeDevisClaire) {
-      envoyerAuManagerSilencieusement(rawMsg);
-      return "Athy’s Création prendra rapidement en charge votre demande et vous apportera une réponse sous 24 heures.";
-    }
-
-    // Navigation générale dans le site
-    if (msg.includes("services") || msg.includes("offres")) {
-      return "Vous pouvez découvrir nos services dans la section “Nos services” et les offres IA dans la section “Offres IA Athy’s” un peu plus bas sur la page.";
-    }
-
-    // Infos spécifiques
-    if (msg.includes("site vitrine") || (msg.includes("site") && msg.includes("vitrine"))) {
-      return "Notre site vitrine premium est à 450€. Il inclut un design sur mesure et un site moderne optimisé.";
-    }
-
-    if (msg.includes("site")) {
-      return "Nous créons des sites vitrines premium et des sites professionnels. Consultez la section Services ou dites-moi ce dont vous avez besoin.";
-    }
-
-    if (msg.includes("visuel") || msg.includes("visuels")) {
-      return "Le pack de 30 visuels pro pour réseaux sociaux est à 250€. Idéal pour une présence cohérente et professionnelle.";
-    }
-
-    if (msg.includes("assistant")) {
-      return "L’assistant IA privé est à 390€. Il est configuré sur mesure pour votre activité et vos besoins.";
-    }
-
-    if (msg.includes("gestionnaire")) {
-      return "Le gestionnaire digital intelligent est à 590€. Il vous aide à organiser et automatiser vos tâches récurrentes.";
-    }
-
-    if (msg.includes("exemple") || msg.includes("réalisations")) {
-      return "Vous pouvez voir des exemples de sites et visuels que nous créons dans la section “Exemples de réalisations” de la page.";
-    }
-
-    if (msg.includes("avantage") || msg.includes("ia") || msg.includes("intelligence artificielle")) {
-      return "Travailler avec l’IA Athy’s permet de gagner du temps, réduire les coûts, automatiser des tâches et améliorer votre visibilité avec des contenus de haute qualité.";
-    }
-
-    if (msg.includes("contact") || msg.includes("joindre") || msg.includes("téléphone") || msg.includes("email")) {
-      return "Vous pouvez joindre Athy’s Création par email à contact@athys-creation.com ou par téléphone au 0659279712.";
-    }
-
-    if (msg.includes("bonjour") || msg.includes("hello") || msg.includes("salut") || msg.includes("hola")) {
-      return "Bonjour, ici l’Agent IA Athy’s. Dites-moi ce que vous cherchez : un site, des visuels, un assistant IA, un devis ou des informations générales.";
-    }
-
-    // Réponse par défaut
-    return "Athy’s Création est à votre disposition pour vous guider dans vos projets digitaux. Vous pouvez me parler de votre besoin (site web, visuels, IA, devis, contact) et je vous orienterai.";
-  }
-</script>
-
+    });
+  </script>
 </body>
 </html>
