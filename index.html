@@ -1,302 +1,1446 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Athy’s Création – IA & Storytelling</title>
+  <title>Athy’s Création – IA & Storytelling professionnel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Athy’s Création – GPT personnels, agents IA et storytelling premium pour entrepreneurs."
+    content="Athy’s Création accompagne les entrepreneurs avec des GPT personnels privés, des agents IA et du storytelling premium."
   />
 
   <style>
     :root {
       --bg: #020617;
+      --bg-alt: #030712;
+      --card: #020617;
       --text: #e5e7eb;
       --muted: #9ca3af;
       --accent1: #22d3ee;
       --accent2: #4ade80;
-      --card: #0f172a;
-      --radius: 16px;
+      --border: #1f2937;
+      --radius-lg: 20px;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
     }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, sans-serif;
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    header {
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-    }
-    nav a {
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #0f172a 0, #020617 45%, #000 100%);
       color: var(--text);
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    h1, h2 {
-      margin-left: 20px;
-    }
-    section {
-      padding: 40px 20px;
-    }
-    .btn-project {
-      position: fixed;
-      top: 40px;
-      right: 20px;
-      background: linear-gradient(135deg, var(--accent1), var(--accent2));
-      color: #020617;
-      font-weight: bold;
-      padding: 12px 18px;
-      border-radius: 20px;
-    }
-    .service-card {
-      background: var(--card);
-      padding: 20px;
-      margin: 10px;
-      border-radius: var(--radius);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Chatbot */
-    .chatbot {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .chat-button {
-      padding: 10px 15px;
-      background: var(--accent1);
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px 80px;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.9));
+      border-bottom: 1px solid rgba(148,163,184,0.2);
+    }
+
+    .nav-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: conic-gradient(from 220deg, #22c55e, #22d3ee, #6366f1, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 40px rgba(34,197,94,0.6);
+      font-weight: 700;
       color: #020617;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: bold;
     }
-    .chat-window {
-      width: 300px;
-      max-height: 420px;
-      background: #0f172a;
-      border-radius: 15px;
+
+    .logo-text {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: none;
+      letter-spacing: normal;
+      font-weight: 400;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    nav a {
+      position: relative;
+      color: var(--muted);
+      padding-bottom: 4px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      border-radius: 999px;
+      transition: width 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    nav a.active::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    /* FLOTTING CTA */
+
+    .floating-cta {
+      position: fixed;
+      right: 16px;
+      top: 100px;
+      z-index: 25;
+    }
+
+    .floating-cta button {
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,0.9);
+      padding: 12px 16px;
+      background: radial-gradient(circle at top left, #22d3ee, transparent 55%),
+                  radial-gradient(circle at bottom right, #22c55e, transparent 55%);
+      color: #020617;
+      box-shadow: 0 20px 50px rgba(34,197,94,0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .floating-cta small {
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.6fr);
+      gap: 40px;
+      padding: 40px 0 32px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px 4px 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.9);
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .badge-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #020617;
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 5vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 460px;
+      margin-bottom: 18px;
+    }
+
+    .hero-list {
+      list-style: none;
+      font-size: 13px;
+      color: #cbd5f5;
+      display: grid;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .hero-list li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--accent1), var(--accent2));
+      color: #020617;
+      font-weight: 600;
+      box-shadow: 0 16px 40px rgba(56,189,248,0.6);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
+      color: var(--text);
+    }
+
+    .hero-meta {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: var(--text);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: 26px;
+      background: radial-gradient(circle at top, rgba(56,189,248,0.25), transparent 60%),
+                  radial-gradient(circle at bottom, rgba(34,197,94,0.2), transparent 65%),
+                  #020617;
+      border: 1px solid rgba(148,163,184,0.4);
+      padding: 20px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-card-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 10px;
+    }
+
+    .hero-card-number {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-card-number span {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-left: 4px;
+      letter-spacing: normal;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.95);
+    }
+
+    .hero-card-footer {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+      font-size: 11px;
+    }
+
+    .stat {
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.96);
+      padding: 8px 9px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 10px;
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-weight: 600;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding-top: 40px;
+      scroll-margin-top: 110px;
+    }
+
+    .section-header {
+      margin-bottom: 18px;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-top: 4px;
+    }
+
+    /* SERVICES */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 55%),
+                  #020617;
+      border: 1px solid var(--border);
+      padding: 16px 14px;
+      box-shadow: var(--shadow);
+      font-size: 13px;
+    }
+
+    .card-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .card-list {
+      list-style: none;
+      font-size: 12px;
+      color: #d1d5db;
+      display: grid;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    .card-list li {
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+    }
+
+    .card-footer {
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-link {
+      font-size: 11px;
+      color: var(--accent1);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* TARIFS */
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .pricing-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top right, rgba(56,189,248,0.16), transparent 60%),
+                  #020617;
+      border: 1px solid var(--border);
+      padding: 16px 14px;
+      box-shadow: var(--shadow);
+      font-size: 13px;
+    }
+
+    .pricing-tag {
+      display: inline-flex;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .pricing-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .pricing-price {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+    }
+
+    .pricing-price span {
+      font-size: 13px;
+      color: var(--muted);
+      margin-left: 3px;
+    }
+
+    .pricing-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .pricing-list {
+      list-style: none;
+      font-size: 12px;
+      color: #d1d5db;
+      display: grid;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    /* PORTFOLIO */
+
+    .timeline {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: #020617;
+      box-shadow: var(--shadow);
+      padding: 16px 14px;
+      font-size: 13px;
+    }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 130px minmax(0, 1fr);
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(55,65,81,0.8);
+    }
+
+    .timeline-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .timeline-label {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .timeline-title {
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .timeline-text {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 24px;
+    }
+
+    .contact-card,
+    .contact-aside {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: #020617;
+      box-shadow: var(--shadow);
+      padding: 16px 14px;
+      font-size: 13px;
+    }
+
+    .contact-card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .contact-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    label {
+      font-size: 12px;
+      margin-bottom: 3px;
+      display: block;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: #020617;
+      color: var(--text);
+      padding: 7px 9px;
+      font: inherit;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--accent1);
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.6);
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+    }
+
+    .contact-aside h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .contact-aside p {
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .aside-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      color: #d1d5db;
+    }
+
+    footer {
+      margin-top: 34px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(30,64,175,0.7);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* CHATBOT */
+
+    .chatbot-container {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      z-index: 60;
+      font-size: 13px;
+    }
+
+    .chatbot-toggle {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.25), transparent 60%),
+                  radial-gradient(circle at bottom right, rgba(34,197,94,0.25), transparent 60%),
+                  #020617;
+      color: #e5e7eb;
+      padding: 10px 14px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      cursor: pointer;
+      box-shadow: 0 16px 45px rgba(15,23,42,1);
+    }
+
+    .chatbot-toggle span {
+      font-weight: 600;
+    }
+
+    .chatbot-toggle small {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .chatbot-panel {
+      margin-top: 8px;
+      width: 320px;
+      max-height: 440px;
+      border-radius: 20px;
+      border: 1px solid rgba(31,41,55,0.95);
+      background: #020617;
+      box-shadow: 0 22px 70px rgba(15,23,42,1);
       display: none;
       flex-direction: column;
-      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
     }
-    .chat-header {
-      padding: 10px;
-      background: var(--accent1);
-      color: #020617;
-      font-weight: bold;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
+
+    .chatbot-panel.open {
+      display: flex;
     }
-    .chat-body {
-      padding: 10px;
-      overflow-y: auto;
+
+    .chatbot-header {
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(30,64,175,0.7);
+    }
+
+    .chatbot-header-title {
+      font-size: 13px;
+    }
+
+    .chatbot-header-title span {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .chatbot-close {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .chatbot-messages {
+      padding: 10px 10px 6px;
       flex: 1;
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
-    .chat-message {
-      display: flex;
-    }
-    .chat-message.bot { justify-content: flex-start; }
-    .chat-message.user { justify-content: flex-end; }
 
-    .chat-bubble {
-      padding: 8px 10px;
-      border-radius: 10px;
-      max-width: 80%;
-      font-size: 14px;
-      line-height: 1.3;
-    }
-    .chat-bubble.bot {
-      background: #1e3a8a;
-      color: white;
-    }
-    .chat-bubble.user {
-      background: var(--accent1);
-      color: #020617;
-    }
-    .chat-footer {
-      padding: 10px;
+    .chatbot-message {
       display: flex;
-      gap: 5px;
     }
-    .chat-footer input {
-      flex: 1;
-      padding: 6px;
-      border-radius: 10px;
-      border: none;
-      background: #1e293b;
-      color: white;
+
+    .chatbot-message.user {
+      justify-content: flex-end;
     }
-    .chat-footer button {
-      padding: 6px 10px;
-      border-radius: 8px;
-      border: none;
-      background: var(--accent1);
+
+    .chatbot-message.bot {
+      justify-content: flex-start;
+    }
+
+    .chatbot-bubble {
+      max-width: 85%;
+      padding: 8px 10px;
+      border-radius: 14px;
+      font-size: 12px;
+    }
+
+    .chatbot-message.user .chatbot-bubble {
+      background: linear-gradient(130deg, var(--accent1), var(--accent2));
       color: #020617;
-      font-weight: bold;
+      border-bottom-right-radius: 3px;
+    }
+
+    .chatbot-message.bot .chatbot-bubble {
+      background: rgba(15,23,42,0.96);
+      border: 1px solid rgba(30,64,175,0.7);
+      color: #e5e7eb;
+      border-bottom-left-radius: 3px;
+    }
+
+    .chatbot-footer {
+      padding: 8px;
+      border-top: 1px solid rgba(30,64,175,0.7);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chatbot-input {
+      flex: 1;
+      border-radius: 999px;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.96);
+      color: #e5e7eb;
+      padding: 7px 10px;
+      font: inherit;
+    }
+
+    .chatbot-send,
+    .chatbot-mic {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.96);
+      color: #e5e7eb;
+      padding: 6px 9px;
       cursor: pointer;
+      font-size: 11px;
+    }
+
+    .chatbot-hint {
+      padding: 0 10px 8px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      .cards-grid,
+      .pricing-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .contact-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .floating-cta {
+        top: auto;
+        bottom: 90px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        display: none;
+      }
+      .nav-cta {
+        display: inline-flex;
+      }
+      .field-row {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .chatbot-panel {
+        width: 100%;
+        max-width: 100%;
+      }
+      .chatbot-container {
+        left: 10px;
+        right: 10px;
+      }
     }
   </style>
 </head>
 
 <body>
-
-<header>
-  <nav>
-    <a href="#">Accueil</a>
-    <a href="#services">Services</a>
-    <a href="#tarifs">Tarifs</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<a class="btn-project" href="#contact">Parler de mon projet</a>
-
-<section>
-  <h1>Storytelling professionnel</h1>
-  <p>Athy’s Création t’accompagne pour créer ton GPT personnel, installer ton Agent IA,
-  écrire tes textes professionnels et structurer ton image premium.</p>
-</section>
-
-<section id="services">
-  <h2>Services</h2>
-  <div class="service-card">GPT Personnel Privé</div>
-  <div class="service-card">Agent IA Professionnel</div>
-  <div class="service-card">Texte & Storytelling Premium</div>
-</section>
-
-<section id="tarifs">
-  <h2>Tarifs</h2>
-  <p>Sur mesure selon ton besoin.</p>
-</section>
-
-<section id="portfolio">
-  <h2>Portfolio</h2>
-  <p>Des résultats pour entrepreneurs ambitieux.</p>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Écris-nous directement via le chatbot.</p>
-</section>
-
-<!-- Chatbot Athy's -->
-<div class="chatbot">
-  <button class="chat-button" id="chatToggle">💬 Chaton Athy’s</button>
-  <div class="chat-window" id="chatWindow">
-    <div class="chat-header">
-      Chaton Athy’s 👋
-    </div>
-    <div class="chat-body" id="chatBody">
-      <div class="chat-message bot">
-        <div class="chat-bubble bot">
-          Bonjour 👋 Je suis Chaton Athy’s. Tu peux écrire ou parler 🎤 : je t’aide selon ton choix.
+  <header>
+    <div class="nav-wrap">
+      <div class="logo">
+        <div class="logo-mark">A</div>
+        <div>
+          <div class="logo-text">Athy’s Création</div>
+          <div class="logo-sub">IA • Storytelling • Image premium</div>
         </div>
       </div>
+      <nav>
+        <a href="#accueil" class="active">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="btn-primary nav-cta" type="button" data-scroll="#contact">
+        Parler de mon projet
+      </button>
     </div>
-    <div class="chat-footer">
-      <button id="chatMic">🎤</button>
-      <input type="text" id="chatInput" placeholder="Écris ton message..." />
-      <button id="chatSend">Envoyer</button>
+  </header>
+
+  <div class="floating-cta">
+    <button type="button" data-scroll="#contact">
+      <span>Parler de mon projet</span>
+      <small>Réponse sous 24h ouvrées</small>
+    </button>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section id="accueil" class="hero">
+      <div>
+        <div class="badge">
+          <div class="badge-pill">Pour entrepreneurs exigeants</div>
+          IA & storytelling sur-mesure
+        </div>
+        <h1 class="hero-title">
+          Storytelling <span>professionnel</span>
+        </h1>
+        <p class="hero-subtitle">
+          Athy’s Création t’accompagne pour créer ton GPT personnel, installer ton Agent IA,
+          écrire des textes professionnels et structurer une image premium qui inspire confiance.
+        </p>
+        <ul class="hero-list">
+          <li><span>•</span><div>GPT personnel privé aligné avec ta manière de parler.</div></li>
+          <li><span>•</span><div>Agent IA discret qui t’aide au quotidien sur ton business.</div></li>
+          <li><span>•</span><div>Storytelling & portfolio pour présenter ton projet comme une marque premium.</div></li>
+        </ul>
+        <div class="hero-actions">
+          <button class="btn-primary" type="button" data-scroll="#contact">Parler de mon projet</button>
+          <button class="btn-ghost" type="button" data-scroll="#services">Voir les services</button>
+        </div>
+        <p class="hero-meta">
+          <strong>1 accompagnement = 1 stratégie unique.</strong> Pas de modèle générique copié-collé.
+        </p>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <h3>Dashboard Athy’s IA</h3>
+          <div class="hero-card-main">
+            <div class="hero-card-number">3<span>piliers</span></div>
+            <div style="font-size:11px;color:var(--muted);text-align:right;">
+              GPT personnel • Agent IA • Storytelling
+            </div>
+          </div>
+          <div class="hero-tags">
+            <div class="hero-tag">GPT personnel privé</div>
+            <div class="hero-tag">Agent IA discret</div>
+            <div class="hero-tag">Image & textes premium</div>
+          </div>
+          <div class="hero-card-footer">
+            <div class="stat">
+              <div class="stat-label">GPT personnel</div>
+              <div class="stat-value">Ton ton & ton expertise</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Agent IA</div>
+              <div class="stat-value">Travail 24/7 pour toi</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Storytelling</div>
+              <div class="stat-value">Message clair & mémorable</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-header">
+        <p class="section-kicker">Services</p>
+        <h2 class="section-title">Tous les services IA & Storytelling Athy’s Création</h2>
+        <p class="section-subtitle">
+          Tu choisis le pilier dont tu as besoin maintenant ou on construit ensemble un écosystème complet autour de ton projet.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card">
+          <p class="card-label">IA sur mesure</p>
+          <h3 class="card-title">GPT Personnel Privé</h3>
+          <p class="card-subtitle">
+            Un assistant IA confidentiel, entraîné sur ta manière de parler, tes offres et ta vision.
+          </p>
+          <ul class="card-list">
+            <li><span>•</span><div>Configuration complète de ton GPT personnel.</div></li>
+            <li><span>•</span><div>Base de connaissances adaptée à ton activité.</div></li>
+            <li><span>•</span><div>Prompts clés prêts à l’emploi (mail, réponses clients, contenu).</div></li>
+            <li><span>•</span><div>Accès privé, sécurisé, uniquement pour toi ou ton équipe.</div></li>
+          </ul>
+          <div class="card-footer">
+            <span>Idéal pour solopreneurs & coachs.</span>
+            <span class="card-link" data-scroll="#tarifs">Voir le tarif</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="card-label">Agent IA</p>
+          <h3 class="card-title">Agent IA Professionnel</h3>
+          <p class="card-subtitle">
+            Un Agent IA qui travaille pour toi en coulisse et te fait gagner du temps chaque jour.
+          </p>
+          <ul class="card-list">
+            <li><span>•</span><div>Cartographie de tes tâches répétitives.</div></li>
+            <li><span>•</span><div>Scénarios IA pour prendre de meilleures décisions.</div></li>
+            <li><span>•</span><div>Outils IA connectés à ton workflow actuel.</div></li>
+            <li><span>•</span><div>Guide simple pour utiliser ton Agent IA au quotidien.</div></li>
+          </ul>
+          <div class="card-footer">
+            <span>Pour entrepreneurs débordés.</span>
+            <span class="card-link" data-scroll="#tarifs">Voir le tarif</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="card-label">Storytelling & image</p>
+          <h3 class="card-title">Storytelling & Portfolio</h3>
+          <p class="card-subtitle">
+            Des textes professionnels et un récit clair pour présenter ton projet comme une marque premium.
+          </p>
+          <ul class="card-list">
+            <li><span>•</span><div>Storytelling complet : toi, ta marque, ta promesse.</div></li>
+            <li><span>•</span><div>Textes pour site, page de vente ou profil.</div></li>
+            <li><span>•</span><div>Mini-portfolio structuré prêt à envoyer.</div></li>
+            <li><span>•</span><div>Version adaptée pour réseaux sociaux.</div></li>
+          </ul>
+          <div class="card-footer">
+            <span>Parfait avant un lancement.</span>
+            <span class="card-link" data-scroll="#tarifs">Voir le tarif</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TARIFS -->
+    <section id="tarifs">
+      <div class="section-header">
+        <p class="section-kicker">Tarifs</p>
+        <h2 class="section-title">Investir dans ton IA & ton image</h2>
+        <p class="section-subtitle">
+          Tarifs indicatifs basés sur le marché actuel. Le devis final est ajusté à ton projet et à ton niveau d’avancement.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="pricing-card">
+          <div class="pricing-tag">GPT personnel • 1 à 2 sessions</div>
+          <h3 class="pricing-title">GPT Personnel Privé</h3>
+          <p class="pricing-price">490€<span>HT &mdash; à partir de</span></p>
+          <p class="pricing-note">
+            Création d’un GPT privé paramétré avec ton ton et les bases de ton activité.
+          </p>
+          <ul class="pricing-list">
+            <li><span>•</span><div>Entretien pour comprendre ton activité et ta cible.</div></li>
+            <li><span>•</span><div>Configuration complète de ton GPT personnel.</div></li>
+            <li><span>•</span><div>Jusqu’à 30 contenus intégrés (textes, docs).</div></li>
+            <li><span>•</span><div>Guide simple pour l’utiliser au quotidien.</div></li>
+          </ul>
+          <button class="btn-ghost" type="button" data-scroll="#contact">
+            Demander un devis GPT
+          </button>
+        </article>
+
+        <article class="pricing-card">
+          <div class="pricing-tag">Agent IA • accompagnement premium</div>
+          <h3 class="pricing-title">Agent IA Professionnel</h3>
+          <p class="pricing-price">790€<span>HT &mdash; à partir de</span></p>
+          <p class="pricing-note">
+            Mise en place d’un Agent IA qui t’aide à organiser, trier et décider au quotidien.
+          </p>
+          <ul class="pricing-list">
+            <li><span>•</span><div>Analyse de tes besoins & tâches répétitives.</div></li>
+            <li><span>•</span><div>Scénarios IA personnalisés (organisation, contenus, idées).</div></li>
+            <li><span>•</span><div>Création d’un espace central (Notion / docs / autre).</div></li>
+            <li><span>•</span><div>Session de prise en main pour toi ou ton équipe.</div></li>
+          </ul>
+          <button class="btn-primary" type="button" data-scroll="#contact">
+            Réserver un Agent IA
+          </button>
+        </article>
+
+        <article class="pricing-card">
+          <div class="pricing-tag">Storytelling & portfolio</div>
+          <h3 class="pricing-title">Storytelling & Portfolio Pro</h3>
+          <p class="pricing-price">390€<span>HT &mdash; à partir de</span></p>
+          <p class="pricing-note">
+            Idéal pour clarifier ton message avant un lancement, une refonte de site ou une nouvelle offre.
+          </p>
+          <ul class="pricing-list">
+            <li><span>•</span><div>Storytelling complet autour de toi et de ton offre.</div></li>
+            <li><span>•</span><div>Textes professionnels pour une page principale.</div></li>
+            <li><span>•</span><div>Mini-portfolio structuré (parcours, offres, preuves).</div></li>
+            <li><span>•</span><div>Version courte prête pour réseaux sociaux.</div></li>
+          </ul>
+          <button class="btn-ghost" type="button" data-scroll="#contact">
+            Discuter de mon histoire
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="section-header">
+        <p class="section-kicker">Portfolio</p>
+        <h2 class="section-title">Ce qu’on construit ensemble</h2>
+        <p class="section-subtitle">
+          Chaque projet est différent, mais l’objectif reste le même : clarté, crédibilité et IA au service de ton activité.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-row">
+          <div class="timeline-label">Positionnement</div>
+          <div>
+            <p class="timeline-title">Clarifier ton offre & ton message</p>
+            <p class="timeline-text">
+              On reformule ton offre pour qu’elle soit simple à comprendre, mémorable
+              et alignée avec la valeur que tu apportes vraiment.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-label">IA & outils</div>
+          <div>
+            <p class="timeline-title">Mettre en place ton GPT & ton Agent IA</p>
+            <p class="timeline-text">
+              On paramètre les bons outils IA pour toi : GPT personnel, Agent IA, prompts clé et base de connaissances.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-label">Storytelling</div>
+          <div>
+            <p class="timeline-title">Écrire une histoire qui donne envie</p>
+            <p class="timeline-text">
+              On construit un récit cohérent (site, réseaux, pitch, portfolio) pour que ton audience comprenne
+              directement qui tu es et ce que tu proposes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-header">
+        <p class="section-kicker">Contact</p>
+        <h2 class="section-title">Parlons de ton projet</h2>
+        <p class="section-subtitle">
+          Donne quelques détails sur ton activité. On voit ensemble si ton besoin prioritaire est un GPT personnel,
+          un Agent IA ou du storytelling.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Envoyer ton projet</h3>
+          <p>
+            Remplis ce formulaire, tu recevras une réponse personnalisée avec une proposition d’accompagnement.
+          </p>
+          <form id="contactForm">
+            <div class="field-row">
+              <div>
+                <label for="name">Prénom & nom</label>
+                <input id="name" name="name" type="text" placeholder="Ton nom complet" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="ton.email@exemple.com" required />
+              </div>
+            </div>
+            <div class="field-row">
+              <div>
+                <label for="activity">Activité</label>
+                <input id="activity" name="activity" type="text" placeholder="Coach, créateur, PME..." />
+              </div>
+              <div>
+                <label for="service">Service souhaité</label>
+                <select id="service" name="service">
+                  <option value="">Je ne sais pas encore</option>
+                  <option value="gpt">GPT Personnel Privé</option>
+                  <option value="agent">Agent IA Professionnel</option>
+                  <option value="storytelling">Storytelling & Portfolio</option>
+                  <option value="combo">Combiner plusieurs services</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="message">Parle de ton projet</label>
+              <textarea id="message" name="message" placeholder="Explique où tu en es et ce que tu veux changer."></textarea>
+            </div>
+            <button class="btn-primary" type="submit">Envoyer mon projet</button>
+            <small style="display:block;margin-top:6px;color:var(--muted);font-size:11px;">
+              Aucun engagement immédiat : tu reçois d’abord une réponse détaillée.
+            </small>
+          </form>
+        </div>
+
+        <aside class="contact-aside">
+          <h3>Contact direct</h3>
+          <p>Tu peux aussi nous écrire ou envoyer un message vocal via tes outils habituels.</p>
+          <ul class="aside-list">
+            <li>📧 Email : freddystel23@gmail.com</li>
+            <li>📱 WhatsApp : (lien à ajouter)</li>
+            <li>🕒 Réponse sous 1 jour ouvré selon la demande.</li>
+          </ul>
+          <p>
+            L’objectif : un système simple où tu restes au centre, l’IA te soutient
+            et ton message devient clair pour tes clients.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <span>&copy; Athy’s Création — IA, storytelling & image premium pour entrepreneurs.</span>
+      <span>Site vitrine sans cookies de tracking, déployé sur Vercel.</span>
+    </footer>
+  </main>
+
+  <!-- CHATBOT ATHY'S -->
+  <div class="chatbot-container" id="chatbotContainer">
+    <button class="chatbot-toggle" id="chatbotToggle">
+      <span>Chaton Athy’s</span>
+      <small>Écris ou parle, je t’écoute</small>
+    </button>
+
+    <div class="chatbot-panel" id="chatbotPanel">
+      <div class="chatbot-header">
+        <div class="chatbot-header-title">
+          Chaton Athy’s
+          <span>Assistant IA du site</span>
+        </div>
+        <button class="chatbot-close" type="button" id="chatbotClose">×</button>
+      </div>
+
+      <div class="chatbot-messages" id="chatbotMessages">
+        <div class="chatbot-message bot">
+          <div class="chatbot-bubble">
+            Bonjour 👋 Je suis Chaton Athy’s. Tu peux m’écrire ou utiliser le micro 🎤.
+            Je t’aide à comprendre les offres GPT personnel, Agent IA et storytelling.
+          </div>
+        </div>
+      </div>
+
+      <div class="chatbot-footer">
+        <button class="chatbot-mic" type="button" id="chatbotMic" title="Parler">
+          🎤
+        </button>
+        <input
+          class="chatbot-input"
+          id="chatbotInput"
+          type="text"
+          placeholder="Écris ton message..."
+        />
+        <button class="chatbot-send" type="button" id="chatbotSend">
+          Envoyer
+        </button>
+      </div>
+
+      <div class="chatbot-hint">
+        Règle : je parle à voix haute seulement si tu utilises le micro 🎤.
+        Si tu écris, je réponds uniquement par écrit.
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  const chatToggle = document.getElementById("chatToggle");
-  const chatWindow = document.getElementById("chatWindow");
-  const chatInput = document.getElementById("chatInput");
-  const chatSend = document.getElementById("chatSend");
-  const chatBody = document.getElementById("chatBody");
-  const chatMic = document.getElementById("chatMic");
-
-  let chatHistory = [];
-  let voiceMode = false; // MODE INTELLIGENT
-
-  const synth = window.speechSynthesis;
-
-  chatToggle.onclick = () => {
-    chatWindow.style.display = chatWindow.style.display === "flex" ? "none" : "flex";
-  };
-
-  function addMessage(role, text) {
-    const msg = document.createElement("div");
-    msg.className = `chat-message ${role}`;
-
-    const bubble = document.createElement("div");
-    bubble.className = `chat-bubble ${role}`;
-    bubble.textContent = text;
-
-    msg.appendChild(bubble);
-    chatBody.appendChild(msg);
-    chatBody.scrollTop = chatBody.scrollHeight;
-
-    chatHistory.push({ role, content: text });
-  }
-
-  async function sendMessage() {
-    const text = chatInput.value.trim();
-    if (!text) return;
-
-    voiceMode = false; // TEXT MODE
-
-    addMessage("user", text);
-    chatInput.value = "";
-
-    const reply = await sendToBackend();
-    addMessage("bot", reply);
-    // PAS DE VOIX ICI
-  }
-
-  async function sendToBackend() {
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: chatHistory })
-    });
-    const data = await res.json();
-    return data.reply || "Merci pour ton message.";
-  }
-
-  chatSend.onclick = sendMessage;
-  chatInput.onkeydown = (e) => {
-    if (e.key === "Enter") sendMessage();
-  };
-
-  // VOICE MODE
-  chatMic.onclick = () => {
-    voiceMode = true;
-
-    if (!("webkitSpeechRecognition" in window)) {
-      alert("La reconnaissance vocale n’est pas disponible.");
-      return;
+  <script>
+    // Smooth scroll
+    function smoothScrollTo(id) {
+      const target = document.querySelector(id);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-    const recog = new webkitSpeechRecognition();
-    recog.lang = "fr-FR";
-    recog.start();
 
-    recog.onresult = async (event) => {
-      const text = event.results[0][0].transcript;
-      addMessage("user", text);
+    document.querySelectorAll("[data-scroll]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const id = el.getAttribute("data-scroll");
+        if (id) smoothScrollTo(id);
+      });
+    });
 
-      const reply = await sendToBackend();
-      addMessage("bot", reply);
+    // Contact form (simple alerte)
+    document.getElementById("contactForm")?.addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert(
+        "Merci pour ton message ! Ton projet est bien transmis. Tu recevras une réponse personnalisée."
+      );
+      this.reset();
+    });
 
-      // BOT PARLE UNIQUEMENT EN MODE AUDIO
-      const speech = new SpeechSynthesisUtterance(reply);
-      speech.lang = "fr-FR";
-      synth.speak(speech);
-    };
-  };
-</script>
+    // Nav active on scroll
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll("nav a[href^='#']");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      const offset = 120;
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= offset && rect.bottom > offset) {
+          current = "#" + section.id;
+        }
+      });
+      navLinks.forEach((link) => {
+        if (link.getAttribute("href") === current) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    });
 
+    // CHATBOT LOGIC
+    const chatbotToggle = document.getElementById("chatbotToggle");
+    const chatbotPanel = document.getElementById("chatbotPanel");
+    const chatbotClose = document.getElementById("chatbotClose");
+    const chatbotInput = document.getElementById("chatbotInput");
+    const chatbotSend = document.getElementById("chatbotSend");
+    const chatbotMessages = document.getElementById("chatbotMessages");
+    const chatbotMic = document.getElementById("chatbotMic");
+
+    let chatHistory = [];
+    let inactivityTimeout = null;
+    let lastInputMode = "text"; // "text" ou "voice"
+    const synth = window.speechSynthesis;
+
+    function startInactivityTimer() {
+      if (inactivityTimeout) clearTimeout(inactivityTimeout);
+      if (!chatbotPanel.classList.contains("open")) return;
+      inactivityTimeout = setTimeout(() => {
+        appendChatMessage(
+          "assistant",
+          "Je suis toujours là si tu as besoin d’aide pour comprendre les services Athy’s Création 😊"
+        );
+        // pas de voix ici : le visiteur n’a rien demandé
+      }, 60_000);
+    }
+
+    function appendChatMessage(role, text) {
+      if (!chatbotMessages) return;
+      const wrapper = document.createElement("div");
+      wrapper.className = "chatbot-message " + (role === "user" ? "user" : "bot");
+      const bubble = document.createElement("div");
+      bubble.className = "chatbot-bubble";
+      bubble.textContent = text;
+      wrapper.appendChild(bubble);
+      chatbotMessages.appendChild(wrapper);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+      if (role === "assistant") {
+        chatHistory.push({ role: "assistant", content: text });
+      } else if (role === "user") {
+        chatHistory.push({ role: "user", content: text });
+      }
+    }
+
+    function toggleChatbot(open) {
+      const isOpen = chatbotPanel.classList.contains("open");
+      const shouldOpen = open !== undefined ? open : !isOpen;
+      if (shouldOpen) {
+        chatbotPanel.classList.add("open");
+        startInactivityTimer();
+      } else {
+        chatbotPanel.classList.remove("open");
+        if (inactivityTimeout) clearTimeout(inactivityTimeout);
+      }
+    }
+
+    async function sendToManager() {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: chatHistory })
+      });
+      const data = await response.json();
+      return data.reply || "Merci pour ton message.";
+    }
+
+    async function handleSendText() {
+      const text = chatbotInput.value.trim();
+      if (!text) return;
+      lastInputMode = "text"; // MODE TEXTE
+      appendChatMessage("user", text);
+      chatbotInput.value = "";
+      startInactivityTimer();
+      try {
+        const reply = await sendToManager();
+        appendChatMessage("assistant", reply);
+        // NE PAS PARLER : mode texte
+      } catch (e) {
+        appendChatMessage(
+          "assistant",
+          "Je rencontre un problème technique. Tu peux aussi utiliser le formulaire de contact."
+        );
+      }
+    }
+
+    function speakReply(text) {
+      if (!("speechSynthesis" in window)) return;
+      if (!text) return;
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "fr-FR";
+      synth.cancel();
+      synth.speak(utterance);
+    }
+
+    function handleMic() {
+      if (!("webkitSpeechRecognition" in window)) {
+        alert("La reconnaissance vocale n’est pas disponible sur ce navigateur.");
+        return;
+      }
+      lastInputMode = "voice"; // MODE VOIX
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = "fr-FR";
+      recognition.start();
+      recognition.onresult = async (event) => {
+        const text = event.results[0][0].transcript;
+        appendChatMessage("user", text);
+        startInactivityTimer();
+        try {
+          const reply = await sendToManager();
+          appendChatMessage("assistant", reply);
+          // PARLE UNIQUEMENT EN MODE VOIX
+          speakReply(reply);
+        } catch (e) {
+          appendChatMessage(
+            "assistant",
+            "Je rencontre un problème technique. Tu peux aussi utiliser le formulaire de contact."
+          );
+        }
+      };
+    }
+
+    chatbotToggle?.addEventListener("click", () => toggleChatbot());
+    chatbotClose?.addEventListener("click", () => toggleChatbot(false));
+    chatbotSend?.addEventListener("click", handleSendText);
+    chatbotInput?.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        handleSendText();
+      } else {
+        startInactivityTimer();
+      }
+    });
+    chatbotMic?.addEventListener("click", handleMic);
+
+    // Ajouter le premier message dans l'historique
+    const firstMsg = chatbotMessages?.querySelector(".chatbot-message.bot .chatbot-bubble");
+    if (firstMsg) {
+      chatHistory.push({ role: "assistant", content: firstMsg.textContent || "" });
+    }
+  </script>
 </body>
 </html>
