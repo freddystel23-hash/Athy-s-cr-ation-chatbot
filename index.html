@@ -6,129 +6,297 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Athy’s Création – GPT personnels, agent IA et storytelling premium pour entrepreneurs."
+    content="Athy’s Création – GPT personnels, agents IA et storytelling premium pour entrepreneurs."
   />
+
   <style>
-    /* Styles simplifiés - uniquement pour le bot */
-    body { background: #020617; font-family: Arial, sans-serif; color: #e5e7eb; margin: 0; }
-    .chatbot { position: fixed; bottom: 20px; right: 20px; z-index: 999; }
-    .chat-button { padding: 10px 15px; background: #1e40af; color: white; border: none; border-radius: 25px; cursor: pointer; }
-    .chat-window { width: 300px; max-height: 400px; background: #0f172a; border-radius: 15px; display: none; flex-direction: column; }
-    .chat-header { padding: 10px; background: #1e3a8a; color: white; border-top-left-radius: 15px; border-top-right-radius: 15px; }
-    .chat-body { padding: 10px; overflow-y: auto; flex: 1; }
-    .chat-message { margin: 5px 0; display: flex; }
+    :root {
+      --bg: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent1: #22d3ee;
+      --accent2: #4ade80;
+      --card: #0f172a;
+      --radius: 16px;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    nav a {
+      color: var(--text);
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    h1, h2 {
+      margin-left: 20px;
+    }
+    section {
+      padding: 40px 20px;
+    }
+    .btn-project {
+      position: fixed;
+      top: 40px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      color: #020617;
+      font-weight: bold;
+      padding: 12px 18px;
+      border-radius: 20px;
+    }
+    .service-card {
+      background: var(--card);
+      padding: 20px;
+      margin: 10px;
+      border-radius: var(--radius);
+    }
+
+    /* Chatbot */
+    .chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+    .chat-button {
+      padding: 10px 15px;
+      background: var(--accent1);
+      color: #020617;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .chat-window {
+      width: 300px;
+      max-height: 420px;
+      background: #0f172a;
+      border-radius: 15px;
+      display: none;
+      flex-direction: column;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .chat-header {
+      padding: 10px;
+      background: var(--accent1);
+      color: #020617;
+      font-weight: bold;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    .chat-body {
+      padding: 10px;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .chat-message {
+      display: flex;
+    }
     .chat-message.bot { justify-content: flex-start; }
     .chat-message.user { justify-content: flex-end; }
-    .chat-bubble { padding: 8px 10px; border-radius: 10px; max-width: 80%; }
-    .chat-bubble.bot { background: #1e3a8a; color: white; }
-    .chat-bubble.user { background: #22d3ee; color: #020617; }
-    .chat-footer { padding: 10px; display: flex; gap: 5px; }
-    .chat-footer input { flex: 1; padding: 5px; border-radius: 10px; border: none; }
-    .chat-footer button { padding: 6px 10px; border-radius: 8px; border: none; background: #22d3ee; cursor: pointer; }
+
+    .chat-bubble {
+      padding: 8px 10px;
+      border-radius: 10px;
+      max-width: 80%;
+      font-size: 14px;
+      line-height: 1.3;
+    }
+    .chat-bubble.bot {
+      background: #1e3a8a;
+      color: white;
+    }
+    .chat-bubble.user {
+      background: var(--accent1);
+      color: #020617;
+    }
+    .chat-footer {
+      padding: 10px;
+      display: flex;
+      gap: 5px;
+    }
+    .chat-footer input {
+      flex: 1;
+      padding: 6px;
+      border-radius: 10px;
+      border: none;
+      background: #1e293b;
+      color: white;
+    }
+    .chat-footer button {
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: none;
+      background: var(--accent1);
+      color: #020617;
+      font-weight: bold;
+      cursor: pointer;
+    }
   </style>
 </head>
 
 <body>
-  <!-- Contenu du site ici (si tu veux garder tes sections) -->
 
-  <!-- Chatbot Athy's -->
-  <div class="chatbot">
-    <button class="chat-button" id="chatToggle">💬 Chaton Athy’s</button>
-    <div class="chat-window" id="chatWindow">
-      <div class="chat-header">
-        Chaton Athy’s 👋
-      </div>
-      <div class="chat-body" id="chatBody">
-        <div class="chat-message bot">
-          <div class="chat-bubble bot">
-            Bonjour ! Je suis Chaton Athy’s 🤖. Je peux t’aider à comprendre les offres comme : GPT personnel, agent IA, et storytelling. Écris-moi ou parle 🎤 !
-          </div>
+<header>
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#services">Services</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<a class="btn-project" href="#contact">Parler de mon projet</a>
+
+<section>
+  <h1>Storytelling professionnel</h1>
+  <p>Athy’s Création t’accompagne pour créer ton GPT personnel, installer ton Agent IA,
+  écrire tes textes professionnels et structurer ton image premium.</p>
+</section>
+
+<section id="services">
+  <h2>Services</h2>
+  <div class="service-card">GPT Personnel Privé</div>
+  <div class="service-card">Agent IA Professionnel</div>
+  <div class="service-card">Texte & Storytelling Premium</div>
+</section>
+
+<section id="tarifs">
+  <h2>Tarifs</h2>
+  <p>Sur mesure selon ton besoin.</p>
+</section>
+
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <p>Des résultats pour entrepreneurs ambitieux.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Écris-nous directement via le chatbot.</p>
+</section>
+
+<!-- Chatbot Athy's -->
+<div class="chatbot">
+  <button class="chat-button" id="chatToggle">💬 Chaton Athy’s</button>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      Chaton Athy’s 👋
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-message bot">
+        <div class="chat-bubble bot">
+          Bonjour 👋 Je suis Chaton Athy’s. Tu peux écrire ou parler 🎤 : je t’aide selon ton choix.
         </div>
       </div>
-      <div class="chat-footer">
-        <button id="chatMic">🎤</button>
-        <input type="text" id="chatInput" placeholder="Écris ton message..." />
-        <button id="chatSend">Envoyer</button>
-      </div>
+    </div>
+    <div class="chat-footer">
+      <button id="chatMic">🎤</button>
+      <input type="text" id="chatInput" placeholder="Écris ton message..." />
+      <button id="chatSend">Envoyer</button>
     </div>
   </div>
+</div>
 
-  <script>
-    const chatToggle = document.getElementById("chatToggle");
-    const chatWindow = document.getElementById("chatWindow");
-    const chatInput = document.getElementById("chatInput");
-    const chatSend = document.getElementById("chatSend");
-    const chatBody = document.getElementById("chatBody");
-    const chatMic = document.getElementById("chatMic");
-    let chatHistory = [];
+<script>
+  const chatToggle = document.getElementById("chatToggle");
+  const chatWindow = document.getElementById("chatWindow");
+  const chatInput = document.getElementById("chatInput");
+  const chatSend = document.getElementById("chatSend");
+  const chatBody = document.getElementById("chatBody");
+  const chatMic = document.getElementById("chatMic");
 
-    chatToggle.addEventListener("click", () => {
-      chatWindow.style.display = chatWindow.style.display === "none" || !chatWindow.style.display ? "flex" : "none";
+  let chatHistory = [];
+  let voiceMode = false; // MODE INTELLIGENT
+
+  const synth = window.speechSynthesis;
+
+  chatToggle.onclick = () => {
+    chatWindow.style.display = chatWindow.style.display === "flex" ? "none" : "flex";
+  };
+
+  function addMessage(role, text) {
+    const msg = document.createElement("div");
+    msg.className = `chat-message ${role}`;
+
+    const bubble = document.createElement("div");
+    bubble.className = `chat-bubble ${role}`;
+    bubble.textContent = text;
+
+    msg.appendChild(bubble);
+    chatBody.appendChild(msg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    chatHistory.push({ role, content: text });
+  }
+
+  async function sendMessage() {
+    const text = chatInput.value.trim();
+    if (!text) return;
+
+    voiceMode = false; // TEXT MODE
+
+    addMessage("user", text);
+    chatInput.value = "";
+
+    const reply = await sendToBackend();
+    addMessage("bot", reply);
+    // PAS DE VOIX ICI
+  }
+
+  async function sendToBackend() {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: chatHistory })
     });
+    const data = await res.json();
+    return data.reply || "Merci pour ton message.";
+  }
 
-    function addMessage(role, content) {
-      const wrapper = document.createElement("div");
-      wrapper.className = `chat-message ${role}`;
-      const bubble = document.createElement("div");
-      bubble.className = `chat-bubble ${role}`;
-      bubble.textContent = content;
-      wrapper.appendChild(bubble);
-      chatBody.appendChild(wrapper);
-      chatBody.scrollTop = chatBody.scrollHeight;
-      chatHistory.push({ role, content });
+  chatSend.onclick = sendMessage;
+  chatInput.onkeydown = (e) => {
+    if (e.key === "Enter") sendMessage();
+  };
+
+  // VOICE MODE
+  chatMic.onclick = () => {
+    voiceMode = true;
+
+    if (!("webkitSpeechRecognition" in window)) {
+      alert("La reconnaissance vocale n’est pas disponible.");
+      return;
     }
+    const recog = new webkitSpeechRecognition();
+    recog.lang = "fr-FR";
+    recog.start();
 
-    async function sendMessage() {
-      const text = chatInput.value.trim();
-      if (!text) return;
+    recog.onresult = async (event) => {
+      const text = event.results[0][0].transcript;
       addMessage("user", text);
-      chatInput.value = "";
-      try {
-        const reply = await sendToManager(chatHistory);
-        addMessage("bot", reply);
-      } catch (error) {
-        addMessage("bot", "Oups, il y a eu un problème. Merci de réessayer !");
-      }
-    }
 
-    async function sendToManager(messages) {
-      const apiKey = "{{OPENAI_API_KEY}}"; // sera remplacé par Vercel
-      const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          model: "gpt-4.1-mini",
-          messages: [
-            { role: "system", content: "Tu es Chaton Athy’s, assistant amical et professionnel. Réponds sans jamais dire que tu utilises un manager." },
-            ...messages,
-          ],
-        }),
-      });
-      const data = await response.json();
-      return data.choices?.[0]?.message?.content || "Merci pour ton message !";
-    }
+      const reply = await sendToBackend();
+      addMessage("bot", reply);
 
-    chatSend.addEventListener("click", sendMessage);
-    chatInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") sendMessage();
-    });
+      // BOT PARLE UNIQUEMENT EN MODE AUDIO
+      const speech = new SpeechSynthesisUtterance(reply);
+      speech.lang = "fr-FR";
+      synth.speak(speech);
+    };
+  };
+</script>
 
-    chatMic.addEventListener("click", () => {
-      if (!("webkitSpeechRecognition" in window)) {
-        alert("La reconnaissance vocale n’est pas disponible.");
-        return;
-      }
-      const recognition = new webkitSpeechRecognition();
-      recognition.lang = "fr-FR";
-      recognition.onresult = (event) => {
-        chatInput.value = event.results[0][0].transcript;
-        sendMessage();
-      };
-      recognition.start();
-    });
-  </script>
 </body>
 </html>
