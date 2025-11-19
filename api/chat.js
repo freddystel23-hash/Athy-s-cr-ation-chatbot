@@ -1,10 +1,5 @@
+
 // /api/chat.js
-
-import { OpenAI } from "openai";
-
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
 
 // Prompt système du Manager IA
 const SYSTEM_PROMPT = `
@@ -41,25 +36,45 @@ export default async function handler(req, res) {
   }
 
   try {
-    const userMessages = req.body.messages || [];
+    const body = req.body || {};
+    const userMessages = body.messages || [];
 
-    const completion = await client.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        ...userMessages
-      ],
-      temperature: 0.7
+    // Appel direct à l'API OpenAI sans librairie externe
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT },
+          ...userMessages
+        ],
+        temperature: 0.7
+      })
     });
 
-    const reply = completion.choices[0]?.message?.content || "Je t’écoute.";
+    if (!response.ok) {
+      const errorText = await response.text().catch(() => "");
+      console.error("Erreur OpenAI :", response.status, errorText);
+      return res.status(500).json({
+        reply:
+          "Désolé, un problème technique est survenu. Tu peux aussi passer par le formulaire."
+      });
+    }
+
+    const data = await response.json();
+    const reply =
+      data.choices?.[0]?.message?.content || "Je t’écoute.";
 
     return res.status(200).json({ reply });
-
   } catch (error) {
     console.error("Erreur API Manager IA :", error);
     return res.status(500).json({
-      reply: "Désolé, un problème technique est survenu. Tu peux aussi passer par le formulaire."
+      reply:
+        "Désolé, un problème technique est survenu. Tu peux aussi passer par le formulaire."
     });
   }
 }
