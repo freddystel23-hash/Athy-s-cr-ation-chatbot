@@ -1,4 +1,3 @@
-
 // /api/chat.js
 
 // Prompt système du Manager IA
