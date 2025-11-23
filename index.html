@@ -1,23 +1,21 @@
-
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <title>Athy’s Création – IA, Storytelling & Images premium</title>
-  
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
     content="Athy’s Création : IA, storytelling, visuels IA premium et création de sites web modernes pour entrepreneurs. GPT personnel, agent IA discret, shootings IA et branding haut de gamme."
   />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://athys-creation.vercel.app/" />
-<meta property="og:title" content="Athy’s Création – IA, Storytelling & Images premium" />
+  <meta property="og:title" content="Athy’s Création – IA, Storytelling & Images premium" />
   <meta property="og:description" content="IA, storytelling, visuels IA premium et création de sites web modernes pour entrepreneurs ambitieux." />
   <meta property="og:url" content="https://athys-creation.vercel.app/" />
-  <meta property="og:type" content="website />
+  <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-
 
   <style>
     :root {
@@ -148,8 +146,6 @@
     .primary-cta {
       display: none;
     }
-
-    /* Hero */
 
     .hero {
       margin-top: 12px;
@@ -531,7 +527,55 @@
       background: var(--accent);
     }
 
-    /* Portfolio */
+    /* TARIFS */
+
+    .pricing-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .pricing-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.06) 0, #020617 60%);
+      border: 1px solid var(--border);
+      padding: 14px 16px 12px;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.75);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .pricing-card h3 {
+      font-size: 15px;
+      letter-spacing: -0.02em;
+    }
+
+    .pricing-tagline {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .pricing-price {
+      margin-top: 4px;
+      font-weight: 600;
+      color: var(--accent-strong);
+      font-size: 14px;
+    }
+
+    .pricing-detail {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .pricing-badge {
+      font-size: 11px;
+      color: var(--accent-strong);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    /* PORTFOLIO */
 
     .portfolio-grid {
       display: grid;
@@ -604,6 +648,117 @@
       font-size: 11px;
       color: var(--muted);
     }
+
+    /* À PROPOS / TÉMOIGNAGES / GALERIE */
+
+    .about-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .about-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.11) 0, #020617 65%);
+      padding: 16px 16px 14px;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.85);
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .about-card h3 {
+      font-size: 15px;
+      letter-spacing: -0.02em;
+    }
+
+    .about-highlight {
+      font-size: 12px;
+      color: var(--accent-strong);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .testimonial-card {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at 100% 0, rgba(148, 163, 184, 0.12) 0, #020617 70%);
+      padding: 12px 14px 10px;
+      font-size: 12px;
+      color: var(--muted);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.85);
+    }
+
+    .testimonial-card strong {
+      display: block;
+      margin-top: 6px;
+      color: #e5e7eb;
+      font-size: 11px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .gallery-item {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #020617;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.9);
+      position: relative;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .gallery-caption {
+      padding: 8px 9px 9px;
+    }
+
+    /* CTA FINAL */
+
+    .cta-band {
+      border-radius: 26px;
+      padding: 18px 16px 16px;
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.32) 0, #020617 70%);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
+      display: grid;
+      gap: 8px;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .cta-band h2 {
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .cta-band p {
+      color: var(--muted);
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    /* CONTACT */
 
     .contact-card {
       border-radius: 30px;
@@ -695,6 +850,8 @@
     footer strong {
       color: #e5e7eb;
     }
+
+    /* CHATBOT */
 
     .chatbot-launcher {
       position: fixed;
@@ -917,7 +1074,7 @@
       }
 
       .hero-title {
-        font-size: 32px;
+        font-size: 34px;
       }
 
       .hero-subtitle {
@@ -940,11 +1097,23 @@
         grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr);
         gap: 18px;
       }
+
+      .about-grid {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .testimonial-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
 
     @media (min-width: 1024px) {
       .hero-title {
-        font-size: 34px;
+        font-size: 36px;
       }
 
       .hero {
@@ -966,7 +1135,7 @@
 
       <nav>
         <a href="#services">Services</a>
-        <a href="#tarifs">Tarifs</a>
+        <a href="#pricing">Tarifs</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -990,22 +1159,23 @@
           </h1>
 
           <p class="hero-subtitle">
-            Je t’aide à structurer ton message, mettre en place ton GPT personnel / Agent IA,
-            créer des visuels photos IA et un site web qui présente ton activité de manière claire & pro.
+            J’accompagne les entrepreneurs avec des GPT personnels privés, des agents IA discrets,
+            du storytelling clair et des visuels IA qui donnent un rendu professionnel à ton site,
+            tes offres et tes réseaux.
           </p>
 
           <div class="hero-highlights">
             <div>
-              <strong>GPT & Agent IA&nbsp;:</strong> paramétrés à ton ton de voix pour répondre comme toi
-              et te faire gagner du temps au quotidien.
+              <strong>GPT & Agent IA&nbsp;:</strong> paramétrés sur ton activité et ton ton de voix
+              pour répondre comme toi et te faire gagner du temps.
             </div>
             <div>
-              <strong>Storytelling&nbsp;:</strong> une histoire claire (site, pitch, réseaux, mini-portfolio)
-              pour que ton audience comprenne tout de suite ce que tu proposes.
+              <strong>Storytelling&nbsp;:</strong> une histoire simple, percutante et mémorable pour
+              ton site, tes pages de vente et tes réseaux.
             </div>
             <div>
-              <strong>Visuels & site web&nbsp;:</strong> shootings IA + site vitrine moderne pour donner un rendu
-              premium à ta présence en ligne.
+              <strong>Images IA premium&nbsp;:</strong> shootings, publicités, visuels de marque pour
+              une présence qui inspire confiance.
             </div>
           </div>
 
@@ -1019,8 +1189,7 @@
           </div>
 
           <div class="hero-metadata">
-            1 accompagnement = <span>stratégie + texte + IA + visuels + site</span>. Adapté à ton niveau
-            d’avancement, du lancement au repositionnement.
+            1 accompagnement = <span>stratégie + textes + IA + visuels</span> pour une présence cohérente.
           </div>
         </div>
 
@@ -1035,7 +1204,7 @@
               <div class="hero-stat-label">Positionnement & message</div>
               <div class="hero-stat-value">Offre clarifiée en 3 blocs</div>
               <div class="hero-tags-row">
-                <div class="chip">Qui tu aides</div>
+                <div class="chip">Client idéal</div>
                 <div class="chip">Problème & promesse</div>
                 <div class="chip">Preuves & crédibilité</div>
               </div>
@@ -1071,7 +1240,7 @@
           <h2 class="section-title">Tout ce qu’il te faut pour une présence claire & premium</h2>
           <p class="section-subtitle">
             Tu choisis le service prioritaire pour ton projet : GPT personnel, Agent IA discret,
-            storytelling complet, visuels photos IA ou création de site web professionnel.
+            storytelling complet, visuels photos IA ou création de site web moderne.
           </p>
         </div>
         <div class="section-tagline">
@@ -1084,7 +1253,7 @@
         <article class="service-card">
           <div class="service-main">
             <div class="service-tag">GPT personnel privé</div>
-            <h3 class="service-title">GPT personnel privé 🤖</h3>
+            <h3 class="service-title">Ton GPT, entraîné sur ton activité & ton ton de voix</h3>
             <p class="service-text">
               Un GPT personnel paramétré pour répondre comme toi, à partir de ton offre,
               de tes services, de tes contenus et de ta manière de t’exprimer.
@@ -1122,7 +1291,7 @@
         <article class="service-card">
           <div class="service-main">
             <div class="service-tag">Agent IA discret</div>
-            <h3 class="service-title">Agent IA discret 🧠</h3>
+            <h3 class="service-title">Un Agent IA qui travaille pour toi en coulisses</h3>
             <p class="service-text">
               Un Agent IA paramétré pour t’aider à gérer tes demandes, préparer des réponses,
               t’alerter et te faire gagner du temps sans jamais parler de lui à tes clients.
@@ -1160,7 +1329,7 @@
         <article class="service-card">
           <div class="service-main">
             <div class="service-tag">Storytelling & portfolio</div>
-            <h3 class="service-title">Storytelling & mini-portfolio ✍️</h3>
+            <h3 class="service-title">Une histoire claire + un mini-portfolio pour te présenter</h3>
             <p class="service-text">
               On construit ensemble un récit simple et mémorable pour ton site, ta page de vente,
               ton profil ou une mini page portfolio à envoyer à tes prospects.
@@ -1194,11 +1363,50 @@
           </div>
         </article>
 
+        <!-- Création de sites web -->
+        <article class="service-card">
+          <div class="service-main">
+            <div class="service-tag">Création de site web</div>
+            <h3 class="service-title">Un site moderne, clair et aligné à ton image</h3>
+            <p class="service-text">
+              Création de sites vitrines élégants, pensés pour être lisibles, rapides
+              et adaptés aux entrepreneurs qui veulent quelque chose de professionnel
+              sans se perdre dans la technique.
+            </p>
+            <ul class="service-bullets">
+              <li>Structure claire (accueil, services, à propos, contact, etc.).</li>
+              <li>Intégration de ton identité visuelle et de ton storytelling.</li>
+              <li>Base SEO propre + intégration possible d’un chatbot ou Agent IA.</li>
+            </ul>
+            <div class="service-footer">
+              <div class="service-price">À partir de 890&nbsp;€ HT</div>
+              <div class="service-note">
+                Idéal pour un premier site pro ou une refonte simple, efficace et élégante.
+              </div>
+            </div>
+          </div>
+
+          <div class="service-visual">
+            <img
+              src="https://picsum.photos/seed/athys-site/600/400"
+              alt="Création de site web Athy’s Création"
+            />
+            <div class="service-pill-stack">
+              <div class="service-pill">
+                <span></span> Site clair, moderne & responsive
+              </div>
+              <div class="service-pill">
+                <span></span> Base IA & SEO déjà prête
+              </div>
+            </div>
+          </div>
+        </article>
+
         <!-- Visuels photos IA -->
         <article class="service-card">
           <div class="service-main">
             <div class="service-tag">Visuels photos IA</div>
-            <h3 class="service-title">Visuels photos IA 📸</h3>
+            <h3 class="service-title">Shooting & images IA pour une image de marque premium</h3>
             <p class="service-text">
               Une offre dédiée pour créer des visuels photos IA cohérents avec ton univers :
               shootings, publicités, visuels de produits, bannières et images pour tes réseaux.
@@ -1231,172 +1439,84 @@
             </div>
           </div>
         </article>
-
-        <!-- Création de site web -->
-        <article class="service-card">
-          <div class="service-main">
-            <div class="service-tag">Création de site web</div>
-            <h3 class="service-title">Création de site web 🌐</h3>
-            <p class="service-text">
-              Un site vitrine moderne, clair et élégant pour présenter ton activité comme une
-              marque premium, avec un design aligné sur l’univers Athy’s.
-            </p>
-            <ul class="service-bullets">
-              <li>Site vitrine jusqu’à 5 pages (accueil, à propos, services, tarifs, contact).</li>
-              <li>Design sur-mesure cohérent avec ton identité visuelle.</li>
-              <li>Structure prête pour Google (SEO de base, balises, hiérarchie).</li>
-            </ul>
-            <div class="service-footer">
-              <div class="service-price">À partir de 890&nbsp;€ HT</div>
-              <div class="service-note">
-                Idéal pour poser des bases solides en ligne et rassurer tes futurs clients.
-              </div>
-            </div>
-          </div>
-
-          <div class="service-visual">
-            <img
-              src="https://picsum.photos/seed/athys-siteweb/600/400"
-              alt="Création de site web Athy’s Création"
-            />
-            <div class="service-pill-stack">
-              <div class="service-pill">
-                <span></span> Site vitrine moderne & responsive
-              </div>
-              <div class="service-pill">
-                <span></span> Pensé pour ton activité & ton image
-              </div>
-            </div>
-          </div>
-        </article>
       </div>
     </section>
 
     <!-- TARIFS -->
-    <section id="tarifs">
+    <section id="pricing">
       <div class="section-header">
         <div class="section-title-block">
           <div class="section-eyebrow">Tarifs</div>
-          <h2 class="section-title">Des offres claires pour avancer étape par étape</h2>
+          <h2 class="section-title">Des offres claires pour démarrer ou passer un cap</h2>
           <p class="section-subtitle">
-            Les montants ci-dessous sont indicatifs. Chaque projet est ajusté en fonction de ton niveau
-            d’avancement, du nombre de livrables et de la partie IA à mettre en place.
+            Les tarifs ci-dessous sont des bases. Chaque projet est ajusté en fonction de ton secteur,
+            du niveau de personnalisation et des livrables.
           </p>
         </div>
         <div class="section-tagline">
-          Possibilité de paiement en plusieurs fois selon le projet.
+          Devis détaillé sous 24&nbsp;h ouvrées.
         </div>
       </div>
 
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="service-main">
-            <div class="service-tag">GPT personnel privé</div>
-            <h3 class="service-title">GPT personnel privé 🤖</h3>
-            <p class="service-text">
-              Ton GPT réglé sur ton ton de voix, ta manière d’expliquer et tes offres, pour rédiger
-              plus vite et répondre de manière cohérente.
-            </p>
-            <ul class="service-bullets">
-              <li>Base de connaissances dédiée à ton activité.</li>
-              <li>Prompts personnalisés (posts, mails, scripts, réponses).</li>
-              <li>Session de prise en main guidée.</li>
-            </ul>
-            <div class="service-footer">
-              <div class="service-price">À partir de 490&nbsp;€ HT</div>
-              <div class="service-note">
-                Idéal si tu veux garder la main tout en automatisant une partie de ta création de contenu.
-              </div>
-            </div>
-          </div>
+      <div class="pricing-grid">
+        <article class="pricing-card">
+          <div class="pricing-badge">GPT personnel privé</div>
+          <h3>GPT aligné à ton activité</h3>
+          <p class="pricing-tagline">
+            Pour répondre comme toi, rédiger plus vite et garder une cohérence dans tes réponses.
+          </p>
+          <div class="pricing-price">À partir de 490&nbsp;€ HT</div>
+          <p class="pricing-detail">
+            Paramétrage complet, base de connaissances, prompts prêts à l’emploi, session de prise en main.
+          </p>
         </article>
 
-        <article class="service-card">
-          <div class="service-main">
-            <div class="service-tag">Agent IA discret</div>
-            <h3 class="service-title">Agent IA discret 🧠</h3>
-            <p class="service-text">
-              Un agent qui travaille pour toi en coulisses, t’aide à traiter les demandes et te propose
-              des réponses prêtes à envoyer, sans jamais se présenter au client.
-            </p>
-            <ul class="service-bullets">
-              <li>Connexion à tes canaux (formulaire, e-mails, etc.).</li>
-              <li>Préparation de 2 réponses possibles par demande.</li>
-              <li>Organisation des informations importantes.</li>
-            </ul>
-            <div class="service-footer">
-              <div class="service-price">À partir de 590&nbsp;€ HT</div>
-              <div class="service-note">
-                Pour gagner du temps sur le suivi tout en gardant ta touche humaine.
-              </div>
-            </div>
-          </div>
+        <article class="pricing-card">
+          <div class="pricing-badge">Agent IA discret</div>
+          <h3>Assistant IA en coulisses</h3>
+          <p class="pricing-tagline">
+            Pour analyser les demandes, proposer des réponses et structurer ton suivi client.
+          </p>
+          <div class="pricing-price">À partir de 590&nbsp;€ HT</div>
+          <p class="pricing-detail">
+            Analyse des scénarios, mise en place, deux propositions de réponses automatiques par demande.
+          </p>
         </article>
 
-        <article class="service-card">
-          <div class="service-main">
-            <div class="service-tag">Storytelling & portfolio</div>
-            <h3 class="service-title">Storytelling & mini-portfolio ✍️</h3>
-            <p class="service-text">
-              Clarifier ton histoire, ton positionnement et créer une mini-présentation pro à envoyer
-              aux prospects ou à afficher sur ton site.
-            </p>
-            <ul class="service-bullets">
-              <li>Storytelling complet + version courte.</li>
-              <li>Mini-portfolio structuré (parcours, offres, preuves).</li>
-              <li>Texte prêt à utiliser pour ton site et tes réseaux.</li>
-            </ul>
-            <div class="service-footer">
-              <div class="service-price">À partir de 490&nbsp;€ HT</div>
-              <div class="service-note">
-                Parfait si tu te sens flou quand tu expliques ce que tu fais.
-              </div>
-            </div>
-          </div>
+        <article class="pricing-card">
+          <div class="pricing-badge">Storytelling & textes</div>
+          <h3>Histoire de marque & textes pro</h3>
+          <p class="pricing-tagline">
+            Pour rendre ton activité compréhensible, mémorable et attractive.
+          </p>
+          <div class="pricing-price">À partir de 490&nbsp;€ HT</div>
+          <p class="pricing-detail">
+            Storytelling complet, version courte pour réseaux, textes pour ton site ou ta page de vente.
+          </p>
         </article>
 
-        <article class="service-card">
-          <div class="service-main">
-            <div class="service-tag">Visuels photos IA</div>
-            <h3 class="service-title">Visuels photos IA 📸</h3>
-            <p class="service-text">
-              Création d’une série d’images IA pour ton site, tes réseaux ou une campagne précise
-              (offre, produit, service).
-            </p>
-            <ul class="service-bullets">
-              <li>Scénarios visuels adaptés à ton activité.</li>
-              <li>Visuels en haute définition, prêts à publier.</li>
-              <li>Une vague d’ajustements si besoin.</li>
-            </ul>
-            <div class="service-footer">
-              <div class="service-price">À partir de 420&nbsp;€ HT</div>
-              <div class="service-note">
-                Idéal pour moderniser ton image sans organiser un shooting classique.
-              </div>
-            </div>
-          </div>
+        <article class="pricing-card">
+          <div class="pricing-badge">Création de site web</div>
+          <h3>Site vitrine moderne Athy’s</h3>
+          <p class="pricing-tagline">
+            Pour avoir une base solide, professionnelle et alignée à ton univers.
+          </p>
+          <div class="pricing-price">À partir de 890&nbsp;€ HT</div>
+          <p class="pricing-detail">
+            Structure complète, intégration de ton image, base SEO, possibilité d’intégrer IA & chatbot.
+          </p>
         </article>
 
-        <article class="service-card">
-          <div class="service-main">
-            <div class="service-tag">Création de site web</div>
-            <h3 class="service-title">Création de site web 🌐</h3>
-            <p class="service-text">
-              Site vitrine complet pour présenter ton activité avec clarté, crédibilité et un style
-              aligné avec ton image de marque.
-            </p>
-            <ul class="service-bullets">
-              <li>Jusqu’à 5 pages (accueil, à propos, services, tarifs, contact).</li>
-              <li>Design responsive (mobile, tablette, ordinateur).</li>
-              <li>Structure optimisée pour Google (SEO de base).</li>
-            </ul>
-            <div class="service-footer">
-              <div class="service-price">À partir de 890&nbsp;€ HT</div>
-              <div class="service-note">
-                Possibilité d’ajouter ton GPT personnel ou Agent IA sur le site.
-              </div>
-            </div>
-          </div>
+        <article class="pricing-card">
+          <div class="pricing-badge">Visuels photos IA</div>
+          <h3>Shooting & images IA premium</h3>
+          <p class="pricing-tagline">
+            Pour des visuels pro sans organiser un shooting physique complet.
+          </p>
+          <div class="pricing-price">À partir de 420&nbsp;€ HT</div>
+          <p class="pricing-detail">
+            Pack de visuels IA HD, adaptés à ton site, tes réseaux et tes campagnes marketing.
+          </p>
         </article>
       </div>
     </section>
@@ -1483,6 +1603,106 @@
       </div>
     </section>
 
+    <!-- À PROPOS & TÉMOIGNAGES & GALERIE -->
+    <section id="about">
+      <div class="section-header">
+        <div class="section-title-block">
+          <div class="section-eyebrow">À propos</div>
+          <h2 class="section-title">Une approche IA pensée pour l’humain</h2>
+          <p class="section-subtitle">
+            Athy’s Création, c’est l’alliance entre l’IA, le storytelling et une image premium,
+            au service des entrepreneurs et marques qui veulent passer un cap.
+          </p>
+        </div>
+        <div class="section-tagline">
+          IA oui, mais toujours au service de ton projet réel.
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <article class="about-card">
+          <h3>Qui je suis</h3>
+          <p>
+            Je suis Freddy, fondateur d’Athy’s Création.  
+            J’accompagne les entrepreneurs, créateurs et marques ambitieuses avec des solutions
+            d’intelligence artificielle premium : GPT personnels privés, agents IA discrets,
+            storytelling professionnel, images IA haut de gamme et création de sites web modernes.
+          </p>
+          <p>
+            Mon objectif : transformer ta vision en une présence digitale élégante, puissante
+            et mémorable, sans que tu aies à gérer toute la technique.
+          </p>
+          <p class="about-highlight">
+            Tu arrives avec une idée, des notes vocales, un début de projet : on en fait quelque
+            chose de clair, pro et crédible pour ton audience.
+          </p>
+        </article>
+
+        <div>
+          <div class="section-title-block" style="margin-bottom: 10px;">
+            <div class="section-eyebrow">Témoignages</div>
+            <h3 class="section-title" style="font-size:16px;">Ils ont travaillé avec Athy’s Création</h3>
+          </div>
+          <div class="testimonial-grid">
+            <article class="testimonial-card">
+              <p>
+                “Un service irréprochable. Mon GPT personnalisé m’a fait gagner un temps incroyable.
+                Je recommande Athy’s Création les yeux fermés.”
+              </p>
+              <strong>— M. D. Kamana, Entrepreneur</strong>
+            </article>
+            <article class="testimonial-card">
+              <p>
+                “Les visuels IA créés pour ma marque sont dignes d’une agence premium.
+                Travail rapide, élégant, professionnel.”
+              </p>
+              <strong>— S. Morel, Studio digital</strong>
+            </article>
+            <article class="testimonial-card">
+              <p>
+                “L’agent IA discret installé dans mon activité m’aide à garder la main
+                tout en répondant plus vite aux demandes. Un vrai plus au quotidien.”
+              </p>
+              <strong>— A.M. Consulting</strong>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;">
+        <div class="section-title-block" style="margin-bottom: 10px;">
+          <div class="section-eyebrow">Visuels IA</div>
+          <h3 class="section-title" style="font-size:16px;">Exemples de rendus IA pour ta marque</h3>
+        </div>
+        <div class="gallery-grid">
+          <article class="gallery-item">
+            <img src="https://picsum.photos/seed/athys-gallery1/800/600" alt="Visuel IA branding" />
+            <div class="gallery-caption">
+              Shooting IA pour une offre de coaching premium.
+            </div>
+          </article>
+          <article class="gallery-item">
+            <img src="https://picsum.photos/seed/athys-gallery2/800/600" alt="Visuel IA réseaux sociaux" />
+            <div class="gallery-caption">
+              Visuels pour réseaux sociaux avec une identité cohérente.
+            </div>
+          </article>
+          <article class="gallery-item">
+            <img src="https://picsum.photos/seed/athys-gallery3/800/600" alt="Visuel IA produit" />
+            <div class="gallery-caption">
+              Mise en avant de produits et services avec un rendu premium.
+            </div>
+          </article>
+          <article class="gallery-item">
+            <img src="https://picsum.photos/seed/athys-gallery4/800/600" alt="Visuel IA campagne" />
+            <div class="gallery-caption">
+              Visuels IA pour une campagne publicitaire digitale.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact">
       <div class="section-header">
@@ -1491,7 +1711,7 @@
           <h2 class="section-title">Parlons de ton projet</h2>
           <p class="section-subtitle">
             Dis-moi où tu en es et ce qui est prioritaire pour toi en ce moment&nbsp;:
-            IA, storytelling, visuels photos IA, création de site web ou un peu de tout.
+            IA, storytelling, visuels photos IA, création de site web, ou un peu de tout.
           </p>
         </div>
         <div class="section-tagline">
@@ -1504,7 +1724,7 @@
           <p class="contact-text">
             <strong>Tu n’es pas obligé d’avoir tout clarifié.</strong> On peut justement
             utiliser la session ensemble pour mettre à plat ton offre, voir ce qui bloque,
-            et choisir le bon combo IA + storytelling + visuels + site.
+            et choisir le bon combo IA + storytelling + visuels + site web.
           </p>
           <p class="contact-meta">
             Tu peux aussi m’écrire ou m’envoyer un vocal si c’est plus simple.  
@@ -1526,7 +1746,7 @@
             <textarea
               id="project"
               rows="4"
-              placeholder="Ex : créer mon site avec un GPT personnel, un Agent IA discret et des visuels IA pro…"
+              placeholder="Ex : lancer mon site avec un GPT personnel, un Agent IA discret et des visuels IA pro…"
               required
             ></textarea>
             <div class="contact-hint">
@@ -1542,12 +1762,27 @@
       </div>
     </section>
 
+    <!-- CTA FINAL -->
+    <section aria-label="Appel à l’action final">
+      <div class="cta-band">
+        <h2>Prêt à donner un vrai visage à ton projet&nbsp;?</h2>
+        <p>
+          Athy’s Création t’accompagne pour aligner IA, storytelling, visuels et site web,
+          avec une approche humaine et un rendu premium.
+        </p>
+        <div class="cta-actions">
+          <a href="#contact" class="btn btn-primary">Demander un devis en 24&nbsp;h</a>
+          <a href="#services" class="btn btn-ghost">Revoir les services IA & image</a>
+        </div>
+      </div>
+    </section>
+
     <footer>
       <div>
-        <strong>Athy’s Création</strong> – IA, storytelling, sites web & images premium pour
+        <strong>Athy’s Création</strong> – IA, storytelling & images premium pour
         entrepreneurs.
       </div>
-      <div>Site propulsé avec des outils IA, mais toujours adapté à l’humain.</div>
+      <div>Site propulsé avec des outils IA, mais toujours pensé pour l’humain.</div>
     </footer>
   </div>
 
@@ -1634,18 +1869,18 @@
       } else if (t.includes("photo") || t.includes("image") || t.includes("visuel")) {
         answer =
           "L’offre visuels photos IA comprend la création de shootings IA sur-mesure (pub, produits, branding) + formats adaptés au web et aux réseaux. Une série démarre à 420 € HT avec retouches / ajustements inclus.";
-      } else if (t.includes("site") || t.includes("web")) {
+      } else if (t.includes("site") || t.includes("web") || t.includes("vitrine")) {
         answer =
-          "Pour la création de site web, on part sur un site vitrine jusqu’à 5 pages (accueil, à propos, services, tarifs, contact) avec un design moderne et une structure optimisée pour Google. Le tarif démarre à 890 € HT.";
+          "Pour la création de sites web, on construit une base claire et moderne alignée à ton image, avec une structure pro et un socle SEO propre. Les projets démarrent à 890 € HT.";
       } else if (t.includes("tarif") || t.includes("prix")) {
         answer =
-          "Les tarifs sur le site sont indicatifs. On affine toujours en fonction de ton projet, du nombre de livrables et de la partie IA ou site web à mettre en place. Le plus simple est de m’expliquer ta situation dans la section Contact.";
+          "Les tarifs sur le site sont indicatifs. On affine toujours en fonction de ton projet, du nombre de livrables et de la partie IA à mettre en place. Le plus simple est de m’expliquer ta situation dans la section Contact.";
       } else if (t.includes("contact") || t.includes("email") || t.includes("rdv") || t.includes("rendez")) {
         answer =
           "Tu peux utiliser le formulaire de contact du site pour m’envoyer ton projet, ou simplement décrire ta situation ici et je t’indiquerai ce qu’il faut préciser pour recevoir une proposition claire.";
       } else {
         answer =
-          "Merci pour ton message. Je t’invite à préciser si tu as besoin d’un GPT personnel, d’un Agent IA, de storytelling, de visuels photos IA, de création de site web ou d’un mélange des cinq. Je pourrai te guider vers la bonne combinaison.";
+          "Merci pour ton message. Précise si tu as besoin d’un GPT personnel, d’un Agent IA, de storytelling, de visuels photos IA, de création de site web ou d’un mélange des cinq, et je pourrai te guider.";
       }
 
       setTimeout(() => addMessage(answer, "bot"), 500);
