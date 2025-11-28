@@ -1896,29 +1896,46 @@
       setTimeout(() => addMessage(answer, "bot"), 500);
     }
 
+    
+/* ---- NOTIFICATIONS TELEGRAM POUR MANAGER IA ---- */
+    const TELEGRAM_BOT_TOKEN = "TON_TOKEN_ICI"; 
+    const TELEGRAM_CHAT_ID = "TON_CHAT_ID_ICI";
+
+    async function sendToTelegram(text) {
+      try {
+        const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+        await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: `📩 Nouveau message sur le site Athy's :\n\n${text}`
+          })
+        });
+      } catch (error) {
+        console.error("Erreur envoi Telegram :", error);
+      }
+    }
+
+    // Fonction d’envoi du message depuis le chatbot
     function handleSend() {
       const text = chatInput.value.trim();
       if (!text) return;
+
       addMessage(text, "user");
       chatInput.value = "";
+
+      // 🔥 Envoi au Telegram du manager IA
+      sendToTelegram(text);
+
+      // Réponse du bot sur le site
       botReply(text);
     }
 
-    toggleBtn.addEventListener("click", () => {
-      if (panel.style.display === "flex") {
-        panel.style.display = "none";
-      } else {
-        panel.style.display = "flex";
-        scrollChatToBottom();
-      }
-    });
-
-    closeBtn.addEventListener("click", () => {
-      panel.style.display = "none";
-    });
-
+    // Bouton "Envoyer" du chatbot
     chatSend.addEventListener("click", handleSend);
 
+    // Touche Entrée dans le champ texte
     chatInput.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
         event.preventDefault();
@@ -1928,3 +1945,4 @@
   </script>
 </body>
 </html>
+
