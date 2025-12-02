@@ -1841,109 +1841,153 @@
     </div>
   </div>
 
-  <script>
-    const panel = document.getElementById("chatbotPanel");
-    const toggleBtn = document.getElementById("chatbotToggle");
-    const closeBtn = document.getElementById("chatbotClose");
-    const chatBody = document.getElementById("chatBody");
-    const chatInput = document.getElementById("chatInput");
-    const chatSend = document.getElementById("chatSend");
+ script>
+  // === CHATBOT UI ===
+  const panel = document.getElementById("chatbotPanel");
+  const toggleBtn = document.getElementById("chatbotToggle");
+  const closeBtn = document.getElementById("chatbotClose");
+  const chatBody = document.getElementById("chatBody");
+  const chatInput = document.getElementById("chatInput");
+  const chatSend = document.getElementById("chatSend");
 
-    function scrollChatToBottom() {
-      chatBody.scrollTop = chatBody.scrollHeight;
+  function scrollChatToBottom() {
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function addMessage(text, sender) {
+    const row = document.createElement("div");
+    row.className = "chat-row " + sender;
+    const bubble = document.createElement("div");
+    bubble.className = "chat-bubble " + sender;
+    bubble.textContent = text;
+    row.appendChild(bubble);
+    chatBody.appendChild(row);
+    scrollChatToBottom();
+  }
+
+  function botReply(userText) {
+    const t = userText.toLowerCase();
+    let answer;
+
+    if (t.includes("gpt")) {
+      answer =
+        "Pour le GPT personnel privé, on part d’abord de ton activité et de ton ton de voix. On crée une base de connaissances et des prompts clés pour qu’il réponde comme toi. Le tarif démarre à 490 € HT, ajusté selon la complexité.";
+    } else if (t.includes("agent") || t.includes("assistant")) {
+      answer =
+        "L’Agent IA est discret et ne parle jamais de lui à tes clients. Il analyse les demandes, prépare deux propositions de réponses et t’aide à ne rien oublier. Le tarif commence à 590 € HT.";
+    } else if (t.includes("story") || t.includes("storytelling") || t.includes("histoire")) {
+      answer =
+        "Le service storytelling + mini-portfolio sert à clarifier qui tu es, ce que tu proposes et comment tu le prouves. On crée un récit complet pour ton site et une version courte pour les réseaux. Le tarif démarre à 490 € HT.";
+    } else if (t.includes("photo") || t.includes("image") || t.includes("visuel")) {
+      answer =
+        "L’offre visuels photos IA comprend la création de shootings IA sur-mesure (pub, produits, branding) + formats adaptés au web et aux réseaux. Une série démarre à 420 € HT avec retouches / ajustements inclus.";
+    } else if (t.includes("site") || t.includes("web") || t.includes("vitrine")) {
+      answer =
+        "Pour la création de sites web, on construit une base claire et moderne alignée à ton image, avec une structure pro et un socle SEO propre. Les projets démarrent à 890 € HT.";
+    } else if (t.includes("tarif") || t.includes("prix")) {
+      answer =
+        "Les tarifs sur le site sont indicatifs. On affine toujours en fonction de ton projet, du nombre de livrables et de la partie IA à mettre en place. Le plus simple est de m’expliquer ta situation dans la section Contact.";
+    } else if (t.includes("contact") || t.includes("email") || t.includes("rdv") || t.includes("rendez")) {
+      answer =
+        "Tu peux utiliser le formulaire de contact du site pour m’envoyer ton projet, ou simplement décrire ta situation ici et je t’indiquerai ce qu’il faut préciser pour recevoir une proposition claire.";
+    } else {
+      answer =
+        "Merci pour ton message. Précise si tu as besoin d’un GPT personnel, d’un Agent IA, de storytelling, de visuels photos IA, de création de site web ou d’un mélange des cinq, et je pourrai te guider.";
     }
 
-    function addMessage(text, sender) {
-      const row = document.createElement("div");
-      row.className = "chat-row " + sender;
-      const bubble = document.createElement("div");
-      bubble.className = "chat-bubble " + sender;
-      bubble.textContent = text;
-      row.appendChild(bubble);
-      chatBody.appendChild(row);
-      scrollChatToBottom();
-    }
+    setTimeout(() => addMessage(answer, "bot"), 500);
+  }
 
-    function botReply(userText) {
-      const t = userText.toLowerCase();
-      let answer;
+  // Ouverture / fermeture du panneau chatbot
+  toggleBtn.addEventListener("click", () => {
+    const isOpen = panel.style.display === "flex";
+    panel.style.display = isOpen ? "none" : "flex";
+  });
 
-      if (t.includes("gpt")) {
-        answer =
-          "Pour le GPT personnel privé, on part d’abord de ton activité et de ton ton de voix. On crée une base de connaissances et des prompts clés pour qu’il réponde comme toi. Le tarif démarre à 490 € HT, ajusté selon la complexité.";
-      } else if (t.includes("agent") || t.includes("assistant")) {
-        answer =
-          "L’Agent IA est discret et ne parle jamais de lui à tes clients. Il analyse les demandes, prépare deux propositions de réponses et t’aide à ne rien oublier. Le tarif commence à 590 € HT.";
-      } else if (t.includes("story") || t.includes("storytelling") || t.includes("histoire")) {
-        answer =
-          "Le service storytelling + mini-portfolio sert à clarifier qui tu es, ce que tu proposes et comment tu le prouves. On crée un récit complet pour ton site et une version courte pour les réseaux. Le tarif démarre à 490 € HT.";
-      } else if (t.includes("photo") || t.includes("image") || t.includes("visuel")) {
-        answer =
-          "L’offre visuels photos IA comprend la création de shootings IA sur-mesure (pub, produits, branding) + formats adaptés au web et aux réseaux. Une série démarre à 420 € HT avec retouches / ajustements inclus.";
-      } else if (t.includes("site") || t.includes("web") || t.includes("vitrine")) {
-        answer =
-          "Pour la création de sites web, on construit une base claire et moderne alignée à ton image, avec une structure pro et un socle SEO propre. Les projets démarrent à 890 € HT.";
-      } else if (t.includes("tarif") || t.includes("prix")) {
-        answer =
-          "Les tarifs sur le site sont indicatifs. On affine toujours en fonction de ton projet, du nombre de livrables et de la partie IA à mettre en place. Le plus simple est de m’expliquer ta situation dans la section Contact.";
-      } else if (t.includes("contact") || t.includes("email") || t.includes("rdv") || t.includes("rendez")) {
-        answer =
-          "Tu peux utiliser le formulaire de contact du site pour m’envoyer ton projet, ou simplement décrire ta situation ici et je t’indiquerai ce qu’il faut préciser pour recevoir une proposition claire.";
-      } else {
-        answer =
-          "Merci pour ton message. Précise si tu as besoin d’un GPT personnel, d’un Agent IA, de storytelling, de visuels photos IA, de création de site web ou d’un mélange des cinq, et je pourrai te guider.";
+  closeBtn.addEventListener("click", () => {
+    panel.style.display = "none";
+  });
+
+  // === NOTIFICATIONS TELEGRAM POUR MANAGER IA ===
+  // ⚠️ ICI : mets ton vrai token et ton vrai chat_id (ne les montre pas publiquement)
+  const TELEGRAM_BOT_TOKEN = "TON_TOKEN_TELEGRAM_COMPLET_ICI";
+  const TELEGRAM_CHAT_ID = "TON_CHAT_ID_COMPLET_ICI";
+
+  async function sendToTelegram(text) {
+    try {
+      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        console.error("Erreur Telegram :", res.status, data);
       }
-
-      setTimeout(() => addMessage(answer, "bot"), 500);
+    } catch (error) {
+      console.error("Erreur envoi Telegram :", error);
     }
+  }
 
-    
-/* ---- NOTIFICATIONS TELEGRAM POUR MANAGER IA ---- */
-    const TELEGRAM_BOT_TOKEN = "8245395198:AAE7KEG-u50yKuP2Y0RVFWz0x9Hqs7vqwQA"; 
-    const TELEGRAM_CHAT_ID = "6889747793";
+  // === ENVOI DEPUIS LE CHATBOT ===
+  function handleSend() {
+    const text = chatInput.value.trim();
+    if (!text) return;
 
-    async function sendToTelegram(text) {
-      try {
-        const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-        await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text: `📩 Nouveau message sur le site Athy's :\n\n${text}`
-          })
-        });
-      } catch (error) {
-        console.error("Erreur envoi Telegram :", error);
-      }
+    addMessage(text, "user");
+    chatInput.value = "";
+
+    const payload = `💬 Nouveau message via le CHATBOT Athy's :
+
+${text}`;
+
+    // Envoi au Telegram du manager IA
+    sendToTelegram(payload);
+
+    // Réponse du bot sur le site
+    botReply(text);
+  }
+
+  chatSend.addEventListener("click", handleSend);
+
+  chatInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSend();
     }
+  });
 
-    // Fonction d’envoi du message depuis le chatbot
-    function handleSend() {
-      const text = chatInput.value.trim();
-      if (!text) return;
+  // === ENVOI DEPUIS LE FORMULAIRE DE CONTACT ===
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
-      addMessage(text, "user");
-      chatInput.value = "";
+      const name = document.getElementById("name")?.value.trim() || "";
+      const email = document.getElementById("email")?.value.trim() || "";
+      const project = document.getElementById("project")?.value.trim() || "";
 
-      // 🔥 Envoi au Telegram du manager IA
-      sendToTelegram(text);
+      const message = `📩 Nouveau message via le FORMULAIRE Athy's :
 
-      // Réponse du bot sur le site
-      botReply(text);
-    }
+👤 Nom : ${name}
+📧 Email : ${email}
 
-    // Bouton "Envoyer" du chatbot
-    chatSend.addEventListener("click", handleSend);
+📝 Projet :
+${project}
+`;
 
-    // Touche Entrée dans le champ texte
-    chatInput.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        handleSend();
-      }
+      await sendToTelegram(message);
+
+      alert("Merci, ton message est bien noté. Athy’s Création te répondra dans les 24h ouvrées.");
+      contactForm.reset();
     });
-  </script>
+  }
+</script>
 </body>
 </html>
 
