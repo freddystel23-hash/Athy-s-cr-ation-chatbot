@@ -1,3 +1,5 @@
+Copier le code
+Html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -37,7 +39,19 @@ border:1px solid #1f1f1f;
 background:#000;
 padding:24px
 }
-.card img{width:100%;margin-bottom:12px}
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+margin-bottom:14px
+}
+
+.desc{
+font-size:14px;
+opacity:.85;
+margin-bottom:6px
+}
+
 .price{color:var(--gold);margin:6px 0}
 
 .cta{
@@ -84,7 +98,7 @@ background:var(--gold);border:none;cursor:pointer
 
 <!-- HERO -->
 <section class="section dark">
-<h1>Athy’s — Ad Studio & solutions digitales</h1>
+<h1>Athy’s — Ad Studio & solutions créatives</h1>
 <p>
 Publicités professionnelles, storytelling, branding, shooting,
 création de sites et assistants IA.
@@ -95,12 +109,12 @@ création de sites et assistants IA.
 <section class="section">
 <h2>Présentation</h2>
 <p>
-Je suis freelance créatif spécialisé dans la conception de contenus
-publicitaires, de solutions digitales et d’outils basés sur l’intelligence artificielle.
+Je suis freelance créatif spécialisé dans la conception de contenus publicitaires,
+de solutions digitales et d’outils basés sur l’intelligence artificielle.
 </p>
 <p>
 Athy’s accompagne les entreprises avec une approche structurée,
-professionnelle et adaptée à leurs besoins réels.
+professionnelle et orientée résultats.
 </p>
 </section>
 
@@ -108,24 +122,40 @@ professionnelle et adaptée à leurs besoins réels.
 <section class="section dark">
 <h2>Storytelling — Services</h2>
 <div class="grid">
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=1200&q=80">
 <h3>Storytelling de marque</h3>
-<p>Clarification du message et positionnement.</p>
+<p class="desc">
+Définition du message central, positionnement et cohérence narrative
+pour renforcer l’identité de marque.
+</p>
 <p class="price">À partir de 750 €</p>
 <a class="cta" onclick="openOrder('Storytelling de marque')">Commander</a>
 </div>
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80">
 <h3>Storytelling commercial</h3>
-<p>Narration orientée conversion.</p>
+<p class="desc">
+Narration orientée conversion, pensée pour le web,
+la publicité et les supports commerciaux.
+</p>
 <p class="price">À partir de 1 200 €</p>
 <a class="cta" onclick="openOrder('Storytelling commercial')">Commander</a>
 </div>
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1200&q=80">
 <h3>Storytelling signature</h3>
-<p>Direction narrative premium.</p>
+<p class="desc">
+Direction narrative premium pour marques souhaitant
+une communication différenciante et durable.
+</p>
 <p class="price">Sur devis</p>
 <a class="cta" onclick="openOrder('Storytelling signature')">Commander</a>
 </div>
+
 </div>
 </section>
 
@@ -133,49 +163,81 @@ professionnelle et adaptée à leurs besoins réels.
 <section class="section">
 <h2>Branding & Shooting</h2>
 <div class="grid">
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=1200&q=80">
 <h3>Branding</h3>
-<p>Identité visuelle et cohérence de marque.</p>
+<p class="desc">
+Création ou refonte de l’identité visuelle,
+garantissant cohérence et crédibilité de la marque.
+</p>
 <p class="price">À partir de 1 200 €</p>
 <a class="cta" onclick="openOrder('Branding')">Commander</a>
 </div>
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80">
 <h3>Shooting photo</h3>
-<p>Images professionnelles pour communication.</p>
+<p class="desc">
+Réalisation de visuels professionnels
+destinés à la communication digitale et print.
+</p>
 <p class="price">À partir de 650 €</p>
 <a class="cta" onclick="openOrder('Shooting photo')">Commander</a>
 </div>
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80">
 <h3>Shooting vidéo</h3>
-<p>Contenus vidéo corporate et publicitaires.</p>
+<p class="desc">
+Production de contenus vidéo premium
+pour présentation, publicité ou image de marque.
+</p>
 <p class="price">À partir de 1 100 €</p>
 <a class="cta" onclick="openOrder('Shooting vidéo')">Commander</a>
 </div>
+
 </div>
 </section>
 
-<!-- SITES INTERNET -->
+<!-- SITES -->
 <section class="section dark">
 <h2>Création de sites internet</h2>
 <div class="grid">
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80">
 <h3>Site vitrine</h3>
-<p>Présence professionnelle claire.</p>
+<p class="desc">
+Site professionnel clair pour présenter une activité,
+des services et des informations essentielles.
+</p>
 <p class="price">Dès 1 800 €</p>
 <a class="cta" onclick="openOrder('Site vitrine')">Commander</a>
 </div>
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80">
 <h3>Site business</h3>
-<p>Orientation conversion et formulaires.</p>
+<p class="desc">
+Site orienté conversion avec formulaires,
+structure marketing et parcours client.
+</p>
 <p class="price">Dès 3 200 €</p>
 <a class="cta" onclick="openOrder('Site business')">Commander</a>
 </div>
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1559027615-028d20b87b8b?auto=format&fit=crop&w=1200&q=80">
 <h3>Site sur mesure</h3>
-<p>Fonctionnalités spécifiques.</p>
+<p class="desc">
+Développement spécifique selon les besoins métiers,
+fonctionnalités avancées et intégrations.
+</p>
 <p class="price">Sur devis</p>
 <a class="cta" onclick="openOrder('Site sur mesure')">Commander</a>
 </div>
+
 </div>
 </section>
 
@@ -183,48 +245,34 @@ professionnelle et adaptée à leurs besoins réels.
 <section class="section">
 <h2>GPT personnel & business</h2>
 <div class="grid">
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80">
 <h3>GPT personnel</h3>
-<p>Assistant IA personnalisé.</p>
+<p class="desc">
+Assistant IA personnalisé pour usage individuel,
+organisation, rédaction ou support quotidien.
+</p>
 <p class="price">Dès 950 €</p>
 <a class="cta" onclick="openOrder('GPT personnel')">Commander</a>
 </div>
+
 <div class="card">
+<img src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?auto=format&fit=crop&w=1200&q=80">
 <h3>GPT business</h3>
-<p>Automatisation et scénarios avancés.</p>
+<p class="desc">
+Assistant IA avancé pour automatisation,
+support client ou gestion interne.
+</p>
 <p class="price">Dès 1 850 €</p>
 <a class="cta" onclick="openOrder('GPT business')">Commander</a>
 </div>
-</div>
-</section>
 
-<!-- PACKS PROMPTS -->
-<section class="section dark">
-<h2>Packs de prompts — Publicité IA</h2>
-<div class="grid">
-<div class="card">
-<h3>Pack Essentiel</h3>
-<p>10 prompts publicitaires.</p>
-<p class="price">190 €</p>
-<a class="cta" onclick="openOrder('Pack prompts Essentiel')">Commander</a>
-</div>
-<div class="card">
-<h3>Pack Performance</h3>
-<p>25 prompts optimisés.</p>
-<p class="price">390 €</p>
-<a class="cta" onclick="openOrder('Pack prompts Performance')">Commander</a>
-</div>
-<div class="card">
-<h3>Pack Signature</h3>
-<p>50 prompts premium.</p>
-<p class="price">690 €</p>
-<a class="cta" onclick="openOrder('Pack prompts Signature')">Commander</a>
-</div>
 </div>
 </section>
 
 <!-- COMMANDE -->
-<section id="order" class="section">
+<section id="order" class="section dark">
 <h2>Demande de commande</h2>
 <p id="selectedOffer">Offre sélectionnée :</p>
 <form>
