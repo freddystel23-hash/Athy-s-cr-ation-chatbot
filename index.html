@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Athy’s — Création stratégique premium</title>
+<title>Athy’s — Freelance créatif & solutions digitales</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Création visuelle, publicité, sites web, GPT privés et storytelling professionnel.">
+<meta name="description" content="Freelance créatif : publicité, sites web, GPT privés, storytelling et génération de publicités professionnelles.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -12,54 +12,79 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
 body{background:#0b0b0b;color:#e5e5e5;line-height:1.7}
 a{text-decoration:none;color:inherit}
-
-nav{display:flex;justify-content:space-between;padding:32px 64px}
+nav{display:flex;justify-content:space-between;padding:24px 48px}
 nav ul{display:flex;list-style:none}
-nav li{margin-left:32px}
-
-.hero{
-min-height:100vh;
-background:url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=2000&q=80') center/cover;
-display:flex;
-flex-direction:column
-}
-
-.hero-content{
-margin:auto;
-text-align:center;
-max-width:900px
-}
-
-.hero h1{font-size:48px;font-weight:400;margin-bottom:24px}
+nav li{margin-left:24px}
+.hero{min-height:100vh;background:url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=2000&q=80') center/cover;display:flex;flex-direction:column}
+.hero-content{margin:auto;text-align:center;max-width:900px}
+.hero h1{font-size:44px;font-weight:400;margin-bottom:20px}
 .hero p{font-size:18px;opacity:.9}
-
-.section{padding:120px 80px;max-width:1400px;margin:auto}
+.section{padding:100px 64px;max-width:1400px;margin:auto}
 .dark{background:#000}
-
-h2{font-size:36px;margin-bottom:40px}
-h3{margin:80px 0 32px;font-size:22px;font-weight:400}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:40px
-}
-
-.card{
-border:1px solid #1f1f1f;
-padding:40px
-}
-
-.cta{
-display:inline-block;
-margin-top:32px;
-padding:14px 36px;
-border:1px solid #fff;
-transition:.3s
-}
+h2{font-size:34px;margin-bottom:32px}
+h3{margin:64px 0 24px;font-size:22px;font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px}
+.card{border:1px solid #1f1f1f;padding:32px}
+.cta{display:inline-block;margin-top:24px;padding:14px 32px;border:1px solid #fff;transition:.3s}
 .cta:hover{background:#fff;color:#000}
+footer{text-align:center;padding:40px;opacity:.6}
 
-footer{text-align:center;padding:48px;opacity:.6}
+/* BOT */
+#bot{
+position:fixed;
+bottom:20px;
+right:20px;
+width:300px;
+background:#111;
+border:1px solid #333;
+display:none;
+flex-direction:column;
+z-index:999
+}
+#bot-header{
+padding:12px;
+background:#000;
+cursor:pointer;
+font-size:14px
+}
+#bot-messages{
+padding:12px;
+height:220px;
+overflow-y:auto;
+font-size:13px
+}
+#bot-input{
+border:none;
+padding:10px;
+width:100%;
+background:#000;
+color:#fff
+}
+#bot-toggle{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#000;
+border:1px solid #fff;
+padding:12px 18px;
+cursor:pointer
+}
+
+input,select,textarea{
+width:100%;
+padding:10px;
+margin-top:10px;
+background:#000;
+border:1px solid #333;
+color:#fff
+}
+button{
+margin-top:20px;
+padding:12px;
+background:#fff;
+border:none;
+cursor:pointer
+}
 </style>
 </head>
 
@@ -67,79 +92,130 @@ footer{text-align:center;padding:48px;opacity:.6}
 
 <header class="hero">
 <nav>
-<div><strong>ATHY’S</strong></div>
+<strong>ATHY’S</strong>
 <ul>
+<li><a href="#presentation">Présentation</a></li>
 <li><a href="#offres">Offres</a></li>
-<li><a href="#contact">Contact</a></li>
+<li><a href="#adstudio">Ad Studio</a></li>
 </ul>
 </nav>
 
 <div class="hero-content">
-<h1>Création stratégique,<br>contenu premium et systèmes intelligents</h1>
+<h1>Freelance créatif<br>solutions visuelles & digitales</h1>
 <p>
-Athy’s accompagne les marques et entreprises exigeantes
-dans la création d’actifs visuels, digitaux et publicitaires
-pensés pour la crédibilité et la performance.
+Je conçois des publicités, sites internet et outils intelligents
+pour les entreprises souhaitant une communication claire,
+professionnelle et accessible.
 </p>
-<a href="#offres" class="cta">Découvrir les offres</a>
+<a href="#offres" class="cta">Voir les offres</a>
 </div>
 </header>
 
-<section id="offres" class="section">
-<h2>Offres & prix</h2>
+<section id="presentation" class="section dark">
+<h2>Présentation</h2>
+<p>
+Je suis freelance créatif, en début d’activité, spécialisé dans la création de contenus visuels,
+de sites internet et de solutions basées sur l’intelligence artificielle.
+</p>
+<p>
+Mon approche repose sur la simplicité, la clarté et l’efficacité.
+Chaque projet est traité avec sérieux, même à petite échelle,
+afin d’apporter une solution concrète et professionnelle.
+</p>
+</section>
 
-<h3>Publicité vidéo IA — Sora 2</h3>
+<section id="offres" class="section">
+<h2>Offres & services</h2>
+
+<h3>Publicité vidéo professionnelle (IA)</h3>
 <div class="grid">
-<div class="card">Essentiel — 490 €<br><br>Vidéo publicitaire 15–20 s, montage inclus</div>
-<div class="card">Performance — 890 €<br><br>Vidéo optimisée conversion, multi-formats</div>
-<div class="card">Signature — 1 590 €<br><br>Concept exclusif et direction artistique complète</div>
+<div class="card">Essentiel — 490 €<br><br>Vidéo courte, montage inclus, idéale pour réseaux sociaux.</div>
+<div class="card">Performance — 890 €<br><br>Vidéo optimisée conversion, plusieurs formats.</div>
+<div class="card">Signature — 1 590 €<br><br>Concept personnalisé, rendu premium.</div>
 </div>
 
 <h3>Création de sites internet</h3>
 <div class="grid">
-<div class="card">Site vitrine — dès 1 800 €</div>
-<div class="card">Site business — dès 3 200 €</div>
-<div class="card">Site premium — sur devis</div>
+<div class="card">Site vitrine — dès 1 800 €<br><br>Présentation professionnelle, design clair.</div>
+<div class="card">Site business — dès 3 200 €<br><br>Formulaires, logique commerciale.</div>
+<div class="card">Site sur mesure — devis</div>
 </div>
 
 <h3>GPT personnel & privé</h3>
 <div class="grid">
-<div class="card">GPT personnel — dès 950 €</div>
-<div class="card">GPT business — dès 1 850 €</div>
-<div class="card">GPT entreprise — sur devis</div>
+<div class="card">GPT personnel — dès 950 €<br><br>Assistant intelligent personnalisé.</div>
+<div class="card">GPT business — dès 1 850 €<br><br>Automatisation professionnelle.</div>
 </div>
 
 <h3>Storytelling professionnel</h3>
 <div class="grid">
-<div class="card">Storytelling de marque — dès 750 €</div>
-<div class="card">Storytelling commercial — dès 1 200 €</div>
-<div class="card">Storytelling premium — sur devis</div>
+<div class="card">Storytelling de marque — 750 €</div>
+<div class="card">Storytelling commercial — 1 200 €</div>
 </div>
-
-<h3>Branding & shooting</h3>
-<div class="grid">
-<div class="card">Identité visuelle — dès 1 200 €</div>
-<div class="card">Rebranding — dès 2 500 €</div>
-<div class="card">Shooting photo / vidéo — dès 650 €</div>
-</div>
-
 </section>
 
-<section id="contact" class="section dark">
-<h2>Contact</h2>
+<section id="adstudio" class="section dark">
+<h2>Application de génération de publicité</h2>
 <p>
-Athy’s intervient uniquement lorsque la valeur apportée
-est claire, mesurable et cohérente avec son positionnement.
+Configurez votre publicité professionnelle et recevez un devis.
 </p>
-<a class="cta">Initier un échange</a>
+
+<form>
+<label>Type d’entreprise</label>
+<input placeholder="Entreprise, commerce, indépendant">
+
+<label>Objectif de la publicité</label>
+<select>
+<option>Visibilité</option>
+<option>Ventes</option>
+<option>Notoriété</option>
+</select>
+
+<label>Durée souhaitée</label>
+<select>
+<option>15 secondes</option>
+<option>30 secondes</option>
+</select>
+
+<label>Message principal</label>
+<textarea placeholder="Décrivez votre message"></textarea>
+
+<button type="button">Générer la demande</button>
+</form>
 </section>
 
 <footer>
-© Athy’s — Tous droits réservés
+© Athy’s — Freelance créatif
 </footer>
 
+<!-- BOT -->
+<div id="bot-toggle" onclick="toggleBot()">Besoin d’aide ?</div>
+
+<div id="bot">
+<div id="bot-header" onclick="toggleBot()">Assistant Athy’s</div>
+<div id="bot-messages">
+<p><strong>Athy’s :</strong> Bonjour, comment puis-je vous aider ?</p>
+</div>
+<input id="bot-input" placeholder="Votre message..." onkeydown="sendMessage(event)">
+</div>
+
 <script>
-// JS prêt pour évolutions futures
+function toggleBot(){
+document.getElementById('bot').style.display =
+document.getElementById('bot').style.display === 'flex' ? 'none' : 'flex';
+}
+
+function sendMessage(e){
+if(e.key === 'Enter'){
+let input = e.target.value;
+if(!input) return;
+let messages = document.getElementById('bot-messages');
+messages.innerHTML += '<p><strong>Vous :</strong> '+input+'</p>';
+messages.innerHTML += '<p><strong>Athy’s :</strong> Merci pour votre message, je vous répondrai rapidement.</p>';
+e.target.value='';
+messages.scrollTop = messages.scrollHeight;
+}
+}
 </script>
 
 </body>
