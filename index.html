@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Athy’s — Ad Studio & Création stratégique</title>
+<title>Athy’s — Ad Studio & Solutions créatives</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -18,12 +18,13 @@
 body{background:var(--black);color:var(--white);line-height:1.7}
 a{text-decoration:none;color:inherit}
 
-.section{padding:80px 56px;max-width:1400px;margin:auto}
+.section{padding:90px 56px;max-width:1400px;margin:auto}
 .dark{background:var(--dark)}
+
 h1,h2{color:var(--gold)}
 h1{font-size:42px;margin-bottom:16px}
 h2{font-size:32px;margin-bottom:24px}
-h3{margin:16px 0 8px;font-weight:400}
+h3{margin:12px 0;font-weight:400}
 
 .grid{
 display:grid;
@@ -37,11 +38,11 @@ background:#000;
 padding:24px
 }
 .card img{width:100%;margin-bottom:12px}
-.price{color:var(--gold);margin:8px 0}
+.price{color:var(--gold);margin:6px 0}
 
 .cta{
 display:inline-block;
-margin-top:12px;
+margin-top:10px;
 padding:10px 22px;
 border:1px solid var(--gold);
 color:var(--gold);
@@ -83,10 +84,10 @@ background:var(--gold);border:none;cursor:pointer
 
 <!-- HERO -->
 <section class="section dark">
-<h1>Athy’s — Ad Studio & création stratégique</h1>
+<h1>Athy’s — Ad Studio & solutions digitales</h1>
 <p>
-Publicités professionnelles, storytelling, branding, sites internet
-et packs de prompts IA pour entreprises exigeantes.
+Publicités professionnelles, storytelling, branding, shooting,
+création de sites et assistants IA.
 </p>
 </section>
 
@@ -94,62 +95,136 @@ et packs de prompts IA pour entreprises exigeantes.
 <section class="section">
 <h2>Présentation</h2>
 <p>
-Je suis freelance créatif spécialisé dans la production de contenus publicitaires,
-la structuration de messages de marque et l’intégration d’outils basés sur l’IA.
+Je suis freelance créatif spécialisé dans la conception de contenus
+publicitaires, de solutions digitales et d’outils basés sur l’intelligence artificielle.
 </p>
 <p>
-Athy’s accompagne les entreprises avec une approche claire,
-professionnelle et progressive, adaptée aussi bien aux structures
-en développement qu’aux marques établies.
+Athy’s accompagne les entreprises avec une approche structurée,
+professionnelle et adaptée à leurs besoins réels.
 </p>
 </section>
 
-<!-- STORYTELLING SERVICE -->
+<!-- STORYTELLING -->
 <section class="section dark">
-<h2>Storytelling — Service</h2>
+<h2>Storytelling — Services</h2>
 <div class="grid">
 <div class="card">
-<img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=1200&q=80">
 <h3>Storytelling de marque</h3>
 <p>Clarification du message et positionnement.</p>
 <p class="price">À partir de 750 €</p>
 <a class="cta" onclick="openOrder('Storytelling de marque')">Commander</a>
 </div>
-
 <div class="card">
-<img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80">
 <h3>Storytelling commercial</h3>
 <p>Narration orientée conversion.</p>
 <p class="price">À partir de 1 200 €</p>
 <a class="cta" onclick="openOrder('Storytelling commercial')">Commander</a>
 </div>
+<div class="card">
+<h3>Storytelling signature</h3>
+<p>Direction narrative premium.</p>
+<p class="price">Sur devis</p>
+<a class="cta" onclick="openOrder('Storytelling signature')">Commander</a>
+</div>
+</div>
+</section>
+
+<!-- BRANDING & SHOOTING -->
+<section class="section">
+<h2>Branding & Shooting</h2>
+<div class="grid">
+<div class="card">
+<h3>Branding</h3>
+<p>Identité visuelle et cohérence de marque.</p>
+<p class="price">À partir de 1 200 €</p>
+<a class="cta" onclick="openOrder('Branding')">Commander</a>
+</div>
+<div class="card">
+<h3>Shooting photo</h3>
+<p>Images professionnelles pour communication.</p>
+<p class="price">À partir de 650 €</p>
+<a class="cta" onclick="openOrder('Shooting photo')">Commander</a>
+</div>
+<div class="card">
+<h3>Shooting vidéo</h3>
+<p>Contenus vidéo corporate et publicitaires.</p>
+<p class="price">À partir de 1 100 €</p>
+<a class="cta" onclick="openOrder('Shooting vidéo')">Commander</a>
+</div>
+</div>
+</section>
+
+<!-- SITES INTERNET -->
+<section class="section dark">
+<h2>Création de sites internet</h2>
+<div class="grid">
+<div class="card">
+<h3>Site vitrine</h3>
+<p>Présence professionnelle claire.</p>
+<p class="price">Dès 1 800 €</p>
+<a class="cta" onclick="openOrder('Site vitrine')">Commander</a>
+</div>
+<div class="card">
+<h3>Site business</h3>
+<p>Orientation conversion et formulaires.</p>
+<p class="price">Dès 3 200 €</p>
+<a class="cta" onclick="openOrder('Site business')">Commander</a>
+</div>
+<div class="card">
+<h3>Site sur mesure</h3>
+<p>Fonctionnalités spécifiques.</p>
+<p class="price">Sur devis</p>
+<a class="cta" onclick="openOrder('Site sur mesure')">Commander</a>
+</div>
+</div>
+</section>
+
+<!-- GPT -->
+<section class="section">
+<h2>GPT personnel & business</h2>
+<div class="grid">
+<div class="card">
+<h3>GPT personnel</h3>
+<p>Assistant IA personnalisé.</p>
+<p class="price">Dès 950 €</p>
+<a class="cta" onclick="openOrder('GPT personnel')">Commander</a>
+</div>
+<div class="card">
+<h3>GPT business</h3>
+<p>Automatisation et scénarios avancés.</p>
+<p class="price">Dès 1 850 €</p>
+<a class="cta" onclick="openOrder('GPT business')">Commander</a>
+</div>
 </div>
 </section>
 
 <!-- PACKS PROMPTS -->
-<section class="section">
+<section class="section dark">
 <h2>Packs de prompts — Publicité IA</h2>
 <div class="grid">
 <div class="card">
-<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80">
-<h3>Essentiel</h3>
+<h3>Pack Essentiel</h3>
 <p>10 prompts publicitaires.</p>
 <p class="price">190 €</p>
-<a class="cta" onclick="openOrder('Pack Publicité Essentiel')">Commander</a>
+<a class="cta" onclick="openOrder('Pack prompts Essentiel')">Commander</a>
 </div>
-
 <div class="card">
-<img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?auto=format&fit=crop&w=900&q=80">
-<h3>Performance</h3>
+<h3>Pack Performance</h3>
 <p>25 prompts optimisés.</p>
 <p class="price">390 €</p>
-<a class="cta" onclick="openOrder('Pack Publicité Performance')">Commander</a>
+<a class="cta" onclick="openOrder('Pack prompts Performance')">Commander</a>
+</div>
+<div class="card">
+<h3>Pack Signature</h3>
+<p>50 prompts premium.</p>
+<p class="price">690 €</p>
+<a class="cta" onclick="openOrder('Pack prompts Signature')">Commander</a>
 </div>
 </div>
 </section>
 
 <!-- COMMANDE -->
-<section id="order" class="section dark">
+<section id="order" class="section">
 <h2>Demande de commande</h2>
 <p id="selectedOffer">Offre sélectionnée :</p>
 <form>
@@ -159,7 +234,7 @@ en développement qu’aux marques établies.
 <button type="button">Envoyer la demande</button>
 </form>
 <p style="opacity:.7;margin-top:12px">
-Paiement sécurisé via prestataire certifié (Stripe – prochainement).
+Paiement sécurisé via prestataire certifié (Stripe — prochainement).
 </p>
 </section>
 
