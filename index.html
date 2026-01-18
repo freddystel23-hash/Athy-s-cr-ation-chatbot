@@ -390,6 +390,12 @@ Bot du site Athy’s
 `;
 
 console.log(managerReport);
+// WHATSAPP
+const whatsappNumber = "33754048858"; // France, sans + ni espaces
+const whatsappMessage = encodeURIComponent(managerReport);
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+window.open(whatsappLink, "_blank");
     step = 3;
     return;
   }
