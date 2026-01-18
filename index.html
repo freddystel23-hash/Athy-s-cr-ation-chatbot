@@ -315,27 +315,75 @@ Je peux vous renseigner sur les offres, les prix ou le fonctionnement.
 </div>
 <input id="bot-input" placeholder="Posez votre question…" onkeydown="sendMessage(event)">
 </div>
-
 <script>
+let step = 0;
+let userData = {
+  besoin: "",
+  precision: "",
+  delai: ""
+};
+
 function toggleBot(){
-const bot=document.getElementById('bot');
-bot.style.display = bot.style.display === 'flex' ? 'none' : 'flex';
+  const bot = document.getElementById('bot');
+  bot.style.display = bot.style.display === 'flex' ? 'none' : 'flex';
+}
+
+function addMessage(author, text){
+  const box = document.getElementById('bot-messages');
+  box.innerHTML += `<p><strong>${author} :</strong> ${text}</p>`;
+  box.scrollTop = box.scrollHeight;
 }
 
 function sendMessage(e){
-if(e.key === 'Enter'){
-const input=e.target;
-const msg=input.value.trim();
-if(!msg) return;
+  if(e.key !== 'Enter') return;
 
-const box=document.getElementById('bot-messages');
-box.innerHTML += `<p><strong>Vous :</strong> ${msg}</p>
-<p><strong>Athy’s :</strong> Merci pour votre message. Nous vous répondrons rapidement ou via le contact ci-dessous.</p>`;
-input.value='';
-box.scrollTop = box.scrollHeight;
-}
+  const input = e.target;
+  const message = input.value.trim();
+  if(!message) return;
+
+  addMessage("Vous", message);
+  input.value = "";
+
+  if(step === 0){
+    userData.besoin = message;
+    addMessage("Athy’s",
+      "Merci. Pouvez-vous préciser votre besoin ?\n" +
+      "Publicité, branding, storytelling, site internet ou GPT personnel ?"
+    );
+    step = 1;
+    return;
+  }
+
+  if(step === 1){
+    userData.precision = message;
+    addMessage("Athy’s",
+      "Très bien.\nAvez-vous un délai particulier à respecter ?\n" +
+      "Immédiat, 1 à 2 semaines ou délai flexible."
+    );
+    step = 2;
+    return;
+  }
+
+  if(step === 2){
+    userData.delai = message;
+
+    addMessage("Athy’s",
+      "Merci pour ces informations.\n" +
+      "Nous allons étudier votre demande et revenir vers vous rapidement.\n\n" +
+      "Vous pouvez également nous contacter via la section Contact du site."
+    );
+
+    console.log("Résumé client :", userData);
+    step = 3;
+    return;
+  }
+
+  if(step >= 3){
+    addMessage("Athy’s",
+      "Notre équipe vous répondra prochainement. Merci de votre confiance."
+    );
+  }
 }
 </script>
-
 </body>
 </html>
