@@ -373,7 +373,23 @@ function sendMessage(e){
       "Vous pouvez également nous contacter via la section Contact du site."
     );
 
-    console.log("Résumé client :", userData);
+    const managerReport =
+`Nouvelle demande — Athy’s
+
+Besoin principal :
+${userData.besoin}
+
+Précision :
+${userData.precision}
+
+Délai :
+${userData.delai}
+
+Source :
+Bot du site Athy’s
+`;
+
+console.log(managerReport);
     step = 3;
     return;
   }
