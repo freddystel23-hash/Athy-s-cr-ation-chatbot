@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Athy's – Studio IA & Branding. Publicité IA, storytelling, branding, création de sites internet et GPT personnalisés.">
+<meta name="description" content="Athy's – Studio IA & Branding. Publicité IA, storytelling, branding, sites internet et GPT personnalisés.">
 
 <title>Athy's — Studio IA & Branding Premium</title>
 
@@ -30,7 +30,6 @@ body{
   line-height:1.7;
 }
 
-/* GLOBAL */
 .section{
   padding:90px 56px;
   max-width:1400px;
@@ -46,53 +45,31 @@ h3{font-weight:500;margin-bottom:6px;}
 
 p{opacity:.9}
 
-/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:36px;
 }
 
-/* CARD */
 .card{
   background:#0f0f0f;
   border:1px solid #222;
   border-radius:16px;
   padding:18px;
   transition:.35s ease;
-  position:relative;
 }
-
-.card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:16px;
-  background:linear-gradient(120deg,transparent,rgba(201,162,77,.08),transparent);
-  opacity:0;
-  transition:.35s;
-}
-
-.card:hover::after{opacity:1;}
 
 .card:hover{
   transform:translateY(-8px);
   box-shadow:0 40px 80px rgba(0,0,0,.65);
 }
 
-.card img{
-  width:100%;
-  border-radius:12px;
-  margin-bottom:14px;
-}
-
 .price{
   color:var(--gold);
-  margin:10px 0 14px;
+  margin:12px 0;
   font-weight:500;
 }
 
-/* CTA */
 .cta{
   display:inline-block;
   padding:10px 24px;
@@ -107,13 +84,6 @@ p{opacity:.9}
   background:var(--gold);
   color:#000;
   transform:translateY(-2px);
-}
-
-/* CONTACT */
-.contact{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:32px;
 }
 
 /* BOT */
@@ -141,12 +111,6 @@ p{opacity:.9}
   flex-direction:column;
   z-index:1000;
   box-shadow:0 30px 70px rgba(0,0,0,.7);
-  animation:fadeUp .35s ease;
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(12px)}
-  to{opacity:1;transform:none}
 }
 
 #bot-header{
@@ -182,52 +146,110 @@ p{opacity:.9}
 <!-- HERO -->
 <section class="section">
 <h1>Athy's Studio</h1>
-<p>Studio IA & branding premium. Publicité IA, storytelling, création de sites et assistants GPT sur mesure.</p>
+<p>Studio IA & branding premium. Publicité IA, storytelling, branding, création de sites et GPT personnalisés.</p>
 </section>
 
-<!-- PACKS PUBLICITÉ IA -->
+<!-- PUBLICITÉ IA -->
 <section class="section dark">
 <h2>Packs de prompts – Publicité IA</h2>
 <div class="grid">
-
 <div class="card">
-<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Publicité IA Essentiel">
 <h3>Publicité Essentiel</h3>
-<p>10 prompts IA pour vidéos publicitaires courtes et réseaux sociaux.</p>
-<p class="price">190 € – 10 prompts</p>
+<p>10 prompts IA pour vidéos courtes et réseaux sociaux.</p>
+<p class="price">190 €</p>
 <a class="cta" onclick="toggleBot()">Commander</a>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" alt="Publicité IA Performance">
 <h3>Publicité Performance</h3>
 <p>25 prompts structurés pour campagnes complètes.</p>
-<p class="price">390 € – 25 prompts</p>
+<p class="price">390 €</p>
 <a class="cta" onclick="toggleBot()">Commander</a>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?auto=format&fit=crop&w=1200&q=80" alt="Publicité IA Signature">
 <h3>Publicité Signature</h3>
 <p>50 prompts cinématographiques premium.</p>
-<p class="price">690 € – 50 prompts</p>
+<p class="price">690 €</p>
 <a class="cta" onclick="toggleBot()">Commander</a>
 </div>
-
 </div>
 </section>
 
-<!-- CONTACT -->
+<!-- STORYTELLING -->
 <section class="section">
-<h2>Contact</h2>
-<div class="contact">
-<div>
-<p><strong>Email :</strong> studioia@a-thys.org</p>
-<p><strong>Téléphone :</strong> 07 54 04 88 58</p>
+<h2>Storytelling professionnel</h2>
+<div class="grid">
+<div class="card">
+<h3>Storytelling de marque</h3>
+<p>Positionnement narratif et message de marque.</p>
+<p class="price">À partir de 750 €</p>
 </div>
-<div>
-<p><strong>SIRET :</strong> 944 745 124 00023</p>
-<p>Paiements sécurisés via prestataire certifié.</p>
+
+<div class="card">
+<h3>Storytelling commercial</h3>
+<p>Narration orientée conversion.</p>
+<p class="price">À partir de 1 200 €</p>
+</div>
+
+<div class="card">
+<h3>Storytelling Signature</h3>
+<p>Direction narrative premium sur mesure.</p>
+<p class="price">Sur devis</p>
+</div>
+</div>
+</section>
+
+<!-- BRANDING -->
+<section class="section dark">
+<h2>Branding & identité visuelle</h2>
+<div class="grid">
+<div class="card">
+<h3>Branding visuel</h3>
+<p>Création ou refonte d’identité visuelle.</p>
+<p class="price">À partir de 1 200 €</p>
+</div>
+</div>
+</section>
+
+<!-- SITES -->
+<section class="section">
+<h2>Création de sites internet</h2>
+<div class="grid">
+<div class="card">
+<h3>Site vitrine</h3>
+<p>Site professionnel clair et élégant.</p>
+<p class="price">Dès 1 800 €</p>
+</div>
+
+<div class="card">
+<h3>Site business</h3>
+<p>Site orienté conversion et croissance.</p>
+<p class="price">Dès 3 200 €</p>
+</div>
+
+<div class="card">
+<h3>Site sur mesure</h3>
+<p>Développement personnalisé et automatisations.</p>
+<p class="price">Sur devis</p>
+</div>
+</div>
+</section>
+
+<!-- GPT -->
+<section class="section dark">
+<h2>GPT personnalisés</h2>
+<div class="grid">
+<div class="card">
+<h3>GPT Personnel Pro</h3>
+<p>Assistant IA personnalisé pour productivité.</p>
+<p class="price">Dès 950 €</p>
+</div>
+
+<div class="card">
+<h3>GPT Business Avancé</h3>
+<p>Automatisation IA & support entreprise.</p>
+<p class="price">Dès 1 850 €</p>
 </div>
 </div>
 </section>
@@ -238,14 +260,14 @@ p{opacity:.9}
 <div id="bot">
 <div id="bot-header">Assistant Athy's</div>
 <div id="bot-messages">
-<p><strong>Athy's :</strong> Bonjour 👋<br>Je peux vous renseigner sur nos offres et notre fonctionnement.</p>
+<p><strong>Athy's :</strong> Bonjour 👋<br>Quel est votre besoin ?</p>
 </div>
 <input id="bot-input" placeholder="Posez votre question..." onkeydown="sendMessage(event)">
 </div>
 
 <script>
 let step=0;
-let userData={besoin:"",precision:"",delai:""};
+let userData={};
 
 function toggleBot(){
   const bot=document.getElementById('bot');
@@ -274,13 +296,13 @@ function sendMessage(e){
   if(step===0){
     userData.besoin=message;
     addMessage("Athy's","Pouvez-vous préciser votre besoin ?");
-    step=1;return;
+    step=1; return;
   }
 
   if(step===1){
     userData.precision=message;
     addMessage("Athy's","Avez-vous un délai particulier ?");
-    step=2;return;
+    step=2; return;
   }
 
   if(step===2){
