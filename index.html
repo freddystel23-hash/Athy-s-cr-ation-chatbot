@@ -2,410 +2,261 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Athy’s — Studio IA & Création Publicitaire Premium</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Athy’s — Publicités IA, branding, storytelling, création de sites internet et GPT personnalisés.">
+
+<title>Athy’s – Studio IA & création premium</title>
+<meta name="description" content="Studio IA premium spécialisé en publicités IA, branding visuel, storytelling stratégique et sites internet sur mesure.">
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Athy’s – Studio IA & création premium">
+<meta property="og:description" content="Des stratégies visuelles, narratives et IA conçues pour convertir.">
+<meta property="og:type" content="website">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
---gold:#C9A24D;
---black:#0B0B0B;
---dark:#141414;
---white:#EDEDED;
+  --accent:#D6B77C;
+  --black:#0B0B0E;
+  --dark:#141418;
+  --white:#F2F2F2;
+  --gray:#A8A8AD;
 }
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:var(--black);color:var(--white);line-height:1.7}
 
-.section{padding:90px 56px;max-width:1400px;margin:auto}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+
+body{
+  background:var(--black);
+  color:var(--white);
+  line-height:1.7;
+}
+
+.section{
+  padding:90px 56px;
+  max-width:1400px;
+  margin:auto;
+}
+
 .dark{background:var(--dark)}
 
-h1,h2{color:var(--gold)}
-h1{font-size:42px;margin-bottom:16px}
-h2{font-size:32px;margin-bottom:32px}
-h3{font-weight:400;margin-bottom:6px}
-p{opacity:.9}
+h1,h2{color:var(--accent);letter-spacing:.5px}
+h1{font-size:44px;margin-bottom:18px}
+h2{font-size:32px;margin-bottom:36px}
+h3{font-weight:500;margin-bottom:8px}
+
+p{opacity:.9;color:var(--gray)}
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:32px
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:32px;
 }
 
 .card{
-background:#000;
-border:1px solid #1f1f1f;
-padding:24px
-}
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
-margin-bottom:14px
+  background:var(--dark);
+  padding:26px;
+  border:0.5px solid rgba(214,183,124,.25);
+  transition:.4s ease;
 }
 
-.desc{font-size:14px;opacity:.85;margin-bottom:8px}
-.price{color:var(--gold);font-weight:500;margin-bottom:10px}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  margin-bottom:14px;
+  filter:brightness(.9);
+}
+
+.desc{font-size:14px;margin-bottom:10px}
+.price{color:var(--accent);font-weight:500;margin-bottom:14px}
 
 .cta{
-display:inline-block;
-padding:10px 22px;
-border:1px solid var(--gold);
-color:var(--gold);
-cursor:pointer;
-text-decoration:none
+  display:inline-block;
+  padding:10px 24px;
+  border:1px solid var(--accent);
+  color:var(--black);
+  background:var(--accent);
+  text-decoration:none;
+  transition:.3s;
+  font-size:14px;
 }
-.cta:hover{background:var(--gold);color:#000}
+
+.cta:hover{
+  background:transparent;
+  color:var(--accent);
+}
 
 /* CONTACT */
 .contact{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:32px
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
 }
 
 /* BOT */
 #bot-toggle{
-position:fixed;
-bottom:20px;
-right:20px;
-padding:14px 18px;
-border:1px solid var(--gold);
-background:#000;
-color:var(--gold);
-cursor:pointer;
-z-index:1000
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  padding:14px 20px;
+  background:var(--black);
+  border:1px solid var(--accent);
+  color:var(--accent);
+  cursor:pointer;
+  z-index:1000;
 }
+
 #bot{
-position:fixed;
-bottom:80px;
-right:20px;
-width:320px;
-background:#000;
-border:1px solid #333;
-display:none;
-flex-direction:column;
-z-index:1000
+  position:fixed;
+  bottom:80px;
+  right:20px;
+  width:320px;
+  background:var(--black);
+  border:1px solid rgba(214,183,124,.4);
+  display:none;
+  flex-direction:column;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
 }
+
 #bot-header{
-padding:12px;
-background:var(--dark);
-color:var(--gold);
-font-size:14px
+  padding:12px;
+  background:var(--dark);
+  color:var(--accent);
+  font-size:14px;
 }
+
 #bot-messages{
-padding:12px;
-height:220px;
-overflow-y:auto;
-font-size:13px
+  padding:12px;
+  height:220px;
+  overflow-y:auto;
+  font-size:13px;
 }
+
 #bot-input{
-border:none;
-padding:10px;
-background:#111;
-color:#fff;
-outline:none;
-width:100%
+  padding:10px;
+  border:none;
+  outline:none;
+  background:#111;
+  color:#fff;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <section class="section dark">
-<h1>Athy’s — Studio IA & création premium</h1>
-<p>
-Publicités IA, branding visuel, storytelling stratégique,
-création de sites internet et assistants GPT professionnels.
-</p>
+  <h1>Athy’s — Studio IA & création premium</h1>
+  <p>Des stratégies visuelles, narratives et IA conçues pour convertir.</p>
 </section>
 
-<!-- PRESENTATION -->
 <section class="section">
-<h2>Présentation</h2>
-<p>
-Athy’s est un studio créatif indépendant spécialisé dans la conception
-de solutions publicitaires premium et d’outils basés sur l’intelligence artificielle.
-</p>
-<p>
-Chaque projet est pensé avec rigueur, clarté et exigence,
-afin de répondre à des objectifs concrets de communication,
-d’image et de performance.
-</p>
+  <h2>Présentation</h2>
+  <p>Athy’s est un studio créatif indépendant spécialisé dans la conception de solutions publicitaires premium et d’outils basés sur l’intelligence artificielle.</p>
 </section>
 
-<!-- PACKS PUBLICITÉ IA -->
 <section class="section dark">
-<h2>Packs de prompts — Publicité IA</h2>
-<div class="grid">
+  <h2>Packs de prompts — Publicité IA</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=70">
+      <h3>Publicité Essentiel</h3>
+      <p class="desc">10 prompts IA pour vidéos publicitaires courtes.</p>
+      <p class="price">190 € — 10 prompts</p>
+      <a class="cta">Demander une analyse</a>
+    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80">
-<h3>Publicité Essentiel</h3>
-<p class="desc">10 prompts IA pour vidéos publicitaires courtes et réseaux sociaux.</p>
-<p class="price">190 € — 10 prompts</p>
-<a class="cta">Commander</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80">
-<h3>Publicité Performance</h3>
-<p class="desc">25 prompts structurés pour campagnes complètes.</p>
-<p class="price">390 € — 25 prompts</p>
-<a class="cta">Commander</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?auto=format&fit=crop&w=1200&q=80">
-<h3>Publicité Signature</h3>
-<p class="desc">50 prompts cinématographiques premium.</p>
-<p class="price">690 € — 50 prompts</p>
-<a class="cta">Commander</a>
-</div>
-
-</div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?auto=format&fit=crop&w=800&q=70">
+      <h3>Publicité Signature</h3>
+      <p class="desc">50 prompts cinématographiques premium.</p>
+      <p class="price">690 € — 50 prompts</p>
+      <a class="cta">Lancer un projet</a>
+    </div>
+  </div>
 </section>
 
-<!-- BRANDING & SHOOTING -->
 <section class="section">
-<h2>Branding & Shooting premium</h2>
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=1200&q=80">
-<h3>Branding visuel</h3>
-<p class="desc">Création ou refonte d’identité visuelle professionnelle.</p>
-<p class="price">À partir de 1 200 €</p>
-<a class="cta">Commander</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80">
-<h3>Shooting photo</h3>
-<p class="desc">Visuels professionnels pour communication digitale.</p>
-<p class="price">À partir de 650 €</p>
-<a class="cta">Commander</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80">
-<h3>Shooting vidéo</h3>
-<p class="desc">Contenus vidéo premium publicitaires ou corporate.</p>
-<p class="price">À partir de 1 100 €</p>
-<a class="cta">Commander</a>
-</div>
-
-</div>
+  <h2>Contact</h2>
+  <div class="contact">
+    <div>
+      <p><strong>Email :</strong> studioia@a-thys.org</p>
+      <p><strong>Téléphone :</strong> 07 54 04 88 58</p>
+    </div>
+    <div>
+      <p><strong>SIRET :</strong> 944 745 124 00023</p>
+      <p>Paiements sécurisés via prestataire certifié.</p>
+    </div>
+  </div>
 </section>
 
-<!-- STORYTELLING -->
-<section class="section dark">
-<h2>Storytelling professionnel</h2>
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=1200&q=80">
-<h3>Storytelling de marque</h3>
-<p class="desc">Positionnement narratif et message de marque.</p>
-<p class="price">À partir de 750 €</p>
-<a class="cta">Commander</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80">
-<h3>Storytelling commercial</h3>
-<p class="desc">Narration orientée conversion et persuasion.</p>
-<p class="price">À partir de 1 200 €</p>
-<a class="cta">Commander</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1200&q=80">
-<h3>Storytelling Signature</h3>
-<p class="desc">Direction narrative premium sur mesure.</p>
-<p class="price">Sur devis</p>
-<a class="cta">Commander</a>
-</div>
-
-</div>
-</section>
-
-<!-- SITES INTERNET -->
-<section class="section">
-<h2>Création de sites internet</h2>
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80">
-<h3>Site vitrine</h3>
-<p class="desc">Site professionnel clair et élégant.</p>
-<p class="price">Dès 1 800 €</p>
-<a class="cta">Commander</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80">
-<h3>Site business</h3>
-<p class="desc">Site orienté conversion et croissance.</p>
-<p class="price">Dès 3 200 €</p>
-<a class="cta">Commander</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80">
-<h3>Site sur mesure</h3>
-<p class="desc">Développement personnalisé et automatisations.</p>
-<p class="price">Sur devis</p>
-<a class="cta">Commander</a>
-</div>
-
-</div>
-</section>
-
-<!-- GPT -->
-<section class="section dark">
-<h2>GPT personnel & business</h2>
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80">
-<h3>GPT Personnel Pro</h3>
-<p class="desc">Assistant IA personnalisé pour organisation et productivité.</p>
-<p class="price">Dès 950 €</p>
-<a class="cta">Commander</a>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?auto=format&fit=crop&w=1200&q=80">
-<h3>GPT Business Avancé</h3>
-<p class="desc">Automatisation IA et support entreprise.</p>
-<p class="price">Dès 1 850 €</p>
-<a class="cta">Commander</a>
-</div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section class="section">
-<h2>Contact</h2>
-<div class="contact">
-<div>
-<p><strong>Email :</strong> studioia@a-thys.org</p>
-<p><strong>Téléphone :</strong> 07 54 04 88 58</p>
-</div>
-<div>
-<p><strong>SIRET :</strong> 944 745 124 00023</p>
-<p>Paiements sécurisés via prestataire certifié.</p>
-</div>
-</div>
-</section>
-
-<!-- BOT -->
 <div id="bot-toggle" onclick="toggleBot()">Assistant Athy’s</div>
 
 <div id="bot">
-<div id="bot-header">Assistant Athy’s</div>
-<div id="bot-messages">
-<p><strong>Athy’s :</strong> Bonjour 👋<br>
-Je peux vous renseigner sur les offres, les prix ou le fonctionnement.
-</p>
+  <div id="bot-header">Assistant Athy’s</div>
+  <div id="bot-messages">
+    <p><strong>Athy’s :</strong> Bonjour 👋<br>Je peux vous renseigner sur nos offres et projets.</p>
+  </div>
+  <input id="bot-input" placeholder="Posez votre question…" onkeydown="sendMessage(event)">
 </div>
-<input id="bot-input" placeholder="Posez votre question…" onkeydown="sendMessage(event)">
-</div>
+
 <script>
-let step = 0;
-let userData = {
-  besoin: "",
-  precision: "",
-  delai: ""
-};
+let step=0;
+let userData={besoin:"",precision:"",delai:""};
 
 function toggleBot(){
-  const bot = document.getElementById('bot');
-  bot.style.display = bot.style.display === 'flex' ? 'none' : 'flex';
+  const bot=document.getElementById('bot');
+  bot.style.display=bot.style.display==='flex'?'none':'flex';
 }
 
-function addMessage(author, text){
-  const box = document.getElementById('bot-messages');
-  box.innerHTML += `<p><strong>${author} :</strong> ${text}</p>`;
-  box.scrollTop = box.scrollHeight;
+function addMessage(author,text){
+  const box=document.getElementById('bot-messages');
+  box.innerHTML+=`<p><strong>${author} :</strong> ${text}</p>`;
+  box.scrollTop=box.scrollHeight;
 }
 
 function sendMessage(e){
-  if(e.key !== 'Enter') return;
+  if(e.key!=='Enter')return;
+  const input=e.target;
+  const message=input.value.trim();
+  if(!message)return;
 
-  const input = e.target;
-  const message = input.value.trim();
-  if(!message) return;
+  addMessage("Vous",message);
+  input.value="";
 
-  addMessage("Vous", message);
-  input.value = "";
-
-  if(step === 0){
-    userData.besoin = message;
-    addMessage("Athy’s",
-      "Merci. Pouvez-vous préciser votre besoin ?\n" +
-      "Publicité, branding, storytelling, site internet ou GPT personnel ?"
-    );
-    step = 1;
-    return;
+  if(step===0){
+    userData.besoin=message;
+    addMessage("Athy’s","Merci. Pouvez-vous préciser votre besoin ?");
+    step=1;return;
   }
 
-  if(step === 1){
-    userData.precision = message;
-    addMessage("Athy’s",
-      "Très bien.\nAvez-vous un délai particulier à respecter ?\n" +
-      "Immédiat, 1 à 2 semaines ou délai flexible."
-    );
-    step = 2;
-    return;
+  if(step===1){
+    userData.precision=message;
+    addMessage("Athy’s","Avez-vous un délai particulier ?");
+    step=2;return;
   }
 
-  if(step === 2){
-    userData.delai = message;
+  if(step===2){
+    userData.delai=message;
+    const report=`Nouvelle demande – Athy’s
 
-    addMessage("Athy’s",
-      "Merci pour ces informations.\n" +
-      "Nous allons étudier votre demande et revenir vers vous rapidement.\n\n" +
-      "Vous pouvez également nous contacter via la section Contact du site."
-    );
+Besoin : ${userData.besoin}
+Précision : ${userData.precision}
+Délai : ${userData.delai}
 
-    const managerReport =
-`Nouvelle demande — Athy’s
+Source : Bot Athy’s`;
 
-Besoin principal :
-${userData.besoin}
-
-Précision :
-${userData.precision}
-
-Délai :
-${userData.delai}
-
-Source :
-Bot du site Athy’s
-`;
-
-console.log(managerReport);
-// WHATSAPP
-const whatsappNumber = "33754048858"; // France, sans + ni espaces
-const whatsappMessage = encodeURIComponent(managerReport);
-const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-
-window.open(whatsappLink, "_blank");
-    step = 3;
-    return;
-  }
-
-  if(step >= 3){
-    addMessage("Athy’s",
-      "Notre équipe vous répondra prochainement. Merci de votre confiance."
-    );
+    const link=`https://wa.me/33754048858?text=${encodeURIComponent(report)}`;
+    window.open(link,"_blank");
+    addMessage("Athy’s","Notre équipe vous répondra rapidement. Merci.");
+    step=3;
   }
 }
 </script>
+
 </body>
 </html>
