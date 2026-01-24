@@ -2,165 +2,58 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<title>Athy’s – Studio de Création IA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Athy’s — Private AI & Strategy Studio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --gold:#c9a24d;
-  --black:#0b0b0b;
-  --dark:#141414;
-  --white:#ededed;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0e0e11;
+    color: #ffffff;
 }
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
+header {
+    padding: 60px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #1c1c24, #0e0e11);
 }
-
-body{
-  background:#000;
-  color:var(--white);
+section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
 }
-
-header{
-  padding:40px 60px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.offers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
-
-.lang span{
-  margin-left:12px;
-  cursor:pointer;
-  opacity:.6;
+.card {
+    background: #16161d;
+    border-radius: 14px;
+    padding: 20px;
 }
-
-.lang .active{
-  color:var(--gold);
-  opacity:1;
+.card img {
+    width: 100%;
+    border-radius: 10px;
 }
-
-section{
-  padding:90px 60px;
-  max-width:1400px;
-  margin:auto;
+footer {
+    background: #0a0a0d;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 14px;
 }
-
-h1,h2,h3{
-  color:var(--gold);
+input, textarea, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
 }
-
-h1{font-size:46px;margin-bottom:12px;}
-h2{font-size:32px;margin-bottom:30px;}
-h3{font-size:20px;margin-bottom:10px;}
-
-p{
-  opacity:.9;
-  line-height:1.6;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:36px;
-}
-
-.card{
-  background:#0f0f0f;
-  border:1px solid #222;
-  border-radius:16px;
-  padding:24px;
-  transition:.35s ease;
-}
-
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 40px 80px rgba(0,0,0,.5);
-}
-
-.card img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  border-radius:12px;
-  margin-bottom:14px;
-}
-
-.price{
-  margin-top:12px;
-  color:var(--gold);
-  font-weight:500;
-}
-
-button{
-  margin-top:18px;
-  padding:10px 26px;
-  background:transparent;
-  border:1px solid var(--gold);
-  color:var(--gold);
-  border-radius:24px;
-  cursor:pointer;
-  transition:.25s ease;
-}
-
-button:hover{
-  background:var(--gold);
-  color:#000;
-}
-
-/* BOT */
-#bot-toggle{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  background:var(--gold);
-  color:#000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  z-index:1000;
-}
-
-#bot{
-  position:fixed;
-  bottom:90px;
-  right:20px;
-  width:360px;
-  background:#000;
-  border:1px solid #333;
-  border-radius:16px;
-  display:none;
-  flex-direction:column;
-  z-index:999;
-}
-
-#bot header{
-  padding:14px;
-  background:linear-gradient(135deg,#c9a24d,#8e6f2f);
-  color:#000;
-}
-
-#bot-messages{
-  padding:14px;
-  height:260px;
-  overflow:auto;
-  font-size:14px;
-}
-
-#bot input{
-  border:none;
-  padding:12px;
-  background:#111;
-  color:#fff;
+button {
+    background: #5f4cff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 </style>
 </head>
@@ -168,125 +61,141 @@ button:hover{
 <body>
 
 <header>
-  <strong>Athy’s</strong>
-  <div class="lang">
-    <span class="active">FR</span>
-    <span>EN</span>
-  </div>
+<h1>Athy’s – Studio de Création IA</h1>
+<p>Création digitale moderne, professionnelle et orientée résultats.</p>
 </header>
 
 <section>
-  <h1>Studio privé en intelligence artificielle</h1>
-  <p>Architectures IA, systèmes cognitifs, branding stratégique et solutions digitales premium.</p>
-</section>
+<h2>Nos Offres</h2>
 
-<!-- GPT -->
-<section>
-  <h2>GPT & Intelligence artificielle</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698" alt="">
-      <h3>GPT Personnel</h3>
-      <p>Assistant IA personnalisé pour usage individuel.</p>
-      <div class="price">950 €</div>
-      <button onclick="openBot('GPT Personnel')">Commander</button>
-    </div>
+<div class="offers">
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1526378722484-cc5cddc71f66" alt="">
-      <h3>GPT Avancé</h3>
-      <p>Optimisé pour productivité, analyse et création.</p>
-      <div class="price">1 850 €</div>
-      <button onclick="openBot('GPT Avancé')">Commander</button>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="">
-      <h3>GPT Business</h3>
-      <p>Intégré aux processus internes et décisionnels.</p>
-      <div class="price">Sur devis</div>
-      <button onclick="openBot('GPT Business')">Demande privée</button>
-    </div>
-  </div>
-</section>
-
-<!-- SITES -->
-<section>
-  <h2>Création de sites internet</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="">
-      <h3>Site vitrine</h3>
-      <p>Présence digitale claire et professionnelle.</p>
-      <div class="price">1 800 €</div>
-      <button onclick="openBot('Site vitrine')">Commander</button>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" alt="">
-      <h3>Site business</h3>
-      <p>Conçu pour la conversion et la crédibilité.</p>
-      <div class="price">3 200 €</div>
-      <button onclick="openBot('Site business')">Commander</button>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d" alt="">
-      <h3>Site sur mesure</h3>
-      <p>Développement personnalisé et évolutif.</p>
-      <div class="price">Sur devis</div>
-      <button onclick="openBot('Site sur mesure')">Demande privée</button>
-    </div>
-  </div>
-</section>
-
-<!-- BOT -->
-<div id="bot-toggle" onclick="toggleBot()">💬</div>
-
-<div id="bot">
-  <header>Assistant Athy’s</header>
-  <div id="bot-messages">
-    <p><strong>Athy’s :</strong> Bonjour. Quelle offre souhaitez-vous ?</p>
-  </div>
-  <input type="text" placeholder="Écrivez votre message…" onkeydown="sendMessage(event)">
+<div class="card">
+<img src="images/video-ia.jpg" alt="Vidéo IA">
+<h3>Vidéos IA Premium</h3>
+<p>Vidéos courtes, dynamiques et professionnelles pour réseaux sociaux et communication digitale.</p>
 </div>
 
+<div class="card">
+<img src="images/ads-ia.jpg" alt="Publicité IA">
+<h3>Publicités Vidéo IA</h3>
+<p>Création de publicités optimisées pour attirer, convaincre et convertir.</p>
+</div>
+
+<div class="card">
+<img src="images/branding.jpg" alt="Branding">
+<h3>Branding & Storytelling</h3>
+<p>Construction d’une image de marque cohérente, crédible et mémorable.</p>
+</div>
+
+<div class="card">
+<img src="images/site-web.jpg" alt="Site web">
+<h3>Création de Sites Web</h3>
+<p>Sites modernes, rapides et adaptés aux besoins réels des entrepreneurs.</p>
+</div>
+
+<div class="card">
+<img src="images/identite.jpg" alt="Identité visuelle">
+<h3>Identité Visuelle</h3>
+<p>Création d’une identité claire et professionnelle pour renforcer la crédibilité.</p>
+</div>
+
+<div class="card">
+<img src="images/consulting.jpg" alt="Consulting IA">
+<h3>Accompagnement Business & IA</h3>
+<p>Conseil stratégique pour structurer et faire évoluer votre activité.</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Qui est Fred ?</h2>
+<p>
+Fred est un jeune freelance spécialisé en création digitale et intelligence artificielle.
+Il propose un travail sérieux, structuré et professionnel, avec une approche claire et orientée client.
+</p>
+</section>
+
+<section>
+<h2>Contact</h2>
+
+<form id="contactForm">
+<input type="text" name="name" placeholder="Nom" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="text" name="phone" placeholder="Téléphone">
+<textarea name="message" placeholder="Décrivez votre besoin" required></textarea>
+<button type="submit">Envoyer</button>
+</form>
+
+<p style="margin-top:20px;">
+📞 0754048858<br>
+📧 studiocreationia@athys.com<br>
+SIRET : 94474512400023
+</p>
+</section>
+
+<footer>
+© Athy’s – Studio de Création IA
+</footer>
+
 <script>
-let step=0;
-let lead={offer:''};
+/*
+INSTRUCTIONS CLAIRES POUR LE BOT DU SITE (NON COMMERCIAL)
 
-function toggleBot(){
-  const b=document.getElementById('bot');
-  b.style.display=b.style.display==='flex'?'none':'flex';
+RÔLE DU BOT :
+- Collecter les informations du visiteur
+- Transmettre ces informations AU MANAGER (Athy’s / Fred)
+- NE PAS vendre
+- NE PAS promettre
+- NE PAS interpréter la demande
+
+INFOS À ENVOYER OBLIGATOIREMENT :
+- Nom
+- Email
+- Téléphone (si fourni)
+- Message
+- Date + heure
+- Page source
+
+FORMAT À TRANSMETTRE (JSON PROPRE) :
+{
+  "name": "",
+  "email": "",
+  "phone": "",
+  "message": "",
+  "source": "site-athys",
+  "timestamp": ""
 }
 
-function openBot(o){
-  lead.offer=o;
-  toggleBot();
-}
+DESTINATION :
+Webhook / Make / WhatsApp Manager
 
-function add(author,text){
-  const box=document.getElementById('bot-messages');
-  box.innerHTML+=`<p><strong>${author} :</strong> ${text}</p>`;
-  box.scrollTop=box.scrollHeight;
-}
+OBJECTIF :
+Permettre au manager de traiter la demande proprement et manuellement.
+*/
 
-function sendMessage(e){
-  if(e.key!=="Enter")return;
-  const i=e.target;
-  const m=i.value.trim();
-  if(!m)return;
-  add("Vous",m);
-  i.value="";
-  if(step===0){lead.need=m;add("Athy’s","Quel est votre budget estimé ?");step=1;return;}
-  if(step===1){lead.budget=m;add("Athy’s","Quel est votre délai idéal ?");step=2;return;}
-  if(step===2){
-    lead.delay=m;
-    add("Athy’s","Merci. Après validation du paiement Stripe, votre demande sera traitée.");
-    console.log("LEAD :",lead);
-    step=3;
-  }
-}
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const payload = {
+        name: this.name.value,
+        email: this.email.value,
+        phone: this.phone.value,
+        message: this.message.value,
+        source: "site-athys",
+        timestamp: new Date().toISOString()
+    };
+
+    fetch("https://WEBHOOK-MANAGER-ATHYS.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    }).then(() => {
+        alert("Votre message a bien été transmis.");
+        this.reset();
+    });
+});
 </script>
 
 </body>
