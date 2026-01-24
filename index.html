@@ -34,19 +34,19 @@ header{
   align-items:center;
 }
 
-.lang-switch span{
-  margin-left:10px;
+.lang span{
+  margin-left:12px;
   cursor:pointer;
   opacity:.6;
 }
 
-.lang-switch .active{
-  opacity:1;
+.lang .active{
   color:var(--gold);
+  opacity:1;
 }
 
 section{
-  padding:80px 60px;
+  padding:90px 60px;
   max-width:1400px;
   margin:auto;
 }
@@ -81,6 +81,14 @@ p{
 .card:hover{
   transform:translateY(-6px);
   box-shadow:0 40px 80px rgba(0,0,0,.5);
+}
+
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:14px;
 }
 
 .price{
@@ -126,7 +134,7 @@ button:hover{
   position:fixed;
   bottom:90px;
   right:20px;
-  width:340px;
+  width:360px;
   background:#000;
   border:1px solid #333;
   border-radius:16px;
@@ -143,7 +151,7 @@ button:hover{
 
 #bot-messages{
   padding:14px;
-  height:240px;
+  height:260px;
   overflow:auto;
   font-size:14px;
 }
@@ -161,141 +169,121 @@ button:hover{
 
 <header>
   <strong>Athy’s</strong>
-  <div class="lang-switch">
-    <span class="active" onclick="setLang('fr')">FR</span>
-    <span onclick="setLang('en')">EN</span>
+  <div class="lang">
+    <span class="active">FR</span>
+    <span>EN</span>
   </div>
 </header>
 
 <section>
-  <h1 data-fr="Studio privé en intelligence artificielle" data-en="Private Artificial Intelligence Studio">
-    Studio privé en intelligence artificielle
-  </h1>
-  <p data-fr="Architectures IA, branding stratégique et systèmes cognitifs sur mesure."
-     data-en="AI architectures, strategic branding and bespoke cognitive systems.">
-    Architectures IA, branding stratégique et systèmes cognitifs sur mesure.
-  </p>
+  <h1>Studio privé en intelligence artificielle</h1>
+  <p>Architectures IA, systèmes cognitifs, branding stratégique et solutions digitales premium.</p>
 </section>
 
+<!-- GPT -->
 <section>
-  <h2 data-fr="Prompt Engineering" data-en="Prompt Engineering">Prompt Engineering</h2>
+  <h2>GPT & Intelligence artificielle</h2>
   <div class="grid">
-
     <div class="card">
-      <h3>Engineering Essentiel</h3>
-      <p>30 prompts structurés pour améliorer la précision et la cohérence.</p>
-      <div class="price">320 €</div>
-      <button onclick="openBot('Engineering Essentiel')">Commander</button>
+      <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698" alt="">
+      <h3>GPT Personnel</h3>
+      <p>Assistant IA personnalisé pour usage individuel.</p>
+      <div class="price">950 €</div>
+      <button onclick="openBot('GPT Personnel')">Commander</button>
     </div>
 
     <div class="card">
-      <h3>Engineering Business</h3>
-      <p>60 prompts avancés dédiés aux processus et à la prise de décision.</p>
-      <div class="price">590 €</div>
-      <button onclick="openBot('Engineering Business')">Commander</button>
+      <img src="https://images.unsplash.com/photo-1526378722484-cc5cddc71f66" alt="">
+      <h3>GPT Avancé</h3>
+      <p>Optimisé pour productivité, analyse et création.</p>
+      <div class="price">1 850 €</div>
+      <button onclick="openBot('GPT Avancé')">Commander</button>
     </div>
 
     <div class="card">
-      <h3>Engineering Élite</h3>
-      <p>100 prompts haut niveau intégrant raisonnement avancé et systèmes complexes.</p>
-      <div class="price">980 €</div>
-      <button onclick="openBot('Engineering Élite')">Commander</button>
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="">
+      <h3>GPT Business</h3>
+      <p>Intégré aux processus internes et décisionnels.</p>
+      <div class="price">Sur devis</div>
+      <button onclick="openBot('GPT Business')">Demande privée</button>
     </div>
-
   </div>
 </section>
 
+<!-- SITES -->
 <section>
-  <h2>Branding & Storytelling IA</h2>
+  <h2>Création de sites internet</h2>
   <div class="grid">
-
     <div class="card">
-      <h3>Branding IA</h3>
-      <p>25 prompts stratégiques pour structurer une identité de marque.</p>
-      <div class="price">290 €</div>
-      <button onclick="openBot('Branding IA')">Commander</button>
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="">
+      <h3>Site vitrine</h3>
+      <p>Présence digitale claire et professionnelle.</p>
+      <div class="price">1 800 €</div>
+      <button onclick="openBot('Site vitrine')">Commander</button>
     </div>
 
     <div class="card">
-      <h3>Storytelling IA</h3>
-      <p>40 prompts narratifs pour construire un récit clair et mémorable.</p>
-      <div class="price">390 €</div>
-      <button onclick="openBot('Storytelling IA')">Commander</button>
+      <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" alt="">
+      <h3>Site business</h3>
+      <p>Conçu pour la conversion et la crédibilité.</p>
+      <div class="price">3 200 €</div>
+      <button onclick="openBot('Site business')">Commander</button>
     </div>
 
     <div class="card">
-      <h3>Signature IA</h3>
-      <p>80 prompts premium combinant branding et storytelling.</p>
-      <div class="price">690 €</div>
-      <button onclick="openBot('Signature IA')">Commander</button>
+      <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d" alt="">
+      <h3>Site sur mesure</h3>
+      <p>Développement personnalisé et évolutif.</p>
+      <div class="price">Sur devis</div>
+      <button onclick="openBot('Site sur mesure')">Demande privée</button>
     </div>
-
   </div>
 </section>
 
+<!-- BOT -->
 <div id="bot-toggle" onclick="toggleBot()">💬</div>
 
 <div id="bot">
   <header>Assistant Athy’s</header>
   <div id="bot-messages">
-    <p><strong>Athy’s :</strong> Bonjour. Quel est votre besoin principal ?</p>
+    <p><strong>Athy’s :</strong> Bonjour. Quelle offre souhaitez-vous ?</p>
   </div>
   <input type="text" placeholder="Écrivez votre message…" onkeydown="sendMessage(event)">
 </div>
 
 <script>
-let lang = 'fr';
-let step = 0;
-let lead = { offer:'' };
-
-function setLang(l){
-  lang = l;
-  document.querySelectorAll('[data-fr]').forEach(el=>{
-    el.textContent = el.getAttribute('data-'+l);
-  });
-  document.querySelectorAll('.lang-switch span').forEach(s=>s.classList.remove('active'));
-  event.target.classList.add('active');
-}
+let step=0;
+let lead={offer:''};
 
 function toggleBot(){
-  const bot=document.getElementById('bot');
-  bot.style.display = bot.style.display === 'flex' ? 'none' : 'flex';
+  const b=document.getElementById('bot');
+  b.style.display=b.style.display==='flex'?'none':'flex';
 }
 
-function openBot(offer){
-  lead.offer = offer;
+function openBot(o){
+  lead.offer=o;
   toggleBot();
 }
 
-function addMessage(author,text){
+function add(author,text){
   const box=document.getElementById('bot-messages');
-  box.innerHTML += `<p><strong>${author} :</strong> ${text}</p>`;
-  box.scrollTop = box.scrollHeight;
+  box.innerHTML+=`<p><strong>${author} :</strong> ${text}</p>`;
+  box.scrollTop=box.scrollHeight;
 }
 
 function sendMessage(e){
-  if(e.key!=="Enter") return;
-  const input=e.target;
-  const msg=input.value.trim();
-  if(!msg) return;
-
-  addMessage("Vous",msg);
-  input.value="";
-
-  if(step===0){
-    lead.need=msg;
-    addMessage("Athy’s","Quel est votre budget estimé ?");
-    step=1;return;
-  }
-  if(step===1){
-    lead.budget=msg;
-    addMessage("Athy’s","Quel est votre délai idéal ?");
-    step=2;return;
-  }
+  if(e.key!=="Enter")return;
+  const i=e.target;
+  const m=i.value.trim();
+  if(!m)return;
+  add("Vous",m);
+  i.value="";
+  if(step===0){lead.need=m;add("Athy’s","Quel est votre budget estimé ?");step=1;return;}
+  if(step===1){lead.budget=m;add("Athy’s","Quel est votre délai idéal ?");step=2;return;}
   if(step===2){
-    lead.delay=msg;
-    addMessage("Athy’s","Merci. Après validation du paiement, votre demande sera traitée.");
-    console.log("LEAD À ENVOYER AU MANAGER :",lead);
+    lead.delay=m;
+    add("Athy’s","Merci. Après validation du paiement Stripe, votre demande sera traitée.");
+    console.log("LEAD :",lead);
     step=3;
   }
 }
