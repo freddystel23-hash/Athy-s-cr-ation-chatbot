@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Athy’s – Studio de création digitale & IA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Athy’s – Studio de création digitale & intelligence artificielle. Vidéos, branding, storytelling, sites web et solutions IA professionnelles.">
 
 <style>
 :root{
@@ -13,31 +14,42 @@
   --violet-hover:#8579ff;
   --text-soft:#b5b5c2;
 }
+
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
   color:#fff;
+  line-height:1.6;
 }
+
 header{
   padding:100px 20px;
   text-align:center;
   background:linear-gradient(135deg,#1b1b26,var(--bg));
 }
+
+header h1{font-size:44px;margin-bottom:10px}
+header p{color:var(--text-soft)}
+
 section{
   max-width:1200px;
   margin:auto;
   padding:80px 20px;
 }
-h1{font-size:44px}
-h2{font-size:32px}
+
+h2{font-size:32px;margin-bottom:10px}
+.subtitle{color:var(--text-soft)}
+
 .offers{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:32px;
   margin-top:50px;
 }
+
 .card{
   background:var(--card);
   border-radius:18px;
@@ -45,16 +57,21 @@ h2{font-size:32px}
   display:flex;
   flex-direction:column;
 }
+
 .card img{
   width:100%;
   border-radius:14px;
   margin-bottom:15px;
 }
+
 .price{
   color:var(--violet);
   font-weight:bold;
+  margin-bottom:6px;
 }
+
 .card p{color:var(--text-soft);flex-grow:1}
+
 .btn{
   margin-top:16px;
   padding:14px;
@@ -65,12 +82,46 @@ h2{font-size:32px}
   border-radius:12px;
   font-weight:bold;
 }
+
 .btn:hover{background:var(--violet-hover)}
+
+.about p{
+  max-width:850px;
+  color:var(--text-soft);
+}
+
+form{
+  max-width:600px;
+}
+
+input,textarea{
+  width:100%;
+  padding:14px;
+  margin-top:14px;
+  border-radius:12px;
+  border:none;
+}
+
+button{
+  width:100%;
+  margin-top:18px;
+  padding:15px;
+  border:none;
+  border-radius:12px;
+  background:var(--violet);
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover{background:var(--violet-hover)}
+
 footer{
   background:#0a0a0d;
   text-align:center;
-  padding:40px;
+  padding:45px 20px;
   color:var(--text-soft);
+  font-size:14px;
 }
 </style>
 </head>
@@ -80,126 +131,147 @@ footer{
 <header>
   <h1>Athy’s</h1>
   <p>Studio de création digitale & intelligence artificielle</p>
-  <p>📞 0754048858 • 📧 studioia@a-thys.org</p>
+  <p>📞 0754048858</p>
+  <a class="btn" href="#contact" style="display:inline-block;margin-top:20px;">Présenter mon projet</a>
 </header>
 
 <section>
-<h2>Offres</h2>
+  <h2>Offres</h2>
+  <p class="subtitle">Des solutions professionnelles, claires et adaptées à des projets sérieux.</p>
 
-<div class="offers">
+  <div class="offers">
 
-<div class="card">
-<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
-<h3>Vidéos IA premium</h3>
-<div class="price">150 €</div>
-<p>Vidéos courtes modernes conçues pour capter l’attention.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
+    <!-- IMAGE PREMIUM GÉNÉRÉE -->
+    <div class="card">
+      <img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png" alt="Vidéos IA premium">
+      <h3>Vidéos IA premium</h3>
+      <div class="price">150 €</div>
+      <p>Vidéos courtes (30–60s) conçues pour capter l’attention et valoriser un projet.</p>
+      <a class="btn" href="#contact">Commander</a>
+    </div>
 
-<div class="card">
-<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
-<h3>Publicités vidéo (Ads)</h3>
-<div class="price">200 €</div>
-<p>Vidéos publicitaires orientées message et conversion.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
+    <div class="card">
+      <img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png" alt="Publicités vidéo">
+      <h3>Publicités vidéo (Ads)</h3>
+      <div class="price">200 €</div>
+      <p>Vidéos publicitaires pensées pour transmettre un message clair et convertir.</p>
+      <a class="btn" href="#contact">Commander</a>
+    </div>
 
-<div class="card">
-<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
-<h3>Branding</h3>
-<div class="price">300 €</div>
-<p>Image de marque cohérente et professionnelle.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
+    <div class="card">
+      <img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png" alt="Branding">
+      <h3>Branding</h3>
+      <div class="price">300 €</div>
+      <p>Construction d’une image de marque cohérente et professionnelle.</p>
+      <a class="btn" href="#contact">Commander</a>
+    </div>
 
-<div class="card">
-<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
-<h3>Storytelling</h3>
-<div class="price">250 €</div>
-<p>Création d’un message structuré et impactant.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
+    <div class="card">
+      <img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png" alt="Storytelling">
+      <h3>Storytelling</h3>
+      <div class="price">250 €</div>
+      <p>Création d’un message structuré et impactant pour raconter ton projet.</p>
+      <a class="btn" href="#contact">Commander</a>
+    </div>
 
-<div class="card">
-<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
-<h3>Branding + Shooting</h3>
-<div class="price">350 €</div>
-<p>Direction artistique et visuels premium.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
+    <div class="card">
+      <img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png" alt="Branding Shooting">
+      <h3>Branding + Shooting</h3>
+      <div class="price">350 €</div>
+      <p>Direction artistique et visuels premium pour renforcer l’image de marque.</p>
+      <a class="btn" href="#contact">Commander</a>
+    </div>
 
-<div class="card">
-<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
-<h3>Site web vitrine</h3>
-<div class="price">400 €</div>
-<p>Site professionnel simple et efficace.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
+    <div class="card">
+      <img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png" alt="Site vitrine">
+      <h3>Site web vitrine</h3>
+      <div class="price">400 €</div>
+      <p>Site professionnel simple, clair et rassurant (1 à 3 pages).</p>
+      <a class="btn" href="#contact">Commander</a>
+    </div>
 
-<div class="card">
-<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
-<h3>Site web avancé</h3>
-<div class="price">700 €</div>
-<p>Site structuré et personnalisé.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
+    <div class="card">
+      <img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png" alt="Site avancé">
+      <h3>Site web avancé</h3>
+      <div class="price">700 €</div>
+      <p>Site plus complet avec design personnalisé et sections sur mesure.</p>
+      <a class="btn" href="#contact">Commander</a>
+    </div>
 
-<div class="card">
-<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
-<h3>Site web sur mesure</h3>
-<div class="price">Sur devis</div>
-<p>Solution web entièrement adaptée au besoin.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
+    <div class="card">
+      <img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png" alt="Site sur mesure">
+      <h3>Site web sur mesure</h3>
+      <div class="price">Sur devis</div>
+      <p>Solution web entièrement adaptée aux besoins spécifiques du projet.</p>
+      <a class="btn" href="#contact">Commander</a>
+    </div>
 
-<div class="card">
-<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
-<h3>GPT personnel</h3>
-<div class="price">250 €</div>
-<p>Assistant IA personnalisé.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
+    <div class="card">
+      <img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png" alt="GPT personnel">
+      <h3>GPT personnel (avancé)</h3>
+      <div class="price">250 €</div>
+      <p>Assistant IA personnalisé pour gagner du temps au quotidien.</p>
+      <a class="btn" href="#contact">Commander</a>
+    </div>
 
-<div class="card">
-<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
-<h3>GPT business</h3>
-<div class="price">400 €</div>
-<p>IA structurée pour usages professionnels.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
+    <div class="card">
+      <img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png" alt="GPT business">
+      <h3>GPT business (avancé)</h3>
+      <div class="price">400 €</div>
+      <p>GPT structuré pour des usages professionnels et business.</p>
+      <a class="btn" href="#contact">Commander</a>
+    </div>
 
-<div class="card">
-<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
-<h3>GPT sur mesure</h3>
-<div class="price">Sur devis</div>
-<p>Solution IA entièrement personnalisée.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
+    <div class="card">
+      <img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png" alt="GPT sur mesure">
+      <h3>GPT sur mesure</h3>
+      <div class="price">Sur devis</div>
+      <p>Solution IA conçue spécifiquement selon le besoin réel.</p>
+      <a class="btn" href="#contact">Commander</a>
+    </div>
 
-</div>
+  </div>
 </section>
 
-<section>
-<h2>À propos</h2>
-<p style="color:var(--text-soft);max-width:800px">
-<strong>Fred – freelance en création digitale & intelligence artificielle</strong><br><br>
-Fred accompagne entrepreneurs et marques avec une approche sérieuse,
-structurée et orientée qualité pour des projets crédibles et durables.
-</p>
+<section class="about">
+  <h2>À propos</h2>
+  <p>
+    <strong>Fred – freelance en création digitale & intelligence artificielle</strong><br><br>
+    Fred accompagne entrepreneurs et marques dans la création de contenus visuels,
+    de sites web et de solutions IA professionnelles.
+    Son approche est sérieuse, structurée et orientée résultats.
+  </p>
 </section>
 
 <section id="contact">
-<h2>Contact</h2>
-<p style="color:var(--text-soft);font-size:16px;">
-📞 <strong>0754048858</strong><br>
-📧 <strong>studioia@a-thys.org</strong><br>
-🧾 <strong>SIRET : 94474512400023</strong>
-</p>
+  <h2>Contactez Athy’s</h2>
+  <p class="subtitle">Décrivez votre projet, nous vous répondrons rapidement.</p>
+
+  <form id="contactForm">
+    <input type="text" placeholder="Nom" required>
+    <input type="email" placeholder="Email" required>
+    <input type="text" placeholder="Téléphone">
+    <textarea placeholder="Votre message" required></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <p style="margin-top:22px;color:var(--text-soft);">
+    📞 0754048858<br>
+    📧 studioia@a-thys.org<br>
+    🧾 SIRET : 94474512400023
+  </p>
 </section>
 
 <footer>
-© Athy’s – Studio de création digitale & IA
+  © Athy’s – Studio de création digitale & IA
 </footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Merci pour votre message. Athy’s vous recontactera rapidement.");
+});
+</script>
 
 </body>
 </html>
