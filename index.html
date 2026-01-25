@@ -2,58 +2,75 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Athy’s – Studio de Création IA</title>
+<title>Athy’s – Studio de création digitale & IA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #0e0e11;
-    color: #ffffff;
+:root{
+  --bg:#0e0e11;
+  --card:#16161d;
+  --violet:#6c5cff;
+  --violet-hover:#8579ff;
+  --text-soft:#b5b5c2;
 }
-header {
-    padding: 60px 20px;
-    text-align: center;
-    background: linear-gradient(135deg, #1c1c24, #0e0e11);
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:#fff;
 }
-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: auto;
+header{
+  padding:100px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#1b1b26,var(--bg));
 }
-.offers {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
 }
-.card {
-    background: #16161d;
-    border-radius: 14px;
-    padding: 20px;
+h1{font-size:44px}
+h2{font-size:32px}
+.offers{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:32px;
+  margin-top:50px;
 }
-.card img {
-    width: 100%;
-    border-radius: 10px;
+.card{
+  background:var(--card);
+  border-radius:18px;
+  padding:22px;
+  display:flex;
+  flex-direction:column;
 }
-footer {
-    background: #0a0a0d;
-    padding: 40px 20px;
-    text-align: center;
-    font-size: 14px;
+.card img{
+  width:100%;
+  border-radius:14px;
+  margin-bottom:15px;
 }
-input, textarea, button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 8px;
-    border: none;
+.price{
+  color:var(--violet);
+  font-weight:bold;
 }
-button {
-    background: #5f4cff;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+.card p{color:var(--text-soft);flex-grow:1}
+.btn{
+  margin-top:16px;
+  padding:14px;
+  text-align:center;
+  background:var(--violet);
+  color:#fff;
+  text-decoration:none;
+  border-radius:12px;
+  font-weight:bold;
+}
+.btn:hover{background:var(--violet-hover)}
+footer{
+  background:#0a0a0d;
+  text-align:center;
+  padding:40px;
+  color:var(--text-soft);
 }
 </style>
 </head>
@@ -61,142 +78,128 @@ button {
 <body>
 
 <header>
-<h1>Athy’s – Studio de Création IA</h1>
-<p>Création digitale moderne, professionnelle et orientée résultats.</p>
+  <h1>Athy’s</h1>
+  <p>Studio de création digitale & intelligence artificielle</p>
+  <p>📞 0754048858 • 📧 studioia@a-thys.org</p>
 </header>
 
 <section>
-<h2>Nos Offres</h2>
+<h2>Offres</h2>
 
 <div class="offers">
 
 <div class="card">
-<img src="images/video-ia.jpg" alt="Vidéo IA">
-<h3>Vidéos IA Premium</h3>
-<p>Vidéos courtes, dynamiques et professionnelles pour réseaux sociaux et communication digitale.</p>
+<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
+<h3>Vidéos IA premium</h3>
+<div class="price">150 €</div>
+<p>Vidéos courtes modernes conçues pour capter l’attention.</p>
+<a class="btn" href="#contact">Commander</a>
 </div>
 
 <div class="card">
-<img src="images/ads-ia.jpg" alt="Publicité IA">
-<h3>Publicités Vidéo IA</h3>
-<p>Création de publicités optimisées pour attirer, convaincre et convertir.</p>
+<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
+<h3>Publicités vidéo (Ads)</h3>
+<div class="price">200 €</div>
+<p>Vidéos publicitaires orientées message et conversion.</p>
+<a class="btn" href="#contact">Commander</a>
 </div>
 
 <div class="card">
-<img src="images/branding.jpg" alt="Branding">
-<h3>Branding & Storytelling</h3>
-<p>Construction d’une image de marque cohérente, crédible et mémorable.</p>
+<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
+<h3>Branding</h3>
+<div class="price">300 €</div>
+<p>Image de marque cohérente et professionnelle.</p>
+<a class="btn" href="#contact">Commander</a>
 </div>
 
 <div class="card">
-<img src="images/site-web.jpg" alt="Site web">
-<h3>Création de Sites Web</h3>
-<p>Sites modernes, rapides et adaptés aux besoins réels des entrepreneurs.</p>
+<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
+<h3>Storytelling</h3>
+<div class="price">250 €</div>
+<p>Création d’un message structuré et impactant.</p>
+<a class="btn" href="#contact">Commander</a>
 </div>
 
 <div class="card">
-<img src="images/identite.jpg" alt="Identité visuelle">
-<h3>Identité Visuelle</h3>
-<p>Création d’une identité claire et professionnelle pour renforcer la crédibilité.</p>
+<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
+<h3>Branding + Shooting</h3>
+<div class="price">350 €</div>
+<p>Direction artistique et visuels premium.</p>
+<a class="btn" href="#contact">Commander</a>
 </div>
 
 <div class="card">
-<img src="images/consulting.jpg" alt="Consulting IA">
-<h3>Accompagnement Business & IA</h3>
-<p>Conseil stratégique pour structurer et faire évoluer votre activité.</p>
+<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
+<h3>Site web vitrine</h3>
+<div class="price">400 €</div>
+<p>Site professionnel simple et efficace.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<div class="card">
+<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
+<h3>Site web avancé</h3>
+<div class="price">700 €</div>
+<p>Site structuré et personnalisé.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<div class="card">
+<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
+<h3>Site web sur mesure</h3>
+<div class="price">Sur devis</div>
+<p>Solution web entièrement adaptée au besoin.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<div class="card">
+<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
+<h3>GPT personnel</h3>
+<div class="price">250 €</div>
+<p>Assistant IA personnalisé.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<div class="card">
+<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
+<h3>GPT business</h3>
+<div class="price">400 €</div>
+<p>IA structurée pour usages professionnels.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<div class="card">
+<img src="/mnt/data/A_collection_of_11_digital_images_showcases_differ.png">
+<h3>GPT sur mesure</h3>
+<div class="price">Sur devis</div>
+<p>Solution IA entièrement personnalisée.</p>
+<a class="btn" href="#contact">Commander</a>
 </div>
 
 </div>
 </section>
 
 <section>
-<h2>Qui est Fred ?</h2>
-<p>
-Fred est un jeune freelance spécialisé en création digitale et intelligence artificielle.
-Il propose un travail sérieux, structuré et professionnel, avec une approche claire et orientée client.
+<h2>À propos</h2>
+<p style="color:var(--text-soft);max-width:800px">
+<strong>Fred – freelance en création digitale & intelligence artificielle</strong><br><br>
+Fred accompagne entrepreneurs et marques avec une approche sérieuse,
+structurée et orientée qualité pour des projets crédibles et durables.
 </p>
 </section>
 
-<section>
+<section id="contact">
 <h2>Contact</h2>
-
-<form id="contactForm">
-<input type="text" name="name" placeholder="Nom" required>
-<input type="email" name="email" placeholder="Email" required>
-<input type="text" name="phone" placeholder="Téléphone">
-<textarea name="message" placeholder="Décrivez votre besoin" required></textarea>
-<button type="submit">Envoyer</button>
-</form>
-
-<p style="margin-top:20px;">
-📞 0754048858<br>
-📧 studiocreationia@athys.com<br>
-SIRET : 94474512400023
+<p style="color:var(--text-soft);font-size:16px;">
+📞 <strong>0754048858</strong><br>
+📧 <strong>studioia@a-thys.org</strong><br>
+🧾 <strong>SIRET : 94474512400023</strong>
 </p>
 </section>
 
 <footer>
-© Athy’s – Studio de Création IA
+© Athy’s – Studio de création digitale & IA
 </footer>
-
-<script>
-/*
-INSTRUCTIONS CLAIRES POUR LE BOT DU SITE (NON COMMERCIAL)
-
-RÔLE DU BOT :
-- Collecter les informations du visiteur
-- Transmettre ces informations AU MANAGER (Athy’s / Fred)
-- NE PAS vendre
-- NE PAS promettre
-- NE PAS interpréter la demande
-
-INFOS À ENVOYER OBLIGATOIREMENT :
-- Nom
-- Email
-- Téléphone (si fourni)
-- Message
-- Date + heure
-- Page source
-
-FORMAT À TRANSMETTRE (JSON PROPRE) :
-{
-  "name": "",
-  "email": "",
-  "phone": "",
-  "message": "",
-  "source": "site-athys",
-  "timestamp": ""
-}
-
-DESTINATION :
-Webhook / Make / WhatsApp Manager
-
-OBJECTIF :
-Permettre au manager de traiter la demande proprement et manuellement.
-*/
-
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const payload = {
-        name: this.name.value,
-        email: this.email.value,
-        phone: this.phone.value,
-        message: this.message.value,
-        source: "site-athys",
-        timestamp: new Date().toISOString()
-    };
-
-    fetch("https://WEBHOOK-MANAGER-ATHYS.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-    }).then(() => {
-        alert("Votre message a bien été transmis.");
-        this.reset();
-    });
-});
-</script>
 
 </body>
 </html>
