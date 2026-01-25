@@ -20,7 +20,6 @@ body{
   font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
   color:#fff;
-  line-height:1.6;
 }
 
 header{
@@ -53,33 +52,17 @@ h2{font-size:32px}
   flex-direction:column;
 }
 
-/* ===== IMAGE PREMIUM RÉELLE EMBARQUÉE ===== */
-.offer-image{
-  width:100%;
+.visual{
   height:180px;
   border-radius:14px;
   margin-bottom:15px;
-  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABgAAAAQACAIAAACoEwUVAAFAIWNhQlgAAUAhanVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAANvRqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOjMzOTBjNjgzLWRkMGUtNDQzMC04ZTkyLTlmMGFlOWMzMTE4ZgAAAAHBanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAA5Wp1bWIAAAApanVtZGNib3IAEQAQgAAAqgA4m3EDYzJwYS5hY3Rpb25zLnYyAAAAALRjYm9yoWdhY3Rpb25zgqNmYWN0aW9ubGMycGEuY3JlYXRlZG1zb2Z0d2FyZUFnZW50v2RuYW1lZkdQVC00b/9xZGlnaXRhbFNvdXJjZVR5cGV4Rmh0dHA6Ly9jdi5pcHRjLm9yZy9uZXdzY29kZXMvZGln..."); /* IMAGE RÉELLE */
-  background-size:100% auto;
-  background-repeat:no-repeat;
+  overflow:hidden;
 }
-
-/* Découpes : 11 visuels visibles */
-.img-1{background-position:0% 0%}
-.img-2{background-position:0% 10%}
-.img-3{background-position:0% 20%}
-.img-4{background-position:0% 30%}
-.img-5{background-position:0% 40%}
-.img-6{background-position:0% 50%}
-.img-7{background-position:0% 60%}
-.img-8{background-position:0% 70%}
-.img-9{background-position:0% 80%}
-.img-10{background-position:0% 90%}
-.img-11{background-position:0% 100%}
 
 .price{
   color:var(--violet);
   font-weight:bold;
+  margin:6px 0;
 }
 
 .card p{
@@ -121,17 +104,142 @@ footer{
 <h2>Offres</h2>
 
 <div class="offers">
-<div class="card"><div class="offer-image img-1"></div><h3>Vidéos IA premium</h3><div class="price">150 €</div><p>Vidéos cinématographiques.</p><a class="btn" href="#contact">Commander</a></div>
-<div class="card"><div class="offer-image img-2"></div><h3>Publicités vidéo (Ads)</h3><div class="price">200 €</div><p>Publicités digitales.</p><a class="btn" href="#contact">Commander</a></div>
-<div class="card"><div class="offer-image img-3"></div><h3>Branding</h3><div class="price">300 €</div><p>Image de marque.</p><a class="btn" href="#contact">Commander</a></div>
-<div class="card"><div class="offer-image img-4"></div><h3>Storytelling</h3><div class="price">250 €</div><p>Message narratif.</p><a class="btn" href="#contact">Commander</a></div>
-<div class="card"><div class="offer-image img-5"></div><h3>Branding + Shooting</h3><div class="price">350 €</div><p>Visuels premium.</p><a class="btn" href="#contact">Commander</a></div>
-<div class="card"><div class="offer-image img-6"></div><h3>Site web vitrine</h3><div class="price">400 €</div><p>Site professionnel.</p><a class="btn" href="#contact">Commander</a></div>
-<div class="card"><div class="offer-image img-7"></div><h3>Site web avancé</h3><div class="price">700 €</div><p>Plateforme web.</p><a class="btn" href="#contact">Commander</a></div>
-<div class="card"><div class="offer-image img-8"></div><h3>Site web sur mesure</h3><div class="price">Sur devis</div><p>Solution sur mesure.</p><a class="btn" href="#contact">Commander</a></div>
-<div class="card"><div class="offer-image img-9"></div><h3>GPT personnel</h3><div class="price">250 €</div><p>Assistant IA.</p><a class="btn" href="#contact">Commander</a></div>
-<div class="card"><div class="offer-image img-10"></div><h3>GPT business</h3><div class="price">400 €</div><p>IA business.</p><a class="btn" href="#contact">Commander</a></div>
-<div class="card"><div class="offer-image img-11"></div><h3>GPT sur mesure</h3><div class="price">Sur devis</div><p>IA personnalisée.</p><a class="btn" href="#contact">Commander</a></div>
+
+<!-- 1 -->
+<div class="card">
+<div class="visual">
+<svg viewBox="0 0 400 200" width="100%" height="100%">
+<defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#6c5cff"/><stop offset="100%" stop-color="#0e0e11"/>
+</linearGradient></defs>
+<rect width="400" height="200" fill="url(#g1)"/>
+<circle cx="300" cy="60" r="40" fill="#8579ff" opacity="0.6"/>
+</svg>
+</div>
+<h3>Vidéos IA premium</h3>
+<div class="price">150 €</div>
+<p>Vidéos cinématographiques conçues pour capter l’attention.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<!-- 2 -->
+<div class="card">
+<div class="visual">
+<svg viewBox="0 0 400 200"><rect width="400" height="200" fill="#16161d"/>
+<path d="M0 150 Q200 50 400 150" stroke="#6c5cff" stroke-width="6" fill="none"/></svg>
+</div>
+<h3>Publicités vidéo (Ads)</h3>
+<div class="price">200 €</div>
+<p>Publicités digitales orientées conversion.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<!-- 3 -->
+<div class="card">
+<div class="visual">
+<svg viewBox="0 0 400 200"><rect width="400" height="200" fill="#0e0e11"/>
+<rect x="40" y="40" width="120" height="120" fill="#6c5cff"/>
+<rect x="200" y="40" width="120" height="120" fill="#8579ff"/></svg>
+</div>
+<h3>Branding</h3>
+<div class="price">300 €</div>
+<p>Image de marque claire et cohérente.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<!-- 4 -->
+<div class="card">
+<div class="visual">
+<svg viewBox="0 0 400 200"><rect width="400" height="200" fill="#16161d"/>
+<text x="50%" y="55%" text-anchor="middle" fill="#6c5cff" font-size="48">Story</text></svg>
+</div>
+<h3>Storytelling</h3>
+<div class="price">250 €</div>
+<p>Message narratif structuré et impactant.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<!-- 5 -->
+<div class="card">
+<div class="visual">
+<svg viewBox="0 0 400 200"><defs><radialGradient id="g2">
+<stop offset="0%" stop-color="#8579ff"/><stop offset="100%" stop-color="#0e0e11"/></radialGradient></defs>
+<rect width="400" height="200" fill="url(#g2)"/></svg>
+</div>
+<h3>Branding + Shooting</h3>
+<div class="price">350 €</div>
+<p>Direction artistique et visuels premium.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<!-- 6 -->
+<div class="card">
+<div class="visual"><svg viewBox="0 0 400 200">
+<rect width="400" height="200" fill="#16161d"/>
+<rect x="60" y="40" width="280" height="120" stroke="#6c5cff" fill="none" stroke-width="4"/>
+</svg></div>
+<h3>Site web vitrine</h3>
+<div class="price">400 €</div>
+<p>Site professionnel clair et rassurant.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<!-- 7 -->
+<div class="card">
+<div class="visual"><svg viewBox="0 0 400 200">
+<rect width="400" height="200" fill="#0e0e11"/>
+<line x1="0" y1="0" x2="400" y2="200" stroke="#6c5cff" stroke-width="5"/>
+</svg></div>
+<h3>Site web avancé</h3>
+<div class="price">700 €</div>
+<p>Plateforme web structurée et personnalisée.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<!-- 8 -->
+<div class="card">
+<div class="visual"><svg viewBox="0 0 400 200">
+<rect width="400" height="200" fill="#16161d"/>
+<polygon points="200,20 380,180 20,180" fill="#8579ff"/></svg></div>
+<h3>Site web sur mesure</h3>
+<div class="price">Sur devis</div>
+<p>Solution web adaptée au besoin réel.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<!-- 9 -->
+<div class="card">
+<div class="visual"><svg viewBox="0 0 400 200">
+<rect width="400" height="200" fill="#0e0e11"/>
+<circle cx="200" cy="100" r="60" stroke="#6c5cff" stroke-width="6" fill="none"/></svg></div>
+<h3>GPT personnel</h3>
+<div class="price">250 €</div>
+<p>Assistant IA personnalisé.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<!-- 10 -->
+<div class="card">
+<div class="visual"><svg viewBox="0 0 400 200">
+<rect width="400" height="200" fill="#16161d"/>
+<rect x="100" y="40" width="200" height="120" fill="#6c5cff"/></svg></div>
+<h3>GPT business</h3>
+<div class="price">400 €</div>
+<p>IA orientée performance business.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
+<!-- 11 -->
+<div class="card">
+<div class="visual"><svg viewBox="0 0 400 200">
+<rect width="400" height="200" fill="#0e0e11"/>
+<path d="M50 100 H350" stroke="#8579ff" stroke-width="8"/></svg></div>
+<h3>GPT sur mesure</h3>
+<div class="price">Sur devis</div>
+<p>Solution IA entièrement personnalisée.</p>
+<a class="btn" href="#contact">Commander</a>
+</div>
+
 </div>
 </section>
 
@@ -141,7 +249,7 @@ footer{
 </section>
 
 <footer>
-© Athy’s
+© Athy’s – Studio de création digitale & IA
 </footer>
 
 </body>
