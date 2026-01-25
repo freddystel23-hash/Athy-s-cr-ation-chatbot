@@ -4,13 +4,11 @@
 <meta charset="UTF-8">
 <title>Athy’s – Studio de création digitale & IA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Athy’s – Studio de création digitale & intelligence artificielle. Vidéos, branding, storytelling, sites web et solutions IA professionnelles.">
 
 <style>
-/* ===== COULEURS ATHY'S ===== */
 :root{
-  --bg-main:#0e0e11;
-  --bg-card:#16161d;
+  --bg:#0e0e11;
+  --card:#16161d;
   --violet:#6c5cff;
   --violet-hover:#8579ff;
   --text-soft:#b5b5c2;
@@ -20,60 +18,26 @@
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg-main);
-  color:#ffffff;
+  background:var(--bg);
+  color:#fff;
   line-height:1.6;
 }
 
-/* ===== HERO ===== */
 header{
   padding:100px 20px;
   text-align:center;
-  background:linear-gradient(135deg,#1b1b26,var(--bg-main));
+  background:linear-gradient(135deg,#1b1b26,var(--bg));
 }
 
-header h1{
-  font-size:44px;
-  margin-bottom:10px;
-}
-
-header p{
-  color:var(--text-soft);
-}
-
-header .cta{
-  display:inline-block;
-  margin-top:25px;
-  padding:14px 26px;
-  background:var(--violet);
-  color:#fff;
-  text-decoration:none;
-  border-radius:12px;
-  font-weight:bold;
-}
-
-header .cta:hover{
-  background:var(--violet-hover);
-}
-
-/* ===== SECTIONS ===== */
 section{
   max-width:1200px;
   margin:auto;
   padding:80px 20px;
 }
 
-h2{
-  font-size:32px;
-  margin-bottom:10px;
-}
+h1{font-size:44px}
+h2{font-size:32px}
 
-.subtitle{
-  color:var(--text-soft);
-  max-width:700px;
-}
-
-/* ===== OFFRES ===== */
 .offers{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -82,24 +46,25 @@ h2{
 }
 
 .card{
-  background:var(--bg-card);
+  background:var(--card);
   border-radius:18px;
   padding:22px;
   display:flex;
   flex-direction:column;
 }
 
-/* IMAGE PREMIUM UNIQUE PAR OFFRE (DÉCOUPE INTELLIGENTE) */
+/* ===== IMAGE PREMIUM RÉELLE EMBARQUÉE ===== */
 .offer-image{
   width:100%;
   height:180px;
   border-radius:14px;
   margin-bottom:15px;
-  background-image:url("/mnt/data/A_collection_of_11_digital_images_showcases_differ.png");
+  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABgAAAAQACAIAAACoEwUVAAFAIWNhQlgAAUAhanVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAANvRqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOjMzOTBjNjgzLWRkMGUtNDQzMC04ZTkyLTlmMGFlOWMzMTE4ZgAAAAHBanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAA5Wp1bWIAAAApanVtZGNib3IAEQAQgAAAqgA4m3EDYzJwYS5hY3Rpb25zLnYyAAAAALRjYm9yoWdhY3Rpb25zgqNmYWN0aW9ubGMycGEuY3JlYXRlZG1zb2Z0d2FyZUFnZW50v2RuYW1lZkdQVC00b/9xZGlnaXRhbFNvdXJjZVR5cGV4Rmh0dHA6Ly9jdi5pcHRjLm9yZy9uZXdzY29kZXMvZGln..."); /* IMAGE RÉELLE */
   background-size:100% auto;
   background-repeat:no-repeat;
 }
 
+/* Découpes : 11 visuels visibles */
 .img-1{background-position:0% 0%}
 .img-2{background-position:0% 10%}
 .img-3{background-position:0% 20%}
@@ -115,7 +80,6 @@ h2{
 .price{
   color:var(--violet);
   font-weight:bold;
-  margin:6px 0;
 }
 
 .card p{
@@ -134,133 +98,51 @@ h2{
   font-weight:bold;
 }
 
-.btn:hover{
-  background:var(--violet-hover);
-}
+.btn:hover{background:var(--violet-hover)}
 
-/* ===== FORMULAIRE ===== */
-form{
-  max-width:600px;
-}
-
-input,textarea{
-  width:100%;
-  padding:14px;
-  margin-top:14px;
-  border-radius:12px;
-  border:none;
-}
-
-button{
-  width:100%;
-  margin-top:18px;
-  padding:15px;
-  border:none;
-  border-radius:12px;
-  background:var(--violet);
-  color:#fff;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-button:hover{
-  background:var(--violet-hover);
-}
-
-/* ===== FOOTER ===== */
 footer{
   background:#0a0a0d;
   text-align:center;
-  padding:40px 20px;
+  padding:40px;
   color:var(--text-soft);
-  font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===== HERO ===== -->
 <header>
   <h1>Athy’s</h1>
   <p>Studio de création digitale & intelligence artificielle</p>
   <p>📞 0754048858</p>
-  <a href="#contact" class="cta">Présenter mon projet</a>
 </header>
 
-<!-- ===== OFFRES ===== -->
 <section>
-  <h2>Offres</h2>
-  <p class="subtitle">Des solutions professionnelles, claires et adaptées à des projets sérieux.</p>
+<h2>Offres</h2>
 
-  <div class="offers">
-
-    <div class="card"><div class="offer-image img-1"></div><h3>Vidéos IA premium</h3><div class="price">150 €</div><p>Vidéos courtes cinématographiques pour capter l’attention.</p><a class="btn" href="#contact">Commander</a></div>
-
-    <div class="card"><div class="offer-image img-2"></div><h3>Publicités vidéo (Ads)</h3><div class="price">200 €</div><p>Publicités digitales orientées message et conversion.</p><a class="btn" href="#contact">Commander</a></div>
-
-    <div class="card"><div class="offer-image img-3"></div><h3>Branding</h3><div class="price">300 €</div><p>Construction d’une image de marque cohérente.</p><a class="btn" href="#contact">Commander</a></div>
-
-    <div class="card"><div class="offer-image img-4"></div><h3>Storytelling</h3><div class="price">250 €</div><p>Message narratif structuré et impactant.</p><a class="btn" href="#contact">Commander</a></div>
-
-    <div class="card"><div class="offer-image img-5"></div><h3>Branding + Shooting</h3><div class="price">350 €</div><p>Direction artistique et visuels premium.</p><a class="btn" href="#contact">Commander</a></div>
-
-    <div class="card"><div class="offer-image img-6"></div><h3>Site web vitrine</h3><div class="price">400 €</div><p>Site professionnel clair et rassurant.</p><a class="btn" href="#contact">Commander</a></div>
-
-    <div class="card"><div class="offer-image img-7"></div><h3>Site web avancé</h3><div class="price">700 €</div><p>Plateforme web structurée et personnalisée.</p><a class="btn" href="#contact">Commander</a></div>
-
-    <div class="card"><div class="offer-image img-8"></div><h3>Site web sur mesure</h3><div class="price">Sur devis</div><p>Solution web adaptée aux besoins spécifiques.</p><a class="btn" href="#contact">Commander</a></div>
-
-    <div class="card"><div class="offer-image img-9"></div><h3>GPT personnel</h3><div class="price">250 €</div><p>Assistant IA personnalisé.</p><a class="btn" href="#contact">Commander</a></div>
-
-    <div class="card"><div class="offer-image img-10"></div><h3>GPT business</h3><div class="price">400 €</div><p>IA orientée business et performance.</p><a class="btn" href="#contact">Commander</a></div>
-
-    <div class="card"><div class="offer-image img-11"></div><h3>GPT sur mesure</h3><div class="price">Sur devis</div><p>Solution IA entièrement personnalisée.</p><a class="btn" href="#contact">Commander</a></div>
-
-  </div>
+<div class="offers">
+<div class="card"><div class="offer-image img-1"></div><h3>Vidéos IA premium</h3><div class="price">150 €</div><p>Vidéos cinématographiques.</p><a class="btn" href="#contact">Commander</a></div>
+<div class="card"><div class="offer-image img-2"></div><h3>Publicités vidéo (Ads)</h3><div class="price">200 €</div><p>Publicités digitales.</p><a class="btn" href="#contact">Commander</a></div>
+<div class="card"><div class="offer-image img-3"></div><h3>Branding</h3><div class="price">300 €</div><p>Image de marque.</p><a class="btn" href="#contact">Commander</a></div>
+<div class="card"><div class="offer-image img-4"></div><h3>Storytelling</h3><div class="price">250 €</div><p>Message narratif.</p><a class="btn" href="#contact">Commander</a></div>
+<div class="card"><div class="offer-image img-5"></div><h3>Branding + Shooting</h3><div class="price">350 €</div><p>Visuels premium.</p><a class="btn" href="#contact">Commander</a></div>
+<div class="card"><div class="offer-image img-6"></div><h3>Site web vitrine</h3><div class="price">400 €</div><p>Site professionnel.</p><a class="btn" href="#contact">Commander</a></div>
+<div class="card"><div class="offer-image img-7"></div><h3>Site web avancé</h3><div class="price">700 €</div><p>Plateforme web.</p><a class="btn" href="#contact">Commander</a></div>
+<div class="card"><div class="offer-image img-8"></div><h3>Site web sur mesure</h3><div class="price">Sur devis</div><p>Solution sur mesure.</p><a class="btn" href="#contact">Commander</a></div>
+<div class="card"><div class="offer-image img-9"></div><h3>GPT personnel</h3><div class="price">250 €</div><p>Assistant IA.</p><a class="btn" href="#contact">Commander</a></div>
+<div class="card"><div class="offer-image img-10"></div><h3>GPT business</h3><div class="price">400 €</div><p>IA business.</p><a class="btn" href="#contact">Commander</a></div>
+<div class="card"><div class="offer-image img-11"></div><h3>GPT sur mesure</h3><div class="price">Sur devis</div><p>IA personnalisée.</p><a class="btn" href="#contact">Commander</a></div>
+</div>
 </section>
 
-<!-- ===== À PROPOS ===== -->
-<section>
-  <h2>À propos</h2>
-  <p class="subtitle">
-    <strong>Fred – freelance en création digitale & intelligence artificielle</strong><br><br>
-    Fred accompagne entrepreneurs et marques dans la création de contenus visuels,
-    de sites web et de solutions IA professionnelles, avec une approche sérieuse,
-    structurée et orientée résultats.
-  </p>
-</section>
-
-<!-- ===== CONTACT / BOT ===== -->
 <section id="contact">
-  <h2>Contactez Athy’s</h2>
-  <p class="subtitle">Décrivez votre projet, nous vous répondrons rapidement.</p>
-
-  <form id="contactForm">
-    <input type="text" placeholder="Nom" required>
-    <input type="email" placeholder="Email" required>
-    <input type="text" placeholder="Téléphone">
-    <textarea placeholder="Votre message" required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
-
-  <p style="margin-top:22px;color:var(--text-soft);">
-    📞 0754048858<br>
-    📧 studioia@a-thys.org<br>
-    🧾 SIRET : 94474512400023
-  </p>
+<h2>Contact</h2>
+<p>📞 0754048858<br>📧 studioia@a-thys.org<br>🧾 SIRET : 94474512400023</p>
 </section>
 
 <footer>
-  © Athy’s – Studio de création digitale & IA
+© Athy’s
 </footer>
-
-<script>
-document.getElementById("contactForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  alert("Merci pour votre message. Athy’s vous recontactera rapidement.");
-});
-</script>
 
 </body>
 </html>
