@@ -2,8 +2,10 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Athy’s – Studio de création digitale & IA</title>
+<title>Athy’s – Studio de création digitale & intelligence artificielle</title>
+<meta name="description" content="Studio de création digitale et intelligence artificielle. Vidéo IA premium, branding, sites web professionnels et assistants IA sur mesure.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="assets/favicon.png">
 
 <style>
 :root{
@@ -20,28 +22,36 @@ body{
   font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
   color:#fff;
+  line-height:1.6;
 }
 
+a{color:inherit;text-decoration:none}
+
 header{
-  padding:100px 20px;
+  padding:110px 20px;
   text-align:center;
   background:linear-gradient(135deg,#1b1b26,var(--bg));
 }
 
+header h1{font-size:44px;margin-bottom:20px}
+header p{color:var(--text-soft);max-width:800px;margin:0 auto 10px}
+
 section{
   max-width:1200px;
   margin:auto;
-  padding:80px 20px;
+  padding:90px 20px;
 }
 
-h1{font-size:44px}
-h2{font-size:32px}
+h2{
+  font-size:32px;
+  margin-bottom:40px;
+  text-align:center;
+}
 
 .offers{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:32px;
-  margin-top:50px;
 }
 
 .card{
@@ -54,15 +64,21 @@ h2{font-size:32px}
 
 .visual{
   height:180px;
+  margin-bottom:16px;
+}
+
+.visual img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
   border-radius:14px;
-  margin-bottom:15px;
-  overflow:hidden;
+  filter:contrast(1.05) saturate(1.1);
 }
 
 .price{
   color:var(--violet);
   font-weight:bold;
-  margin:6px 0;
+  margin:8px 0;
 }
 
 .card p{
@@ -71,185 +87,178 @@ h2{font-size:32px}
 }
 
 .btn{
-  margin-top:16px;
+  margin-top:18px;
   padding:14px;
   text-align:center;
   background:var(--violet);
-  color:#fff;
-  text-decoration:none;
   border-radius:12px;
   font-weight:bold;
 }
 
 .btn:hover{background:var(--violet-hover)}
 
-footer{
-  background:#0a0a0d;
+#about p,
+#contact p,
+#legal p,
+#privacy p{
+  max-width:850px;
+  margin:0 auto 15px;
   text-align:center;
-  padding:40px;
   color:var(--text-soft);
 }
+
+footer{
+  background:#0a0a0d;
+  padding:40px 20px;
+  text-align:center;
+  color:var(--text-soft);
+}
+
+footer a{text-decoration:underline}
+small{opacity:.7}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Athy’s</h1>
-  <p>Studio de création digitale & intelligence artificielle</p>
-  <p>📞 0754048858</p>
+  <h1>Studio de création digitale & intelligence artificielle</h1>
+  <p>Expériences visuelles et solutions IA premium, conçues pour renforcer votre image et générer de la performance.</p>
+  <p>
+    📞 <a href="tel:+33754048858">07 54 04 88 58</a> ·
+    ✉️ <a href="mailto:studioia@a-thys.org">studioia@a-thys.org</a>
+  </p>
 </header>
 
-<section>
+<!-- OFFRES -->
+<section id="offers">
 <h2>Offres</h2>
 
 <div class="offers">
 
-<!-- 1 -->
 <div class="card">
-<div class="visual">
-<svg viewBox="0 0 400 200" width="100%" height="100%">
-<defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#6c5cff"/><stop offset="100%" stop-color="#0e0e11"/>
-</linearGradient></defs>
-<rect width="400" height="200" fill="url(#g1)"/>
-<circle cx="300" cy="60" r="40" fill="#8579ff" opacity="0.6"/>
-</svg>
-</div>
-<h3>Vidéos IA premium</h3>
-<div class="price">150 €</div>
-<p>Vidéos cinématographiques conçues pour capter l’attention.</p>
-<a class="btn" href="#contact">Commander</a>
+  <div class="visual"><img src="assets/offers/video-ia.jpg" alt="Vidéo IA premium"></div>
+  <h3>Vidéos IA premium</h3>
+  <div class="price">À partir de 150 €</div>
+  <p>Création de vidéos cinématographiques générées par intelligence artificielle pour sublimer votre marque.</p>
+  <a class="btn" href="#contact">Commander</a>
 </div>
 
-<!-- 2 -->
 <div class="card">
-<div class="visual">
-<svg viewBox="0 0 400 200"><rect width="400" height="200" fill="#16161d"/>
-<path d="M0 150 Q200 50 400 150" stroke="#6c5cff" stroke-width="6" fill="none"/></svg>
-</div>
-<h3>Publicités vidéo (Ads)</h3>
-<div class="price">200 €</div>
-<p>Publicités digitales orientées conversion.</p>
-<a class="btn" href="#contact">Commander</a>
+  <div class="visual"><img src="assets/offers/ads-video.jpg" alt="Publicités vidéo"></div>
+  <h3>Publicités vidéo (Ads)</h3>
+  <div class="price">À partir de 200 €</div>
+  <p>Publicités orientées conversion, pensées pour capter l’attention et générer des résultats mesurables.</p>
+  <a class="btn" href="#contact">Commander</a>
 </div>
 
-<!-- 3 -->
 <div class="card">
-<div class="visual">
-<svg viewBox="0 0 400 200"><rect width="400" height="200" fill="#0e0e11"/>
-<rect x="40" y="40" width="120" height="120" fill="#6c5cff"/>
-<rect x="200" y="40" width="120" height="120" fill="#8579ff"/></svg>
-</div>
-<h3>Branding</h3>
-<div class="price">300 €</div>
-<p>Image de marque claire et cohérente.</p>
-<a class="btn" href="#contact">Commander</a>
+  <div class="visual"><img src="assets/offers/branding.jpg" alt="Branding"></div>
+  <h3>Branding</h3>
+  <div class="price">À partir de 300 €</div>
+  <p>Construction d’une identité de marque élégante, cohérente et différenciante.</p>
+  <a class="btn" href="#contact">Commander</a>
 </div>
 
-<!-- 4 -->
 <div class="card">
-<div class="visual">
-<svg viewBox="0 0 400 200"><rect width="400" height="200" fill="#16161d"/>
-<text x="50%" y="55%" text-anchor="middle" fill="#6c5cff" font-size="48">Story</text></svg>
-</div>
-<h3>Storytelling</h3>
-<div class="price">250 €</div>
-<p>Message narratif structuré et impactant.</p>
-<a class="btn" href="#contact">Commander</a>
+  <div class="visual"><img src="assets/offers/storytelling.jpg" alt="Storytelling"></div>
+  <h3>Storytelling</h3>
+  <div class="price">À partir de 250 €</div>
+  <p>Élaboration d’un récit structuré et émotionnel pour transmettre votre vision.</p>
+  <a class="btn" href="#contact">Commander</a>
 </div>
 
-<!-- 5 -->
 <div class="card">
-<div class="visual">
-<svg viewBox="0 0 400 200"><defs><radialGradient id="g2">
-<stop offset="0%" stop-color="#8579ff"/><stop offset="100%" stop-color="#0e0e11"/></radialGradient></defs>
-<rect width="400" height="200" fill="url(#g2)"/></svg>
-</div>
-<h3>Branding + Shooting</h3>
-<div class="price">350 €</div>
-<p>Direction artistique et visuels premium.</p>
-<a class="btn" href="#contact">Commander</a>
+  <div class="visual"><img src="assets/offers/site-vitrine.jpg" alt="Site vitrine"></div>
+  <h3>Site web vitrine</h3>
+  <div class="price">À partir de 400 €</div>
+  <p>Site professionnel moderne, clair et rassurant, optimisé pour tous les écrans.</p>
+  <a class="btn" href="#contact">Commander</a>
 </div>
 
-<!-- 6 -->
 <div class="card">
-<div class="visual"><svg viewBox="0 0 400 200">
-<rect width="400" height="200" fill="#16161d"/>
-<rect x="60" y="40" width="280" height="120" stroke="#6c5cff" fill="none" stroke-width="4"/>
-</svg></div>
-<h3>Site web vitrine</h3>
-<div class="price">400 €</div>
-<p>Site professionnel clair et rassurant.</p>
-<a class="btn" href="#contact">Commander</a>
+  <div class="visual"><img src="assets/offers/site-avance.jpg" alt="Site web avancé"></div>
+  <h3>Site web avancé</h3>
+  <div class="price">À partir de 700 €</div>
+  <p>Plateforme web évolutive et structurée, adaptée à des besoins métiers spécifiques.</p>
+  <a class="btn" href="#contact">Commander</a>
 </div>
 
-<!-- 7 -->
 <div class="card">
-<div class="visual"><svg viewBox="0 0 400 200">
-<rect width="400" height="200" fill="#0e0e11"/>
-<line x1="0" y1="0" x2="400" y2="200" stroke="#6c5cff" stroke-width="5"/>
-</svg></div>
-<h3>Site web avancé</h3>
-<div class="price">700 €</div>
-<p>Plateforme web structurée et personnalisée.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
-
-<!-- 8 -->
-<div class="card">
-<div class="visual"><svg viewBox="0 0 400 200">
-<rect width="400" height="200" fill="#16161d"/>
-<polygon points="200,20 380,180 20,180" fill="#8579ff"/></svg></div>
-<h3>Site web sur mesure</h3>
-<div class="price">Sur devis</div>
-<p>Solution web adaptée au besoin réel.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
-
-<!-- 9 -->
-<div class="card">
-<div class="visual"><svg viewBox="0 0 400 200">
-<rect width="400" height="200" fill="#0e0e11"/>
-<circle cx="200" cy="100" r="60" stroke="#6c5cff" stroke-width="6" fill="none"/></svg></div>
-<h3>GPT personnel</h3>
-<div class="price">250 €</div>
-<p>Assistant IA personnalisé.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
-
-<!-- 10 -->
-<div class="card">
-<div class="visual"><svg viewBox="0 0 400 200">
-<rect width="400" height="200" fill="#16161d"/>
-<rect x="100" y="40" width="200" height="120" fill="#6c5cff"/></svg></div>
-<h3>GPT business</h3>
-<div class="price">400 €</div>
-<p>IA orientée performance business.</p>
-<a class="btn" href="#contact">Commander</a>
-</div>
-
-<!-- 11 -->
-<div class="card">
-<div class="visual"><svg viewBox="0 0 400 200">
-<rect width="400" height="200" fill="#0e0e11"/>
-<path d="M50 100 H350" stroke="#8579ff" stroke-width="8"/></svg></div>
-<h3>GPT sur mesure</h3>
-<div class="price">Sur devis</div>
-<p>Solution IA entièrement personnalisée.</p>
-<a class="btn" href="#contact">Commander</a>
+  <div class="visual"><img src="assets/offers/gpt-business.jpg" alt="GPT business"></div>
+  <h3>GPT business</h3>
+  <div class="price">À partir de 400 €</div>
+  <p>Assistant IA orienté automatisation, optimisation et performance professionnelle.</p>
+  <a class="btn" href="#contact">Commander</a>
 </div>
 
 </div>
 </section>
 
+<!-- A PROPOS -->
+<section id="about">
+<h2>À propos</h2>
+<p>
+Athy’s est un studio indépendant spécialisé en création digitale et intelligence artificielle.
+Nous concevons des solutions premium sur mesure, pensées pour l’impact,
+la cohérence et la performance à long terme.
+</p>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section id="testimonials">
+<h2>Témoignages</h2>
+<div class="offers">
+  <div class="card">
+    <p>“Un rendu visuel premium et une vraie vision stratégique.”</p>
+    <strong>Client – Branding & IA</strong>
+  </div>
+  <div class="card">
+    <p>“Site moderne, clair et parfaitement aligné avec notre image.”</p>
+    <strong>Entreprise – Web</strong>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact">
 <h2>Contact</h2>
-<p>📞 0754048858<br>📧 studioia@a-thys.org<br>🧾 SIRET : 94474512400023</p>
+<p>Parlez-nous de votre projet. Chaque demande est étudiée avec attention.</p>
+<p>
+📞 <a href="tel:+33754048858">07 54 04 88 58</a><br>
+✉️ <a href="mailto:studioia@a-thys.org">studioia@a-thys.org</a>
+</p>
+</section>
+
+<!-- MENTIONS LÉGALES -->
+<section id="legal">
+<h2>Mentions légales</h2>
+<p>
+<strong>Athy’s</strong><br>
+Statut : Micro-entreprise<br>
+SIRET : <strong>944 745 124 00023</strong><br>
+Pays : France<br>
+Contact : <a href="mailto:studioia@a-thys.org">studioia@a-thys.org</a>
+</p>
+</section>
+
+<!-- CONFIDENTIALITÉ -->
+<section id="privacy">
+<h2>Politique de confidentialité</h2>
+<p>
+Les informations transmises via ce site sont utilisées uniquement
+pour répondre aux demandes de contact.
+Aucune donnée n’est cédée à des tiers.
+</p>
 </section>
 
 <footer>
-© Athy’s – Studio de création digitale & IA
+<p>© 2026 – Athy’s · Studio de création digitale & intelligence artificielle</p>
+<p>
+<a href="#legal">Mentions légales</a> ·
+<a href="#privacy">Politique de confidentialité</a>
+</p>
+<small>SIRET : 944 745 124 00023</small>
 </footer>
 
 </body>
