@@ -2,21 +2,20 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Athy’s – Studio de création digitale & intelligence artificielle</title>
-<meta name="description" content="Studio de création digitale et intelligence artificielle. Vidéo IA premium, branding, sites web professionnels et assistants IA sur mesure.">
+<title>Studio de création digitale</title>
+<meta name="description" content="Studio de création digitale. Vidéo, branding, web et automatisation.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root{
   --bg:#0e0e11;
   --card:#16161d;
-  --violet:#6c5cff;
-  --violet-hover:#8579ff;
+  --accent:#6c5cff;
+  --accent-hover:#8579ff;
   --text-soft:#b5b5c2;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
@@ -24,33 +23,27 @@ body{
   line-height:1.6;
 }
 
-a{color:inherit;text-decoration:none}
-
 header{
-  padding:110px 20px;
+  padding:100px 20px;
   text-align:center;
   background:linear-gradient(135deg,#1b1b26,var(--bg));
 }
 
-header h1{font-size:44px;margin-bottom:20px}
-header p{color:var(--text-soft);max-width:850px;margin:0 auto 10px}
+header h1{font-size:42px;margin-bottom:15px}
+header p{color:var(--text-soft);max-width:800px;margin:0 auto}
 
 section{
   max-width:1200px;
   margin:auto;
-  padding:90px 20px;
+  padding:80px 20px;
 }
 
-h2{
-  font-size:32px;
-  margin-bottom:40px;
-  text-align:center;
-}
+h2{text-align:center;font-size:30px;margin-bottom:40px}
 
 .offers{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:32px;
+  gap:30px;
 }
 
 .card{
@@ -62,10 +55,10 @@ h2{
 }
 
 .visual{
-  height:180px;
-  margin-bottom:16px;
-  overflow:hidden;
+  height:170px;
+  margin-bottom:15px;
   border-radius:14px;
+  overflow:hidden;
 }
 
 .visual img{
@@ -76,178 +69,177 @@ h2{
 }
 
 .price{
-  color:var(--violet);
+  color:var(--accent);
   font-weight:bold;
-  margin:8px 0;
+  margin:6px 0;
 }
 
-.card p{
-  color:var(--text-soft);
-  flex-grow:1;
-}
+.card p{color:var(--text-soft);flex-grow:1}
 
 .btn{
-  margin-top:18px;
+  margin-top:16px;
   padding:14px;
   text-align:center;
-  background:var(--violet);
+  background:var(--accent);
   border-radius:12px;
   font-weight:bold;
+  cursor:pointer;
 }
 
-.btn:hover{background:var(--violet-hover)}
+.btn:hover{background:var(--accent-hover)}
 
-#about p,
-#contact p,
-#legal p,
-#privacy p{
-  max-width:900px;
-  margin:0 auto 15px;
-  text-align:center;
-  color:var(--text-soft);
+#bot-wrapper{
+  max-width:420px;
+  margin:60px auto;
+  background:var(--card);
+  border-radius:18px;
+  padding:20px;
+}
+
+.bot-msg{
+  background:#1f1f2b;
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:8px;
+  font-size:14px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  margin-top:10px;
 }
 
 footer{
+  padding:40px;
   background:#0a0a0d;
-  padding:40px 20px;
   text-align:center;
   color:var(--text-soft);
+  font-size:14px;
 }
-
-footer a{text-decoration:underline}
-small{opacity:.7}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Studio de création digitale & intelligence artificielle</h1>
-  <p>Expériences visuelles et solutions IA premium, conçues pour renforcer votre image et générer de la performance.</p>
-  <p>
-    📞 <a href="tel:+33754048858">07 54 04 88 58</a> ·
-    ✉️ <a href="mailto:studioia@a-thys.org">studioia@a-thys.org</a>
-  </p>
+  <h1>Studio de création digitale</h1>
+  <p>Solutions visuelles et digitales sur mesure pour développer votre activité.</p>
 </header>
 
-<!-- OFFRES -->
-<section id="offers">
+<section>
 <h2>Offres</h2>
 
 <div class="offers">
-
-<div class="card">
-  <div class="visual">
-    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop" alt="Vidéo IA premium">
+  <div class="card">
+    <div class="visual">
+      <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop">
+    </div>
+    <h3>Vidéo & contenus visuels</h3>
+    <div class="price">À partir de 150 €</div>
+    <p>Création de contenus visuels modernes et percutants.</p>
+    <div class="btn" onclick="openBot()">Discuter du projet</div>
   </div>
-  <h3>Vidéos IA premium</h3>
-  <div class="price">À partir de 150 €</div>
-  <p>Création de vidéos cinématographiques générées par intelligence artificielle pour sublimer votre marque.</p>
-  <a class="btn" href="#contact">Commander</a>
-</div>
 
-<div class="card">
-  <div class="visual">
-    <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=80&w=1200&auto=format&fit=crop" alt="Publicités vidéo">
+  <div class="card">
+    <div class="visual">
+      <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&auto=format&fit=crop">
+    </div>
+    <h3>Site web</h3>
+    <div class="price">À partir de 400 €</div>
+    <p>Sites modernes, clairs et adaptés à vos objectifs.</p>
+    <div class="btn" onclick="openBot()">Discuter du projet</div>
   </div>
-  <h3>Publicités vidéo (Ads)</h3>
-  <div class="price">À partir de 200 €</div>
-  <p>Publicités orientées conversion, pensées pour capter l’attention et générer des résultats mesurables.</p>
-  <a class="btn" href="#contact">Commander</a>
-</div>
 
-<div class="card">
-  <div class="visual">
-    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&auto=format&fit=crop" alt="Branding">
+  <div class="card">
+    <div class="visual">
+      <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop">
+    </div>
+    <h3>Automatisation</h3>
+    <div class="price">Sur devis</div>
+    <p>Mise en place de solutions automatisées adaptées à votre activité.</p>
+    <div class="btn" onclick="openBot()">Discuter du projet</div>
   </div>
-  <h3>Branding</h3>
-  <div class="price">À partir de 300 €</div>
-  <p>Construction d’une identité de marque élégante, cohérente et différenciante.</p>
-  <a class="btn" href="#contact">Commander</a>
-</div>
-
-<div class="card">
-  <div class="visual">
-    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop" alt="Storytelling">
-  </div>
-  <h3>Storytelling</h3>
-  <div class="price">À partir de 250 €</div>
-  <p>Élaboration d’un récit structuré et émotionnel pour transmettre votre vision.</p>
-  <a class="btn" href="#contact">Commander</a>
-</div>
-
-<div class="card">
-  <div class="visual">
-    <img src="https://images.unsplash.com/photo-1581091870622-2c1c1f24a1b3?q=80&w=1200&auto=format&fit=crop" alt="Site web vitrine">
-  </div>
-  <h3>Site web vitrine</h3>
-  <div class="price">À partir de 400 €</div>
-  <p>Site professionnel moderne, clair et rassurant, optimisé pour tous les écrans.</p>
-  <a class="btn" href="#contact">Commander</a>
-</div>
-
-<div class="card">
-  <div class="visual">
-    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1200&auto=format&fit=crop" alt="Site web avancé">
-  </div>
-  <h3>Site web avancé</h3>
-  <div class="price">À partir de 700 €</div>
-  <p>Plateforme web évolutive et structurée, adaptée à des besoins métiers spécifiques.</p>
-  <a class="btn" href="#contact">Commander</a>
-</div>
-
-<div class="card">
-  <div class="visual">
-    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop" alt="GPT business">
-  </div>
-  <h3>GPT business</h3>
-  <div class="price">À partir de 400 €</div>
-  <p>Assistant IA orienté automatisation, optimisation et performance professionnelle.</p>
-  <a class="btn" href="#contact">Commander</a>
-</div>
-
 </div>
 </section>
 
-<!-- A PROPOS -->
-<section id="about">
-<h2>À propos</h2>
-<p>
-Athy’s est un studio indépendant spécialisé en création digitale et intelligence artificielle.
-Nous concevons des solutions premium sur mesure, pensées pour l’impact,
-la cohérence et la performance à long terme.
-</p>
-</section>
+<section id="bot-section" style="display:none;">
+<h2>Parlez-nous de votre projet</h2>
 
-<!-- CONTACT -->
-<section id="contact">
-<h2>Contact</h2>
-<p>Parlez-nous de votre projet. Chaque demande est étudiée avec attention.</p>
-<p>
-📞 <a href="tel:+33754048858">07 54 04 88 58</a><br>
-✉️ <a href="mailto:studioia@a-thys.org">studioia@a-thys.org</a>
-</p>
-</section>
-
-<!-- MENTIONS LÉGALES -->
-<section id="legal">
-<h2>Mentions légales</h2>
-<p>
-<strong>Athy’s</strong><br>
-Statut : Micro-entreprise<br>
-SIRET : <strong>944 745 124 00023</strong><br>
-Pays : France<br>
-Contact : studioia@a-thys.org
-</p>
+<div id="bot-wrapper">
+  <div id="messages"></div>
+  <input id="input" placeholder="Votre réponse…">
+  <div class="btn" onclick="next()">Envoyer</div>
+</div>
 </section>
 
 <footer>
-<p>© 2026 – Athy’s · Studio de création digitale & intelligence artificielle</p>
-<p>
-<a href="#legal">Mentions légales</a>
-</p>
-<small>SIRET : 944 745 124 00023</small>
+<p>© 2026 – Studio de création digitale</p>
 </footer>
+
+<script>
+const questions = [
+  "Quel est votre type de projet ?",
+  "Quel est votre objectif principal ?",
+  "Quel budget approximatif envisagez-vous ?",
+  "Quel est votre délai souhaité ?",
+  "Merci d’indiquer votre numéro WhatsApp."
+];
+
+let step = 0;
+let answers = [];
+
+const messages = document.getElementById("messages");
+const input = document.getElementById("input");
+
+function openBot(){
+  document.getElementById("bot-section").style.display="block";
+  window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+  if(step===0) say(questions[0]);
+}
+
+function say(text){
+  const div = document.createElement("div");
+  div.className="bot-msg";
+  div.textContent=text;
+  messages.appendChild(div);
+}
+
+function next(){
+  if(input.value.trim()==="") return;
+
+  answers.push(input.value);
+  input.value="";
+  step++;
+
+  if(step < questions.length){
+    say(questions[step]);
+  } else {
+    sendToManager();
+  }
+}
+
+function sendToManager(){
+  say("Merci. Votre demande est en cours de traitement.");
+
+  fetch("https://TON-WEBHOOK-SECURISE-ICI",{
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body:JSON.stringify({
+      project: answers[0],
+      goal: answers[1],
+      budget: answers[2],
+      deadline: answers[3],
+      whatsapp: answers[4],
+      source: "site"
+    })
+  })
+  .then(()=>say("Nous revenons vers vous rapidement."))
+  .catch(()=>say("Une erreur est survenue."));
+}
+</script>
 
 </body>
 </html>
