@@ -2,48 +2,62 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Studio de création digitale</title>
-<meta name="description" content="Studio de création digitale. Vidéo, branding, web et automatisation.">
+<title>Athy’s – Studio de création digitale & intelligence artificielle</title>
+<meta name="description" content="Athy’s, studio de création digitale et intelligence artificielle. Vidéo IA, branding, sites web et assistants GPT sur mesure.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root{
-  --bg:#0e0e11;
-  --card:#16161d;
+  --bg:#0b0b10;
+  --card:#15151d;
   --accent:#6c5cff;
-  --accent-hover:#8579ff;
-  --text-soft:#b5b5c2;
+  --accent-soft:#8579ff;
+  --text:#ffffff;
+  --text-soft:#b3b3c6;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
+
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
-  color:#fff;
+  color:var(--text);
   line-height:1.6;
 }
 
+a{color:inherit;text-decoration:none}
+
 header{
-  padding:100px 20px;
+  padding:120px 20px;
   text-align:center;
-  background:linear-gradient(135deg,#1b1b26,var(--bg));
+  background:linear-gradient(135deg,#161624,var(--bg));
 }
 
-header h1{font-size:42px;margin-bottom:15px}
-header p{color:var(--text-soft);max-width:800px;margin:0 auto}
+header h1{font-size:44px;margin-bottom:10px}
+header h2{font-size:20px;font-weight:normal;color:var(--text-soft);margin-bottom:20px}
+header p{max-width:850px;margin:0 auto 10px;color:var(--text-soft)}
+
+.header-contact{
+  margin-top:20px;
+  font-weight:bold;
+}
 
 section{
   max-width:1200px;
   margin:auto;
-  padding:80px 20px;
+  padding:90px 20px;
 }
 
-h2{text-align:center;font-size:30px;margin-bottom:40px}
+h3{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:50px;
+}
 
 .offers{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
+  gap:32px;
 }
 
 .card{
@@ -56,9 +70,9 @@ h2{text-align:center;font-size:30px;margin-bottom:40px}
 
 .visual{
   height:170px;
-  margin-bottom:15px;
   border-radius:14px;
   overflow:hidden;
+  margin-bottom:15px;
 }
 
 .visual img{
@@ -74,7 +88,10 @@ h2{text-align:center;font-size:30px;margin-bottom:40px}
   margin:6px 0;
 }
 
-.card p{color:var(--text-soft);flex-grow:1}
+.card p{
+  color:var(--text-soft);
+  flex-grow:1;
+}
 
 .btn{
   margin-top:16px;
@@ -86,18 +103,19 @@ h2{text-align:center;font-size:30px;margin-bottom:40px}
   cursor:pointer;
 }
 
-.btn:hover{background:var(--accent-hover)}
+.btn:hover{background:var(--accent-soft)}
 
-#bot-wrapper{
+#bot-section{
+  display:none;
   max-width:420px;
   margin:60px auto;
   background:var(--card);
-  border-radius:18px;
   padding:20px;
+  border-radius:18px;
 }
 
 .bot-msg{
-  background:#1f1f2b;
+  background:#1e1e2b;
   padding:10px;
   border-radius:10px;
   margin-bottom:8px;
@@ -113,8 +131,8 @@ input{
 }
 
 footer{
-  padding:40px;
-  background:#0a0a0d;
+  padding:40px 20px;
+  background:#08080c;
   text-align:center;
   color:var(--text-soft);
   font-size:14px;
@@ -125,135 +143,191 @@ footer{
 <body>
 
 <header>
-  <h1>Studio de création digitale</h1>
-  <p>Solutions visuelles et digitales sur mesure pour développer votre activité.</p>
+  <h1>Athy’s</h1>
+  <h2>Studio de création digitale & intelligence artificielle</h2>
+  <p>
+    Des solutions digitales et intelligentes conçues sur mesure,  
+    avec exigence, cohérence et performance.
+  </p>
+  <div class="header-contact">
+    📞 07 54 04 88 58 · ✉️ studioia@a-thys.org
+  </div>
+  <div class="btn" onclick="openBot()">Discuter du projet</div>
 </header>
 
 <section>
-<h2>Offres</h2>
+<h3>Présentation</h3>
+<p style="max-width:900px;margin:auto;text-align:center;color:var(--text-soft);">
+Athy’s est un studio indépendant spécialisé en création digitale et intelligence artificielle.
+Chaque projet est pensé sur mesure, avec une exigence élevée de qualité, de cohérence
+et d’efficacité. L’objectif est simple : livrer des solutions premium, utiles et durables.
+</p>
+</section>
+
+<section>
+<h3>Offres</h3>
 
 <div class="offers">
 
-  <!-- Vidéo -->
-  <div class="card">
-    <div class="visual">
-      <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop">
-    </div>
-    <h3>Vidéo & contenus visuels</h3>
-    <div class="price">À partir de 150 €</div>
-    <p>Création de contenus visuels modernes et percutants.</p>
-    <div class="btn" onclick="openBot()">Discuter du projet</div>
-  </div>
+<!-- 1 -->
+<div class="card">
+  <div class="visual"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop"></div>
+  <h4>Vidéos IA premium</h4>
+  <div class="price">À partir de 150 €</div>
+  <p>Vidéos générées par intelligence artificielle au rendu cinématographique et différenciant.</p>
+  <div class="btn" onclick="openBot()">Discuter du projet</div>
+</div>
 
-  <!-- Site vitrine -->
-  <div class="card">
-    <div class="visual">
-      <img src="https://images.unsplash.com/photo-1581091870622-2c1c1f24a1b3?q=80&w=1200&auto=format&fit=crop">
-    </div>
-    <h3>Site vitrine</h3>
-    <div class="price">À partir de 400 €</div>
-    <p>Site web professionnel, clair et rassurant, conçu pour présenter efficacement votre activité.</p>
-    <div class="btn" onclick="openBot()">Discuter du projet</div>
-  </div>
+<!-- 2 -->
+<div class="card">
+  <div class="visual"><img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=80&w=1200&auto=format&fit=crop"></div>
+  <h4>Publicités vidéo (Ads)</h4>
+  <div class="price">À partir de 200 €</div>
+  <p>Publicités vidéo conçues pour capter l’attention et améliorer la conversion.</p>
+  <div class="btn" onclick="openBot()">Discuter du projet</div>
+</div>
 
-  <!-- Automatisation -->
-  <div class="card">
-    <div class="visual">
-      <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop">
-    </div>
-    <h3>Automatisation</h3>
-    <div class="price">Sur devis</div>
-    <p>Mise en place de solutions automatisées adaptées à votre activité.</p>
-    <div class="btn" onclick="openBot()">Discuter du projet</div>
-  </div>
+<!-- 3 -->
+<div class="card">
+  <div class="visual"><img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&auto=format&fit=crop"></div>
+  <h4>Branding</h4>
+  <div class="price">À partir de 300 €</div>
+  <p>Création d’identités de marque cohérentes, élégantes et professionnelles.</p>
+  <div class="btn" onclick="openBot()">Discuter du projet</div>
+</div>
 
-  <!-- GPT sur mesure -->
-  <div class="card">
-    <div class="visual">
-      <img src="https://images.unsplash.com/photo-1620712943543-4b1e2a3c5d7a?q=80&w=1200&auto=format&fit=crop">
-    </div>
-    <h3>GPT sur mesure</h3>
-    <div class="price">Sur devis</div>
-    <p>Assistant intelligent conçu sur mesure pour automatiser, analyser et optimiser vos processus.</p>
-    <div class="btn" onclick="openBot()">Discuter du projet</div>
-  </div>
+<!-- 4 -->
+<div class="card">
+  <div class="visual"><img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop"></div>
+  <h4>Storytelling</h4>
+  <div class="price">À partir de 250 €</div>
+  <p>Structuration d’un message clair et impactant pour transmettre votre vision.</p>
+  <div class="btn" onclick="openBot()">Discuter du projet</div>
+</div>
+
+<!-- 5 -->
+<div class="card">
+  <div class="visual"><img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=1200&auto=format&fit=crop"></div>
+  <h4>Branding + Shooting</h4>
+  <div class="price">À partir de 350 €</div>
+  <p>Direction artistique et visuels premium pour une image de marque forte.</p>
+  <div class="btn" onclick="openBot()">Discuter du projet</div>
+</div>
+
+<!-- 6 -->
+<div class="card">
+  <div class="visual"><img src="https://images.unsplash.com/photo-1581091870622-2c1c1f24a1b3?q=80&w=1200&auto=format&fit=crop"></div>
+  <h4>Site web vitrine</h4>
+  <div class="price">À partir de 400 €</div>
+  <p>Site professionnel clair et rassurant, optimisé pour tous les écrans.</p>
+  <div class="btn" onclick="openBot()">Discuter du projet</div>
+</div>
+
+<!-- 7 -->
+<div class="card">
+  <div class="visual"><img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=1200&auto=format&fit=crop"></div>
+  <h4>Site web avancé</h4>
+  <div class="price">À partir de 700 €</div>
+  <p>Plateformes web structurées, évolutives et personnalisées.</p>
+  <div class="btn" onclick="openBot()">Discuter du projet</div>
+</div>
+
+<!-- 8 -->
+<div class="card">
+  <div class="visual"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"></div>
+  <h4>Site web sur mesure</h4>
+  <div class="price">Sur devis</div>
+  <p>Solutions web entièrement adaptées à vos besoins spécifiques.</p>
+  <div class="btn" onclick="openBot()">Discuter du projet</div>
+</div>
+
+<!-- 9 -->
+<div class="card">
+  <div class="visual"><img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?q=80&w=1200&auto=format&fit=crop"></div>
+  <h4>GPT personnel</h4>
+  <div class="price">À partir de 250 €</div>
+  <p>Assistant intelligent personnalisé pour optimiser votre quotidien.</p>
+  <div class="btn" onclick="openBot()">Discuter du projet</div>
+</div>
+
+<!-- 10 -->
+<div class="card">
+  <div class="visual"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop"></div>
+  <h4>GPT business</h4>
+  <div class="price">À partir de 400 €</div>
+  <p>Automatisation intelligente orientée performance professionnelle.</p>
+  <div class="btn" onclick="openBot()">Discuter du projet</div>
+</div>
+
+<!-- 11 -->
+<div class="card">
+  <div class="visual"><img src="https://images.unsplash.com/photo-1620712943543-4f91bdbd9c7c?q=80&w=1200&auto=format&fit=crop"></div>
+  <h4>GPT sur mesure</h4>
+  <div class="price">Sur devis</div>
+  <p>Solutions d’intelligence artificielle conçues spécifiquement pour vos processus.</p>
+  <div class="btn" onclick="openBot()">Discuter du projet</div>
+</div>
 
 </div>
 </section>
 
-<section id="bot-section" style="display:none;">
-<h2>Parlez-nous de votre projet</h2>
-
-<div id="bot-wrapper">
-  <div id="messages"></div>
-  <input id="input" placeholder="Votre réponse…">
-  <div class="btn" onclick="next()">Envoyer</div>
-</div>
+<section id="bot-section">
+<h3>Parlez-nous de votre projet</h3>
+<div id="messages"></div>
+<input id="input" placeholder="Votre réponse…">
+<div class="btn" onclick="next()">Envoyer</div>
 </section>
 
 <footer>
-<p>© 2026 – Studio de création digitale</p>
+<p>© 2026 – Athy’s · Studio de création digitale & intelligence artificielle</p>
+<p>📞 07 54 04 88 58 · ✉️ studioia@a-thys.org</p>
+<p>SIRET : 944 745 124 00023</p>
 </footer>
 
 <script>
-const questions = [
-  "Quel est votre type de projet ?",
-  "Quel est votre objectif principal ?",
-  "Quel budget approximatif envisagez-vous ?",
-  "Quel est votre délai souhaité ?",
-  "Merci d’indiquer votre numéro WhatsApp."
+const questions=[
+"Quel est votre type de projet ?",
+"Quel est votre objectif principal ?",
+"Quel budget envisagez-vous ?",
+"Quel est votre délai ?",
+"Merci d’indiquer votre numéro WhatsApp."
 ];
-
-let step = 0;
-let answers = [];
-
-const messages = document.getElementById("messages");
-const input = document.getElementById("input");
+let step=0,answers=[];
+const messages=document.getElementById("messages");
+const input=document.getElementById("input");
 
 function openBot(){
-  document.getElementById("bot-section").style.display="block";
-  window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
-  if(step===0) say(questions[0]);
+document.getElementById("bot-section").style.display="block";
+if(step===0) say(questions[0]);
 }
 
-function say(text){
-  const div = document.createElement("div");
-  div.className="bot-msg";
-  div.textContent=text;
-  messages.appendChild(div);
+function say(t){
+const d=document.createElement("div");
+d.className="bot-msg";d.textContent=t;
+messages.appendChild(d);
 }
 
 function next(){
-  if(input.value.trim()==="") return;
-
-  answers.push(input.value);
-  input.value="";
-  step++;
-
-  if(step < questions.length){
-    say(questions[step]);
-  } else {
-    sendToManager();
-  }
+if(!input.value)return;
+answers.push(input.value);input.value="";
+step++;
+step<questions.length?say(questions[step]):send();
 }
 
-function sendToManager(){
-  say("Merci. Votre demande est en cours de traitement.");
-
-  fetch("https://TON-WEBHOOK-SECURISE-ICI",{
-    method:"POST",
-    headers:{ "Content-Type":"application/json" },
-    body:JSON.stringify({
-      project: answers[0],
-      goal: answers[1],
-      budget: answers[2],
-      deadline: answers[3],
-      whatsapp: answers[4],
-      source: "site"
-    })
-  })
-  .then(()=>say("Nous revenons vers vous rapidement."))
-  .catch(()=>say("Une erreur est survenue."));
+function send(){
+say("Merci. Votre demande est en cours de traitement.");
+fetch("https://TON-WEBHOOK-SECURISE-ICI",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+project:answers[0],
+goal:answers[1],
+budget:answers[2],
+deadline:answers[3],
+whatsapp:answers[4],
+source:"site"
+})
+});
 }
 </script>
 
