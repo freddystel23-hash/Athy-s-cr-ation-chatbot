@@ -379,18 +379,25 @@ fetch("{
         },
         "zone": "eu1.make.com",
         "notes": []
-    }
-}",{https://hook.eu1.make.com/urbpmh3p1sgd9g3enxovizh28r5700gl
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({
-project:answers[0],
-goal:answers[1],
-budget:answers[2],
-deadline:answers[3],
-whatsapp:answers[4],
-source:"site"
+    fetch("https://hook.eu1.make.com/3bglc6yys5bjmt2le51hlhyj6uc5ueya", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    project: answers[0],
+    goal: answers[1],
+    budget: answers[2],
+    deadline: answers[3],
+    whatsapp: answers[4],
+    source: "site"
+  })
 })
+.then(() => {
+  alert("Votre demande de devis a bien été envoyée ✅");
+})
+.catch(() => {
+  alert("Erreur lors de l’envoi. Réessayez.");
 });
 }
 </script>
