@@ -278,24 +278,32 @@ footer{
 </footer>
 
 <script>
-document.getElementById("contactForm").addEventListener("submit",function(e){
+document.getElementById("contactForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  /* ==========================
-     CANAL INTERNE SILENCIEUX
-     ==========================
-     Ici se branche :
-     - webhook
-     - API WhatsApp Business
-     - CRM interne
-     Message envoyé au manager -> WhatsApp Fred
-     (INVISIBLE POUR LE CLIENT)
-  */
+  const name = this.querySelector('input[type="text"]').value;
+  const email = this.querySelector('input[type="email"]').value;
+  const message = this.querySelector('textarea').value;
 
-  alert("Votre demande a bien été prise en compte.");
-  this.reset();
+  fetch("https://hook.make.com/XXXXXXX", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      message: message
+    })
+  })
+  .then(() => {
+    alert("Votre demande a bien été prise en compte.");
+    this.reset();
+  })
+  .catch(() => {
+    alert("Une erreur est survenue. Merci de réessayer.");
+  });
 });
 </script>
-
 </body>
 </html>
