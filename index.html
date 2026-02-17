@@ -1,21 +1,166 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-    <meta property="og:title" content="Lovable App" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Nom de votre activité — Offres & Tarifs</title>
+  <meta name="description" content="Offres, tarifs et informations. Demandez un devis ou réservez en ligne." />
+
+  <meta property="og:title" content="Nom de votre activité — Offres & Tarifs" />
+  <meta property="og:description" content="Offres, tarifs et informations. Demandez un devis ou réservez en ligne." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/og-image.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="./assets/og-image.jpg" />
+
+  <link rel="icon" href="./assets/og-image.jpg" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top" aria-label="Retour en haut">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__name" id="companyName">Nom de votre activité</span>
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#offres">Offres</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#infos">Infos</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn--small" href="#contact">Contact</a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobileNav" id="mobileNav" hidden>
+      <a href="#offres">Offres</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#infos">Infos</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn btn--block">Contact</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Section héro : accroche principale -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="badge" id="heroBadge">Disponible sur rendez-vous • Réponse rapide</p>
+          <h1 id="heroTitle">Une offre claire, des tarifs transparents, une expérience soignée.</h1>
+          <p class="lead" id="heroSubtitle">
+            Présente tes prestations, tes packs et toutes les infos utiles (délais, zones, paiement) sur une page élégante.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn" id="primaryCta" href="#contact">Demander un devis</a>
+            <a class="btn btn--ghost" id="secondaryCta" href="#tarifs">Voir les tarifs</a>
+          </div>
+
+          <div class="hero__highlights" id="heroHighlights" aria-label="Points clés">
+            <!-- Injecté en JS -->
+          </div>
+        </div>
+
+        <div class="hero__media" aria-label="Visuel principal">
+          <img id="heroImage" src="./assets/hero.jpg" alt="Visuel d'ambiance" loading="eager" />
+          <div class="hero__overlay">
+            <div class="overlayCard">
+              <p class="overlayCard__title" id="overlayTitle">Infos rapides</p>
+              <p class="overlayCard__text" id="overlayText">Devis en 24–48h • Paiement CB / virement • Zone : local + alentours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section offres -->
+    <section class="section" id="offres">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 id="offersTitle">Offres</h2>
+          <p class="muted" id="offersIntro">Choisis l’offre adaptée à ton besoin. Chaque formule est conçue pour être simple à comprendre et facile à activer.</p>
+        </div>
+
+        <div class="cardsGrid" id="offersGrid">
+          <!-- Injecté en JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section tarifs -->
+    <section class="section section--alt" id="tarifs">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 id="pricingTitle">Tarifs</h2>
+          <p class="muted" id="pricingIntro">Des prix lisibles, avec ce qui est inclus — sans surprise.</p>
+        </div>
+
+        <div class="pricingGrid" id="pricingGrid">
+          <!-- Injecté en JS -->
+        </div>
+
+        <div class="noteCard" id="pricingNote" role="note">
+          <strong>Bon à savoir :</strong>
+          <span id="pricingNoteText">Les tarifs peuvent varier selon la complexité, la zone d’intervention ou les options choisies. Un devis détaillé est fourni avant toute validation.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section infos -->
+    <section class="section" id="infos">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 id="infoTitle">Infos pratiques</h2>
+          <p class="muted" id="infoIntro">Tout ce que tes clients veulent savoir avant de te contacter.</p>
+        </div>
+
+        <div class="infoGrid" id="infoGrid">
+          <!-- Injecté en JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section avis / preuves -->
+    <section class="section section--alt" id="preuves">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 id="proofTitle">Ce qui fait la différence</h2>
+          <p class="muted" id="proofIntro">3 engagements concrets, orientés résultat.</p>
+        </div>
+
+        <div class="proofGrid" id="proofGrid">
+          <!-- Injecté en JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="sectionHead">
+          <h2 id="faqTitle">FAQ</h2>
+          <p class="muted" id="faqIntro">Réponses rapides aux questions fréquentes.</p>
+        </div>
+
+        <div class="faq" id="faqList">
+          <!-- Injecté en JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section contact -->
+    <section class="section section--alt" id="contact">
+      <div class="container contactGrid">
+        <div>
+          <div class="sectionHead sectionHead--left">
+            <h2 id="contactTitle">Contact</h2
