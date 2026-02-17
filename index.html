@@ -1,166 +1,610 @@
-<!doctype html>
+!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Studio IA Athy’s — Sites premium, GPT privés & automatisations</title>
+  <meta name="description" content="Studio IA Athy’s : création de sites premium, GPT privés, storytelling, packs de prompts visuels et automatisation. Une image haut de gamme, une exécution rapide, une présence qui convertit." />
+  <meta name="theme-color" content="#070A12" />
 
-  <title>Nom de votre activité — Offres & Tarifs</title>
-  <meta name="description" content="Offres, tarifs et informations. Demandez un devis ou réservez en ligne." />
-
-  <meta property="og:title" content="Nom de votre activité — Offres & Tarifs" />
-  <meta property="og:description" content="Offres, tarifs et informations. Demandez un devis ou réservez en ligne." />
+  <meta property="og:title" content="Studio IA Athy’s — Premium & performant" />
+  <meta property="og:description" content="Sites premium, GPT privés, storytelling, prompts visuels et automatisations. Un studio IA pensé pour l’image et la performance." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="./assets/og-image.jpg" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="./assets/og-image.jpg" />
-
-  <link rel="icon" href="./assets/og-image.jpg" />
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- Top bar -->
-  <header class="topbar">
-    <div class="container topbar__inner">
+  <!-- Background -->
+  <div class="bg-orbit" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container header__inner">
       <a class="brand" href="#top" aria-label="Retour en haut">
         <span class="brand__mark" aria-hidden="true"></span>
-        <span class="brand__name" id="companyName">Nom de votre activité</span>
+        <span class="brand__text">
+          <span class="brand__name">Studio IA Athy’s</span>
+          <span class="brand__tag">Premium • Moderne • Performant</span>
+        </span>
       </a>
 
       <nav class="nav" aria-label="Navigation principale">
         <a href="#offres">Offres</a>
-        <a href="#tarifs">Tarifs</a>
-        <a href="#infos">Infos</a>
+        <a href="#apropos">À propos</a>
+        <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
-        <a class="btn btn--small" href="#contact">Contact</a>
+        <a href="#contact">Contact</a>
       </nav>
 
-      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <div class="header__cta">
+        <button class="btn btn--ghost" data-scroll="#offres">Voir les offres</button>
+        <button class="btn btn--gold" data-open-order data-offer="Demande sur-mesure">Commander</button>
+      </div>
+
+      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
 
-    <div class="mobileNav" id="mobileNav" hidden>
-      <a href="#offres">Offres</a>
-      <a href="#tarifs">Tarifs</a>
-      <a href="#infos">Infos</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact" class="btn btn--block">Contact</a>
+    <div class="mobile" id="mobileMenu" hidden>
+      <div class="container mobile__inner">
+        <a href="#offres" class="mobile__link">Offres</a>
+        <a href="#apropos" class="mobile__link">À propos</a>
+        <a href="#process" class="mobile__link">Process</a>
+        <a href="#faq" class="mobile__link">FAQ</a>
+        <a href="#contact" class="mobile__link">Contact</a>
+        <div class="mobile__actions">
+          <button class="btn btn--ghost" data-scroll="#offres">Voir les offres</button>
+          <button class="btn btn--gold" data-open-order data-offer="Demande sur-mesure">Commander</button>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main id="top">
-    <!-- Section héro : accroche principale -->
+  <main>
+    <!-- HERO -->
     <section class="hero">
-      <div class="container hero__grid">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__inner">
         <div class="hero__content">
-          <p class="badge" id="heroBadge">Disponible sur rendez-vous • Réponse rapide</p>
-          <h1 id="heroTitle">Une offre claire, des tarifs transparents, une expérience soignée.</h1>
-          <p class="lead" id="heroSubtitle">
-            Présente tes prestations, tes packs et toutes les infos utiles (délais, zones, paiement) sur une page élégante.
+          <p class="pill">
+            <span class="pill__dot" aria-hidden="true"></span>
+            Studio IA • Sites premium • GPT privés • Automatisations
           </p>
 
-          <div class="hero__cta">
-            <a class="btn" id="primaryCta" href="#contact">Demander un devis</a>
-            <a class="btn btn--ghost" id="secondaryCta" href="#tarifs">Voir les tarifs</a>
+          <h1>
+            Un studio IA qui transforme ton image en <span class="accent">marque premium</span> —
+            et tes visiteurs en clients.
+          </h1>
+
+          <p class="hero__lead">
+            Design moderne, copywriting précis, expérience fluide et automatisations intelligentes :
+            une présence en ligne qui respire le haut de gamme et performe, sans compromis.
+          </p>
+
+          <div class="hero__actions">
+            <button class="btn btn--primary" data-scroll="#offres">Découvrir les offres</button>
+            <button class="btn btn--ghost" data-open-order data-offer="Audit & recommandation">Demander un audit</button>
           </div>
 
-          <div class="hero__highlights" id="heroHighlights" aria-label="Points clés">
-            <!-- Injecté en JS -->
+          <div class="trust">
+            <div class="trust__item">
+              <span class="trust__kpi">Image premium</span>
+              <span class="trust__text">Une direction artistique nette, élégante, cohérente.</span>
+            </div>
+            <div class="trust__item">
+              <span class="trust__kpi">Clarté</span>
+              <span class="trust__text">Offres lisibles, preuves visibles, CTA évidents.</span>
+            </div>
+            <div class="trust__item">
+              <span class="trust__kpi">Action</span>
+              <span class="trust__text">Commande → Manager IA → Activation WhatsApp.</span>
+            </div>
           </div>
         </div>
 
-        <div class="hero__media" aria-label="Visuel principal">
-          <img id="heroImage" src="./assets/hero.jpg" alt="Visuel d'ambiance" loading="eager" />
-          <div class="hero__overlay">
-            <div class="overlayCard">
-              <p class="overlayCard__title" id="overlayTitle">Infos rapides</p>
-              <p class="overlayCard__text" id="overlayText">Devis en 24–48h • Paiement CB / virement • Zone : local + alentours</p>
+        <div class="hero__visual" aria-hidden="true">
+          <div class="glass-card">
+            <div class="glass-card__top">
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
+              <span class="chip">Studio IA</span>
+            </div>
+            <div class="glass-card__body">
+              <div class="mock">
+                <div class="mock__bar"></div>
+                <div class="mock__grid">
+                  <div class="mock__tile"></div>
+                  <div class="mock__tile"></div>
+                  <div class="mock__tile"></div>
+                  <div class="mock__tile"></div>
+                </div>
+              </div>
+              <div class="mini-kpis">
+                <div class="mini-kpi">
+                  <span class="mini-kpi__label">Design</span>
+                  <span class="mini-kpi__value">Premium</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="mini-kpi__label">Parcours</span>
+                  <span class="mini-kpi__value">Fluide</span>
+                </div>
+                <div class="mini-kpi">
+                  <span class="mini-kpi__label">Impact</span>
+                  <span class="mini-kpi__value">Conversion</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="halo halo--blue"></div>
+          <div class="halo halo--gold"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRIP -->
+    <section class="strip">
+      <div class="container strip__inner">
+        <div class="strip__card">
+          <h2>Ce que le Studio IA Athy’s peut apporter</h2>
+          <p>
+            Une exécution haut de gamme : <strong>design premium</strong>, <strong>texte qui convainc</strong> et
+            <strong>automatisations</strong> pour gagner du temps et signer plus.
+          </p>
+        </div>
+        <div class="strip__stats">
+          <div class="stat">
+            <span class="stat__num">8</span>
+            <span class="stat__label">offres premium</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">1</span>
+            <span class="stat__label">parcours clair</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">100%</span>
+            <span class="stat__label">orienté action</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFRES -->
+    <section class="section" id="offres">
+      <div class="container">
+        <div class="section__head">
+          <h2>Offres</h2>
+          <p>
+            Chaque offre est construite pour une chose : une image premium, un message clair, et une prise de décision simple.
+          </p>
+        </div>
+
+        <div class="offers">
+          <article class="offer card" data-animate>
+            <div class="offer__media">
+              <img src="assets/offer-site-vitrine.jpg" alt="Création de site vitrine premium" loading="lazy"
+                   onerror="this.closest('.offer__media').classList.add('fallback')" />
+              <span class="badge">Site</span>
+            </div>
+            <div class="offer__body">
+              <h3>Création de site vitrine</h3>
+              <p class="muted">Un site clair, élégant, rapide — idéal pour présenter et convertir.</p>
+              <ul class="bullets">
+                <li>Design premium (bleu/noir + accent doré)</li>
+                <li>SEO de base + structure propre</li>
+                <li>CTA nets + sections orientées conversion</li>
+              </ul>
+              <div class="offer__foot">
+                <div class="price">
+                  <span class="price__from">à partir de</span>
+                  <span class="price__value">690€</span>
+                </div>
+                <button class="btn btn--gold" data-open-order data-offer="Création de site vitrine — 690€">Commander</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer card" data-animate>
+            <div class="offer__media">
+              <img src="assets/offer-site-avance.jpg" alt="Création de site avancé premium" loading="lazy"
+                   onerror="this.closest('.offer__media').classList.add('fallback')" />
+              <span class="badge">Site</span>
+            </div>
+            <div class="offer__body">
+              <h3>Création de site avancé</h3>
+              <p class="muted">Une vitrine plus riche : structure complète, sections avancées et interactions premium.</p>
+              <ul class="bullets">
+                <li>Architecture complète (FAQ, preuves, process, etc.)</li>
+                <li>Animations sobres et modernes</li>
+                <li>Formulaire + parcours “commande” optimisé</li>
+              </ul>
+              <div class="offer__foot">
+                <div class="price">
+                  <span class="price__from">à partir de</span>
+                  <span class="price__value">1 290€</span>
+                </div>
+                <button class="btn btn--gold" data-open-order data-offer="Création de site avancé — 1 290€">Commander</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer card" data-animate>
+            <div class="offer__media">
+              <img src="assets/offer-gpt-prive.jpg" alt="GPT privé" loading="lazy"
+                   onerror="this.closest('.offer__media').classList.add('fallback')" />
+              <span class="badge">GPT</span>
+            </div>
+            <div class="offer__body">
+              <h3>GPT privé</h3>
+              <p class="muted">Un assistant aligné à ton activité : cohérence, rapidité et ton de marque.</p>
+              <ul class="bullets">
+                <li>Persona + ton + règles de réponse</li>
+                <li>Bibliothèque de prompts & templates</li>
+                <li>Process simple, utilisation immédiate</li>
+              </ul>
+              <div class="offer__foot">
+                <div class="price">
+                  <span class="price__from">prix</span>
+                  <span class="price__value">390€</span>
+                </div>
+                <button class="btn btn--gold" data-open-order data-offer="GPT privé — 390€">Commander</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer card" data-animate>
+            <div class="offer__media">
+              <img src="assets/offer-gpt-avance.jpg" alt="GPT avancé" loading="lazy"
+                   onerror="this.closest('.offer__media').classList.add('fallback')" />
+              <span class="badge">GPT</span>
+            </div>
+            <div class="offer__body">
+              <h3>GPT avancé</h3>
+              <p class="muted">Version “système” : scénarios, garde-fous, structure et performance.</p>
+              <ul class="bullets">
+                <li>Scénarios (vente, SAV, contenu, support)</li>
+                <li>Guides + checklists qualité</li>
+                <li>Optimisé pour cohérence & répétabilité</li>
+              </ul>
+              <div class="offer__foot">
+                <div class="price">
+                  <span class="price__from">prix</span>
+                  <span class="price__value">790€</span>
+                </div>
+                <button class="btn btn--gold" data-open-order data-offer="GPT avancé — 790€">Commander</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer card" data-animate>
+            <div class="offer__media">
+              <img src="assets/offer-storytelling.jpg" alt="Storytelling premium" loading="lazy"
+                   onerror="this.closest('.offer__media').classList.add('fallback')" />
+              <span class="badge">Texte</span>
+            </div>
+            <div class="offer__body">
+              <h3>Storytelling</h3>
+              <p class="muted">Un récit de marque élégant : crédibilité, désir et clarté commerciale.</p>
+              <ul class="bullets">
+                <li>Positionnement + promesse + preuve</li>
+                <li>Pitchs (court / moyen / long)</li>
+                <li>Texte orienté décision (CTA)</li>
+              </ul>
+              <div class="offer__foot">
+                <div class="price">
+                  <span class="price__from">prix</span>
+                  <span class="price__value">320€</span>
+                </div>
+                <button class="btn btn--gold" data-open-order data-offer="Storytelling — 320€">Commander</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer card" data-animate>
+            <div class="offer__media">
+              <img src="assets/offer-pack-branding.jpg" alt="Packs de prompts visuels branding" loading="lazy"
+                   onerror="this.closest('.offer__media').classList.add('fallback')" />
+              <span class="badge">Visuel</span>
+            </div>
+            <div class="offer__body">
+              <h3>Packs de prompts visuels — Branding</h3>
+              <p class="muted">Des prompts qui génèrent des visuels cohérents, premium, alignés à ta marque.</p>
+              <ul class="bullets">
+                <li>Direction artistique + déclinaisons</li>
+                <li>Prompts “prêts à produire” (ambiance, textures, univers)</li>
+                <li>Conseils de cohérence visuelle</li>
+              </ul>
+              <div class="offer__foot">
+                <div class="price">
+                  <span class="price__from">prix</span>
+                  <span class="price__value">240€</span>
+                </div>
+                <button class="btn btn--gold" data-open-order data-offer="Packs prompts visuels (Branding) — 240€">Commander</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer card" data-animate>
+            <div class="offer__media">
+              <img src="assets/offer-pack-shooting.jpg" alt="Packs de prompts visuels shooting" loading="lazy"
+                   onerror="this.closest('.offer__media').classList.add('fallback')" />
+              <span class="badge">Visuel</span>
+            </div>
+            <div class="offer__body">
+              <h3>Packs de prompts visuels — Shooting</h3>
+              <p class="muted">Des séries d’images premium : cohérence “studio”, lumière maîtrisée, rendu net.</p>
+              <ul class="bullets">
+                <li>Angles, lumières, fonds, styles cohérents</li>
+                <li>Prompts pour séries (landing, ads, carrousels)</li>
+                <li>Gabarits pour répétabilité</li>
+              </ul>
+              <div class="offer__foot">
+                <div class="price">
+                  <span class="price__from">prix</span>
+                  <span class="price__value">290€</span>
+                </div>
+                <button class="btn btn--gold" data-open-order data-offer="Packs prompts visuels (Shooting) — 290€">Commander</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer card" data-animate>
+            <div class="offer__media">
+              <img src="assets/offer-automatisation.jpg" alt="Automatisation premium" loading="lazy"
+                   onerror="this.closest('.offer__media').classList.add('fallback')" />
+              <span class="badge">Automation</span>
+            </div>
+            <div class="offer__body">
+              <h3>Automatisation</h3>
+              <p class="muted">Gagne du temps, structure ton flux, et rends ton activité plus scalable.</p>
+              <ul class="bullets">
+                <li>Tri des demandes + notifications</li>
+                <li>Suivi automatisé + scripts de réponse</li>
+                <li>Flux “manager IA → activation WhatsApp”</li>
+              </ul>
+              <div class="offer__foot">
+                <div class="price">
+                  <span class="price__from">à partir de</span>
+                  <span class="price__value">590€</span>
+                </div>
+                <button class="btn btn--gold" data-open-order data-offer="Automatisation — 590€">Commander</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- A PROPOS -->
+    <section class="section" id="apropos">
+      <div class="container">
+        <div class="split">
+          <div class="card about" data-animate>
+            <h2>Ma présentation</h2>
+            <p>
+              Je conçois des expériences web et IA orientées résultat : une image premium, un message précis,
+              et un parcours qui rend la prise de décision naturelle.
+            </p>
+            <p class="muted">
+              Le détail compte : typographie, rythme, structure, preuves et appels à l’action.
+              Le but n’est pas d’en faire trop — le but est de faire juste.
+            </p>
+            <div class="about__line">
+              <span class="tag">Design premium</span>
+              <span class="tag">Copywriting</span>
+              <span class="tag">Automatisation</span>
+            </div>
+          </div>
+
+          <div class="card about" data-animate>
+            <h2>Présentation du Studio IA Athy’s</h2>
+            <p>
+              Studio IA Athy’s crée des systèmes complets : <strong>site</strong>, <strong>GPT</strong>, <strong>contenu</strong> et
+              <strong>automatisation</strong>. L’objectif : une présence cohérente, premium, et conçue pour performer.
+            </p>
+            <p class="muted">
+              On ne livre pas un simple rendu : on livre une base solide, exploitable, et pensée pour évoluer.
+            </p>
+            <div class="about__line">
+              <span class="tag tag--gold">Premium</span>
+              <span class="tag">Structure</span>
+              <span class="tag">Performance</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section offres -->
-    <section class="section" id="offres">
+    <!-- PROCESS -->
+    <section class="section" id="process">
       <div class="container">
-        <div class="sectionHead">
-          <h2 id="offersTitle">Offres</h2>
-          <p class="muted" id="offersIntro">Choisis l’offre adaptée à ton besoin. Chaque formule est conçue pour être simple à comprendre et facile à activer.</p>
+        <div class="section__head">
+          <h2>Process de commande</h2>
+          <p>Un flux clair, sans friction : tu commandes, le manager IA traite, puis activation par WhatsApp.</p>
         </div>
 
-        <div class="cardsGrid" id="offersGrid">
-          <!-- Injecté en JS -->
+        <div class="steps">
+          <div class="step card" data-animate>
+            <div class="step__num">01</div>
+            <h3>Commande</h3>
+            <p class="muted">Tu sélectionnes une offre et tu envoies tes informations via le formulaire.</p>
+          </div>
+          <div class="step card" data-animate>
+            <div class="step__num">02</div>
+            <h3>Traitement</h3>
+            <p class="muted">Les informations arrivent au manager IA du Studio IA Athy’s, qui structure la demande.</p>
+          </div>
+          <div class="step card" data-animate>
+            <div class="step__num">03</div>
+            <h3>Activation WhatsApp</h3>
+            <p class="muted">Le manager IA demande l’activation à Athy’s via WhatsApp, puis la production démarre.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Section tarifs -->
-    <section class="section section--alt" id="tarifs">
+    <!-- PHOTO UPLOAD -->
+    <section class="section" id="photo">
       <div class="container">
-        <div class="sectionHead">
-          <h2 id="pricingTitle">Tarifs</h2>
-          <p class="muted" id="pricingIntro">Des prix lisibles, avec ce qui est inclus — sans surprise.</p>
+        <div class="section__head">
+          <h2>Ta photo</h2>
+          <p>Ajoute ta photo (aperçu immédiat). Stockage local dans le navigateur pour cette version.</p>
         </div>
 
-        <div class="pricingGrid" id="pricingGrid">
-          <!-- Injecté en JS -->
-        </div>
-
-        <div class="noteCard" id="pricingNote" role="note">
-          <strong>Bon à savoir :</strong>
-          <span id="pricingNoteText">Les tarifs peuvent varier selon la complexité, la zone d’intervention ou les options choisies. Un devis détaillé est fourni avant toute validation.</span>
+        <div class="card uploader" data-animate>
+          <div class="uploader__preview">
+            <img id="avatarPreview" src="assets/avatar-placeholder.png" alt="Aperçu de ta photo" />
+          </div>
+          <div class="uploader__controls">
+            <h3>Importer une photo</h3>
+            <p class="muted">Formats recommandés : JPG/PNG. Idéal : cadrage visage/épaules, fond propre.</p>
+            <div class="uploader__actions">
+              <input type="file" id="avatarInput" accept="image/*" />
+              <button class="btn btn--ghost" id="clearAvatar" type="button">Retirer</button>
+              <button class="btn btn--primary" data-scroll="#contact" type="button">Continuer</button>
+            </div>
+            <p class="tiny muted">
+              Pour un rendu premium : photo nette, lumière douce, tenue sobre, expression naturelle.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Section infos -->
-    <section class="section" id="infos">
-      <div class="container">
-        <div class="sectionHead">
-          <h2 id="infoTitle">Infos pratiques</h2>
-          <p class="muted" id="infoIntro">Tout ce que tes clients veulent savoir avant de te contacter.</p>
-        </div>
-
-        <div class="infoGrid" id="infoGrid">
-          <!-- Injecté en JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Section avis / preuves -->
-    <section class="section section--alt" id="preuves">
-      <div class="container">
-        <div class="sectionHead">
-          <h2 id="proofTitle">Ce qui fait la différence</h2>
-          <p class="muted" id="proofIntro">3 engagements concrets, orientés résultat.</p>
-        </div>
-
-        <div class="proofGrid" id="proofGrid">
-          <!-- Injecté en JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Section FAQ -->
+    <!-- FAQ -->
     <section class="section" id="faq">
       <div class="container">
-        <div class="sectionHead">
-          <h2 id="faqTitle">FAQ</h2>
-          <p class="muted" id="faqIntro">Réponses rapides aux questions fréquentes.</p>
+        <div class="section__head">
+          <h2>FAQ</h2>
+          <p>Réponses claires. Zéro détour.</p>
         </div>
 
-        <div class="faq" id="faqList">
-          <!-- Injecté en JS -->
+        <div class="faq">
+          <details class="card" data-animate>
+            <summary>Comment se passe la commande ?</summary>
+            <div class="faq__content">
+              <p>Tu cliques sur <strong>Commander</strong>, tu remplis le formulaire, puis un récapitulatif est transmis par email + WhatsApp.</p>
+            </div>
+          </details>
+
+          <details class="card" data-animate>
+            <summary>Les prix “à partir de” signifient quoi ?</summary>
+            <div class="faq__content">
+              <p>Cela dépend du volume de contenu, du nombre de pages, des visuels et des automatisations attendues.</p>
+            </div>
+          </details>
+
+          <details class="card" data-animate>
+            <summary>Que dois-je préparer avant de commander ?</summary>
+            <div class="faq__content">
+              <p>Ton objectif, tes services, tes coordonnées, et si possible ton logo / quelques visuels. Si tu n’as rien, on part d’une base premium.</p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
 
-    <!-- Section contact -->
-    <section class="section section--alt" id="contact">
-      <div class="container contactGrid">
-        <div>
-          <div class="sectionHead sectionHead--left">
-            <h2 id="contactTitle">Contact</h2
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact card" data-animate>
+          <div class="contact__left">
+            <h2>Contact</h2>
+            <p class="muted">Une demande claire = une réponse rapide. Tu peux commander directement depuis chaque offre.</p>
+
+            <div class="contact__list">
+              <div class="contact__item">
+                <span class="contact__label">Téléphone</span>
+                <a href="tel:+33754048858">07 54 04 88 58</a>
+              </div>
+              <div class="contact__item">
+                <span class="contact__label">Email</span>
+                <a href="mailto:studioia@a-thys.org">studioia@a-thys.org</a>
+              </div>
+              <div class="contact__item">
+                <span class="contact__label">SIRET</span>
+                <span>944 745 124 00023</span>
+              </div>
+            </div>
+
+            <div class="contact__actions">
+              <button class="btn btn--gold" data-open-order data-offer="Demande sur-mesure">Commander maintenant</button>
+              <a class="btn btn--ghost" href="https://wa.me/33754048858?text=Bonjour%20Studio%20IA%20Athy%E2%80%99s%2C%20je%20souhaite%20commander%20une%20offre.%20Pouvez-vous%20me%20guider%20%3F" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="contact__right">
+            <div class="note">
+              <h3>Important</h3>
+              <p class="muted">
+                Lors d’une commande, les informations sont transmises au manager IA du Studio IA Athy’s,
+                qui traite la demande puis demande l’activation à Athy’s via WhatsApp.
+              </p>
+              <p class="tiny muted">
+                Mentions légales & RGPD ci-dessous : modèles généraux à faire valider par un professionnel.
+              </p>
+            </div>
+
+            <div class="legal-mini">
+              <h3>Mentions légales (modèle)</h3>
+              <p class="tiny muted">
+                Éditeur : Studio IA Athy’s — SIRET 94474512400023 — Contact : studioia@a-thys.org — 07 54 04 88 58.
+                Hébergeur : à compléter. Directeur de publication : à compléter.
+              </p>
+
+              <h3>Politique de confidentialité (modèle)</h3>
+              <p class="tiny muted">
+                Les données envoyées via les formulaires sont utilisées uniquement pour traiter la demande et recontacter.
+                Vous pouvez demander la suppression de vos données par email. Base légale, conservation et sous-traitants : à préciser.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <div class="container footer__inner">
+            <span class="tiny muted">© <span id="year"></span> Studio IA Athy’s — Tous droits réservés.</span>
+            <div class="footer__links">
+              <a class="tiny muted" href="#top">Haut de page</a>
+              <a class="tiny muted" href="#contact">Contact</a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL COMMANDE -->
+  <div class="modal" id="orderModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal></div>
+
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal__head">
+        <h2 id="modalTitle">Commander</h2>
+        <button class="icon-btn" aria-label="Fermer" data-close-modal>✕</button>
+      </div>
+
+      <form id="orderForm" class="form">
+        <input type="hidden" id="selectedOffer" name="offer" value="Demande sur-mesure" />
+
+        <div class="form__row">
+          <label>
+            <span>Offre</span>
+            <input id="offerDisplay" type="text" value="Demande sur-mesure" readonly />
+          </label>
+        </div>
+
+        <div class="form__grid">
+          <label>
+            <span>Nom & prénom</span>
+            <input name="name" type="text" autocomplete="name" required placeholder="Ex. Karim Benali" />
+          </label>
+
+          <label>
+            <span>Téléphone</span>
+            <input name="phone" type="tel" autocomplete="tel" required placeholder="Ex. 06 12 34 56 78" />
+          </label
