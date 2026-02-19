@@ -2,488 +2,485 @@
 // Athy's Studio IA - Main JavaScript
 // ============================================
 
-// Initialize AOS Animation Library
+// ============================================
+// 1. Initialize AOS (Animate On Scroll)
+// ============================================
 document.addEventListener('DOMContentLoaded', function() {
-    AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100
-    });
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+  });
 });
 
 // ============================================
-// Loader
+// 2. Page Loader
 // ============================================
 window.addEventListener('load', function() {
-    const loader = document.getElementById('loader');
-    setTimeout(() => {
-        loader.classList.add('hidden');
-    }, 500);
+  const loader = document.getElementById('loader');
+  setTimeout(() => {
+    loader.classList.add('hidden');
+  }, 500);
 });
 
 // ============================================
-// Navbar Scroll Effect
+// 3. Navbar Scroll Effect
 // ============================================
 const navbar = document.getElementById('navbar');
-let lastScroll = 0;
-
 window.addEventListener('scroll', function() {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-    
-    lastScroll = currentScroll;
+  if (window.pageYOffset > 100) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
 });
 
 // ============================================
-// Mobile Menu Toggle
+// 4. Mobile Menu Toggle
 // ============================================
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
 hamburger.addEventListener('click', function() {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+  document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
 });
 
 // Close menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    });
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', function() {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  });
 });
 
 // ============================================
-// Smooth Scroll with Active Link
+// 5. Smooth Scrolling for Navigation Links
 // ============================================
-navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            const offsetTop = targetSection.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetSection = document.querySelector(targetId);
+    
+    if (targetSection) {
+      const offsetTop = targetSection.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  });
 });
 
-// Update active link on scroll
+// ============================================
+// 6. Active Link on Scroll
+// ============================================
 window.addEventListener('scroll', function() {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - 150)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
+  const sections = document.querySelectorAll('section[id]');
+  const scrollY = window.pageYOffset;
+
+  sections.forEach(section => {
+    const sectionHeight = section.offsetHeight;
+    const sectionTop = section.offsetTop - 100;
+    const sectionId = section.getAttribute('id');
+    const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+      if (navLink) navLink.classList.add('active');
+    }
+  });
 });
 
 // ============================================
-// Hero Particles Animation
+// 7. Hero Particles Animation
 // ============================================
 function createParticles() {
-    const particlesContainer = document.getElementById('particles');
-    const particleCount = 50;
+  const particlesContainer = document.getElementById('particles');
+  const particleCount = 50;
+
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
     
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        
-        // Random position
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        
-        // Random animation delay
-        particle.style.animationDelay = Math.random() * 10 + 's';
-        particle.style.animationDuration = (Math.random() * 10 + 5) + 's';
-        
-        particlesContainer.appendChild(particle);
-    }
+    // Random size between 2px and 6px
+    const size = Math.random() * 4 + 2;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    
+    // Random position
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.top = `${Math.random() * 100}%`;
+    
+    // Random animation delay and duration
+    particle.style.animationDelay = `${Math.random() * 15}s`;
+    particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+    
+    particlesContainer.appendChild(particle);
+  }
 }
 
 createParticles();
 
 // ============================================
-// Gallery Lightbox
+// 8. Gallery Lightbox
 // ============================================
-const galleryItems = document.querySelectorAll('.gallery-item img');
+const galleryItems = document.querySelectorAll('.gallery-item');
 const lightbox = document.getElementById('lightbox');
-const lightboxImage = document.getElementById('lightboxImage');
+const lightboxImage = document.querySelector('.lightbox-image');
 const lightboxClose = document.querySelector('.lightbox-close');
 const lightboxPrev = document.querySelector('.lightbox-prev');
 const lightboxNext = document.querySelector('.lightbox-next');
 
 let currentImageIndex = 0;
-const images = Array.from(galleryItems).map(img => img.src);
+const galleryImages = Array.from(galleryItems).map(item => item.querySelector('img').src);
 
+// Open lightbox
 galleryItems.forEach((item, index) => {
-    item.addEventListener('click', function() {
-        currentImageIndex = index;
-        openLightbox(this.src);
-    });
+  item.addEventListener('click', function() {
+    currentImageIndex = index;
+    openLightbox(galleryImages[currentImageIndex]);
+  });
 });
 
-function openLightbox(src) {
-    lightboxImage.src = src;
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
+function openLightbox(imageSrc) {
+  lightbox.classList.add('active');
+  lightboxImage.src = imageSrc;
+  document.body.style.overflow = 'hidden';
 }
 
 function closeLightbox() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
 }
 
+// Close lightbox
 lightboxClose.addEventListener('click', closeLightbox);
-
 lightbox.addEventListener('click', function(e) {
-    if (e.target === lightbox) {
-        closeLightbox();
-    }
+  if (e.target === lightbox) {
+    closeLightbox();
+  }
 });
 
+// Previous image
 lightboxPrev.addEventListener('click', function() {
-    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-    lightboxImage.src = images[currentImageIndex];
+  currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+  lightboxImage.src = galleryImages[currentImageIndex];
 });
 
+// Next image
 lightboxNext.addEventListener('click', function() {
-    currentImageIndex = (currentImageIndex + 1) % images.length;
-    lightboxImage.src = images[currentImageIndex];
+  currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+  lightboxImage.src = galleryImages[currentImageIndex];
 });
 
-// Keyboard navigation for lightbox
+// Keyboard navigation
 document.addEventListener('keydown', function(e) {
-    if (!lightbox.classList.contains('active')) return;
-    
+  if (lightbox.classList.contains('active')) {
     if (e.key === 'Escape') {
-        closeLightbox();
+      closeLightbox();
     } else if (e.key === 'ArrowLeft') {
-        lightboxPrev.click();
+      lightboxPrev.click();
     } else if (e.key === 'ArrowRight') {
-        lightboxNext.click();
+      lightboxNext.click();
     }
+  }
 });
 
 // ============================================
-// Contact Form Validation & Submission
+// 9. Contact Form Validation
 // ============================================
 const contactForm = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
+const formInputs = {
+  name: document.getElementById('name'),
+  email: document.getElementById('email'),
+  phone: document.getElementById('phone'),
+  service: document.getElementById('service'),
+  budget: document.getElementById('budget'),
+  message: document.getElementById('message'),
+  consent: document.getElementById('consent')
+};
 
-// Form validation
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
+// Email validation regex
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function validatePhone(phone) {
-    if (!phone) return true; // Phone is optional
-    const re = /^[0-9\s\-\+\(\)]{10,}$/;
-    return re.test(phone);
-}
+// Phone validation regex (French format)
+const phoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
 
-function showError(inputId, message) {
-    const input = document.getElementById(inputId);
-    const errorElement = document.getElementById(inputId + 'Error');
-    const formGroup = input.closest('.form-group');
-    
+// Validate individual field
+function validateField(field) {
+  const formGroup = field.closest('.form-group');
+  const errorMessage = formGroup.querySelector('.error-message');
+  let isValid = true;
+  let message = '';
+
+  // Remove previous error state
+  formGroup.classList.remove('error');
+  errorMessage.textContent = '';
+
+  // Check if field is required and empty
+  if (field.hasAttribute('required') && !field.value.trim()) {
+    isValid = false;
+    message = 'Ce champ est obligatoire';
+  }
+
+  // Specific validations
+  if (field.id === 'email' && field.value.trim()) {
+    if (!emailRegex.test(field.value)) {
+      isValid = false;
+      message = 'Adresse email invalide';
+    }
+  }
+
+  if (field.id === 'phone' && field.value.trim()) {
+    if (!phoneRegex.test(field.value)) {
+      isValid = false;
+      message = 'Numéro de téléphone invalide';
+    }
+  }
+
+  if (field.id === 'consent' && field.type === 'checkbox') {
+    if (!field.checked) {
+      isValid = false;
+      message = 'Vous devez accepter pour continuer';
+    }
+  }
+
+  if (!isValid) {
     formGroup.classList.add('error');
-    errorElement.textContent = message;
-    errorElement.classList.add('show');
+    errorMessage.textContent = message;
+  }
+
+  return isValid;
 }
 
-function clearError(inputId) {
-    const input = document.getElementById(inputId);
-    const errorElement = document.getElementById(inputId + 'Error');
-    const formGroup = input.closest('.form-group');
-    
-    formGroup.classList.remove('error');
-    errorElement.classList.remove('show');
-}
-
-function clearAllErrors() {
-    const errorElements = document.querySelectorAll('.error-message');
-    const formGroups = document.querySelectorAll('.form-group');
-    
-    errorElements.forEach(el => el.classList.remove('show'));
-    formGroups.forEach(group => group.classList.remove('error'));
-}
-
-function showFormMessage(message, type) {
-    formMessage.textContent = message;
-    formMessage.className = 'form-message show ' + type;
-    
-    setTimeout(() => {
-        formMessage.classList.remove('show');
-    }, 5000);
-}
-
-// Real-time validation
-document.getElementById('email').addEventListener('blur', function() {
-    if (this.value && !validateEmail(this.value)) {
-        showError('email', 'Veuillez entrer une adresse email valide');
-    } else {
-        clearError('email');
-    }
-});
-
-document.getElementById('phone').addEventListener('blur', function() {
-    if (this.value && !validatePhone(this.value)) {
-        showError('phone', 'Veuillez entrer un numéro de téléphone valide');
-    } else {
-        clearError('phone');
-    }
+// Real-time validation on blur
+Object.values(formInputs).forEach(input => {
+  if (input) {
+    input.addEventListener('blur', function() {
+      validateField(this);
+    });
+  }
 });
 
 // Form submission
-contactForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    clearAllErrors();
-    
-    // Get form values
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const service = document.getElementById('service').value;
-    const budget = document.getElementById('budget').value;
-    const message = document.getElementById('message').value.trim();
-    const consent = document.getElementById('consent').checked;
-    
-    let isValid = true;
-    
-    // Validate required fields
-    if (!name) {
-        showError('name', 'Le nom est requis');
-        isValid = false;
+contactForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Validate all fields
+  let isFormValid = true;
+  Object.values(formInputs).forEach(input => {
+    if (input && !validateField(input)) {
+      isFormValid = false;
     }
-    
-    if (!email) {
-        showError('email', 'L\'email est requis');
-        isValid = false;
-    } else if (!validateEmail(email)) {
-        showError('email', 'Veuillez entrer une adresse email valide');
-        isValid = false;
+  });
+
+  if (!isFormValid) {
+    return;
+  }
+
+  // Collect form data
+  const formData = {
+    name: formInputs.name.value.trim(),
+    email: formInputs.email.value.trim(),
+    phone: formInputs.phone.value.trim(),
+    service: formInputs.service.value,
+    budget: formInputs.budget.value,
+    message: formInputs.message.value.trim(),
+    consent: formInputs.consent.checked,
+    timestamp: new Date().toISOString(),
+    status: 'pending'
+  };
+
+  // Show loading state
+  const submitBtn = contactForm.querySelector('.btn-submit');
+  const btnText = submitBtn.querySelector('.btn-text');
+  const btnLoader = submitBtn.querySelector('.btn-loader');
+  
+  btnText.style.display = 'none';
+  btnLoader.style.display = 'inline-block';
+  submitBtn.disabled = true;
+
+  // Send to webhook (replace with actual endpoint)
+  fetch('/api/contact', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
+    return response.json();
+  })
+  .then(data => {
+    // Show success message
+    const successMessage = contactForm.querySelector('.form-success');
+    successMessage.style.display = 'block';
+    contactForm.reset();
     
-    if (phone && !validatePhone(phone)) {
-        showError('phone', 'Veuillez entrer un numéro de téléphone valide');
-        isValid = false;
-    }
+    // Hide loading state
+    btnText.style.display = 'inline-block';
+    btnLoader.style.display = 'none';
+    submitBtn.disabled = false;
+
+    // Hide success message after 5 seconds
+    setTimeout(() => {
+      successMessage.style.display = 'none';
+    }, 5000);
+
+    console.log('Form submitted successfully:', data);
+  })
+  .catch(error => {
+    console.error('Error submitting form:', error);
     
-    if (!service) {
-        showError('service', 'Veuillez sélectionner un service');
-        isValid = false;
-    }
+    // Show error message (you can customize this)
+    alert('Une erreur est survenue lors de l\'envoi du formulaire. Veuillez réessayer ou nous contacter directement par email.');
     
-    if (!message) {
-        showError('message', 'Veuillez décrire votre projet');
-        isValid = false;
-    }
-    
-    if (!consent) {
-        showError('consent', 'Vous devez accepter le traitement de vos données');
-        isValid = false;
-    }
-    
-    if (!isValid) {
-        showFormMessage('Veuillez corriger les erreurs dans le formulaire', 'error');
-        return;
-    }
-    
-    // Prepare form data
-    const formData = {
-        name,
-        email,
-        phone,
-        service,
-        budget,
-        message,
-        consent,
-        timestamp: new Date().toISOString(),
-        status: 'pending'
-    };
-    
-    // Show loading state
-    const submitBtn = contactForm.querySelector('.btn-submit');
-    submitBtn.classList.add('loading');
-    submitBtn.disabled = true;
-    
-    try {
-        // Send to webhook endpoint (will be handled by Manager IA)
-        const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        });
-        
-        if (response.ok) {
-            showFormMessage('✅ Merci ! Votre message a été envoyé avec succès. Nous vous contacterons très prochainement.', 'success');
-            contactForm.reset();
-        } else {
-            throw new Error('Erreur lors de l\'envoi');
-        }
-    } catch (error) {
-        // Fallback: show success message anyway (since this is static)
-        // In production, this would integrate with Manager IA Royal
-        console.log('Contact form submission:', formData);
-        showFormMessage('✅ Merci ! Votre message a été reçu. Notre équipe vous contactera sous 24h.', 'success');
-        contactForm.reset();
-    } finally {
-        submitBtn.classList.remove('loading');
-        submitBtn.disabled = false;
-    }
+    // Hide loading state
+    btnText.style.display = 'inline-block';
+    btnLoader.style.display = 'none';
+    submitBtn.disabled = false;
+  });
+
+  // Log form data (for development)
+  console.log('Form Data:', formData);
 });
 
 // ============================================
-// Scroll to Top Button
+// 10. Scroll to Top Button
 // ============================================
-const scrollToTopBtn = document.getElementById('scrollToTop');
+const scrollTopBtn = document.getElementById('scrollTop');
 
 window.addEventListener('scroll', function() {
-    if (window.pageYOffset > 300) {
-        scrollToTopBtn.classList.add('show');
-    } else {
-        scrollToTopBtn.classList.remove('show');
-    }
+  if (window.pageYOffset > 300) {
+    scrollTopBtn.classList.add('visible');
+  } else {
+    scrollTopBtn.classList.remove('visible');
+  }
 });
 
-scrollToTopBtn.addEventListener('click', function() {
+scrollTopBtn.addEventListener('click', function() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// ============================================
+// 11. Service Buttons - Pre-fill Contact Form
+// ============================================
+const serviceButtons = document.querySelectorAll('.btn-service');
+
+serviceButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    const serviceName = this.getAttribute('data-service');
+    const serviceSelect = document.getElementById('service');
+    
+    // Scroll to contact section
+    const contactSection = document.getElementById('contact');
+    const offsetTop = contactSection.offsetTop - 80;
+    
     window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      top: offsetTop,
+      behavior: 'smooth'
     });
-});
-
-// ============================================
-// Service Button Actions
-// ============================================
-const serviceBtns = document.querySelectorAll('.btn-service');
-
-serviceBtns.forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
+    
+    // Pre-fill service field after scroll
+    setTimeout(() => {
+      if (serviceSelect) {
+        // Map service names to select options
+        const serviceMap = {
+          'Création de sites internet': 'Création de sites internet',
+          'GPT personnel et avancé': 'GPT personnel et avancé',
+          'Storytelling professionnel': 'Storytelling professionnel',
+          'Packs de prompts premium visuels': 'Packs de prompts premium visuels',
+          'Branding et shooting visuel': 'Branding et shooting visuel'
+        };
         
-        // Get service title from parent card
-        const serviceCard = this.closest('.service-card');
-        const serviceTitle = serviceCard.querySelector('.service-title').textContent;
+        const mappedService = serviceMap[serviceName] || serviceName;
+        serviceSelect.value = mappedService;
         
-        // Scroll to contact form
-        const contactSection = document.getElementById('contact');
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-        
-        // Pre-fill service field
+        // Highlight the field briefly
+        serviceSelect.style.background = 'rgba(212, 175, 55, 0.2)';
         setTimeout(() => {
-            const serviceSelect = document.getElementById('service');
-            const serviceMap = {
-                'Création de Sites Internet': 'site-web',
-                'GPT Personnel et Avancé': 'gpt',
-                'Storytelling Professionnel': 'storytelling',
-                'Packs de Prompts Premium Visuels': 'prompts',
-                'Branding et Shooting Visuel': 'branding'
-            };
-            
-            if (serviceMap[serviceTitle]) {
-                serviceSelect.value = serviceMap[serviceTitle];
-            }
-            
-            // Focus on name field
-            document.getElementById('name').focus();
-        }, 800);
-    });
+          serviceSelect.style.background = '';
+        }, 1000);
+      }
+    }, 800);
+  });
 });
 
 // ============================================
-// Scroll Reveal Animations (Additional)
+// 12. Scroll Reveal for Elements
 // ============================================
 function revealOnScroll() {
-    const reveals = document.querySelectorAll('[data-aos]');
+  const reveals = document.querySelectorAll('[data-aos]');
+  
+  reveals.forEach(element => {
+    const windowHeight = window.innerHeight;
+    const elementTop = element.getBoundingClientRect().top;
+    const elementVisible = 150;
     
-    reveals.forEach(element => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < windowHeight - elementVisible) {
-            element.classList.add('aos-animate');
-        }
-    });
+    if (elementTop < windowHeight - elementVisible) {
+      element.classList.add('aos-animate');
+    }
+  });
 }
 
 window.addEventListener('scroll', revealOnScroll);
+revealOnScroll(); // Initial check
 
 // ============================================
-// Performance Optimization
+// 13. Performance Optimization - Lazy Loading
 // ============================================
-
-// Lazy load images
 if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    observer.unobserve(img);
-                }
-            }
-        });
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        }
+        observer.unobserve(img);
+      }
     });
-    
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
+  });
+
+  document.querySelectorAll('img[data-src]').forEach(img => {
+    imageObserver.observe(img);
+  });
 }
 
 // ============================================
-// Dynamic Year in Footer
+// 14. Dynamic Year in Footer
 // ============================================
 const currentYear = new Date().getFullYear();
-const footerText = document.querySelector('.footer-bottom p');
-if (footerText) {
-    footerText.innerHTML = footerText.innerHTML.replace('2026', currentYear);
-}
+const yearElements = document.querySelectorAll('.footer-bottom p');
+yearElements.forEach(element => {
+  element.innerHTML = element.innerHTML.replace('2026', currentYear);
+});
 
 // ============================================
-// Console Welcome Message
+// 15. Console Welcome Message
 // ============================================
-console.log('%c🚀 Athy\'s Studio IA', 'color: #d4af37; font-size: 24px; font-weight: bold;');
-console.log('%cBienvenue sur notre site premium !', 'color: #00a86b; font-size: 16px;');
-console.log('%cPour toute question: studioia@a-thys.org', 'color: #ffffff; font-size: 14px;');
+console.log('%c🎨 Athy\'s Studio IA', 'font-size: 24px; font-weight: bold; color: #d4af37;');
+console.log('%cSite web premium développé avec passion', 'font-size: 14px; color: #00a86b;');
+console.log('%cNous aidons les entreprises à prospérer grâce à l\'IA', 'font-size: 12px; color: #ffffff;');
+console.log('%c📧 Contact: studioia@a-thys.org', 'font-size: 12px; color: #d4af37;');
 
 // ============================================
-// Export functions for testing (if needed)
+// 16. Exports for Testing (if needed)
 // ============================================
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        validateEmail,
-        validatePhone
-    };
+  module.exports = {
+    validateEmail: (email) => emailRegex.test(email),
+    validatePhone: (phone) => phoneRegex.test(phone)
+  };
 }
