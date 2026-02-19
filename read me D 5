@@ -1,0 +1,74 @@
+# 🚀 Athy's Studio IA - Site Web Premium
+
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com)
+[![License](https://img.shields.io/badge/license-proprietary-red.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/status-production-success.svg)](https://github.com)
+
+Site web premium pour **Athy's Studio IA**, entreprise française spécialisée dans les services d'intelligence artificielle pour les entreprises.
+
+---
+
+## 📋 Table des Matières
+
+- [À Propos](#-à-propos)
+- [Fonctionnalités Actuelles](#-fonctionnalités-actuelles)
+- [Structure du Projet](#-structure-du-projet)
+- [Technologies Utilisées](#-technologies-utilisées)
+- [Installation & Déploiement](#-installation--déploiement)
+- [Configuration Manager IA](#-configuration-manager-ia-royal)
+- [Services Proposés](#-services-proposés)
+- [Interface Admin](#-interface-admin)
+- [Prochaines Étapes](#-prochaines-étapes)
+- [Contact](#-contact)
+
+---
+
+## 🎯 À Propos
+
+**Athy's Studio IA** aide les entreprises à prospérer grâce à l'intelligence artificielle. Ce site web premium présente nos 5 services principaux :
+
+1. **Création de Sites Internet** (800€ - 2 000€)
+2. **GPT Personnel et Avancé** (500€ - 1 500€)
+3. **Storytelling Professionnel** (600€ - 1 800€)
+4. **Packs de Prompts Premium Visuels** (300€ - 1 000€)
+5. **Branding et Shooting Visuel** (1 000€ - 3 000€)
+
+### Informations Entreprise
+
+- **SIRET** : 944 745 124 00023
+- **Email** : studioia@a-thys.org
+- **Téléphone** : 07 54 04 88 58
+- **Localisation** : France
+
+---
+
+## ✅ Fonctionnalités Actuelles
+
+### Frontend Public
+
+- ✅ **Hero Section** avec animations de particules
+- ✅ **Section À Propos** avec présentation détaillée
+- ✅ **Section Services** avec 5 offres premium
+- ✅ **Galerie Photos** avec lightbox interactif
+- ✅ **Formulaire de Contact** avec validation complète
+- ✅ **Footer complet** avec liens et informations
+- ✅ **Navigation Responsive** avec menu hamburger
+- ✅ **Animations AOS** sur le scroll
+- ✅ **Glass Morphism Effects**
+- ✅ **Palette de Couleurs Premium** (Bleu, Noir, Vert, Or, Rouge)
+- ✅ **Design 100% Responsive** (Mobile, Tablet, Desktop)
+- ✅ **SEO Optimisé**
+- ✅ **Accessibilité** (ARIA labels, sémantique HTML5)
+
+### Backend & Admin
+
+- ✅ **Interface Admin Cachée** (`/admin.html`)
+- ✅ **Dashboard de Gestion** des demandes clients
+- ✅ **Système de Validation** (Approuver/Refuser)
+- ✅ **Statistiques en Temps Réel**
+- ✅ **Structure Webhook** pour Manager IA Royal
+
+---
+
+## 📁 Structure du Projet
+
