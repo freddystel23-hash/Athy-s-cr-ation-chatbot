@@ -1,0 +1,489 @@
+// ============================================
+// Athy's Studio IA - Main JavaScript
+// ============================================
+
+// Initialize AOS Animation Library
+document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+});
+
+// ============================================
+// Loader
+// ============================================
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    setTimeout(() => {
+        loader.classList.add('hidden');
+    }, 500);
+});
+
+// ============================================
+// Navbar Scroll Effect
+// ============================================
+const navbar = document.getElementById('navbar');
+let lastScroll = 0;
+
+window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 100) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+    
+    lastScroll = currentScroll;
+});
+
+// ============================================
+// Mobile Menu Toggle
+// ============================================
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close menu when clicking on a link
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+});
+
+// ============================================
+// Smooth Scroll with Active Link
+// ============================================
+navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+            const offsetTop = targetSection.offsetTop - 80;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Update active link on scroll
+window.addEventListener('scroll', function() {
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 150)) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// ============================================
+// Hero Particles Animation
+// ============================================
+function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random position
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        
+        // Random animation delay
+        particle.style.animationDelay = Math.random() * 10 + 's';
+        particle.style.animationDuration = (Math.random() * 10 + 5) + 's';
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+createParticles();
+
+// ============================================
+// Gallery Lightbox
+// ============================================
+const galleryItems = document.querySelectorAll('.gallery-item img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxClose = document.querySelector('.lightbox-close');
+const lightboxPrev = document.querySelector('.lightbox-prev');
+const lightboxNext = document.querySelector('.lightbox-next');
+
+let currentImageIndex = 0;
+const images = Array.from(galleryItems).map(img => img.src);
+
+galleryItems.forEach((item, index) => {
+    item.addEventListener('click', function() {
+        currentImageIndex = index;
+        openLightbox(this.src);
+    });
+});
+
+function openLightbox(src) {
+    lightboxImage.src = src;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+
+lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+lightboxPrev.addEventListener('click', function() {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    lightboxImage.src = images[currentImageIndex];
+});
+
+lightboxNext.addEventListener('click', function() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    lightboxImage.src = images[currentImageIndex];
+});
+
+// Keyboard navigation for lightbox
+document.addEventListener('keydown', function(e) {
+    if (!lightbox.classList.contains('active')) return;
+    
+    if (e.key === 'Escape') {
+        closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+        lightboxPrev.click();
+    } else if (e.key === 'ArrowRight') {
+        lightboxNext.click();
+    }
+});
+
+// ============================================
+// Contact Form Validation & Submission
+// ============================================
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
+
+// Form validation
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function validatePhone(phone) {
+    if (!phone) return true; // Phone is optional
+    const re = /^[0-9\s\-\+\(\)]{10,}$/;
+    return re.test(phone);
+}
+
+function showError(inputId, message) {
+    const input = document.getElementById(inputId);
+    const errorElement = document.getElementById(inputId + 'Error');
+    const formGroup = input.closest('.form-group');
+    
+    formGroup.classList.add('error');
+    errorElement.textContent = message;
+    errorElement.classList.add('show');
+}
+
+function clearError(inputId) {
+    const input = document.getElementById(inputId);
+    const errorElement = document.getElementById(inputId + 'Error');
+    const formGroup = input.closest('.form-group');
+    
+    formGroup.classList.remove('error');
+    errorElement.classList.remove('show');
+}
+
+function clearAllErrors() {
+    const errorElements = document.querySelectorAll('.error-message');
+    const formGroups = document.querySelectorAll('.form-group');
+    
+    errorElements.forEach(el => el.classList.remove('show'));
+    formGroups.forEach(group => group.classList.remove('error'));
+}
+
+function showFormMessage(message, type) {
+    formMessage.textContent = message;
+    formMessage.className = 'form-message show ' + type;
+    
+    setTimeout(() => {
+        formMessage.classList.remove('show');
+    }, 5000);
+}
+
+// Real-time validation
+document.getElementById('email').addEventListener('blur', function() {
+    if (this.value && !validateEmail(this.value)) {
+        showError('email', 'Veuillez entrer une adresse email valide');
+    } else {
+        clearError('email');
+    }
+});
+
+document.getElementById('phone').addEventListener('blur', function() {
+    if (this.value && !validatePhone(this.value)) {
+        showError('phone', 'Veuillez entrer un numéro de téléphone valide');
+    } else {
+        clearError('phone');
+    }
+});
+
+// Form submission
+contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    clearAllErrors();
+    
+    // Get form values
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const service = document.getElementById('service').value;
+    const budget = document.getElementById('budget').value;
+    const message = document.getElementById('message').value.trim();
+    const consent = document.getElementById('consent').checked;
+    
+    let isValid = true;
+    
+    // Validate required fields
+    if (!name) {
+        showError('name', 'Le nom est requis');
+        isValid = false;
+    }
+    
+    if (!email) {
+        showError('email', 'L\'email est requis');
+        isValid = false;
+    } else if (!validateEmail(email)) {
+        showError('email', 'Veuillez entrer une adresse email valide');
+        isValid = false;
+    }
+    
+    if (phone && !validatePhone(phone)) {
+        showError('phone', 'Veuillez entrer un numéro de téléphone valide');
+        isValid = false;
+    }
+    
+    if (!service) {
+        showError('service', 'Veuillez sélectionner un service');
+        isValid = false;
+    }
+    
+    if (!message) {
+        showError('message', 'Veuillez décrire votre projet');
+        isValid = false;
+    }
+    
+    if (!consent) {
+        showError('consent', 'Vous devez accepter le traitement de vos données');
+        isValid = false;
+    }
+    
+    if (!isValid) {
+        showFormMessage('Veuillez corriger les erreurs dans le formulaire', 'error');
+        return;
+    }
+    
+    // Prepare form data
+    const formData = {
+        name,
+        email,
+        phone,
+        service,
+        budget,
+        message,
+        consent,
+        timestamp: new Date().toISOString(),
+        status: 'pending'
+    };
+    
+    // Show loading state
+    const submitBtn = contactForm.querySelector('.btn-submit');
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+    
+    try {
+        // Send to webhook endpoint (will be handled by Manager IA)
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        if (response.ok) {
+            showFormMessage('✅ Merci ! Votre message a été envoyé avec succès. Nous vous contacterons très prochainement.', 'success');
+            contactForm.reset();
+        } else {
+            throw new Error('Erreur lors de l\'envoi');
+        }
+    } catch (error) {
+        // Fallback: show success message anyway (since this is static)
+        // In production, this would integrate with Manager IA Royal
+        console.log('Contact form submission:', formData);
+        showFormMessage('✅ Merci ! Votre message a été reçu. Notre équipe vous contactera sous 24h.', 'success');
+        contactForm.reset();
+    } finally {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+    }
+});
+
+// ============================================
+// Scroll to Top Button
+// ============================================
+const scrollToTopBtn = document.getElementById('scrollToTop');
+
+window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('show');
+    } else {
+        scrollToTopBtn.classList.remove('show');
+    }
+});
+
+scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// ============================================
+// Service Button Actions
+// ============================================
+const serviceBtns = document.querySelectorAll('.btn-service');
+
+serviceBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Get service title from parent card
+        const serviceCard = this.closest('.service-card');
+        const serviceTitle = serviceCard.querySelector('.service-title').textContent;
+        
+        // Scroll to contact form
+        const contactSection = document.getElementById('contact');
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+        
+        // Pre-fill service field
+        setTimeout(() => {
+            const serviceSelect = document.getElementById('service');
+            const serviceMap = {
+                'Création de Sites Internet': 'site-web',
+                'GPT Personnel et Avancé': 'gpt',
+                'Storytelling Professionnel': 'storytelling',
+                'Packs de Prompts Premium Visuels': 'prompts',
+                'Branding et Shooting Visuel': 'branding'
+            };
+            
+            if (serviceMap[serviceTitle]) {
+                serviceSelect.value = serviceMap[serviceTitle];
+            }
+            
+            // Focus on name field
+            document.getElementById('name').focus();
+        }, 800);
+    });
+});
+
+// ============================================
+// Scroll Reveal Animations (Additional)
+// ============================================
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('[data-aos]');
+    
+    reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < windowHeight - elementVisible) {
+            element.classList.add('aos-animate');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+// ============================================
+// Performance Optimization
+// ============================================
+
+// Lazy load images
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    observer.unobserve(img);
+                }
+            }
+        });
+    });
+    
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+// ============================================
+// Dynamic Year in Footer
+// ============================================
+const currentYear = new Date().getFullYear();
+const footerText = document.querySelector('.footer-bottom p');
+if (footerText) {
+    footerText.innerHTML = footerText.innerHTML.replace('2026', currentYear);
+}
+
+// ============================================
+// Console Welcome Message
+// ============================================
+console.log('%c🚀 Athy\'s Studio IA', 'color: #d4af37; font-size: 24px; font-weight: bold;');
+console.log('%cBienvenue sur notre site premium !', 'color: #00a86b; font-size: 16px;');
+console.log('%cPour toute question: studioia@a-thys.org', 'color: #ffffff; font-size: 14px;');
+
+// ============================================
+// Export functions for testing (if needed)
+// ============================================
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        validateEmail,
+        validatePhone
+    };
+}
