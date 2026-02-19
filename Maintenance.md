@@ -1,0 +1,16 @@
+# 🔧 Guide de Maintenance - Athy's Studio IA
+
+## Modifications Courantes
+
+### 1. Modifier les Prix des Services
+
+**Fichier** : `index.html`
+
+Chercher les sections `.service-price` et modifier les valeurs :
+
+```html
+<div class="service-price">
+    <span class="price-label">À partir de</span>
+    <span class="price-amount">800€</span>
+    <span class="price-range">jusqu'à 2 000€</span>
+</div>
